@@ -2,10 +2,15 @@ import json
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
+from time import sleep, time
 
 
 # If enabled, check ./data to see if a local cache exists before scraping page
 USE_LOCAL_CACHE = True
+
+# Throttle according to robots.txt - https://www.residentadvisor.net/robots.txt
+CRAWL_DELAY = 10.0
+LAST_REQUEST = time()
 
 
 def load_local_cache(path_to_json, type_='dict'):
@@ -37,6 +42,7 @@ def get_url(url):
 
     :return: String representation of the contents.
     """
+    global LAST_REQUEST
     content = ''
     parsed_url = urlparse(url)
     path = '../html/{}-{}-{}.html'.format(
@@ -51,10 +57,16 @@ def get_url(url):
         except IOError:
             pass
     if not content:
+        wait = (time() - LAST_REQUEST)
+        if wait < CRAWL_DELAY:
+            print('Sleeping for {} seconds'.format(CRAWL_DELAY - wait))
+            sleep(CRAWL_DELAY - wait)
+            LAST_REQUEST = time()
         r = requests.get(url)
         if r.status_code == 200:
             with open(path, 'w+') as fp:
                 fp.write(r.text)
+            content = r.content
     return content
 
 
