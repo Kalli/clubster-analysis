@@ -28,7 +28,7 @@ def load_local_cache(path_to_json, type_='dict'):
         try:
             with open(path_to_json, 'r') as fp:
                 data = json.load(fp)
-        except IOError:
+        except (IOError, json.decoder.JSONDecodeError):
             pass
     return data
 
@@ -92,7 +92,7 @@ def get_top_regions():
 
     content = get_url(url)
     soup = BeautifulSoup(content, 'html.parser')
-    regions_section = soup.find_all("section", class_="top-list")[1]
+    regions_section = soup.find_all('section', class_='top-list')[1]
     regions_list = regions_section.find('ul')
 
     for region in regions_list.find_all('li'):
@@ -122,4 +122,46 @@ def get_top_regions():
     return data
 
 
+def get_top_clubs(regions):
+    """
+    Fetch top clubs for every region
+    Save the results to ./data/top-clubs.json
+
+    :param regions: The regions to fetch top clubs for
+
+    :return: A dictionary, keyed by region links, each entry containing a list
+    of popular clubs with the following keys:
+        * id - Numeric RA id of the club
+        * img - Link to a thumbnail for the club
+        * name - The clubs name
+        * address - The clubs address
+        * rank - The rank this club has for this region
+    """
+
+    data_path = '../data/top-clubs.json'
+    data = load_local_cache(data_path, 'dict')
+
+    for region in regions:
+        if region['link'] not in data:
+            region_data = []
+            url = 'https://www.residentadvisor.net{}'.format(region['link'])
+            content = get_url(url)
+            soup = BeautifulSoup(content, 'html.parser')
+            popular_clubs = soup.find('div', class_='popularClubs')
+            venues = popular_clubs.find('ul', class_='tileListing')
+            for venue in venues.find_all('li'):
+                region_data.append({
+                    'id': venue.get('data-id'),
+                    'img': venue.find('img').get('src'),
+                    'name': venue.find('h1').get_text().strip(),
+                    'address': venue.find('p', class_='copy').get_text(),
+                    'rank': len(region_data)
+                })
+            data[region['link']] = region_data
+        with open(data_path, 'w+') as fp:
+            json.dump(data, fp)
+
+    return data
+
 regions = get_top_regions()
+clubs = get_top_clubs(regions)
