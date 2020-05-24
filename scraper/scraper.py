@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from time import sleep, time
+from datetime import datetime
 
 
 # If enabled, check ./data to see if a local cache exists before scraping page
@@ -163,5 +164,79 @@ def get_top_clubs(regions):
 
     return data
 
+
+def get_club_listings(top_clubs):
+    """
+    Get overview of all club listings for every club in top clubs from 2010 to
+    2020 Save the results to ./data/club-dates.json
+
+    :param top_clubs: The clubs to fetch listings for
+
+    :return: A dictionary, keyed by club ids, and then by years, each year
+    containing all the listings for that year
+    """
+    data_path = '../data/club-dates.json'
+    data = load_local_cache(data_path, 'dict')
+
+    clubs = [club for region in top_clubs.values() for club in region]
+
+    for club in clubs:
+        club_id = club['id']
+        if club_id not in data:
+            club_dates = {}
+        else:
+            club_dates = data[club_id]
+
+        for year in range(2010, 2020):
+            if str(year) not in club_dates:
+                club_dates[year] = get_club_year_listings(club_id, year)
+                data[club_id] = club_dates
+                # Save data for every year fetched in case of exceptions
+                with open(data_path, 'w+') as fp:
+                    json.dump(data, fp)
+
+    return data
+
+
+def get_club_year_listings(club_id, year):
+    """
+    Get all the listings for a given club on a given year
+    Example page:
+    https://www.residentadvisor.net/club.aspx?id=237&show=events&yr=2019
+
+    :param club_id: id of the club
+    :param year:    year to fetch data for
+
+    :return: list of all the events for that year with the following keys:
+        * name of the event
+        * date of the event
+        * link to a detail page for the event
+        * img link to a thumbnail for that event
+        * attending the number of users that attended the event
+    """
+    data = []
+    url = 'https://www.residentadvisor.net/club.aspx?id={}&show=events&yr={}'
+    content = get_url(url.format(club_id, year))
+    soup = BeautifulSoup(content, 'html.parser')
+    articles = soup.find_all('article')
+    for article in articles:
+        date_element = article.find('p', class_='date')
+        if not date_element:
+            continue
+        date = date_element.get_text()
+        counter = article.find('p', class_='counter')
+        attending = int(counter.find('span').get_text()) if counter else 0
+
+        data.append({
+            'date': datetime.strptime(date, '%a, %d %b %Y').isoformat(),
+            'link': article.find('a').get('href'),
+            'attending': attending,
+            'name': article.find('h1').get_text(),
+            'img': article.find('img').get('src')
+        })
+    return data
+
+
 regions = get_top_regions()
 clubs = get_top_clubs(regions)
+dates = get_club_listings(clubs)
