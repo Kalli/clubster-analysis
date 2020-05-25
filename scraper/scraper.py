@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import urlparse
 from time import sleep, time
 from datetime import datetime
-
+import re
 
 # If enabled, check ./data to see if a local cache exists before scraping page
 USE_LOCAL_CACHE = True
@@ -13,6 +13,8 @@ USE_LOCAL_CACHE = True
 CRAWL_DELAY = 10.0
 LAST_REQUEST = time()
 
+TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
+TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
 def load_local_cache(path_to_json, type_='dict'):
     """
@@ -236,6 +238,91 @@ def get_club_year_listings(club_id, year):
         })
     return data
 
+
+def get_all_listing_details(club_listings):
+    """
+    Get details for all the listings of a club
+
+    :param club_listings: Overview of the listings to fetch details for
+
+    :return: dictionary mapping event ids to event details
+    """
+    data_path = '../data/listing-details.json'
+    data = load_local_cache(data_path, 'dict')
+
+    for club_id, years in club_listings.items():
+        for year, listings in years.items():
+            for listing in listings:
+                link = listing['link']
+                if link not in data:
+                    data[link] = get_listing_details(link)
+    return data
+
+
+def get_listing_details(listing_link):
+    """
+    Get the details for a specific listing
+    Example page:
+    https://www.residentadvisor.net/events/1281396
+
+    :param listing_link: The link to the list
+
+    :return: Parsed data about that listing. ToDo: add documentation example
+    """
+    content = get_url('https://www.residentadvisor.net{}'.format(listing_link))
+    soup = BeautifulSoup(content, 'html.parser')
+
+    date = find_and_extract(soup, 'div', 'Date /', TIME_REGEX)
+    start_time, end_time = date.split(' - ') if date else [None, None]
+
+    cost = find_and_extract(soup, 'div', 'Cost /', re.compile('Cost /(.*)'))
+    age = find_and_extract(
+        soup,
+        'div',
+        'Minimum age /',
+        re.compile('Minimum age /(.*)')
+    )
+
+    promoters = []
+    promoter_tag = soup.find('div', text='Promoters /')
+    if promoter_tag:
+        for promoter in promoter_tag.parent.find_all('a'):
+            link = promoter.get('href')
+            if '/promoter.aspx?id=' in link:
+                promoters.append([
+                    link.replace('/promoter.aspx?id='),
+                    promoter.get_text()
+                ])
+
+    data = {
+        'start_time': start_time if start_time else None,
+        'end_time': end_time if end_time else None,
+        'cost': cost,
+        'age': age,
+        'promoters': promoters
+    }
+    print(data)
+    return data
+
+
+def find_and_extract(soup, tag, search_string, regex):
+    """
+    Check if a tag containing the string_match exists in soup, if so check for
+    matches of the regex within the parent element and return them if they exist
+
+    :param soup:    BeautifulSoup tree
+    :param tag:     Which kind of html tag to search for
+    :param search_string:  The string contents of that tag
+    :param regex:   Regex for the attribute that we are after
+
+    :return: The first match if any exists.
+    """
+    elem = soup.find(tag, string=search_string)
+    if elem:
+        match = regex.search(elem.parent.get_text())
+        if match and match.groups():
+            return match.groups()[0]
+    return None
 
 regions = get_top_regions()
 clubs = get_top_clubs(regions)
