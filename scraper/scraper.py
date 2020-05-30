@@ -11,7 +11,7 @@ USE_LOCAL_CACHE = True
 
 # Throttle according to robots.txt - https://www.residentadvisor.net/robots.txt
 CRAWL_DELAY = 10.0
-LAST_REQUEST = time()
+LAST_REQUEST = time() - CRAWL_DELAY
 
 TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
@@ -290,18 +290,44 @@ def get_listing_details(listing_link):
             link = promoter.get('href')
             if '/promoter.aspx?id=' in link:
                 promoters.append([
-                    link.replace('/promoter.aspx?id='),
+                    link.replace('/promoter.aspx?id=', ''),
                     promoter.get_text()
                 ])
+
+    event_item = soup.find('div', id='event-item')
+
+    artists = []
+    lineup = event_item.find('p', class_='lineup')
+    if lineup:
+        lineup_links = lineup.find_all('a')
+        for lineup_link in lineup_links:
+            href = lineup_link.get('href')
+            if href.startswith('/dj/'):
+
+                artists.append([
+                    href.replace('/dj/', ''),
+                    lineup_link.get_text()
+                ])
+
+    else:
+        print('No line up found for {}'.format(listing_link))
+
+    flyers = []
+    flyer = event_item.find('div', class_='flyer')
+    if flyer:
+        for img in flyer.find_all('img'):
+            flyers.append(img.get('src'))
 
     data = {
         'start_time': start_time if start_time else None,
         'end_time': end_time if end_time else None,
         'cost': cost,
         'age': age,
-        'promoters': promoters
+        'promoters': promoters,
+        'flyers': flyers,
+        'artists': artists,
+        'attending': int(soup.find('h1', id='MembersFavouriteCount').get_text())
     }
-    print(data)
     return data
 
 
