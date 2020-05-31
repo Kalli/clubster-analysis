@@ -229,12 +229,18 @@ def get_club_year_listings(club_id, year):
         counter = article.find('p', class_='counter')
         attending = int(counter.find('span').get_text()) if counter else 0
 
+        img = article.find('img').get('src')
+        if img == '/images/clr.gif':
+            img = None
+        else:
+            img = img.replace('/images/events/flyer/', '')
+
         data.append({
             'date': datetime.strptime(date, '%a, %d %b %Y').isoformat(),
             'id': int(article.find('a').get('href').replace('/events/', '')),
             'attending': attending,
             'name': article.find('h1').get_text(),
-            'img': article.find('img').get('src'),
+            'img': img,
             'club_id': club_id
         })
     return data
