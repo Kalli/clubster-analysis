@@ -250,12 +250,22 @@ def get_all_listing_details(club_listings):
     data_path = '../data/listing-details.json'
     data = load_local_cache(data_path, 'dict')
 
+    size = len(data)
     for club_id, years in club_listings.items():
         for year, listings in years.items():
             for listing in listings:
-                link = listing['link']
-                if link not in data:
-                    data[link] = get_listing_details(link)
+                date = datetime.fromisoformat(listing['date'])
+                # Only fetch Fridays and Saturdays
+                if date.weekday() in [4, 5]:
+                    link = listing['link']
+                    if link not in data:
+                        data[link] = get_listing_details(link)
+                        current_size = len(data) - size
+                        # save json every 100 events
+                        if current_size % 100 == 0:
+                            with open(data_path, 'w') as fp:
+                                   json.dump(data, fp)
+
     return data
 
 
@@ -354,3 +364,4 @@ def find_and_extract(soup, tag, search_string, regex):
 regions = get_top_regions()
 clubs = get_top_clubs(regions)
 dates = get_club_listings(clubs)
+listings = get_all_listing_details(dates)
