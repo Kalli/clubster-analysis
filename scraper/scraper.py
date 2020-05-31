@@ -18,7 +18,7 @@ LAST_REQUEST = time() - CRAWL_DELAY
 TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
-def load_local_cache(file_path, type_='dict'):
+def load_local_cache(file_path, type_='dict', index_col=None):
     """
     Get a data frame if it exists and caching is enabled
 
@@ -31,7 +31,7 @@ def load_local_cache(file_path, type_='dict'):
     data = {} if type_ == 'dict' else []
     if USE_LOCAL_CACHE:
         if '.csv' in file_path:
-            return pd.read_csv(file_path, comment='#')
+            return pd.read_csv(file_path, comment='#', index_col=index_col)
         else:
             try:
                 with open(file_path, 'r') as fp:
@@ -171,35 +171,31 @@ def get_top_clubs(regions):
     return data
 
 
-def get_club_listings(top_clubs):
+def get_top_club_dates(top_clubs):
     """
-    Get overview of all club listings for every club in top clubs from 2010 to
-    2020 Save the results to ./data/club-dates.json
+    Get overview of all club dates for every club in top_clubs from 2010 to
+    2020 Save the results to ./data/top-clubs-dates.csv
 
-    :param top_clubs: The clubs to fetch listings for
+    :param top_clubs (DataFrame): The clubs to fetch listings for
 
-    :return: A dictionary, keyed by club ids, and then by years, each year
-    containing all the listings for that year
+    :return: A DataFrame containing dates and overview information for all the
+    dates in the top clubs in the period of 2010 to 2020
     """
-    data_path = '../data/club-dates.json'
-    data = load_local_cache(data_path, 'dict')
+    data_path = '../data/top-clubs-dates.csv'
+    data = load_local_cache(data_path, index_col='id')
 
-    clubs = [club for region in top_clubs.values() for club in region]
-
-    for club in clubs:
+    for _, club in top_clubs.iterrows():
         club_id = club['id']
-        if club_id not in data:
-            club_dates = {}
-        else:
-            club_dates = data[club_id]
-
-        for year in range(2010, 2020):
-            if str(year) not in club_dates:
-                club_dates[year] = get_club_year_listings(club_id, year)
-                data[club_id] = club_dates
-                # Save data for every year fetched in case of exceptions
-                with open(data_path, 'w+') as fp:
-                    json.dump(data, fp)
+        if club_id not in data['club_id'].unique():
+            for year in range(2010, 2020):
+                # for clubs with very few events year pages return duplicate
+                # data filter those out
+                club_listings = [
+                    cl for cl in get_club_year_listings(club_id, year)
+                    if not cl['id'] in data.index
+                ]
+                data.append(club_listings)
+            data.to_csv(data_path)
 
     return data
 
@@ -216,7 +212,7 @@ def get_club_year_listings(club_id, year):
     :return: list of all the events for that year with the following keys:
         * name of the event
         * date of the event
-        * link to a detail page for the event
+        * id of the event
         * img link to a thumbnail for that event
         * attending the number of users that attended the event
     """
@@ -235,10 +231,11 @@ def get_club_year_listings(club_id, year):
 
         data.append({
             'date': datetime.strptime(date, '%a, %d %b %Y').isoformat(),
-            'link': article.find('a').get('href'),
+            'id': int(article.find('a').get('href').replace('/events/', '')),
             'attending': attending,
             'name': article.find('h1').get_text(),
-            'img': article.find('img').get('src')
+            'img': article.find('img').get('src'),
+            'club_id': club_id
         })
     return data
 
@@ -367,5 +364,5 @@ def find_and_extract(soup, tag, search_string, regex):
 
 regions = get_top_regions()
 clubs = get_top_clubs(regions)
-# dates = get_club_listings(clubs)
+dates = get_top_club_dates(clubs)
 # listings = get_all_listing_details(dates)
