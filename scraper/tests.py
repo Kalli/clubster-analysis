@@ -29,7 +29,8 @@ class ScraperTest(TestCase):
                 ['phace', 'Phace'], ['misanthrop', 'Misanthrop'],
                 ['halogenix', 'Halogenix'], ['lxone', 'LX one'],
                 ['djpatife', 'DJ Patife']
-            ]
+            ],
+            'pick': False
         }
 
         self.assertEqual(expected_data, data)

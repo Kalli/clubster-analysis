@@ -326,6 +326,7 @@ def get_listing_details(listing_link):
         'promoters': promoters,
         'flyers': flyers,
         'artists': artists,
+        'pick': True if soup.find('div', class_='pick-icon') else False,
         'attending': int(soup.find('h1', id='MembersFavouriteCount').get_text())
     }
     return data
