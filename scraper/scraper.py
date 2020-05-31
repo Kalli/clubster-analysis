@@ -236,7 +236,7 @@ def get_club_year_listings(club_id, year):
             img = img.replace('/images/events/flyer/', '')
 
         data.append({
-            'date': datetime.strptime(date, '%a, %d %b %Y').isoformat(),
+            'date': datetime.strptime(date, '%a, %d %b %Y'),
             'id': int(article.find('a').get('href').replace('/events/', '')),
             'attending': attending,
             'name': article.find('h1').get_text(),
@@ -261,9 +261,8 @@ def get_all_listing_details(club_listings):
     for club_id, years in club_listings.items():
         for year, listings in years.items():
             for listing in listings:
-                date = datetime.fromisoformat(listing['date'])
                 # Only fetch Fridays and Saturdays
-                if date.weekday() in [4, 5]:
+                if listing['date'].weekday() in [4, 5]:
                     link = listing['link']
                     if link not in data:
                         data[link] = get_listing_details(link)
