@@ -191,7 +191,7 @@ def get_top_club_dates(top_clubs):
                 # for clubs with very few events year pages return duplicate
                 # data filter those out
                 club_listings = [
-                    cl for cl in get_club_year_listings(club_id, year)
+                    cl for cl in get_club_year_dates(club_id, year)
                     if not cl['id'] in data.index
                 ]
                 data.append(club_listings)
@@ -200,9 +200,9 @@ def get_top_club_dates(top_clubs):
     return data
 
 
-def get_club_year_listings(club_id, year):
+def get_club_year_dates(club_id, year):
     """
-    Get all the listings for a given club on a given year
+    Get all the dates for a given club on a given year
     Example page:
     https://www.residentadvisor.net/club.aspx?id=237&show=events&yr=2019
 
