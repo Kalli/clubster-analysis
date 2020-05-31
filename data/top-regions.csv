@@ -1,0 +1,21 @@
+name,country,link,rank
+London,UK,/guide/uk/london,0
+Ibiza,ES,/guide/es/ibiza,1
+Streamland,Streamland,/guide/streamland,2
+Berlin,DE,/guide/de/berlin,3
+Amsterdam,NL,/guide/nl/amsterdam,4
+New York,US,/guide/us/newyork,5
+Barcelona,ES,/guide/es/barcelona,6
+South + East,UK,/guide/uk/southeast,7
+Paris,FR,/guide/fr/paris,8
+Manchester,UK,/guide/uk/manchester,9
+Glasgow,UK,/guide/uk/glasgow,10
+Other regions,NL,/guide/nl/otherregions,11
+Midlands,UK,/guide/uk/midlands,12
+Croatia,Croatia,/guide/croatia,13
+Belgium,Belgium,/guide/belgium,14
+South,ES,/guide/es/south,15
+North,UK,/guide/uk/north,16
+Los Angeles,US,/guide/us/losangeles,17
+Greece,Greece,/guide/greece,18
+San Francisco,US,/guide/us/sanfrancisco,19

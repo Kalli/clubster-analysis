@@ -5,6 +5,8 @@ from urllib.parse import urlparse
 from time import sleep, time
 from datetime import datetime
 import re
+import pandas as pd
+
 
 # If enabled, check ./data to see if a local cache exists before scraping page
 USE_LOCAL_CACHE = True
@@ -16,23 +18,26 @@ LAST_REQUEST = time() - CRAWL_DELAY
 TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
-def load_local_cache(path_to_json, type_='dict'):
+def load_local_cache(file_path, type_='dict'):
     """
-    Get local cache if it exists and caching is enabled
+    Get a data frame if it exists and caching is enabled
 
-    :param path_to_json: Path to the file
-    :param type_:         Type for the file (to default to if cache empty)
+    :param file_path: Path to the file
+    :param type_:     Type for the file (to default to if cache empty)
 
     :return:    The local cache if it exists and is enabled, an empty data
                 structure otherwise
     """
     data = {} if type_ == 'dict' else []
     if USE_LOCAL_CACHE:
-        try:
-            with open(path_to_json, 'r') as fp:
-                data = json.load(fp)
-        except (IOError, json.decoder.JSONDecodeError):
-            pass
+        if '.csv' in file_path:
+            return pd.read_csv(file_path, comment='#')
+        else:
+            try:
+                with open(file_path, 'r') as fp:
+                    data = json.load(fp)
+            except (IOError, json.decoder.JSONDecodeError):
+                pass
     return data
 
 
@@ -76,7 +81,7 @@ def get_url(url):
 def get_top_regions():
     """
     Get top regions from RAs event page https://www.residentadvisor.net/events
-    Save the results to ./data/regions.json
+    Save the results to ./data/top-regions.csv
 
     :param count: The number of regions to get
 
@@ -86,7 +91,7 @@ def get_top_regions():
             * Link to regions event page
             * Country
     """
-    data_path = '../data/regions.json'
+    data_path = '../data/top-regions.csv'
     url = 'https://www.residentadvisor.net/events'
 
     data = load_local_cache(data_path, 'list')
@@ -119,9 +124,8 @@ def get_top_regions():
             'rank': len(data)
         })
 
-    with open(data_path, 'w+') as fp:
-        json.dump(data, fp)
-
+    df = pd.DataFrame(data)
+    df.to_csv('../data/top-regions.csv', index=False)
     return data
 
 
@@ -362,6 +366,6 @@ def find_and_extract(soup, tag, search_string, regex):
     return None
 
 regions = get_top_regions()
-clubs = get_top_clubs(regions)
-dates = get_club_listings(clubs)
-listings = get_all_listing_details(dates)
+# clubs = get_top_clubs(regions)
+# dates = get_club_listings(clubs)
+# listings = get_all_listing_details(dates)
