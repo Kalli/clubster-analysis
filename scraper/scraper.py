@@ -94,10 +94,11 @@ def get_top_regions():
     data_path = '../data/top-regions.csv'
     url = 'https://www.residentadvisor.net/events'
 
-    data = load_local_cache(data_path, 'list')
-    if data:
+    data = load_local_cache(data_path)
+    if not data.empty:
         return data
 
+    data = []
     content = get_url(url)
     soup = BeautifulSoup(content, 'html.parser')
     regions_section = soup.find_all('section', class_='top-list')[1]
@@ -126,47 +127,46 @@ def get_top_regions():
 
     df = pd.DataFrame(data)
     df.to_csv('../data/top-regions.csv', index=False)
-    return data
+    return df
 
 
 def get_top_clubs(regions):
     """
-    Fetch top clubs for every region
-    Save the results to ./data/top-clubs.json
+    Fetch top clubs for every region. Save the results to ./data/top-clubs.csv
 
-    :param regions: The regions to fetch top clubs for
+    :param regions (DataFrame): The regions to fetch top clubs for
 
-    :return: A dictionary, keyed by region links, each entry containing a list
-    of popular clubs with the following keys:
+    :return: A dataframe, each row containing a clubs with the following
+    columns:
         * id - Numeric RA id of the club
         * img - Link to a thumbnail for the club
         * name - The clubs name
         * address - The clubs address
         * rank - The rank this club has for this region
+        * region - The RA slug for that region
     """
 
-    data_path = '../data/top-clubs.json'
-    data = load_local_cache(data_path, 'dict')
+    data_path = '../data/top-clubs.csv'
+    data = load_local_cache(data_path)
 
-    for region in regions:
-        if region['link'] not in data:
-            region_data = []
+    for index, region in regions.iterrows():
+        if region['link'] not in data.region.unique():
             url = 'https://www.residentadvisor.net{}'.format(region['link'])
             content = get_url(url)
             soup = BeautifulSoup(content, 'html.parser')
             popular_clubs = soup.find('div', class_='popularClubs')
             venues = popular_clubs.find('ul', class_='tileListing')
-            for venue in venues.find_all('li'):
-                region_data.append({
+
+            for index, venue in enumerate(venues.find_all('li')):
+                data = data.append({
                     'id': venue.get('data-id'),
                     'img': venue.find('img').get('src'),
                     'name': venue.find('h1').get_text().strip(),
                     'address': venue.find('p', class_='copy').get_text(),
-                    'rank': len(region_data)
-                })
-            data[region['link']] = region_data
-        with open(data_path, 'w+') as fp:
-            json.dump(data, fp)
+                    'rank': index,
+                    'region': region['link']
+                }, ignore_index=True)
+        data.to_csv(data_path, index=False)
 
     return data
 
@@ -366,6 +366,6 @@ def find_and_extract(soup, tag, search_string, regex):
     return None
 
 regions = get_top_regions()
-# clubs = get_top_clubs(regions)
+clubs = get_top_clubs(regions)
 # dates = get_club_listings(clubs)
 # listings = get_all_listing_details(dates)
