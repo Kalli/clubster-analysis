@@ -15,6 +15,8 @@ USE_LOCAL_CACHE = True
 CRAWL_DELAY = 10.0
 LAST_REQUEST = time() - CRAWL_DELAY
 
+RA_IMAGE_PATH = '/images/events/flyer/'
+
 TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
@@ -233,7 +235,7 @@ def get_club_year_dates(club_id, year):
         if img == '/images/clr.gif':
             img = None
         else:
-            img = img.replace('/images/events/flyer/', '')
+            img = img.replace(RA_IMAGE_PATH, '')
 
         data.append({
             'date': datetime.strptime(date, '%a, %d %b %Y'),
@@ -332,7 +334,7 @@ def get_listing_details(listing_link):
     flyer = event_item.find('div', class_='flyer')
     if flyer:
         for img in flyer.find_all('img'):
-            flyers.append(img.get('src'))
+            flyers.append(img.get('src').replace(RA_IMAGE_PATH, ''))
 
     data = {
         'start_time': start_time if start_time else None,
