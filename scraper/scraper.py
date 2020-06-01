@@ -156,11 +156,12 @@ def get_top_clubs(regions):
 
             top_clubs = []
             for index, venue in enumerate(venues.find_all('li')):
+                address_text = venue.find('p', class_='copy').get_text()
                 top_clubs.append({
                     'id': venue.get('data-id'),
                     'img': venue.find('img').get('src'),
                     'name': venue.find('h1').get_text().strip(),
-                    'address': venue.find('p', class_='copy').get_text(),
+                    'address': address_text.replace('\n', ''),
                     'rank': index,
                     'region': region_index
                 })
@@ -394,3 +395,16 @@ def extract_datetimes(date_string):
         t = '{}:{}'.format(hours, minutes)
         times[index] = t
     return times
+
+
+regions = get_top_regions()
+clubs = get_top_clubs(regions)
+# dates = get_top_club_dates(clubs)
+#
+# regions_top_clubs = regions.join(clubs.set_index('region'), on='region')
+# print(regions_top_clubs)
+
+# for year in range(2010, 2020):
+#     date_details = get_all_dates_details(dates, year)
+
+# get_date_details('133394')
