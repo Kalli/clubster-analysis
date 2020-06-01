@@ -85,13 +85,13 @@ def get_top_regions():
     :return: A list of regions including the following attributes:
             * Name
             * Rank in most popular regions (zero indexed)
-            * Link to regions event page
+            * region the link to regions event page (primary key)
             * Country
     """
     data_path = '../data/top-regions.csv'
     url = 'https://www.residentadvisor.net/events'
 
-    data = load_local_cache(data_path)
+    data = load_local_cache(data_path, index_col='region')
     if not data.empty:
         return data
 
@@ -118,7 +118,7 @@ def get_top_regions():
         data.append({
             'name': name,
             'country': country,
-            'link': link,
+            'region': link,
             'rank': len(data)
         })
 
@@ -144,26 +144,28 @@ def get_top_clubs(regions):
     """
 
     data_path = '../data/top-clubs.csv'
-    data = load_local_cache(data_path)
+    data = load_local_cache(data_path, index_col='id')
 
-    for index, region in regions.iterrows():
-        if region['link'] not in data.region.unique():
-            url = 'https://www.residentadvisor.net{}'.format(region['link'])
+    for region_index, region in regions.iterrows():
+        if region_index not in data.region.unique():
+            url = 'https://www.residentadvisor.net{}'.format(region_index)
             content = get_url(url)
             soup = BeautifulSoup(content, 'html.parser')
             popular_clubs = soup.find('div', class_='popularClubs')
             venues = popular_clubs.find('ul', class_='tileListing')
 
+            top_clubs = []
             for index, venue in enumerate(venues.find_all('li')):
-                data = data.append({
+                top_clubs.append({
                     'id': venue.get('data-id'),
                     'img': venue.find('img').get('src'),
                     'name': venue.find('h1').get_text().strip(),
                     'address': venue.find('p', class_='copy').get_text(),
                     'rank': index,
-                    'region': region['link']
-                }, ignore_index=True)
-        data.to_csv(data_path, index=False)
+                    'region': region_index
+                })
+            data = data.append(pd.DataFrame.from_records(top_clubs, index='id'))
+            data.to_csv(data_path)
 
     return data
 
@@ -181,8 +183,7 @@ def get_top_club_dates(top_clubs):
     data_path = '../data/top-clubs-dates.csv'
     data = load_local_cache(data_path, index_col='id')
 
-    for _, club in top_clubs.iterrows():
-        club_id = club['id']
+    for club_id, club in top_clubs.iterrows():
         if club_id not in data['club_id'].unique():
             for year in range(2010, 2020):
                 # for clubs with very few events year pages return duplicate
