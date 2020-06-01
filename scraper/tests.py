@@ -1,12 +1,13 @@
-from scraper import get_listing_details
+from scraper import get_date_details
 from unittest import TestCase
 
 
 class ScraperTest(TestCase):
 
     def test_get_listing_details(self):
-        data = get_listing_details('/events/1281396')
+        data = get_date_details(1281396)
         expected_data = {
+            'id': 1281396,
             'start_time': '23:00',
             'end_time': '06:00',
             'cost': None,
@@ -17,8 +18,8 @@ class ScraperTest(TestCase):
                 ['68697', 'FABRICLIVE']
             ],
             'flyers': [
-                '/images/events/flyer/2019/11/uk-1129-1281396-1527425-front.jpg',
-                '/images/events/flyer/2019/11/uk-1129-1281396-1527425-back.jpg'
+                '2019/11/uk-1129-1281396-1527425-front.jpg',
+                '2019/11/uk-1129-1281396-1527425-back.jpg'
             ],
             'attending': 672,
             'artists': [
@@ -34,3 +35,4 @@ class ScraperTest(TestCase):
         }
 
         self.assertEqual(expected_data, data)
+
