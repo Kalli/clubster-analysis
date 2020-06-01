@@ -1,4 +1,3 @@
-import json
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
@@ -20,27 +19,23 @@ RA_IMAGE_PATH = '/images/events/flyer/'
 TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
-def load_local_cache(file_path, type_='dict', index_col=None):
+
+def load_local_cache(file_path,  index_col=None):
     """
     Get a data frame if it exists and caching is enabled
 
-    :param file_path: Path to the file
-    :param type_:     Type for the file (to default to if cache empty)
+    :param file_path (string): Path to the file
+    :index_col (string):    The column to index on if any
 
     :return:    The local cache if it exists and is enabled, an empty data
-                structure otherwise
+                frame otherwise
     """
-    data = {} if type_ == 'dict' else []
     if USE_LOCAL_CACHE:
-        if '.csv' in file_path:
+        try:
             return pd.read_csv(file_path, comment='#', index_col=index_col)
-        else:
-            try:
-                with open(file_path, 'r') as fp:
-                    data = json.load(fp)
-            except (IOError, json.decoder.JSONDecodeError):
-                pass
-    return data
+        except IOError:
+            pass
+    return pd.DataFrame()
 
 
 def get_url(url):
@@ -248,46 +243,48 @@ def get_club_year_dates(club_id, year):
     return data
 
 
-def get_all_listing_details(club_listings):
+def get_all_dates_details(club_dates, year):
     """
     Get details for all the listings of a club
 
-    :param club_listings: Overview of the listings to fetch details for
+    :param club_dates (DataFrame): A list of dates to fetch details for
+    :param year (string): A year to make file sizes more manageable
 
-    :return: dictionary mapping event ids to event details
+    :return: DataFrame for events
     """
-    data_path = '../data/listing-details.json'
-    data = load_local_cache(data_path, 'dict')
+    data_path = '../data/date-details-{}.csv'.format(year)
+    data = load_local_cache(data_path, index_col='id')
 
-    size = len(data)
-    for club_id, years in club_listings.items():
-        for year, listings in years.items():
-            for listing in listings:
-                # Only fetch Fridays and Saturdays
-                if listing['date'].weekday() in [4, 5]:
-                    link = listing['link']
-                    if link not in data:
-                        data[link] = get_listing_details(link)
-                        current_size = len(data) - size
-                        # save json every 100 events
-                        if current_size % 100 == 0:
-                            with open(data_path, 'w') as fp:
-                                   json.dump(data, fp)
+    additions = []
+    for index, listing in club_dates.iterrows():
+        if index in data.index or pd.to_datetime(listing['date']).year != year:
+            continue
+        # Only fetch Fridays and Saturdays
+        if pd.to_datetime(listing['date']).weekday() in [4, 5]:
+            additions.append(get_date_details(index))
 
+            # save csv every 100 events
+            if len(additions) % 100 == 0:
+                data = data.append(additions)
+                data.to_csv(data_path)
+                additions = []
+
+    data.to_csv(data_path)
     return data
 
 
-def get_listing_details(listing_link):
+def get_date_details(listing_id):
     """
     Get the details for a specific listing
     Example page:
     https://www.residentadvisor.net/events/1281396
 
-    :param listing_link: The link to the list
+    :param listing_id: The id of the listing
 
     :return: Parsed data about that listing. ToDo: add documentation example
     """
-    content = get_url('https://www.residentadvisor.net{}'.format(listing_link))
+    link = 'https://www.residentadvisor.net/events/{}'.format(int(listing_id))
+    content = get_url(link)
     soup = BeautifulSoup(content, 'html.parser')
 
     date = find_and_extract(soup, 'div', 'Date /', TIME_REGEX)
@@ -328,7 +325,7 @@ def get_listing_details(listing_link):
                 ])
 
     else:
-        print('No line up found for {}'.format(listing_link))
+        print('No line up found for {}'.format(listing_id))
 
     flyers = []
     flyer = event_item.find('div', class_='flyer')
@@ -337,6 +334,7 @@ def get_listing_details(listing_link):
             flyers.append(img.get('src').replace(RA_IMAGE_PATH, ''))
 
     data = {
+        'id': listing_id,
         'start_time': start_time if start_time else None,
         'end_time': end_time if end_time else None,
         'cost': cost,
