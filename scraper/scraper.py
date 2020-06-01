@@ -233,15 +233,17 @@ def get_club_year_dates(club_id, year):
             img = None
         else:
             img = img.replace(RA_IMAGE_PATH, '')
-
-        data.append({
-            'date': datetime.strptime(date, '%a, %d %b %Y'),
-            'id': int(article.find('a').get('href').replace('/events/', '')),
-            'attending': attending,
-            'name': article.find('h1').get_text(),
-            'img': img,
-            'club_id': club_id
-        })
+        date = datetime.strptime(date, '%a, %d %b %Y')
+        event_id = int(article.find('a').get('href').replace('/events/', '')),
+        if date.year > 2009 and date.year < 2020:
+            data.append({
+                'date': date,
+                'id': event_id,
+                'attending': attending,
+                'name': article.find('h1').get_text(),
+                'img': img,
+                'club_id': club_id
+            })
     return data
 
 
@@ -400,11 +402,6 @@ def extract_datetimes(date_string):
 regions = get_top_regions()
 clubs = get_top_clubs(regions)
 # dates = get_top_club_dates(clubs)
-#
-# regions_top_clubs = regions.join(clubs.set_index('region'), on='region')
-# print(regions_top_clubs)
 
 # for year in range(2010, 2020):
 #     date_details = get_all_dates_details(dates, year)
-
-# get_date_details('133394')
