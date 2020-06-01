@@ -1,4 +1,4 @@
-from scraper import get_date_details
+from scraper import get_date_details, extract_datetimes
 from unittest import TestCase
 
 
@@ -36,3 +36,11 @@ class ScraperTest(TestCase):
 
         self.assertEqual(expected_data, data)
 
+    def test_time_extraction(self):
+        self.assertEqual(extract_datetimes('23:00 - 06:00'), ['23:00', '06:00'])
+        self.assertEqual(
+            extract_datetimes('10pm - 6am'), ['22:00', '06:00']
+        )
+        self.assertEqual(
+            extract_datetimes('11.00pm - 8.00am'), ['23:00', '08:00']
+        )

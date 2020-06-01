@@ -16,7 +16,7 @@ LAST_REQUEST = time() - CRAWL_DELAY
 
 RA_IMAGE_PATH = '/images/events/flyer/'
 
-TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]'
+TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3])(?:.|:)*(?:[0-5][0-9])*(?:am|pm)*'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
 
@@ -287,8 +287,8 @@ def get_date_details(listing_id):
     content = get_url(link)
     soup = BeautifulSoup(content, 'html.parser')
 
-    date = find_and_extract(soup, 'div', 'Date /', TIME_REGEX)
-    start_time, end_time = date.split(' - ') if date else [None, None]
+    date = find_and_extract(soup, 'div', 'Date /', TIME_REGEX, text=False)
+    start_time, end_time = extract_datetimes(date)
 
     cost = find_and_extract(soup, 'div', 'Cost /', re.compile('Cost /(.*)'))
     age = find_and_extract(
@@ -348,7 +348,7 @@ def get_date_details(listing_id):
     return data
 
 
-def find_and_extract(soup, tag, search_string, regex):
+def find_and_extract(soup, tag, search_string, regex, text=True):
     """
     Check if a tag containing the string_match exists in soup, if so check for
     matches of the regex within the parent element and return them if they exist
@@ -357,17 +357,39 @@ def find_and_extract(soup, tag, search_string, regex):
     :param tag:     Which kind of html tag to search for
     :param search_string:  The string contents of that tag
     :param regex:   Regex for the attribute that we are after
+    :param text:    Whether to search in all text of the element or not
 
     :return: The first match if any exists.
     """
     elem = soup.find(tag, string=search_string)
     if elem:
-        match = regex.search(elem.parent.get_text())
+        if text:
+            t = elem.parent.get_text()
+        else:
+            strings = [e for e in elem.parent.children if isinstance(e, str)]
+            t = ','.join(strings)
+        match = regex.search(t)
         if match and match.groups():
             return match.groups()[0]
     return None
 
-regions = get_top_regions()
-clubs = get_top_clubs(regions)
-dates = get_top_club_dates(clubs)
-# listings = get_all_listing_details(dates)
+
+def extract_datetimes(date_string):
+    if not date_string:
+        return [None, None]
+    times = date_string.split(' - ')
+    for index, t in enumerate(times):
+        t = t.replace('.', ':')
+        pm = True if 'pm' in t else False
+        t = t.replace('pm', '').replace('am', '')
+        if ':' in t:
+            hours, minutes = t.split(':')
+        else:
+            hours = t
+            minutes = '00'
+        hours = hours.zfill(2)
+        if pm and int(hours) < 12:
+            hours = int(hours) + 12
+        t = '{}:{}'.format(hours, minutes)
+        times[index] = t
+    return times
