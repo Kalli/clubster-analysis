@@ -799,3 +799,846 @@ id,start_time,end_time,cost,age,promoters,flyers,artists,pick,attending
 170106.0,,,,,"[['9906', 'Killekill'], ['16652', 'Krake Festival']]","['2010/de-0814-170106-front.jpg', '2010/de-0814-170106-back.jpg']","[['cristianvogel', 'Cristian Vogel'], ['radioactiveman', 'Radioactive Man'], ['electroelvis', 'Electro Elvis'], ['hannohinkelbein', 'Hanno Hinkelbein'], ['djflush', 'DJ Flush'], ['karstenpflum', 'Karsten Pflum'], ['bjornsvin', 'Bjørn Svin'], ['plaster', 'Plaster'], ['adamweishaupt', 'Adam Weishaupt']]",False,81
 169530.0,,,,,"[['9906', 'Killekill'], ['16652', 'Krake Festival']]","['2010/de-0813-169530-front.jpg', '2010/de-0813-169530-back.jpg']","[['plaid', 'Plaid'], ['voltek', 'Voltek'], ['freundderfamilie', 'Freund der Familie'], ['fdf', 'FDF'], ['svenweisemann', 'Sven Weisemann']]",False,101
 180604.0,23:59,10:00,tba,,"[['10664', 'Uschi Berlin']]",['2010/de-0807-180604-front.jpg'],"[['jayshepheard', 'Jay Shepheard'], ['tillvonsein', 'Till von Sein'], ['dirtcrew', 'Dirt Crew'], ['wittes', 'Wittes']]",False,88
+163974.0,,,�,,[],['2010/de-0806-163974-front.jpg'],"[['cinthie', 'Cinthie'], ['katovlmenovsky', 'Katovl Menovsky'], ['allefarben', 'Alle Farben'], ['michaelplacke', 'Michael Placke'], ['mongroove', 'Mongroove']]",False,78
+175169.0,,,tba,,[],['2010/de-0731-175169-front.jpg'],"[['zandervt', 'Zander VT'], ['findling', 'Findling'], ['virginia', 'Virginia'], ['handmade', 'Handmade'], ['hudi', 'Hudi'], ['soukiewindish', 'Soukie & Windish']]",False,43
+173800.0,,,10�,,[],"['2010/de-0730-173800-front.jpg', '2010/de-0730-173800-back.jpg']","[['danieldreier', 'Daniel Dreier'], ['inexcess', 'Inexcess'], ['jacobrichter', 'Jacob Richter']]",False,45
+190806.0,,,tba,,[],['2010/de-0724-190806-front.jpg'],"[['stevecole', 'Steve Cole'], ['svenswade', 'Sven Swade']]",False,1
+173804.0,,,€ 10,,"[['3069', 'Partysan Berlin']]",[],"[['m.in', 'M.in'], ['saschabraemer', 'Sascha Braemer'], ['philipbader', 'Philip Bader'], ['djemerson', 'DJ Emerson'], ['andykohlmann', 'Andy Kohlmann'], ['ronaldchristoph', 'Ronald Christoph'], ['andreashenneberg', 'Andreas Henneberg'], ['renebourgeois', 'Rene Bourgeois'], ['oliverton', 'Oliver Ton'], ['dancaster', 'Dan Caster'], ['marcofender', 'Marco Fender'], ['simon2', 'Simon²'], ['hawkinson', 'Hawkinson']]",False,46
+176298.0,,,8 �,,"[['8332', 'Festplatten']]",['2010/de-0717-176298-front.gif'],"[['davedk', 'Dave DK'], ['gebruderteichmann', 'Gebrüder Teichmann'], ['pablobolivar', 'Pablo Bolivar']]",False,5
+176356.0,,,8 �,,[],['2010/de-0716-176356-front.jpg'],"[['jaketherapper', 'Jake the Rapper']]",False,3
+174103.0,00:00,12:00,?,,"[['10664', 'Uschi Berlin']]",['2010/de-0710-174103-front.jpg'],"[['audiowerner', 'Audio Werner'], ['redrobin', 'Red Robin'], ['wittes', 'Wittes'], ['holgerzilske', 'Holger Zilske'], ['smashtv', 'Smash TV']]",False,80
+172528.0,,,8 �,,"[['9906', 'Killekill']]","['2010/de-0709-172528-front.jpg', '2010/de-0709-172528-back.jpg']","[['hannohinkelbein', 'Hanno Hinkelbein'], ['djflush', 'DJ Flush'], ['stype', 'Stype'], ['maciejszalonek', 'Maciej Szalonek']]",False,27
+159179.0,,,8,,[],['2010/de-0703-159179-front.jpg'],"[['phonique', 'Phonique'], ['svenweisemann', 'Sven Weisemann'], ['marcfm', 'Marc Fm'], ['michaelplacke', 'Michael Placke'], ['mongroove', 'Mongroove']]",False,63
+142757.0,,,8�,,"[['8429', 'look-alike'], ['9094', 'Suicide Club']]","['2010/de-0702-142757-front.jpg', '2010/de-0702-142757-back.jpg']","[['alexflatner', 'Alex Flatner'], ['lopazz', 'Lopazz'], ['knopfseferyn', 'Knopf&Seferyn'], ['look-alike', 'Look-alike']]",False,21
+167204.0,,,8 �,,[],[],"[['sascharydell', 'Sascha Rydell'], ['mikevamp', 'Mike Vamp'], ['patrickgraser', 'Patrick Gräser']]",False,3
+166079.0,,,8 �,,[],['2010/de-0625-166079-front.jpg'],"[['miropajic', 'Miro Pajic'], ['chroma', 'Chroma'], ['jacobrichter', 'Jacob Richter'], ['beaner', 'Beaner'], ['arzt', 'Arzt']]",False,56
+167203.0,,,8 �,,[],[],"[['basteroid', 'Basteroid'], ['metope', 'Metope'], ['gebruderteichmann', 'Gebrüder Teichmann']]",False,3
+167202.0,,,10,,"[['16689', 'exquisite-berlin']]",[],"[['skinnerbox', 'Skinnerbox'], ['funkenstrom', 'Funkenstrøm'], ['franklindecosta', 'Franklin De Costa'], ['kassetteboys', 'Kassette Boys'], ['svenjozwiak', 'Sven Jozwiak'], ['michaelplacke', 'Michael Placke'], ['mongroove', 'Mongroove'], ['monoton', 'Monoton']]",False,42
+164589.0,23:59,12:00,monees,,"[['10664', 'Uschi Berlin']]",['2010/de-0612-164589-front.jpg'],"[['guidoschneider', 'Guido Schneider'], ['lunacityexpress', 'Luna City Express'], ['maayannidam', 'Maayan Nidam'], ['missfitz', 'Miss Fitz'], ['tomclark', 'Tom Clark'], ['davedk', 'Dave DK'], ['danieldreier', 'Daniel Dreier'], ['wittes', 'Wittes'], ['elbeebad', 'Elbee Bad'], ['m.thorn', 'M.Thorn'], ['zandervt', 'Zander VT'], ['migueltoro', 'Miguel Toro']]",False,104
+165967.0,23:59,12:00,tba,,"[['9094', 'Suicide Club'], ['14152', 'Gruppenzwang']]",['2010/de-0611-165967-front.jpg'],"[['bloodymary', 'Bloody Mary'], ['jaketherapper', 'Jake the Rapper'], ['holgistar', 'Holgi Star'], ['nikoschwind', 'Niko Schwind'], ['miagrobelny', 'Mia Grobelny'], ['sqim', 'Sqim'], ['peterbounce', 'Peter Bounce']]",False,101
+160663.0,,,10�,,"[['9906', 'Killekill']]","['2010/de-0605-160663-front.gif', '2010/de-0605-160663-back.jpg']","[['billyoungman', 'Bill Youngman'], ['franklindecosta', 'Franklin De Costa'], ['djflush', 'DJ Flush'], ['danielmeteo', 'Daniel Meteo'], ['lucy', 'Lucy'], ['hofgutow', 'Hof Gutow'], ['suziwong', 'Suzi Wong'], ['marcfm', 'Marc Fm'], ['voltek', 'Voltek'], ['hubble', 'Hubble']]",False,63
+136168.0,,,8�,,"[['8429', 'look-alike'], ['9094', 'Suicide Club']]","['2010/de-0604-136168-front.jpg', '2010/de-0604-136168-back.jpg']","[['krauseduo', 'Krause Duo'], ['channelx', 'Channel X'], ['kaneroth', 'Kane Roth'], ['look-alike', 'Look-alike']]",False,34
+160503.0,,,8 �,,[],[],"[['gebruderteichmann', 'Gebrüder Teichmann'], ['raumagentalpha', 'Raumagent Alpha'], ['suziwong', 'Suzi Wong']]",False,9
+160501.0,,,8 �,,[],[],"[['hawkinson', 'Hawkinson']]",False,4
+160470.0,,,8 �,,[],['2010/de-0522-160470-front.jpg'],"[['siz.da', 'Siz.da'], ['yapacc', 'Yapacc'], ['renebreitbarth', 'Rene Breitbarth']]",False,6
+160469.0,,,8 �,,[],"['2010/de-0521-160469-front.jpg', '2010/de-0521-160469-back.jpg']","[['onze', 'Onze'], ['toddbodine', 'Todd Bodine'], ['mira', 'Mira'], ['freshmeat', 'Fresh Meat'], ['jacobrichter', 'Jacob Richter'], ['arzt', 'Arzt']]",False,86
+164487.0,,,8 �,,[],"['2010/de-0515-164487-front.jpg', '2010/de-0515-164487-back.jpg']","[['marcinczubala', 'Marcin Czubala'], ['nikoschwind', 'Niko Schwind'], ['martinzadak', 'Martin Zadak'], ['svenswade', 'Sven Swade']]",False,4
+160466.0,,,8 �,,[],['2010/de-0514-163041-front.jpg'],"[['haito', 'Haito'], ['siopis', 'SIOPIS'], ['mitjaprinz', 'Mitja Prinz']]",False,5
+153417.0,00:00,10:00,8,,"[['10664', 'Uschi Berlin']]",['2010/de-0508-153417-front.jpg'],"[['patricescott', 'Patrice Scott'], ['svenweisemann', 'Sven Weisemann'], ['wittes', 'Wittes']]",False,99
+160462.0,,,8 �,,"[['16689', 'exquisite-berlin']]",[],"[['channelx', 'Channel X'], ['markhenning', 'Mark Henning'], ['me', '&ME'], ['michaelplacke', 'Michael Placke'], ['monoton', 'Monoton']]",False,13
+142758.0,,,6,,"[['8429', 'look-alike'], ['9094', 'Suicide Club']]","['2010/de-0501-142758-front.jpg', '2010/de-0501-142758-back.jpg']","[['justuskohncke', 'Justus Kohncke'], ['larswickinger', 'Lars Wickinger'], ['pornbugs', 'Pornbugs'], ['knopfseferyn', 'Knopf&Seferyn'], ['look-alike', 'Look-alike']]",False,16
+153909.0,,,10�,,[],[],"[['philipbader', 'Philip Bader'], ['afrilounge', 'Afrilounge'], ['liefko', 'Liefko'], ['umami', 'Umami'], ['tanith', 'Tanith'], ['tanith', 'Tanith'], ['arzt', 'Arzt']]",False,6
+153584.0,,,TBC,,"[['9094', 'Suicide Club'], ['14152', 'Gruppenzwang']]","['2010/de-0424-153584-front.jpg', '2010/de-0424-153584-back.jpg']","[['hannelore', 'Hanne & Lore'], ['timxavier', 'Tim Xavier'], ['adamport', 'Adam Port'], ['tillvonsein', 'Till von Sein'], ['sante', 'Santé'], ['ronaldchristoph', 'Ronald Christoph'], ['cinthie', 'Cinthie'], ['marcfm', 'Marc Fm'], ['sqim', 'Sqim'], ['funkenstrom', 'Funkenstrøm'], ['freshmeat', 'Fresh Meat'], ['allefarben', 'Alle Farben'], ['tonihaupt', 'Toni Haupt'], ['arsen1computerklub', 'Arsen1Computerklub'], ['anatolsirous', 'Anatol Sirous'], ['helgebaumberg', 'Helge Baumberg'], ['goldberg', 'Goldberg'], ['donaldfuck', 'Donald Fuck'], ['a.wolf', 'A. Wolf']]",False,111
+153416.0,,,8�,,"[['10501', '3 + 1']]","['2010/de-0423-153416-front.jpg', '2010/de-0423-153416-back.jpg']","[['bloodymary', 'Bloody Mary'], ['empro', 'Empro'], ['brittaarnold', 'Britta Arnold'], ['sid', 'SiD']]",False,41
+153904.0,,,12�,,[],"['2010/de-0417-153904-front.jpg', '2010/de-0417-153904-back.jpg']","[['chroma', 'Chroma'], ['inexcess', 'Inexcess'], ['haito', 'Haito'], ['michaelplacke', 'Michael Placke'], ['nomadronin', 'No Mad Ronin'], ['arzt', 'Arzt'], ['jacobrichter', 'Jacob Richter'], ['larsson', 'Larsson'], ['m.numberger', 'M.Numberger'], ['ronwilson', 'Ron Wilson']]",False,61
+153905.0,,,8 �,,[],"['2010/de-0416-153905-front.jpg', '2010/de-0416-153905-back.jpg']","[['leejokes', 'Lee Jokes']]",False,2
+153425.0,00:00,10:00,8,,[],['2010/de-0410-153425-front.jpg'],"[['migueltoro', 'Miguel Toro'], ['holgerzilske', 'Holger Zilske'], ['smashtv', 'Smash TV'], ['dirtcrew', 'Dirt Crew'], ['clementine', 'Clementine'], ['rcrusoe', 'Rcrusoe']]",False,55
+153217.0,,,€6,,"[['6629', 'Nachtigall Berlin']]","['2010/de-0409-153217-front.jpg', '2010/de-0409-153217-back.jpg']","[['dolekom', 'Dole & Kom'], ['adamweishaupt', 'Adam Weishaupt'], ['astma', 'Astma'], ['andideluxe', 'Andi de Luxe']]",False,4
+153013.0,23:59,11:45,monees,,[],['2010/de-0508-153013-front.jpg'],"[['danielbell', 'Daniel Bell'], ['kiki', 'Kiki'], ['nickhoppner', 'Nick Höppner'], ['sasse', 'Sasse'], ['franklindecosta', 'Franklin De Costa'], ['audiowerner', 'Audio Werner'], ['davedk', 'Dave DK'], ['jankrueger', 'Jan Krueger'], ['marcfm', 'Marc Fm'], ['chopstick', 'Chopstick'], ['fritzzander', 'Fritz Zander'], ['tomtomgroove', 'Tomtomgroove'], ['barbarapreisinger', 'Barbara Preisinger']]",False,58
+153907.0,,,8 �,,"[['16689', 'exquisite-berlin']]",[],"[['dubtaylor', 'Dub Taylor'], ['tigerskin', 'Tigerskin'], ['turmspringer', 'Turmspringer'], ['michaelplacke', 'Michael Placke'], ['mongroove', 'Mongroove']]",False,2
+148025.0,,,8 �,,"[['9906', 'Killekill']]","['2010/de-0327-148025-front.jpg', '2010/de-0327-148025-back.jpg']","[['hannohinkelbein', 'Hanno Hinkelbein'], ['djflush', 'DJ Flush'], ['stype', 'Stype']]",False,16
+146982.0,,,8�,,[],"['2010/de-0326-146982-front.jpg', '2010/de-0326-146982-back.jpg']","[['inexcess', 'Inexcess'], ['jacobrichter', 'Jacob Richter'], ['daviddorad', 'David Dorad'], ['chlass', 'Chlass']]",False,28
+146980.0,,,8�,,[],"['2010/de-0320-146980-front.jpg', '2010/de-0320-146980-back.jpg']","[['leocubanero', 'Leo Cubanero'], ['tijanat', 'Tijana T'], ['gebruderteichmann', 'Gebrüder Teichmann']]",False,2
+146978.0,,,8�,,[],['2010/de-0319-146978-front.jpg'],"[['matthiasmeyer', 'Matthias Meyer'], ['mikevamp', 'Mike Vamp'], ['patrickgraser', 'Patrick Gräser']]",False,13
+147122.0,,,8,,"[['10664', 'Uschi Berlin']]",['2010/de-0313-147122-front.jpg'],"[['zandervt', 'Zander VT'], ['matthewstyles', 'Matthew Styles'], ['wittes', 'Wittes']]",False,73
+146373.0,23:59,10:00,8�,,[],"['2010/de-0312-146373-front.jpg', '2010/de-0312-146373-back.jpg']","[['steffi', 'Steffi'], ['svenjozwiak', 'Sven Jozwiak'], ['robindrimalski', 'Robin Drimalski']]",False,5
+146976.0,,,8�,,[],['2010/de-0306-146976-front.jpg'],"[['afrilounge', 'Afrilounge'], ['tanith', 'Tanith'], ['tanith', 'Tanith'], ['arzt', 'Arzt'], ['richardzepezauer', 'Richard Zepezauer']]",False,1
+144835.0,,,tba,,[],"['2010/de-0305-144835-front.jpg', '2010/de-0305-144835-back.jpg']","[['tamasumo', 'Tama Sumo'], ['lucretio', 'Lucretio'], ['siopis', 'SIOPIS'], ['handmade', 'Handmade']]",False,14
+138303.0,,,8�,,[],['2010/de-0227-138303-front.jpg'],"[['jamesblonde', 'James Blonde'], ['magitcacoon', 'Magit Cacoon'], ['chaim', 'Chaim'], ['dirtcrew', 'Dirt Crew']]",False,22
+138304.0,,,8 �,,[],"['2010/de-0226-138304-front.jpg', '2010/de-0226-138304-back.jpg']","[['jaketherapper', 'Jake the Rapper'], ['jacobrichter', 'Jacob Richter']]",False,3
+138302.0,,,8 �,,[],[],"[['cle', 'Clé'], ['gebruderteichmann', 'Gebrüder Teichmann']]",False,5
+135654.0,,,6,,"[['7167', 'catenaccio records']]",[],"[['benjaminfehr', 'Benjamin Fehr'], ['falkobrocksieper', 'Falko Brocksieper'], ['danaruh', 'Dana Ruh']]",False,6
+138301.0,,,8 �,,[],[],"[['argenisbrito', 'Argenis Brito']]",False,2
+138300.0,,,10�,,[],[],"[['tanith', 'Tanith'], ['astma', 'Astma']]",False,1
+134251.0,23:59,09:00,€ 10,,[],['2010/de-0206-134251-front.jpg'],"[['harryaxt', 'Harry Axt'], ['saschabraemer', 'Sascha Braemer'], ['dancaster', 'Dan Caster'], ['hawkinson', 'Hawkinson'], ['steinmuller', 'Steinmüller']]",False,8
+131284.0,,,6�,,"[['8429', 'look-alike'], ['9094', 'Suicide Club']]","['2010/de-0205-131284-front.jpg', '2010/de-0205-131284-back.jpg']","[['mri', 'MRI'], ['jona', 'Jona'], ['marcelknopf', 'Marcel Knopf'], ['davidkeno', 'David Keno'], ['look-alike', 'Look-alike'], ['autodeep', 'Autodeep']]",False,23
+138299.0,,,10�,,[],[],"[['renebreitbarth', 'Rene Breitbarth'], ['tobydeschamps', 'Toby Deschamps'], ['gebruderteichmann', 'Gebrüder Teichmann']]",False,7
+138298.0,,,10�,,[],['2010/de-0129-138298-front.jpg'],"[['turmspringer', 'Turmspringer'], ['jaketherapper', 'Jake the Rapper'], ['robindrimalski', 'Robin Drimalski'], ['jacobrichter', 'Jacob Richter']]",False,6
+134453.0,,,7 �,,"[['9906', 'Killekill']]",['2010/de-0123-134453-front.jpg'],"[['s-max', 'S-max'], ['djflush', 'DJ Flush'], ['adrianflux', 'Adrian Flux']]",False,15
+138296.0,,,8 �,,[],['2010/de-0122-138296-front.jpg'],"[['danielmeteo', 'Daniel Meteo'], ['dirtcrew', 'Dirt Crew'], ['smacs', 'Smacs']]",False,2
+136699.0,,,8�,,[],['2010/de-0116-136699-front.jpg'],"[['nikoschwind', 'Niko Schwind']]",False,7
+138295.0,,,8 �,,[],['2010/de-0115-138295-front.jpg'],"[['inexcess', 'Inexcess'], ['mr.wenzel', 'Mr. Wenzel'], ['haito', 'Haito'], ['inexcess', 'Inexcess'], ['cinthie', 'Cinthie'], ['jacobrichter', 'Jacob Richter']]",False,2
+135926.0,,,8,,"[['7167', 'catenaccio records']]",[],"[['benjaminfehr', 'Benjamin Fehr'], ['falkobrocksieper', 'Falko Brocksieper']]",False,3
+131280.0,,,6,,[],"['2010/de-0108-131280-front.jpg', '2010/de-0108-131280-back.jpg']","[['florianmeindl', 'Florian Meindl'], ['beaner', 'Beaner'], ['look-alike', 'Look-alike'], ['pornbugs', 'Pornbugs']]",False,7
+128198.0,,,10 Euro,,[],"['2010/de-0102-128198-front.gif', '2010/de-0102-128198-back.jpg']","[['octaveone', 'Octave One'], ['sandwelldistrict', 'Sandwell District'], ['function', 'Function'], ['regis', 'Regis'], ['alansommerville', 'Alan Sommerville'], ['hofgutow', 'Hof Gutow'], ['karol', 'Karol']]",False,30
+209631.0,23:00,11:00,"10,00 Euro",,"[['7899', 'The Mystic Rose']]","['2010/de-1224-209631-front.jpg', '2010/de-1224-209631-back.jpg']",[],False,5
+208523.0,23:00,11:00,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-1210-208523-front.jpg'],"[['jensson', 'Jensson']]",False,6
+206133.0,23:00 ,08:00 ,Toller Dress = freier Eintritt!,,[],[],"[['clarkkent', 'Clark Kent'], ['pfeiffer', 'Pfeiffer']]",False,1
+206132.0,23:00 ,08:00 ,Toller Dress = freier Eintritt!,,[],[],"[['dramanui', 'Drama Nui']]",False,2
+205770.0,23:00,12:00,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-1119-205770-front.jpg'],"[['ricoloop', 'Ricoloop']]",False,3
+206130.0,23:00 ,08:00 ,Toller Dress = freier Eintritt!,,[],[],"[['hardyheller', 'Hardy Heller']]",False,1
+206945.0,23:00 ,10:00 ,10,,[],[],"[['tubeberger', 'Tube & Berger']]",False,0
+206127.0,23:00 ,08:00 ,outfitabhängig,,[],[],"[['derfreak', 'Der Freak']]",False,1
+206124.0,23:00 ,08:00 ,"5,00 �",,[],[],"[['boris', 'Boris']]",False,1
+195676.0,23:00,11:00,"12,00 euro",,"[['7899', 'The Mystic Rose']]",['2010/de-1029-195676-front.jpg'],[],False,1
+198697.0,22:00,08:00,min. 15 euro,,[],[],"[['hardyheller', 'Hardy Heller']]",False,1
+193457.0,23:00,14:00,-,,[],[],[],False,2
+192431.0,,,"17,00 Euro",,"[['7899', 'The Mystic Rose']]","['2010/de-1008-192431-front.jpg', '2010/de-1008-192431-back.jpg']","[['pfeiffer', 'Pfeiffer']]",False,4
+186295.0,23:00 ,11:00 ,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0917-186295-front.jpg'],"[['gandalf', 'Gandalf']]",False,1
+179122.0,23:00 ,11:00 ,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0820-179122-front.jpg'],"[['derloth', 'Der Loth'], ['you2mars', 'You2mars']]",False,1
+171984.0,23:00 ,11:00 ,"10,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0709-171984-front.jpg'],[],False,3
+166815.0,23:00 ,11:00 ,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0611-166815-front.jpg'],[],False,2
+161367.0,23:00,12:00,"15,00 Euro",,"[['7899', 'The Mystic Rose']]","['2010/de-0521-161367-front.jpg', '2010/de-0521-161367-back.jpg']",[],False,2
+155050.0,23:00 ,11:00 ,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0423-155050-front.jpg'],[],False,2
+152070.0,23:00,08:00,10 �,,[],['2010/de-0402-152070-front.jpg'],"[['hell', 'DJ Hell'], ['dramanui', 'Drama Nui'], ['fxyz', 'FXYZ']]",False,5
+147595.0,23:00 ,11:00 ,"10,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0319-147595-front.jpg'],"[['joana', 'Joana']]",False,2
+146361.0,23:00,08:00,10 �,,[],[],"[['mijkvandijk', 'Mijk van Dijk'], ['dramanui', 'Drama Nui'], ['derraab', 'derRaab']]",False,1
+139990.0,23:00 ,11:00 ,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0219-139990-front.jpg'],"[['gandalf', 'Gandalf']]",False,2
+138497.0,,,"10,00 �",,[],[],"[['jeffsamuel', 'Jeff Samuel'], ['danielboon', 'Daniel Boon'], ['mongroove', 'Mongroove']]",False,1
+144385.0,,,10 �,,[],['2010/de-0205-144385-front.jpg'],"[['dramanui', 'Drama Nui']]",False,1
+134799.0,23:00,12:00,"12,00 Euro",,"[['7899', 'The Mystic Rose']]",['2010/de-0115-134799-front.jpg'],[],False,2
+205820.0,22:00,"06:00,New Years Eve","€40,- + memb.",,"[['1697', 'Dekmantel'], ['2813', 'Melkweg']]",['2010/nl-1231-205820-front.jpg'],"[['rickwilhite', 'Rick Wilhite'], ['djrahaan', 'Rahaan'], ['thomasmartojo', 'Thomas Martojo'], ['caspertielrooij', 'Casper Tielrooij']]",False,5
+206587.0,23:00,05:00 ,"presale: € 13,00 + memb. / door: € 15,00 + memb.",,"[['2813', 'Melkweg']]",['2010/nl-1217-206587-front.jpg'],"[['mauropicotto', 'Mauro Picotto'], ['johannesheil', 'Johannes Heil'], ['bartskils', 'Bart Skils'], ['lauhaus', 'Lauhaus']]",False,5
+202863.0,23:00,05:00,presale 11 eur + memb. / door 13 eur + memb.,,"[['2813', 'Melkweg']]",['2010/nl-1210-202863-front.jpg'],"[['mountkimbie', 'Mount Kimbie'], ['scuba', 'Scuba'], ['sepalcure', 'Sepalcure'], ['georgefitzgerald', 'George FitzGerald']]",False,8
+202886.0,23:00,05:00,"vvk: € 13,00 + lidm. / deur: € 15,00 + lidm",,"[['64', 'Electronation'], ['2813', 'Melkweg']]",['2010/nl-1210-202886-front.jpg'],"[['stephanbodzin', 'Stephan Bodzin'], ['terrytoner', 'Terry Toner']]",False,6
+202860.0,12:00,05:00,"9,- euro",,"[['2813', 'Melkweg']]",['2010/nl-1120-202860-front.jpg'],"[['metroarea', 'Metro Area'], ['morgangeist', 'Morgan Geist'], ['darshanjesrani', 'Darshan Jesrani'], ['tomtrago', 'Tom Trago'], ['sventettero', 'Sven & Tettero'], ['caspertielrooij', 'Casper Tielrooij']]",False,5
+206589.0,23:00,05:00,"€9,00 + memb.",,"[['2813', 'Melkweg']]",['2010/nl-1119-206589-front.jpg'],"[['bloodybeetroots', 'The Bloody Beetroots'], ['mightyfools', 'Mightyfools'], ['twr72', 'TWR72']]",False,2
+221115.0,,,13/15,,"[['64', 'Electronation'], ['2813', 'Melkweg']]",['2010/nl-1112-221115-front.jpg'],"[['idaengberg', 'Ida Engberg'], ['sebastienleger', 'Sebastien Leger'], ['terrytoner', 'Terry Toner']]",False,0
+199200.0,23:00,05:00,€14 presale / €16 door (ex fee),,"[['4008', 'Elementz D&B']]",['2010/nl-1105-199200-front.jpg'],"[['chasestatus', 'Chase & Status'], ['edrush', 'Ed Rush']]",False,4
+197483.0,23:,05:00,"presale: € 14,00 + memb. / door: € 16,00 + memb.",,"[['2813', 'Melkweg']]",[],"[['timomaas', 'Timo Maas'], ['warrenfellow', 'Warren Fellow']]",False,3
+197486.0,23:,05:00,"presale: € 14,00 + memb.. / door: € 16,00 + memb..",,"[['2813', 'Melkweg']]",['2010/nl-1029-197486-front.jpg'],"[['misskittin', 'Miss Kittin'], ['thehacker', 'The Hacker'], ['nathanfake', 'Nathan Fake'], ['allez-allez', 'Allez-Allez'], ['jornliefdeshuis', 'Jorn Liefdeshuis']]",False,5
+182246.0,21:30,06:00,,,"[['2813', 'Melkweg']]",['2010/nl-1023-182246-front.jpg'],"[['jamesholden', 'James Holden'], ['katewax', 'Kate Wax'], ['lukeabbott', 'Luke Abbott'], ['avus', 'Avus']]",False,26
+182250.0,23:00,05:00,,,"[['2813', 'Melkweg']]",['2010/nl-1023-182250-front.jpg'],"[['untold', 'Untold'], ['ramadanman', 'Ramadanman'], ['pangaea', 'Pangaea'], ['jackmaster', 'Jackmaster'], ['dj-nl', 'DJ+']]",False,7
+179036.0,21:30,23:00,"€15,00",,"[['2813', 'Melkweg']]",['2010/nl-1023-179036-front.jpg'],[],False,7
+189467.0,,,€12.50,,[],[],"[['midnightjuggernauts', 'Midnight Juggernauts']]",False,1
+183982.0,23:00,05:00,,,"[['2813', 'Melkweg']]",[],"[['daveclarke', 'Dave Clarke'], ['greenvelvet', 'Green Velvet'], ['estroe', 'Estroe'], ['roberthood', 'Robert Hood'], ['abeduque', 'Abe Duque'], ['psycatron', 'Psycatron'], ['tomtrago', 'Tom Trago'], ['jameswatts', 'James Watts']]",False,26
+189372.0,,,€15,,[],[],"[['goldfish', 'Goldfish']]",False,2
+183926.0,00:00,05:00,"€9,00 / members: €8,00",,"[['2813', 'Melkweg']]",['2010/nl-1016-183926-front.jpg'],"[['shitrobot', 'Shit Robot'], ['may68', 'MAY68'], ['tomtrago', 'Tom Trago'], ['sventettero', 'Sven & Tettero'], ['caspertielrooij', 'Casper Tielrooij']]",False,2
+183994.0,23:00,05:00,"presale: €12,00 + membership / door: €14,00 + membership",,"[['2813', 'Melkweg']]",['2010/nl-1015-183994-front.jpg'],"[['markbroom', 'Mark Broom'], ['kaiserdisco', 'Kaiserdisco'], ['bartskils', 'Bart Skils'], ['lauhaus', 'Lauhaus']]",False,6
+193315.0,,,26,,[],[],"[['einsturzendeneubauten', 'Einsturzende Neubauten']]",False,0
+183942.0,23:00,05:00,"presale: €11,00 + membership / door: €13,00d + membership",,"[['2813', 'Melkweg']]",['2010/nl-1008-183942-front.jpg'],"[['dmxkrew', 'DMX Krew'], ['davemonolith', 'Dave Monolith']]",False,5
+179032.0,22:00,05:00,presale 11 eur + membership / doors 13 eur + membership,,"[['1313', 'Bar Weinig'], ['2813', 'Melkweg']]",['2010/nl-1001-179032-front.jpg'],"[['fairmont', 'Fairmont'], ['johnroberts', 'John Roberts'], ['estroe', 'Estroe'], ['jornliefdeshuis', 'Jorn Liefdeshuis']]",False,5
+182270.0,00:00,05:00,"€ 9,00 / members: € 8,00",,"[['2813', 'Melkweg']]",['2010/nl-0918-182270-front.jpg'],"[['tomtrago', 'Tom Trago'], ['sventettero', 'Sven & Tettero'], ['caspertielrooij', 'Casper Tielrooij']]",False,3
+184643.0,23:30,05:00,€15,,"[['4008', 'Elementz D&B']]",['2010/nl-0917-184643-front.jpg'],"[['mampiswift', 'Mampi Swift'], ['limewax', 'LIMEWAX'], ['thrasher', 'Thrasher']]",False,4
+183933.0,23:00,05:00,"presale: € 11,00 + membership / door: € 13,00 + membership",,"[['2813', 'Melkweg']]",['2010/nl-0910-183933-front.jpg'],"[['peverelist', 'Peverelist'], ['brackles', 'Brackles'], ['komonazmuk', 'Komonazmuk'], ['cinnaman', 'Cinnaman'], ['dj-nl', 'DJ+']]",False,5
+179568.0,22:00,05:00,"€6,00 + membership",,"[['2813', 'Melkweg']]",['2010/nl-0827-179568-front.jpg'],"[['gregwilson', 'Greg Wilson'], ['i-f', 'I-F'], ['aldentyrell', 'Alden Tyrell'], ['tomtrago', 'Tom Trago']]",False,3
+176343.0,12:00,06:00 ,"€9,00 / members: €8,00",,"[['2813', 'Melkweg']]","['2010/nl-0821-176343-front.jpg', '2010/nl-0821-176343-back.jpg']","[['stevelawler', 'Steve Lawler'], ['terrytoner', 'Terry Toner'], ['sventettero', 'Sven & Tettero']]",False,3
+167044.0,21:00,05:00,"Presale 20,-",,[],[],"[['tidyboys', 'Tidy Boys'], ['sterlingmoss', 'Sterling Moss']]",False,0
+174951.0,23:00,05:00,"€13,00",,"[['2813', 'Melkweg'], ['9646', 'Rauw']]",['2010/nl-0813-174951-front.jpg'],"[['brodinski', 'Brodinski'], ['tomtrago', 'Tom Trago']]",False,2
+162139.0,23:00,05:00,"presale: € 13,00 + memb. / door: € 15,00 + memb.",,"[['64', 'Electronation'], ['2813', 'Melkweg']]",['2010/nl-0806-162139-front.jpg'],"[['minilogue', 'Minilogue'], ['olivierweiter', 'Olivier Weiter'], ['terrytoner', 'Terry Toner']]",False,9
+175001.0,23:00,05:00,"€10,00",,"[['2813', 'Melkweg']]",['2010/nl-0723-175001-front.jpg'],"[['alanbraxe', 'Alan Braxe']]",False,1
+175943.0,23:00,05:00,€15,,"[['4008', 'Elementz D&B']]",['2010/nl-0723-175943-front.jpg'],"[['aphrodite', 'Aphrodite'], ['blacksunempire', 'Black Sun Empire'], ['lenzman', 'Lenzman']]",False,1
+162141.0,23:00,05:00,"presale: € 13,00 + memb. / door: € 15,00 + memb.",,"[['2813', 'Melkweg']]",['2010/nl-0716-162141-front.jpg'],"[['dannyhowells', 'Danny Howells']]",False,5
+172956.0,23:00,05:00,"presale: € 13,00 + memb. / door: € 15,00 + memb.",,"[['2813', 'Melkweg'], ['9646', 'Rauw']]",['2010/nl-0709-172956-front.jpg'],"[['larrytee', 'Larry Tee']]",False,1
+168167.0,23:00,05:00,12 euro 15 At the door,,[],[],"[['markonastic', 'Marko Nastic'], ['lauhaus', 'Lauhaus'], ['bartskils', 'Bart Skils'], ['egbert', 'Egbert']]",False,6
+171816.0,23:00,05:00,"vvk: € 11,00 + Fee / door: € 13,00 + Fee",,"[['1313', 'Bar Weinig'], ['2813', 'Melkweg']]",[],"[['deadbeat', 'Deadbeat'], ['2562', 'A Made Up Sound'], ['olff', 'Olff'], ['jornliefdeshuis', 'Jorn Liefdeshuis']]",False,3
+172469.0,00:00,05:00,"€9,-",,"[['2813', 'Melkweg']]",['2010/nl-0619-172469-front.jpg'],[],False,1
+162151.0,23:00,05:00,"presale: € 11,00 + memb. / door: € 13,00 + memb.",,"[['2813', 'Melkweg']]",['2010/nl-0618-162151-front.jpg'],"[['loefah', 'Loefah'], ['youngsta', 'Youngsta'], ['krypticminds', 'Kryptic Minds'], ['dj-nl', 'DJ+'], ['kingshiloh', 'King Shiloh']]",False,4
+162129.0,23:00,05:00,"presale: € 13,00 + memb. / door: € 15,00 + memb.",,"[['2813', 'Melkweg'], ['9646', 'Rauw']]",['2010/nl-0611-162129-front.jpg'],"[['uffie', 'Uffie'], ['bartbmore', 'Bart B More']]",False,2
+149593.0,00:00,05:00,"Day 4 €14, weekend pass €45",,[],"['2010/nl-0529-149593-front.jpg', '2010/nl-0529-149593-back.jpg']","[['mala', 'Mala'], ['digitalmystikz', 'Digital Mystikz'], ['kingmidassound', 'King Midas Sound'], ['mountkimbie', 'Mount Kimbie'], ['jamesblake', 'James Blake'], ['cinnaman', 'Cinnaman'], ['lone', 'Lone'], ['presk', 'Presk']]",False,12
+149594.0,00:00,05:00,"Day 3 €13, weekend pass €45",,[],"['2010/nl-0528-149594-front.jpg', '2010/nl-0528-149594-back.jpg']","[['kode9', 'Kode9'], ['faltydl', 'FaltyDL'], ['goldpanda', 'Gold Panda'], ['kelpe', 'Kelpe']]",False,11
+167043.0,23:00,05:00,"Pre-sale 13,-",,[],[],"[['bensims', 'Ben Sims'], ['quince', 'Quince'], ['bartskils', 'Bart Skils'], ['lauhaus', 'Lauhaus']]",False,2
+162144.0,23:00,05:00,"€ 19,00 + memb",,"[['2813', 'Melkweg'], ['9646', 'Rauw']]",['2010/nl-0514-162144-front.jpg'],"[['boysnoize', 'Boys Noize'], ['boysnoize', 'Boys Noize'], ['djedjotronic', 'Djedjotronic'], ['boysnoize', 'Boys Noize'], ['visser', 'Visser']]",False,1
+152716.0,21:00,05:00,"Pre-sale 13,- Door 15,-",,"[['2813', 'Melkweg'], ['19187', 'Crackhouse']]",[],"[['djsneak', 'DJ Sneak'], ['jackmate', 'Jackmate'], ['carlosvaldes', 'Carlos Valdes'], ['aronfriedman', 'Aron Friedman'], ['brentroozendaal', 'Brent Roozendaal']]",False,4
+153030.0,12:00,05:00,"€9,-",,"[['2813', 'Melkweg']]",['2010/nl-0417-153030-front.jpg'],"[['alanbraxe', 'Alan Braxe'], ['sharamjey', 'Sharam Jey'], ['sventettero', 'Sven & Tettero']]",False,2
+142517.0,23:00,05:00,presale: 15 eur + memb. / door 17 eur + memb.,,"[['64', 'Electronation'], ['2813', 'Melkweg']]",['2010/nl-0416-142517-front.jpg'],"[['stevelawler', 'Steve Lawler'], ['paulhazendonk', 'Paul Hazendonk'], ['terrytoner', 'Terry Toner']]",False,5
+153032.0,12:00,05:00,presale 11 eur + memb. / door 13 eur + memb.,,"[['2813', 'Melkweg']]",['2010/nl-0416-153032-front.jpg'],"[['komonazmuk', 'Komonazmuk']]",False,2
+150153.0,21:30,05:00,"€25,- memb.",,"[['2813', 'Melkweg']]",['2010/nl-0409-150153-front.jpg'],"[['goose', 'Goose'], ['greenvelvet', 'Green Velvet'], ['uffie', 'Uffie'], ['aeroplane', 'Aeroplane'], ['roryphillips', 'Rory Phillips'], ['harvardbass', 'Harvard Bass'], ['tomtrago', 'Tom Trago']]",False,1
+143210.0,22:00,05:00,14 euro,,"[['1116', 'Soulrock'], ['2813', 'Melkweg'], ['19187', 'Crackhouse']]",['2010/nl-0402-143210-front.jpg'],"[['derrickcarter', 'Derrick Carter'], ['lukesolomon', 'Luke Solomon'], ['justinharris', 'Justin Harris'], ['aronfriedman', 'Aron Friedman'], ['brentroozendaal', 'Brent Roozendaal'], ['carlosvaldes', 'Carlos Valdes']]",False,4
+144745.0,23:00,05:00,"€13,- + memb.",,"[['2813', 'Melkweg']]",['2010/nl-0326-144745-front.jpg'],"[['jamesholden', 'James Holden'], ['avus', 'Avus']]",False,16
+142503.0,12:00,05:00,"€9,00",,"[['2813', 'Melkweg']]",['2010/nl-0320-142503-front.jpg'],"[['steverachmad', 'Steve Rachmad']]",False,2
+150134.0,23:00,05:00,presale: €11 + lidm. / door €13 eur + lidm.,,"[['2813', 'Melkweg']]",[],"[['zombienation', 'Zombie Nation'], ['orgueelectronique', 'Orgue Electronique']]",False,2
+145839.0,23:00,05:00,Pre-sale 16 Euro,,"[['2813', 'Melkweg']]",[],"[['jeffmills', 'Jeff Mills'], ['estroe', 'Estroe'], ['thomasmartojo', 'Thomas Martojo']]",False,8
+150121.0,23:30,05:00,€15 + memb.,,"[['2813', 'Melkweg'], ['9646', 'Rauw']]",['2010/nl-0312-150121-front.jpg'],"[['joakim', 'Joakim'], ['krikor', 'Krikor']]",False,1
+136348.0,22:00,05:00,15 Euro,,"[['6554', '5 Days Off']]",['2010/nl-0306-136348-front.jpg'],"[['thedjproducer', 'The DJ Producer'], ['noisia', 'Noisia'], ['bong-ra', 'Bong-Ra']]",False,3
+136347.0,20:30,05:00,"17,-",,"[['6554', '5 Days Off']]",['2010/nl-0305-136347-front.jpg'],"[['misskittin', 'Miss Kittin'], ['misskittin', 'Miss Kittin'], ['shinedoe', 'Shinedoe'], ['alexsmoke', 'Alex Smoke'], ['dantoneeprom', 'Danton Eeprom'], ['pitto', 'Pitto'], ['estroe', 'Estroe'], ['misskittin', 'Miss Kittin']]",False,7
+134081.0,23:00,05:00,"presale: € 11,00 + lidm / door: € 13,00 + lidm",,"[['2813', 'Melkweg']]",['2010/nl-0226-134081-front.jpg'],"[['silkie', 'Silkie'], ['kromestar', 'Kromestar'], ['dj-nl', 'DJ+']]",False,4
+136735.0,23:00,05:00,"presale: € 13,00 + memb. / door: € 15,00 + memb.",,"[['64', 'Electronation'], ['2813', 'Melkweg']]",['2010/nl-0226-136735-front.jpg'],"[['joshwink', 'Josh Wink'], ['jimpster', 'Jimpster'], ['terrytoner', 'Terry Toner']]",False,4
+142499.0,23:00,05:00,vvk 8 eur + lidm. / deur 10 eur + lidm.,,"[['2813', 'Melkweg']]",['2010/nl-0219-142499-front.jpg'],"[['030303', '030303'], ['030303', '030303']]",False,1
+137677.0,23:00,05:00,15,,"[['9646', 'Rauw']]",['2010/nl-0212-137677-front.jpg'],"[['riton', 'Riton'], ['l-vis1990', 'L-Vis 1990'], ['treasurefingers', 'Treasure Fingers']]",False,4
+142080.0,23:00,05:00,12 euro Advance - 14 euro on the door,,"[['19187', 'Crackhouse']]",[],"[['kennylarkin', 'Kenny Larkin'], ['aronfriedman', 'Aron Friedman'], ['brentroozendaal', 'Brent Roozendaal'], ['carlosvaldes', 'Carlos Valdes']]",False,4
+129948.0,22:00,05:00,"presale: € 16,00 + memb / door: € 18,00 + memb.",,"[['2813', 'Melkweg']]",['2010/nl-0122-129948-front.jpg'],"[['modeselektor', 'Modeselektor'], ['mathewjonson', 'Mathew Jonson'], ['2000andone', '2000 and One'], ['estroe', 'Estroe'], ['speedyj', 'Speedy J']]",False,21
+134076.0,24:00,05:00,"€9,- + memb.",,"[['2813', 'Melkweg']]",['2010/nl-0116-134076-front.jpg'],"[['sventettero', 'Sven & Tettero']]",False,2
+130705.0,,,€ 18 ex. membership (Logical Progression tickets (for the 15th) will give you free entrance to the Plump DJ's @ Gemengd Zwemmen on Saturday the 16th!!),,[],"['2010/nl-0115-130705-front.jpg', '2010/nl-0115-130705-back.jpg']","[['ltjbukem', 'LTJ Bukem'], ['fabio', 'Fabio'], ['grooverider', 'Grooverider']]",False,8
+136729.0,12:00,05:00,"presale: € 10,00 + memb / door: € 12,00 + memb.",,"[['2813', 'Melkweg']]",['2010/nl-0115-136729-front.jpg'],"[['jimmyedgar', 'Jimmy Edgar'], ['clark', 'Clark'], ['cinnaman', 'Cinnaman'], ['freekfabricius', 'Freek Fabricius'], ['030303', '030303']]",False,6
+134075.0,23:00,05:00,"€17,- + memb",,"[['2813', 'Melkweg'], ['9646', 'Rauw']]",['2010/nl-0108-134075-front.jpg'],"[['erolalkan', 'Erol Alkan'], ['brodinski', 'Brodinski'], ['mightyfools', 'Mightyfools']]",False,5
+215422.0,21:00,"07:00,New Years Eve","Presale: €50,- Door: €60,-",,[],['2010/nl-1231-215422-front.jpg'],"[['francescorobustelli', 'Francesco Robustelli']]",False,4
+187727.0,22:00,10:00,"15,-",,[],[],"[['djbone', 'DJ Bone'], ['tachini', 'Tachini'], ['scepticalc', 'Sceptical C'], ['dimiangelis', 'Dimi Angelis'], ['invite', 'Invite']]",False,6
+183048.0,11:00,23:00,50 euro,,"[['9646', 'Rauw']]",['2010/nl-0904-183048-front.jpg'],"[['aeroplane', 'Aeroplane'], ['boemklatsch', 'Boemklatsch'], ['graemepark', 'Graeme Park'], ['junkiexl', 'Junkie XL'], ['kcthefunkaholic', 'KC The Funkaholic'], ['l-vis1990', 'L-Vis 1990'], ['mightyfools', 'Mightyfools'], ['pilooski', 'Pilooski'], ['siroj', 'SIROJ'], ['theglimmers', 'The Glimmers'], ['thewalkrogerseventytwo', 'The Walk & Rogerseventytwo'], ['tomtrago', 'Tom Trago'], ['tommiesunshine', 'Tommie Sunshine'], ['treasurefingers', 'Treasure Fingers'], ['nobodybeatsthedrum', 'Nobody Beats The Drum']]",False,3
+159375.0,11:00,23:00,"32,50 Euro",,[],"['2010/nl-0828-159375-front.jpg', '2010/nl-0828-159375-back.jpg']","[['bartskils', 'Bart Skils'], ['deepchord', 'DeepChord'], ['echospace', 'Echospace'], ['magda', 'Magda'], ['martinbuttrich', 'Martin Buttrich'], ['antonpieete', 'Anton Pieete'], ['lenfaki', 'Len Faki'], ['adambeyer', 'Adam Beyer'], ['conforce', 'Conforce'], ['therevenge', 'The Revenge'], ['ricardovillalobos', 'Ricardo Villalobos'], ['isolee', 'Isolee'], ['guillaume', 'Guillaume & The Coutu Dumonts'], ['kollektivturmstrasse', 'Kollektiv Turmstrasse'], ['matthiastanzmann', 'Matthias Tanzmann']]",False,100
+176335.0,11:00,23:00,"10,00",,[],['2010/nl-0717-176335-front.jpg'],"[['housetree', 'Housetree'], ['jasonlanox', 'Jason Lanox'], ['makam', 'Makam'], ['pitto', 'Pitto'], ['quazar', 'Quazar'], ['sandrien', 'Sandrien'], ['thomaslauren', 'Thomas Lauren']]",False,2
+160560.0,11:00,22:00,25 euro,,"[['4255', 'Gasten Zonder Grenzen']]",['2010/nl-0612-160560-front.jpg'],"[['danilovigorito', 'Danilo Vigorito'], ['mikeravelli', 'Mike Ravelli'], ['derdritteraum', 'Der Dritte Raum'], ['micheldehey', 'Michel de Hey'], ['erin', 'Erin'], ['demanzonderschaduw', 'De Man Zonder Schaduw']]",False,6
+121121.0,,,15,,[],['2010/nl-0130-121121-front.jpg'],"[['jeroensearch', 'Jeroen Search'], ['dimiangelis', 'Dimi Angélis']]",False,3
+158531.0,16:00,01:00,tba,,"[['4704', 'Static']]",[],"[['michaelmayer', 'Michael Mayer'], ['bertderooij', 'Bert de Rooij'], ['tomruijg', 'Tom Ruijg']]",False,4
+191437.0,15:00,23:59,Free,,[],[],"[['onno', 'ONNO']]",False,0
+179450.0,16:00,12:00,12�,,"[['13242', 'Labyrinth Club']]",['2010/nl-0814-179450-front.jpg'],"[['taniavulcano', 'Tania Vulcano'], ['dyedsoundorom', 'Dyed Soundorom'], ['boriswerner', 'Boris Werner'], ['tofke', 'Tofke'], ['hermanez', 'Hermanez']]",False,14
+183122.0,15:00,00:00,free / Gratis,,[],['2010/nl-0813-183122-front.jpg'],"[['s.v.e.n.', 'S.V.E.N.']]",False,1
+171239.0,19:00,00:00,Free entrance,,"[['1116', 'Soulrock']]",[],"[['stevenpieters', 'Steven Pieters'], ['aronfriedman', 'Aron Friedman'], ['esther', 'Esther Duijn'], ['carlosvaldes', 'Carlos Valdes']]",False,1
+158527.0,15:00,23:59,€ 10,,[],['2010/nl-0619-158527-front.jpg'],"[['jamieanderson', 'Jamie Anderson'], ['djremy', 'DJ Remy'], ['egbert', 'Egbert'], ['melonprods', 'Melon']]",False,0
+148048.0,16:00,01:00,"7,50/10",,[],[],"[['tettero', 'Tettero'], ['freddyspool', 'Freddy Spool']]",False,0
+193040.0,22:00,04:00,"� 15,00",,[],[],"[['martinsolveig', 'Martin Solveig'], ['dadalife', 'Dada Life'], ['sidneysamson', 'Sidney Samson'], ['kaskade', 'Kaskade'], ['bassjackers', 'Bassjackers'], ['gregorsalto', 'Gregor Salto'], ['leroystyles', 'Leroy Styles'], ['roncarroll', 'Ron Carroll']]",False,1
+193044.0,22:00,04:00,"€ 17,50",,"[['4121', 'Defected In The House']]",[],"[['juniorjack', 'Junior Jack'], ['kidcreme', 'Kid Crème'], ['shapeshifters', 'The Shapeshifters'], ['chocolatepuma', 'Chocolate Puma'], ['simondunmore', 'Simon Dunmore'], ['djgregory', 'DJ Gregory'], ['studioapartment', 'Studio Apartment'], ['benwestbeech', 'Ben Westbeech'], ['treasurefingers', 'Treasure Fingers']]",False,3
+182630.0,23:00,04:00,10/15,,[],['2010/nl-0814-182630-front.jpg'],"[['sidneysamson', 'Sidney Samson'], ['afrojack', 'Afrojack'], ['baggibegovic', 'Baggi Begovic']]",False,1
+182628.0,23:00,04:00,10/15,,"[['4121', 'Defected In The House']]",['2010/nl-0730-182628-front.jpg'],"[['copyright', 'Copyright'], ['baggibegovic', 'Baggi Begovic'], ['simontitus', 'Simon Titus'], ['easyryan', 'Easy Ryan']]",False,0
+146513.0,23:00,04:00,"12,5050/22,50",,[],[],"[['yousef', 'Yousef'], ['philipyoung', 'Philip Young']]",False,1
+134206.0,23:00,04:00,"€ 25,00",,"[['4121', 'Defected In The House']]",[],"[['djspen', 'DJ Spen'], ['simondunmore', 'Simon Dunmore'], ['andydaniell', 'Andy Daniell'], ['djgregory', 'DJ Gregory']]",False,1
+192005.0,,,$20 General $30 VIP,,[],"['2010/us-1001-192005-front.jpg', '2010/us-1001-192005-back.jpg']",[],False,0
+173197.0,21:00,02:00,$10/$7 wearing glitter/$6 w/RSVP,,[],['2010/us-0626-173197-front.jpg'],"[['chappo', 'Chappo']]",False,1
+173193.0,20:00,04:00,"$15/door, $10/costume",,[],"['2010/us-0612-173193-front.jpg', '2010/us-0612-173193-back.jpg']","[['tonic', 'Toni C']]",False,1
+147886.0,20:30,04:00,20,,[],[],"[['subfractal', 'Subfractal']]",False,1
+144029.0,,,$10 before 12/$15 after,,[],"['2010/us-0212-144029-front.jpg', '2010/us-0212-144029-back.jpg']",[],False,1
+141365.0,20:00,03:00,$10,,[],['2010/us-0130-141365-front.jpg'],[],False,2
+137775.0,20:00,06:00,$5,,"[['3485', 'False Aristocracy']]","['2010/us-0115-137775-front.jpg', '2010/us-0115-137775-back.jpg']","[['mikedextro', 'Mike Dextro']]",False,1
+213475.0,22:00,"06:00,New Years Eve",$30,,[],['2010/us-1231-213475-front.jpg'],"[['holyghost', 'Holy Ghost'], ['houseofhouse', 'House of House']]",False,10
+215715.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-1217-215715-front.jpg'],[],False,1
+207838.0,17:00,10:00,"$20 presale, $25 door, $10 Santa",,[],['2010/us-1211-207838-front.jpg'],"[['fortknoxfive', 'Fort Knox Five'], ['lynx', 'Lynx'], ['djnutritious', 'Nutritious']]",False,21
+213567.0,10:00,04:00,FREE,,"[['3947', 'Crooked Disco'], ['5461', 'Broken Teeth']]",['2010/us-1203-213567-front.jpg'],"[['ctrlaltdel', 'Ctrl Alt Del']]",False,3
+210886.0,,,$20,,[],"['2010/us-1127-210886-front.jpg', '2010/us-1127-210886-back.jpg']","[['docmartin', 'Doc Martin'], ['onionz', 'Onionz'], ['joeski', 'Joeski'], ['chrislove', 'Chris Love']]",False,13
+194226.0,22:00,04:00,$12 before $15 day of show,,"[['1493', 'FIXED']]",['2010/us-1120-194226-front.jpg'],"[['tensnake', 'Tensnake'], ['jdhdavep', 'JDH & Dave P']]",False,50
+194225.0,23:00,04:00,$15 advance tickets at: www.ticketweb.com,,"[['1493', 'FIXED']]",['2010/us-1113-194225-front.jpg'],"[['lindstrom', 'Lindstrom'], ['jdhdavep', 'JDH & Dave P']]",False,23
+191794.0,,,$14 advance | $16 day of show,,[],['2010/us-1106-191794-front.jpg'],"[['mimosa', 'MiMOSA'], ['twofresh', 'Two Fresh']]",False,4
+203674.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-1029-203674-front.jpg'],[],False,1
+201833.0,22:00,04:00,Free,,[],['2010/us-1022-201833-front.jpg'],[],False,1
+185533.0,,,"$10 advance, $15 day of show",,[],['2010/us-0918-185533-front.jpg'],"[['bartbmore', 'Bart B More'], ['plastician', 'Plastician'], ['dropthelime', 'Drop The Lime'], ['stareyes-us', 'Star Eyes']]",False,12
+185504.0,,,"$14 advance, $16 day of show",,[],['2010/us-0918-185504-front.jpg'],[],False,6
+192965.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0917-192965-front.jpg'],[],False,1
+191309.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0910-191309-front.jpg'],"[['cousincole', 'Cousin Cole']]",False,1
+184177.0,,,,,[],[],"[['fennesz', 'Fennesz']]",False,3
+187465.0,23:00,04:00,$10.00,,[],['2010/us-0904-187465-front.jpg'],"[['dhundee', 'Dhundee']]",False,1
+185203.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0813-185203-front.jpg'],[],False,1
+178458.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0709-178458-front.jpg'],[],False,1
+175313.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0625-175313-front.jpg'],[],False,1
+174175.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0618-174175-front.jpg'],[],False,2
+162825.0,,,$14 advance | $16 day of show,,[],['2010/us-0528-162825-front.jpg'],[],False,3
+169257.0,22:00,04:00,Free,,"[['3947', 'Crooked Disco']]",['2010/us-0528-169257-front.jpg'],[],False,1
+162826.0,,,$15,,[],['2010/us-0522-162826-front.jpg'],"[['fuckbuttons', 'Fuck Buttons']]",False,7
+155383.0,,,FREE,,"[['6335', 'Galaxie']]","['2010/us-0501-155383-front.gif', '2010/us-0501-155383-back.jpg']","[['veronicavasicka', 'Veronica Vasicka'], ['justinmiller', 'Justin Miller'], ['jacquesrenault', 'Jacques Renault']]",False,10
+151733.0,,,FREE,,"[['6335', 'Galaxie']]","['2010/us-0403-151733-front.jpg', '2010/us-0403-151733-back.gif']","[['honeysoundsystem', 'Honey Soundsystem'], ['justinmiller', 'Justin Miller'], ['lovefingers', 'Lovefingers']]",False,9
+153832.0,22:00,04:00,Free with RSVP,,"[['3947', 'Crooked Disco']]",['2010/us-0319-153832-front.jpg'],[],False,2
+148336.0,,,FREE,,"[['6335', 'Galaxie']]","['2010/us-0306-148336-front.jpg', '2010/us-0306-148336-back.jpg']","[['leedouglas', 'Lee Douglas'], ['justinvandervolgen', 'Justin Vandervolgen'], ['lovefingers', 'Lovefingers']]",False,5
+150158.0,22:00,04:00,Free with RSVP,,"[['3947', 'Crooked Disco']]",['2010/us-0305-150158-front.jpg'],[],False,1
+145624.0,22:00,04:00,Free with RSVP,,"[['3947', 'Crooked Disco']]",['2010/us-0213-145624-front.jpg'],[],False,3
+135574.0,,,Tickets: $25 advance,,"[['11390', 'Tone Foundation']]",[],"[['moritzvonoswald', 'Moritz von Oswald']]",False,83
+135572.0,,,Free,,"[['11390', 'Tone Foundation']]",[],"[['janjelinek', 'Jan Jelinek'], ['andrewpekler', 'Andrew Pekler'], ['hannoleichtmann', 'Hanno Leichtmann']]",False,12
+143233.0,,,FREE!,,"[['6335', 'Galaxie']]","['2010/us-0206-143233-front.jpg', '2010/us-0206-143233-back.gif']","[['jacquesrenault', 'Jacques Renault'], ['lovefingers', 'Lovefingers'], ['softrocks', 'Soft Rocks']]",False,6
+143060.0,23:00,04:00,$10/15,,[],['2010/us-0129-143060-front.jpg'],[],False,1
+138724.0,23:00,04:00,"$8 advance, $12 day of show",,"[['1493', 'FIXED']]",['2010/us-0123-138724-front.gif'],"[['brodinski', 'Brodinski'], ['pinkskull', 'Pink Skull'], ['jdhdavep', 'JDH & Dave P']]",False,3
+134599.0,,,$5 Adv | $8 Day of,,[],['2010/us-0102-134599-front.jpg'],"[['thexx', 'The xx']]",False,4
+215624.0,,,12/15,,[],[],"[['thephenomenalhandclapband', 'The Phenomenal Handclap Band'], ['tekilatex', 'Teki Latex'], ['bambounou', 'Bambounou'], ['twr72', 'TWR72'], ['undo', 'Undo'], ['theglimmers', 'The Glimmers'], ['mousedown', 'mouseDown'], ['banggangdjs', 'Bang Gang DJs']]",False,0
+215622.0,,,12/15,,[],[],"[['yuksek', 'Yuksek'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['acidwashed', 'Acid Washed']]",False,0
+184737.0,,,35 Euros anticipada - 40 taquilla,,[],"['2010/es-1211-184737-front.jpg', '2010/es-1211-184737-back.jpg']","[['aphextwin', 'Aphex Twin'], ['lukevibert', 'Luke Vibert'], ['dmxkrew', 'DMX Krew']]",False,52
+204865.0,,,15 Euros,,[],"['2010/es-1210-204865-front.jpg', '2010/es-1210-204865-back.jpg']","[['sasha', 'Sasha']]",False,11
+213546.0,,,,,[],[],"[['crystalfighters', 'Crystal Fighters'], ['mathewjonson', 'Mathew Jonson'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['alilove', 'Ali Love'], ['riotousrockers', 'Riotous Rockers']]",False,2
+213545.0,,,,,[],[],"[['yelle', 'Yelle'], ['timomaas', 'Timo Maas'], ['acidgirls', 'Acid Girls']]",False,0
+211103.0,13:00,18:00,15�,,[],[],"[['d.a.r.y.l', 'd.a.r.y.l.'], ['maadraassoo', 'Maadraassoo']]",False,1
+211105.0,13:00,18:00,15�,,[],[],"[['oscarmulero', 'Oscar Mulero'], ['chloe', 'Chloé'], ['undo', 'Undo']]",False,1
+185004.0,,,30 Euros anticipada - 35 taquilla,,[],['2010/es-1106-185004-front.jpg'],"[['lcdsoundsystem', 'LCD Soundsystem'], ['dantoneeprom', 'Danton Eeprom'], ['undo', 'Undo'], ['omarleon', 'Omar Leon'], ['maadraassoo', 'Maadraassoo']]",False,14
+203209.0,00:00 ,06:00 ,"15 Eur, 12 with flyer disc",,[],"['2010/es-1105-203209-front.jpg', '2010/es-1105-203209-back.jpg']","[['ofnorway', 'Of Norway'], ['tomdragebo', 'Tom Dragebo']]",False,2
+198224.0,,,,,[],[],"[['maadraassoo', 'Maadraassoo'], ['paulkalkbrenner', 'Paul Kalkbrenner'], ['undo', 'Undo'], ['guy-ohm', 'Guy Ohm'], ['horsemeatdisco', 'Horse Meat Disco']]",False,21
+198222.0,,,,,[],[],"[['agoria', 'Agoria'], ['midnightjuggernauts', 'Midnight Juggernauts'], ['lostvalentinos', 'Lost Valentinos'], ['maadraassoo', 'Maadraassoo']]",False,1
+198221.0,,,,,[],[],"[['housemeister', 'Housemeister'], ['jokersofthescene', 'Jokers of the Scene']]",False,2
+198220.0,,,,,[],[],"[['slam', 'Slam'], ['totallyenormousextinctdinosaurs', 'Totally Enormous Extinct Dinosaurs'], ['d.a.r.y.l', 'd.a.r.y.l.']]",False,2
+198218.0,,,,,[],[],"[['jeffautomatic', 'Jeff Automatic'], ['rivastarr', 'Riva Starr'], ['omarleon', 'Omar Leon']]",False,4
+198217.0,,,,,[],[],"[['steverachmad', 'Steve Rachmad'], ['lazarocasanova', 'Lazaro Casanova'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['disastronaut', 'Disastronaut']]",False,0
+198215.0,,,,,[],[],"[['carlcraig', 'Carl Craig'], ['jimmyedgar', 'Jimmy Edgar'], ['djnita', 'DJ Nita']]",False,5
+190773.0,23:00,06:00,12euros,,[],[],"[['idc', 'IDC']]",False,0
+194116.0,,,12 anticipada - 15 taquilla,,[],"['2010/es-0924-194116-front.jpg', '2010/es-0924-194116-back.jpg']","[['alanbraxe', 'Alan Braxe'], ['undo', 'Undo']]",False,1
+183511.0,,,TBA,,"[['4424', 'The Motherbird Agency']]",[],"[['claudevonstroke', 'Claude VonStroke']]",False,5
+190668.0,,,€15,,[],[],"[['redshape', 'Redshape'], ['hostage', 'Hostage'], ['grum', 'Grum']]",False,3
+191562.0,,,,,[],[],"[['moguai', 'Moguai'], ['juniorboys', 'Junior Boys'], ['omarleon', 'Omar Leon'], ['maadraassoo', 'Maadraassoo']]",False,0
+189041.0,,,12/15€ with drink,,[],['2010/es-0904-189041-front.jpg'],"[['brodinski', 'Brodinski'], ['soundpellegrinothermalteam', 'Sound Pellegrino Thermal Team'], ['tekilatex', 'Teki Latex'], ['djorgasmic', 'DJ Orgasmic'], ['soliman', 'Soliman'], ['filthydukes', 'Filthy Dukes']]",False,5
+187692.0,23:59 ,06:00 ,"15 eur, 12 eur with discount flyer includes 1 Drink of your choice!",,[],"['2010/es-0903-187692-front.jpg', '2010/es-0903-187692-back.jpg']",[],False,3
+186924.0,,,12/15,,[],[],"[['dokser', 'Dokser'], ['aeroplane', 'Aeroplane'], ['d.a.r.y.l', 'd.a.r.y.l.']]",False,1
+186923.0,,,12/15,,[],[],"[['deepchord', 'DeepChord'], ['echospace', 'Echospace'], ['undo', 'Undo'], ['funkmasta', 'Funkmasta'], ['maadraassoo', 'Maadraassoo']]",False,1
+186921.0,,,,,[],[],"[['undo', 'Undo'], ['omarleon', 'Omar Leon']]",False,0
+183237.0,,,,,[],[],"[['switch', 'Switch'], ['kentonslashdemon', 'Kenton Slash Demon']]",False,3
+183233.0,,,,,[],[],"[['maadraassoo', 'Maadraassoo'], ['felixdahousecat', 'Felix Da Housecat'], ['mousedown', 'mouseDown']]",False,6
+183224.0,,,,,[],[],"[['maadraassoo', 'Maadraassoo'], ['cagedbaby', 'Cagedbaby'], ['franzshape', 'Franz & Shape']]",False,1
+183223.0,,,,,[],[],"[['maadraassoo', 'Maadraassoo'], ['kevinsaunderson', 'Kevin Saunderson'], ['caribou', 'Caribou'], ['cardopusher', 'Cardopusher']]",False,3
+181251.0,,,15,,[],[],"[['agoria', 'Agoria'], ['francescotristano', 'Francesco Tristano'], ['totallyenormousextinctdinosaurs', 'Totally Enormous Extinct Dinosaurs'], ['ginaturner', 'Gina Turner']]",False,1
+181250.0,,,15,,[],[],"[['maadraassoo', 'Maadraassoo'], ['dropthelime', 'Drop The Lime'], ['thegoldenfilter', 'The Golden Filter'], ['justinmartin', 'Justin Martin']]",False,0
+179398.0,,,,,[],['2010/es-0717-179398-front.jpg'],"[['donrimini', 'Don Rimini'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['undo', 'Undo'], ['cassian', 'Cassian']]",False,0
+179395.0,,,,,[],['2010/es-0716-179395-front.jpg'],"[['alexanderkowalski', 'Alexander Kowalski'], ['principlesofgeometry', 'Principles of Geometry'], ['joakim', 'Joakim']]",False,0
+178630.0,,,,,[],['2010/es-0710-178630-front.jpg'],"[['chromeo', 'Chromeo'], ['blackdevildiscoclub', 'Black Devil Disco Club'], ['olmos', 'Olmos'], ['hidro', 'Hidro']]",False,0
+178194.0,01:00 ,18:00 ,15 Euros,,[],"['2010/es-0709-178194-front.jpg', '2010/es-0709-178194-back.jpg']","[['jeffautomatic', 'Jeff Automatic'], ['undo', 'Undo'], ['thetwelves', 'The Twelves'], ['omarleon', 'Omar Leon']]",False,2
+176463.0,,,,,[],['2010/es-0703-176463-front.jpg'],"[['krismenace', 'Kris Menace'], ['omarleon', 'Omar Leon'], ['johanagebjoern', 'Johan Agebjörn'], ['maadraassoo', 'Maadraassoo']]",False,0
+176462.0,,,,,[],['2010/es-0702-176462-front.jpg'],"[['lukeslater', 'Luke Slater'], ['undo', 'Undo'], ['krazybaldhead', 'Krazy Baldhead'], ['villa', 'VillA'], ['guy-ohm', 'Guy Ohm'], ['sidechains', 'Sidechains']]",False,0
+174471.0,,,,,[],[],"[['crookers', 'Crookers'], ['omarleon', 'Omar Leon']]",False,0
+174472.0,,,,,[],[],"[['daveclarke', 'Dave Clarke'], ['jamesholden', 'James Holden'], ['juanmaclean', 'Juan Maclean'], ['omarleon', 'Omar Leon'], ['theswiss', 'The Swiss'], ['modulardjs', 'Modular DJs'], ['rho', 'Rho'], ['funkmasta', 'Funkmasta']]",False,1
+172200.0,,,,,[],[],"[['etiennedecrecy', 'Etienne De Crecy'], ['feadz', 'Feadz'], ['treasurefingers', 'Treasure Fingers'], ['sidechains', 'Sidechains']]",False,1
+170315.0,01:00,06:00,12€-15€ drink incl.,,"[['10094', 'Voltech']]",['2010/es-0604-170315-front.jpg'],"[['hector', 'Hector'], ['dhanimal', 'Dhanimal']]",False,1
+170008.0,,,,,[],[],"[['oscarmulero', 'Oscar Mulero'], ['undo', 'Undo'], ['omarleon', 'Omar Leon']]",False,0
+170007.0,,,,,[],[],"[['misstressbarbara', 'Misstress Barbara'], ['christiansmith', 'Christian Smith'], ['undo', 'Undo']]",False,0
+167239.0,,,,,[],[],"[['maadraassoo', 'Maadraassoo'], ['djmehdi', 'DJ Mehdi'], ['riton', 'Riton'], ['gebruderteichmann', 'Gebrüder Teichmann'], ['goncalo', 'Gonçalo'], ['guy-ohm', 'Guy Ohm']]",False,0
+167238.0,,,,,[],[],"[['stevebug', 'Steve Bug'], ['gummihz', 'GummiHz'], ['metroarea', 'Metro Area']]",False,0
+162444.0,22:00,06:00,tba,,[],[],"[['traumschmiere', 'T. Raumschmiere'], ['undo', 'Undo']]",False,2
+163945.0,,,15 Euro,,[],[],"[['kimannfoxman', 'Kim Ann Foxman'], ['herculesloveaffair', 'Hercules and Love Affair']]",False,1
+161487.0,,,,,[],[],"[['adamfreeland', 'Adam Freeland'], ['wallylopez', 'Wally Lopez'], ['drumsofdeath', 'Drums Of Death'], ['mousedown', 'mouseDown']]",False,1
+161485.0,,,,,[],[],"[['misskittin', 'Miss Kittin'], ['undo', 'Undo'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['sidechains', 'Sidechains']]",False,1
+160849.0,,,,,[],[],"[['ryandavis', 'Ryan Davis'], ['undo', 'Undo'], ['moullinex', 'Moullinex']]",False,0
+158612.0,,,,,[],[],"[['d.i.m', 'D.I.M.'], ['undo', 'Undo'], ['ursula1000', 'Ursula 1000'], ['maadraassoo', 'Maadraassoo']]",False,0
+158610.0,,,,,[],[],"[['tiefschwarz', 'Tiefschwarz'], ['sante', 'Santé'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['razz', 'Razz'], ['disastronaut', 'Disastronaut'], ['sidechains', 'Sidechains']]",False,1
+157713.0,,,,,[],[],"[['newyoungponyclub', 'New Young Pony Club'], ['steverachmad', 'Steve Rachmad'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['bobmo', 'Bobmo'], ['larrytee', 'Larry Tee']]",False,0
+157712.0,,,,,[],[],"[['bensims', 'Ben Sims'], ['paulmac', 'Paul Mac'], ['undo', 'Undo'], ['krismenace', 'Kris Menace'], ['omarleon', 'Omar Leon']]",False,0
+153796.0,,,,,[],[],"[['micheldehey', 'Michel de Hey'], ['mousedown', 'mouseDown'], ['djyamaho', 'DJ Yamaho']]",False,1
+153795.0,,,,,[],[],"[['manos', 'Manos'], ['kevinsaunderson', 'Kevin Saunderson'], ['acidkids', 'Acidkids'], ['sidechains', 'Sidechains']]",False,0
+152172.0,,,,,[],[],"[['surkin', 'Surkin'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['sergesantiago', 'Serge Santiago'], ['mightyfools', 'Mightyfools']]",False,1
+152171.0,,,,,[],[],"[['thejapanesepopstars', 'The Japanese Popstars'], ['undo', 'Undo'], ['angelmolina-es', 'Angel Molina'], ['mousedown', 'mouseDown'], ['guy-ohm', 'Guy-Ohm'], ['sidechains', 'Sidechains']]",False,1
+150147.0,,,,,[],[],"[['marcmarzenit', 'Marc Marzenit'], ['omarleon', 'Omar Leon'], ['djbeware', 'DJ Beware'], ['funkmasta', 'Funkmasta']]",False,1
+150145.0,,,,,[],[],"[['whomadewho', 'WhoMadeWho'], ['greenvelvet', 'Green Velvet'], ['undo', 'Undo'], ['mixhell', 'Mixhell'], ['maadraassoo', 'Maadraassoo']]",False,0
+149752.0,,,,,[],[],"[['joshwink', 'Josh Wink'], ['perc', 'Perc'], ['joakim', 'Joakim'], ['riotousrockers', 'Riotous Rockers']]",False,1
+143569.0,,,15�,,[],[],"[['crookers', 'Crookers']]",False,3
+136819.0,,,tbc,,[],[],"[['delphic', 'Delphic'], ['maadraassoo', 'Maadraassoo'], ['crookers', 'Crookers'], ['kleerup', 'Kleerup'], ['classixx', 'Classixx'], ['undo', 'Undo']]",False,2
+141239.0,01:00,06:00,15 Euros (bebida incluida),,[],['2010/es-0220-141239-front.jpg'],"[['agoria', 'Agoria'], ['xinobi', 'Xinobi'], ['omarleon', 'Omar Leon'], ['roryphillips', 'Rory Phillips'], ['sidechains', 'Sidechains']]",False,6
+146870.0,,,,,[],[],"[['carlcraig', 'Carl Craig'], ['mikebanks', 'Mike Banks'], ['calvinharris', 'Calvin Harris'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['maadraassoo', 'Maadraassoo']]",False,3
+146488.0,,,,,[],[],"[['rexthedog', 'Rex the Dog'], ['panthaduprince', 'Pantha Du Prince'], ['mousedown', 'mouseDown']]",False,0
+141238.0,01:00,06:00,15 Euros (drink included),,[],['2010/es-0212-141238-front.jpg'],"[['trentemoller', 'Trentemøller'], ['undo', 'Undo']]",False,7
+141240.0,01:00,06:00,15 Euros (bebida incluida),,[],['2010/es-0205-141240-front.jpg'],"[['felixdahousecat', 'Felix Da Housecat'], ['dropthelime', 'Drop The Lime'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['mousedown', 'mouseDown'], ['treasurefingers', 'Treasure Fingers'], ['sidechains', 'Sidechains']]",False,2
+137619.0,,,15,,"[['783', 'Sinnamon']]",[],"[['claudevonstroke', 'Claude VonStroke']]",False,7
+140479.0,,,,,[],[],"[['philkieran', 'Phil Kieran'], ['makethegirldance', 'Make the Girl Dance'], ['d.a.r.y.l', 'd.a.r.y.l.']]",False,0
+131320.0,22:00,06:00,si,,[],[],"[['traumschmiere', 'T. Raumschmiere'], ['undo', 'Undo'], ['laurenflax', 'Lauren Flax'], ['sidechains', 'Sidechains']]",False,4
+137624.0,,,,,[],[],"[['maadraassoo', 'Maadraassoo'], ['cagedbaby', 'Cagedbaby'], ['nathanjoy', 'Nathan Joy'], ['sidechains', 'Sidechains']]",False,0
+137623.0,,,,,[],[],"[['wallylopez', 'Wally Lopez'], ['jaumetic', 'Jaumetic'], ['omarleon', 'Omar Leon']]",False,1
+136668.0,,,tbc,,[],[],"[['paulwoolford', 'Paul Woolford'], ['d.a.r.y.l', 'd.a.r.y.l.'], ['omarleon', 'Omar Leon'], ['maadraassoo', 'Maadraassoo']]",False,0
+219224.0,00:30,"06:00,New Years Eve",15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1231-219224-front.jpg'],"[['djfra', 'Dj Fra'], ['marcpinol', 'Marc Piñol']]",False,2
+215938.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1218-215938-front.jpg'],"[['marcmarzenit', 'Marc Marzenit'], ['djfra', 'Dj Fra']]",False,4
+215903.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1217-215903-front.jpg'],"[['ellenallien', 'Ellen Allien'], ['djfra', 'Dj Fra']]",False,7
+215115.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1211-215115-front.jpg'],"[['egyptrixx', 'Egyptrixx'], ['marcpinol', 'Marc Piñol']]",False,1
+215110.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1210-215110-front.jpg'],"[['jorisvoorn', 'Joris Voorn'], ['ripperton', 'Ripperton']]",False,3
+213076.0,00:30,06:00,15€ | 8€ socios Plastic Club | Gratis poseedores tarjeta-abono Primavera Sound 2010,,[],['2010/es-1204-213076-front.gif'],"[['dropthelime', 'Drop The Lime'], ['djfra', 'Dj Fra']]",False,1
+213064.0,23:00,06:00,"* Puertas a las 22:00 h. * Anticipada: 25€ + gastos en http://www.codetickets.com/primavera-sound-ii/es/web/2/| * Taquilla: 30€ // Otros puntos de venta: Fnac, Carrefour, Halcón Viajes, www.ticketmaster.es (902.15.00.25) * A partir de las 00:30 h. 1",,[],['2010/es-1203-213064-front.jpg'],"[['bloodybeetroots', 'Bloody Beetroots'], ['djfra', 'Dj Fra']]",False,1
+208247.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1120-208247-front.jpg'],"[['riton', 'Riton'], ['djmehdi', 'DJ Mehdi'], ['djfra', 'Dj Fra']]",False,1
+208245.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1119-208245-front.jpg'],"[['djfra', 'Dj Fra']]",False,1
+206936.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],[],"[['shackleton', 'Shackleton'], ['djfra', 'Dj Fra']]",False,2
+206649.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1112-206649-front.jpg'],"[['erolalkan', 'Erol Alkan'], ['peoplegetreal', 'People Get Real']]",False,4
+205017.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1106-205017-front.jpg'],"[['marcpinol', 'Marc Piñol']]",False,1
+204988.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1105-204988-front.jpg'],"[['technasia', 'Technasia'], ['djfra', 'Dj Fra']]",False,2
+202786.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1030-202786-front.jpg'],[],False,5
+202782.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1029-202782-front.jpg'],[],False,1
+201024.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1023-201024-front.jpg'],"[['matiasaguayo', 'Matias Aguayo'], ['rebolledo', 'Rebolledo'], ['diegors', 'Diegors'], ['danielmaloso', 'Daniel Maloso'], ['marcpinol', 'Marc Piñol']]",False,5
+201015.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1022-201015-front.jpg'],[],False,1
+200108.0,00:30,06:00,15 € (8 € socios Plastic Club/ gratis poseedores tarjeta-abono Primavera Sound ´10),,[],['2010/es-1016-200108-front.jpg'],"[['markbroom', 'Mark Broom']]",False,5
+200011.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1015-200011-front.jpg'],"[['roberthood', 'Robert Hood'], ['djfra', 'Dj Fra']]",False,6
+197617.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1009-197617-front.jpg'],[],False,1
+197533.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1008-197533-front.jpg'],"[['saschafunke', 'Sascha Funke'], ['fritzzander', 'Fritz Zander'], ['djfra', 'Dj Fra']]",False,5
+196252.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1002-196252-front.jpg'],"[['patrickpulsinger', 'Patrick Pulsinger'], ['djfra', 'Dj Fra']]",False,1
+196241.0,00:30,06:00,15€ (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-1001-196241-front.jpg'],"[['sebastian', 'SebastiAn'], ['mr.flash', 'Mr. Flash']]",False,1
+193874.0,00:30,06:00,15 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-0925-193874-front.jpg'],"[['superpitcher', 'Superpitcher'], ['robagwruhme', 'Robag Wruhme'], ['jatoma', 'Jatoma'], ['djfra', 'Dj Fra']]",False,4
+193852.0,00:30,06:00,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-0924-193852-front.jpg'],[],False,0
+193325.0,,,15€ | 8€ socios Plastic Club | Gratis poseedores tarjeta-abono Primavera Sound 2010,,[],['2010/es-0918-193325-front.jpg'],"[['surkin', 'Surkin'], ['djfra', 'Dj Fra']]",False,1
+193309.0,,,13 € (8 € SOCIOS PLASTIC CLUB GRATIS ABONO PS10),,[],['2010/es-0917-193309-front.jpg'],"[['djfra', 'Dj Fra'], ['marcpinol', 'Marc Piñol']]",False,1
+186606.0,,,13/8,,[],[],"[['tracy', 'Tracy']]",False,0
+186598.0,,,13,,[],[],"[['marcpinol', 'Marc Piñol']]",False,0
+187423.0,,,15 euros / 8 euros,,"[['539', 'Phonica Records'], ['8262', 'Nitsa Club']]",[],"[['fourtet', 'Four Tet'], ['djfra', 'Dj Fra']]",False,5
+164905.0,23:00,06:00,tbc,,[],['2010/es-0619-164905-front.jpg'],"[['ellenallien', 'Ellen Allien'], ['chaim', 'Chaim'], ['kiki', 'Kiki'], ['saschafunke', 'Sascha Funke']]",False,59
+172723.0,22:00,07:00,15,,"[['6648', 'Kompakt'], ['8262', 'Nitsa Club']]",[],"[['michaelmayer', 'Michael Mayer'], ['superpitcher', 'Superpitcher'], ['guiboratto', 'Gui Boratto'], ['djkoze', 'DJ Koze'], ['djfra', 'Dj Fra']]",False,37
+164870.0,0h30:00,6h:00,15 Euros,,[],['2010/es-0508-164870-front.jpg'],"[['saschafunke', 'Sascha Funke'], ['fritzzander', 'Fritz Zander'], ['djfra', 'Dj Fra']]",False,5
+155999.0,,,TBA,,[],[],"[['ellenallien', 'Ellen Allien']]",False,8
+151570.0,,,15,,[],[],"[['superpitcher', 'Superpitcher'], ['djfra', 'Dj Fra']]",False,7
+151569.0,,,15,,[],[],"[['jennifercardini', 'Jennifer Cardini'], ['djfra', 'Dj Fra']]",False,1
+151568.0,,,,,[],[],"[['sinden', 'Sinden'], ['djfra', 'Dj Fra']]",False,0
+151567.0,,,,,[],['2010/es-0312-151567-front.jpg'],"[['djfra', 'Dj Fra']]",False,1
+151566.0,,,13,,[],[],"[['tadeo', 'Tadeo'], ['damianschwartz', 'Damian Schwartz']]",False,0
+201578.0,12:00,06:00,15 euro,,[],[],"[['fakeblood', 'Fake Blood']]",False,0
+137902.0,,,15/8 �,,[],[],"[['djkoze', 'DJ Koze'], ['djfra', 'Dj Fra']]",False,6
+218049.0,,,30€ DOOR 25€ PRESALE,,"[['11129', 'The One']]",['2010/es-1231-218049-front.jpg'],"[['almunoz', 'Al Muñoz'], ['leepicton', 'Lee Picton']]",False,1
+216111.0,12:00 ,06:00 ',5 euro with Gest List until 3h00,,[],"['2010/es-1217-216111-front.jpg', '2010/es-1217-216111-back.jpg']","[['artdepartment', 'Art Department'], ['vincentabbo', 'Vincent Abbo'], ['siriusmade', 'Sirius Made']]",False,16
+210795.0,00:00,06:00,10 -15,,[],[],"[['cesarmerveille', 'Cesar Merveille']]",False,2
+207842.0,00:00,06:00,15€ with drink- 20€ with 2 drinks,,[],['2010/es-1119-207842-front.jpg'],"[['tato', 'Tato']]",False,21
+203881.0,00:00,06:00,20�,,[],['2010/es-1112-203881-front.jpg'],"[['michaeljames', 'Michael James'], ['jonathantena', 'Jonathan Tena']]",False,23
+203874.0,00:00,06:00,18�,,[],['2010/es-1105-203874-front.jpg'],"[['shaunreeves', 'Shaun Reeves'], ['ryancrosson', 'Ryan Crosson'], ['vincentabbo', 'Vincent Abbo'], ['anushka', 'Anushka']]",False,30
+200018.0,00:00,06:00,15€ with drink- 20€ with 2 drinks,,"[['11129', 'The One']]",['2010/es-1029-200018-front.jpg'],"[['robertdietz', 'Robert Dietz'], ['danicasarano', 'Dani Casarano']]",False,35
+197275.0,00:00,06:00,20€ WITH 1 DRINK - 15€ WITH 1 DRINK GUEST LIST,,"[['113', 'CircoLoco']]",['2010/es-1022-197275-front.jpg'],"[['taniavulcano', 'Tania Vulcano'], ['andrewgrant', 'Andrew Grant']]",False,25
+184470.0,,,INVITATION ONLY,,"[['11930', 'Undrez']]",['2010/es-0813-184470-front.jpg'],"[['lucioaquilina', 'Lucio Aquilina'], ['andrebuljat', 'Andre Buljat'], ['rossko', 'Rossko'], ['sergiobernardi', 'Sergio Bernardi'], ['lyonel', 'Lyonel']]",False,27
+172719.0,23:00,06:00,18/15,,"[['113', 'CircoLoco']]",['2010/es-0619-172719-front.jpg'],"[['taniavulcano', 'Tania Vulcano'], ['tato', 'Tato'], ['djwild', 'DJ W!ld'], ['massprod', 'Mass Prod']]",False,14
+165135.0,,,,,"[['11129', 'The One']]",['2010/es-0529-165135-front.jpg'],"[['zip', 'Zip'], ['sammydee', 'Sammy Dee'], ['a-lex', 'A-Lex']]",False,20
+165267.0,,,,,"[['11129', 'The One']]",['2010/es-0528-165267-front.jpg'],[],False,18
+163850.0,,,,,"[['11129', 'The One']]",['2010/es-0522-163850-front.jpg'],"[['departurebrothers', 'Departure Brothers'], ['hector', 'Hector']]",False,11
+163848.0,,,,,"[['11129', 'The One']]",['2010/es-0521-163848-front.jpg'],[],False,17
+163843.0,,,,,"[['11129', 'The One']]",['2010/es-0515-163843-front.jpg'],"[['seuil', 'Seuil'], ['yaya', 'Yaya'], ['turko', 'TurKo'], ['ramabloom', 'Rama Bloom']]",False,11
+163841.0,,,,,"[['11129', 'The One']]",['2010/es-0514-163841-front.jpg'],"[['raresh', 'Raresh'], ['tato', 'Tato'], ['manuve', 'Manuve']]",False,22
+163836.0,,,,,"[['11129', 'The One']]",['2010/es-0508-163836-front.jpg'],"[['yaya', 'Yaya'], ['rossko', 'Rossko'], ['hector', 'Hector']]",False,10
+163830.0,,,15,,"[['11129', 'The One']]",['2010/es-0507-163830-front.jpg'],"[['guillaume', 'Guillaume & The Coutu Dumonts'], ['ernestoferreyra', 'Ernesto Ferreyra'], ['joaquinces', 'Joaquin Ces']]",False,15
+162691.0,,,,,"[['11129', 'The One']]",['2010/es-0501-162691-front.jpg'],"[['federicomolinari', 'Federico Molinari'], ['massimodilena', 'Massimo Di Lena']]",False,12
+156297.0,00:00,06:00,,,"[['11129', 'The One'], ['11930', 'Undrez']]",['2010/es-0430-156297-front.jpg'],"[['marchoule', 'Marc Houle'], ['okain', 'Okain'], ['jacobhusley', 'Jacob Husley'], ['peterpixzel', 'Peter Pixzel'], ['cormac', 'Cormac']]",False,37
+156291.0,00:00,06:00,,,"[['11129', 'The One']]",['2010/es-0424-156291-front.jpg'],"[['josededivina', 'Jose De Divina']]",False,23
+156290.0,00:00,06:00,,,"[['11129', 'The One']]",['2010/es-0423-156290-front.jpg'],"[['damianlazarus', 'Damian Lazarus'], ['andrebuljat', 'Andre Buljat']]",False,31
+156288.0,00:00,06:00,,,"[['11129', 'The One']]",['2010/es-0417-156288-front.jpg'],"[['taniavulcano', 'Tania Vulcano'], ['davidesquillace', 'Davide Squillace'], ['systemofsurvival', 'System Of Survival']]",False,30
+156287.0,00:00,06:00,,,"[['11129', 'The One']]",['2010/es-0416-156287-front.jpg'],"[['franciscoallendes', 'Francisco Allendes'], ['yaya', 'Yaya']]",False,26
+156285.0,00:00,06:00,,,"[['11129', 'The One']]",['2010/es-0410-156285-front.jpg'],"[['gabrielananda', 'Gabriel Ananda'], ['marceljanovsky', 'Marcel Janovsky'], ['yaya', 'Yaya'], ['joaquinces', 'Joaquin Ces']]",False,24
+156284.0,00:00,06:00,,,"[['11129', 'The One']]",['2010/es-0409-156284-front.jpg'],"[['cesarmerveille', 'Cesar Merveille'], ['bastigrub', 'Basti Grub']]",False,27
+154899.0,00:00,06:00 ,,,"[['11129', 'The One']]",['2010/es-0403-154899-front.jpg'],"[['markonastic', 'Marko Nastic'], ['departurebrothers', 'Departure Brothers'], ['a-lex', 'A-Lex']]",False,28
+154895.0,00:00,06:00 ,,,"[['11129', 'The One']]",['2010/es-0402-154895-front.jpg'],"[['johnnyd', 'Johnny D'], ['turko', 'TurKo'], ['ramabloom', 'Rama Bloom']]",False,28
+154892.0,00:00,06:00 ,,,"[['11129', 'The One']]",['2010/es-0327-154892-front.jpg'],"[['joaquinces', 'Joaquin Ces'], ['departurebrothers', 'Departure Brothers'], ['turko', 'TurKo'], ['andrebuljat', 'Andre Buljat']]",False,6
+154872.0,00:00,06:00 ,,,"[['11129', 'The One']]",['2010/es-0326-154872-front.jpg'],"[['dandyjack', 'Dandy Jack'], ['sonjamoonear', 'Sonja Moonear'], ['losupdates', 'Los Updates']]",False,6
+153846.0,,,12€/ 15€/ 18�,,[],[],"[['timomaas', 'Timo Maas'], ['danghenacia', 'Dan Ghenacia'], ['yaya', 'Yaya']]",False,2
+153840.0,00:00,02:00a,free pass/12€/15€/18�,,[],[],"[['martinlandsky', 'Martin Landsky'], ['turko', 'TurKo']]",False,4
+152400.0,,,15e,,"[['11930', 'Undrez']]",['2010/es-0313-152400-front.jpg'],"[['layoandbushwacka', 'Layo & Bushwacka'], ['yaya', 'Yaya']]",False,4
+152399.0,,,13E,,"[['11930', 'Undrez']]",['2010/es-0312-152399-front.jpg'],"[['nimagorji', 'Nima Gorji'], ['jimpster', 'Jimpster']]",False,1
+148542.0,,,13e + Drink before 2am / 15e + Drink before 3-30am / 18e General Entrance Fee + Drink,,"[['113', 'CircoLoco']]",['2010/es-0306-148542-front.jpg'],"[['taniavulcano', 'Tania Vulcano'], ['tato', 'Tato'], ['garagem', 'Garagem']]",False,41
+148540.0,,,Free Guest List Event,,[],['2010/es-0305-148540-front.jpg'],"[['nickaleb', 'Nic & Kaleb'], ['valentinokanzyani', 'Valentino Kanzyani'], ['aneuria', 'Aneuria']]",False,43
+195054.0,00:30h,06:00,"18€ with a drink, 15€ advanced",,"[['22', 'Secretsundaze'], ['642', 'Nightsun Group']]","['2010/es-0924-195054-front.jpg', '2010/es-0924-195054-back.jpg']","[['jamespriestley', 'James Priestley'], ['gilessmith', 'Giles Smith'], ['oscaraguilera', 'Oscar Aguilera']]",False,2
+190544.0,22:00,06:00,"€15 pre-sale/facebook, €18 on the door",,[],"['2010/es-0910-190544-front.jpg', '2010/es-0910-190544-back.jpg']","[['joeynegro', 'Joey Negro'], ['bodyrox', 'Bodyrox'], ['leepicton', 'Lee Picton'], ['sapphire', 'SAPPHIRE']]",False,5
+188336.0,23:30,06:00,...,,[],"['2010/es-0903-188336-front.jpg', '2010/es-0903-188336-back.jpg']","[['merchypooop', 'MerchyPoöoP']]",False,1
+183538.0,00:00,06:00,18,,"[['642', 'Nightsun Group']]","['2010/es-0827-183538-front.jpg', '2010/es-0827-183538-back.jpg']","[['timidboy', 'Timid Boy'], ['oscaraguilera', 'Oscar Aguilera']]",False,1
+183535.0,00:00,06:00,18,,[],"['2010/es-0821-183535-front.jpg', '2010/es-0821-183535-back.jpg']","[['sergiopatricio', 'Sergio Patricio'], ['oscaraguilera', 'Oscar Aguilera']]",False,2
+183534.0,00:00,06:00,18,,"[['642', 'Nightsun Group']]","['2010/es-0820-183534-front.jpg', '2010/es-0820-183534-back.jpg']","[['siliconesoul', 'Silicone Soul'], ['oscaraguilera', 'Oscar Aguilera']]",False,4
+183533.0,00:00,06:00,18,,"[['642', 'Nightsun Group']]","['2010/es-0813-183533-front.jpg', '2010/es-0813-183533-back.jpg']","[['smokinjo', 'Smokin Jo'], ['oscaraguilera', 'Oscar Aguilera']]",False,1
+183243.0,12:00,06:00,15,,"[['642', 'Nightsun Group']]","['2010/es-0807-183243-front.jpg', '2010/es-0807-183243-back.jpg']","[['sergiopatricio', 'Sergio Patricio'], ['oscaraguilera', 'Oscar Aguilera']]",False,1
+183240.0,12:00,06:00,15,,"[['642', 'Nightsun Group']]","['2010/es-0806-183240-front.jpg', '2010/es-0806-183240-back.jpg']","[['oscaraguilera', 'Oscar Aguilera']]",False,1
+179033.0,12:00,06:00,18,,"[['22', 'Secretsundaze'], ['642', 'Nightsun Group']]",['2010/es-0730-179033-front.jpg'],"[['gilessmith', 'Giles Smith'], ['twoarmadillos', 'Two Armadillos'], ['jamespriestley', 'James Priestley'], ['oscaraguilera', 'Oscar Aguilera']]",False,14
+179406.0,12:00,06:00,18,,"[['642', 'Nightsun Group']]","['2010/es-0723-179406-front.jpg', '2010/es-0723-179406-back.jpg']","[['paulwoolford', 'Paul Woolford'], ['oscaraguilera', 'Oscar Aguilera']]",False,3
+178131.0,12:00,06:00,18,,"[['642', 'Nightsun Group']]","['2010/es-0716-178131-front.jpg', '2010/es-0716-178131-back.jpg']","[['oscaraguilera', 'Oscar Aguilera'], ['sergiopatricio', 'Sergio Patricio']]",False,2
+178129.0,12:00,06:00,18,,"[['642', 'Nightsun Group']]",['2010/es-0709-178129-front.jpg'],"[['mikel_ecray1labworks', 'Mikel_e'], ['soulrack', 'Soulrack'], ['oscaraguilera', 'Oscar Aguilera']]",False,1
+176155.0,12:30,06:00,20$,,"[['642', 'Nightsun Group']]","['2010/es-0702-176155-front.jpg', '2010/es-0702-176155-back.jpg']","[['coyu', 'Coyu'], ['eduimbernon', 'Edu Imbernon'], ['oscaraguilera', 'Oscar Aguilera']]",False,9
+175189.0,12:00,06:00,15,,"[['642', 'Nightsun Group']]",['2010/es-0625-175189-back.jpg'],"[['oscaraguilera', 'Oscar Aguilera']]",False,1
+171735.0,00:30h,06:00,"18€ with a drink, 15€ advanced",,"[['642', 'Nightsun Group']]","['2010/es-0619-171735-front.jpg', '2010/es-0619-171735-back.jpg']","[['crazypenis', 'Crazy P'], ['miltonjackson', 'Milton Jackson'], ['wagoncookin', 'Wagon Cookin'], ['hottoddy', 'Hot Toddy'], ['alvelilla', 'Al Velilla'], ['oscaraguilera', 'Oscar Aguilera']]",False,11
+170034.0,,,TBA,,[],[],"[['trentemoller', 'Trentemøller'], ['kasper', 'Kasper'], ['kollektivturmstrasse', 'Kollektiv Turmstrasse']]",False,48
+170312.0,12:00,06:00,15,,"[['642', 'Nightsun Group']]","['2010/es-0611-170312-front.jpg', '2010/es-0611-170312-back.jpg']","[['sergiopatricio', 'Sergio Patricio'], ['oscaraguilera', 'Oscar Aguilera']]",False,1
+169978.0,23:59,06:00,"18 at door, 15+drink with guest list",,[],"['2010/es-0604-169978-front.jpg', '2010/es-0604-169978-back.jpg']","[['dariussyrossian', 'Darius Syrossian'], ['donnabeatz', 'Donna Beatz'], ['robsmall', 'Rob Small']]",False,4
+163137.0,00h:00,06:00,"18€, 15€ with discount",,"[['642', 'Nightsun Group'], ['20696', 'Night Sun Group']]","['2010/es-0521-163137-front.jpg', '2010/es-0521-163137-back.jpg']","[['alexflatner', 'Alex Flatner'], ['oscaraguilera', 'Oscar Aguilera']]",False,7
+151391.0,,,"Ticketmaster: 150 € + 5,30 € booking fee",,"[['39130', 'Primavera Sound']]",[],"[['beachhouse', 'Beach House'], ['benfrost', 'Ben Frost'], ['boy8bit', 'Boy 8-Bit'], ['fakeblood', 'Fake Blood'], ['leescratchperry', ""Lee 'Scratch' Perry""], ['liquidliquid', 'Liquid Liquid'], ['orbital', 'Orbital'], ['petshopboys', 'Pet Shop Boys'], ['thefield', 'The Field']]",False,5
+151389.0,,,"150 € + 5,30 € booking fee.",,"[['39130', 'Primavera Sound']]",[],"[['diplo', 'Diplo'], ['majorlazer', 'Major Lazer'], ['pandabear', 'Panda Bear'], ['spoon', 'Spoon'], ['bloodybeetroots', 'The Bloody Beetroots']]",False,3
+207776.0,21:00,04:00,£13 all night,,"[['10814', 'Simple Productions']]",['2010/uk-1204-207776-front.jpg'],"[['erolalkan', 'Erol Alkan'], ['emwilliams', 'Em Williams'], ['jamesweston', 'James Weston']]",False,3
+205221.0,22:00,04:00,"£6 adv., £8 on the door.",,"[['10814', 'Simple Productions']]",['2010/uk-1106-205221-front.jpg'],"[['hotcity', 'Hot City'], ['emwilliams', 'Em Williams'], ['jamesweston', 'James Weston'], ['johnmalcolmmoore', 'John Malcolm Moore']]",False,1
+152573.0,22:00,04:00,"£7 advance, more on the door.",,"[['10814', 'Simple Productions']]",['2010/uk-0417-152573-front.jpg'],"[['emwilliams', 'Em Williams'], ['jamesweston', 'James Weston']]",False,1
+151175.0,22:00,04:00,"£7 advance, more on the door.",,"[['10814', 'Simple Productions']]",['2010/uk-0306-151175-front.jpg'],"[['emwilliams', 'Em Williams'], ['jamesweston', 'James Weston'], ['angiewalter', 'Angie Walter']]",False,2
+144103.0,2200:00,0400:00,£7,,[],['2010/uk-0206-144103-front.jpg'],"[['mumdance', 'Mumdance'], ['emwilliams', 'Em Williams'], ['jamesweston', 'James Weston'], ['johnmarshall', 'John Marshall']]",False,1
+212243.0,22:00,"03:00,New Years Eve",£15.00,,[],['2010/uk-1231-212243-front.jpg'],[],False,1
+212238.0,22:00,03:00,£6 in advance via http://www.crowdsurge.com/guiltypleasures/?id=1866,,[],[],[],False,1
+201748.0,21:00,"3,New Years Eve:00","£15 Earlybird, £20 saver, £25 Standard",,"[['12028', 'OFF KEY']]",['2010/uk-1231-201748-front.jpg'],"[['sethtroxler', 'Seth Troxler'], ['samball', 'Sam Ball'], ['leebrinx', 'Lee Brinx'], ['duncank', 'Duncan K']]",False,17
+214579.0,23:00,06:00,"15 eur, 20 eur",,[],"['2010/fr-1218-214579-front.jpg', '2010/fr-1218-214579-back.jpg']","[['donrimini', 'Don Rimini'], ['naughtyj', 'Naughty J']]",False,1
+213074.0,23:00,05:00,15€ en prévente / 18€ sur place,,"[['11678', 'La Machine du Moulin Rouge']]",['2010/fr-1203-213074-front.jpg'],"[['etiennedecrecy', 'Etienne De Crecy'], ['produkkt', 'Produkkt'], ['irishsteph', 'Irish Steph'], ['discodawn', 'Disco Dawn'], ['kanthos', 'Kanthos']]",False,1
+206885.0,23:00,06:00,"20€,15€ préventes",,[],['2010/fr-1126-206885-front.jpg'],"[['bonesdj', 'Bones DJ'], ['krazybaldhead', 'Krazy Baldhead'], ['numinots', 'Numinots'], ['numinots', 'Numinots']]",False,3
+199230.0,,,16 �,,[],"['2010/fr-1106-199230-front.jpg', '2010/fr-1106-199230-back.jpg']","[['kromestar', 'Kromestar'], ['mightyfools', 'Mightyfools'], ['kaptaincadillac', 'Kaptain Cadillac'], ['hybu', 'Hybu'], ['nostromo', 'Nostromo']]",False,7
+196376.0,22:00,06:00,"20€,15€ préventes",,[],"['2010/fr-1022-196376-front.jpg', '2010/fr-1022-196376-back.jpg']","[['kavinsky', 'Kavinsky'], ['playpaul', 'Play Paul'], ['numinots', 'Numinots'], ['mouloud', 'Mouloud']]",False,3
+187663.0,23:00,06:00,PRESALE : 18 € / AT THE DOOR : 22 �,,"[['3508', 'KATAPULT']]",['2010/fr-1002-187663-front.jpg'],"[['isolee', 'Isolée'], ['trusme', ""Trus'me""], ['skudge', 'Skudge'], ['skudge', 'Skudge'], ['dandyjack', 'Dandy Jack'], ['linkwood', 'Linkwood'], ['sonjamoonear', 'Sonja Moonear'], ['portable', 'Portable'], ['dolibox', 'Dolibox'], ['mzkbx', 'Mzkbx'], ['laetitiadekatapult', 'Laetitia de Katapult']]",False,42
+166161.0,,,10,,[],[],"[['coldcut', 'Coldcut'], ['amontobin', 'Amon Tobin'], ['dorianconcept', 'Dorian Concept'], ['thebug', 'The Bug'], ['eskmo', 'Eskmo'], ['jammer', 'Jammer'], ['offshore', 'Offshore']]",False,4
+194458.0,,,23H - 15€ en prévente (hors frais de loc) / 20€ sur place,,[],[],"[['mandy', 'M.A.N.D.Y'], ['popof', 'Popof'], ['renaissanceman', 'Renaissance Man'], ['monsieurmonsieur', 'Monsieur Monsieur'], ['kavinsky', 'Kavinsky'], ['dactylo', 'Dactylo']]",False,1
+189113.0,23:00,06:00,Free !!,,[],['2010/fr-0917-189113-front.jpg'],"[['paraone', 'Para One'], ['bobmo', 'Bobmo']]",False,8
+185272.0,22:00,05:00,16�,,"[['11678', 'La Machine du Moulin Rouge']]",['2010/fr-0904-185272-front.jpg'],"[['peaches', 'Peaches'], ['shark', 'Shark']]",False,2
+176633.0,23:00,05:00,15�,,"[['11678', 'La Machine du Moulin Rouge']]",['2010/fr-0813-176633-front.jpg'],"[['etiennedecrecy', 'Etienne de Crécy']]",False,3
+175643.0,23:00,05:00,12 EUROS PREVENTS / 15 EUROS AT THE DOORS,,"[['3508', 'KATAPULT']]",['2010/fr-0731-175643-front.jpg'],"[['daedelus', 'Daedelus'], ['jacksonandhiscomputerband', 'Jackson and His Computer Band']]",False,9
+172456.0,23:00,05:00,12 € en prévente / 15 € sur place,,"[['11678', 'La Machine du Moulin Rouge']]",['2010/fr-0618-172456-front.jpg'],[],False,1
+155363.0,22:00,05:00,12-15�,,[],['2010/fr-0529-155363-front.jpg'],"[['dilemn', 'Dilemn'], ['cesko', 'Cesko'], ['jakes', 'Jakes']]",False,1
+160848.0,22:30,05:00,10 euros,,[],['2010/fr-0522-160848-front.jpg'],"[['matthys', 'Matthys']]",False,2
+164939.0,21:30,23:30,22�,,"[['11678', 'La Machine du Moulin Rouge']]",['2010/fr-0514-164939-front.jpg'],[],False,1
+164229.0,23h00:00,6h00:00,8,,[],"['2010/fr-0507-164229-front.jpg', '2010/fr-0507-164229-back.jpg']","[['tigerskin', 'Tigerskin'], ['remidemontsabert', 'Remi de Montsabert']]",False,8
+162984.0,23:00,05:00,15�,,"[['11678', 'La Machine du Moulin Rouge']]",['2010/fr-0507-162984-front.jpg'],"[['tigerskin', 'Tigerskin'], ['remidemontsabert', 'Remi de Montsabert']]",False,1
+154948.0,23:00,05:00,15 �,,"[['3508', 'KATAPULT']]",['2010/fr-0424-154948-front.jpg'],"[['dantoneeprom', 'Danton Eeprom'], ['cabanne', 'Cabanne'], ['sleazybeats', 'Sleazy Beats'], ['laetitiadekatapult', 'Laetitia de Katapult']]",False,10
+158752.0,23:00 ,05:00 ,EUR 15,,"[['3477', 'Skylax']]",['2010/fr-0417-158752-front.jpg'],"[['terrethaemlitz', 'Terre Thaemlitz'], ['djsprinkles', 'DJ Sprinkles'], ['gerdjanson', 'Gerd Janson'], ['hardrockstriker', 'Hardrock Striker']]",False,4
+207079.0,00:00,07:00,10euros,,"[['5642', 'Taktile Touch']]","['2010/fr-1204-207079-front.jpg', '2010/fr-1204-207079-back.jpg']","[['zerot', 'Zero T'], ['x_j', 'X_J']]",False,1
+209352.0,23:30,07:00,Free,,[],['2010/fr-1126-209352-front.jpg'],"[['rafaelmurillo', 'Rafaël Murillo'], ['eliottlitrowski', 'Eliott Litrowski'], ['louie', ""L'ouie""], ['lucacastillo', 'Luca Castillo']]",False,3
+211425.0,,,FREE,,[],[],"[['rafaelmurillo', 'Rafaël Murillo'], ['eliottlitrowski', 'Eliott Litrowski'], ['louie', ""L'ouie""], ['lucacastillo', 'Luca Castillo'], ['rafaelmurillo', 'Rafaël Murillo'], ['vincentvidal', 'Vincent Vidal']]",False,0
+202136.0,23:55,07:00,"10€, 5€ with the Nuits Capitales pass, FREE for english people!",,[],['2010/fr-1119-202136-front.jpg'],"[['zaki', 'Zaki']]",False,9
+199714.0,00:00,07:00,10euros,,"[['5642', 'Taktile Touch']]","['2010/fr-1030-199714-front.jpg', '2010/fr-1030-199714-back.jpg']","[['ramadanman', 'Ramadanman'], ['shortstuff', 'Shortstuff'], ['tommykid', 'Tommy Kid']]",False,6
+192935.0,00:00,07h00:00,12�,,[],"['2010/fr-1002-192935-front.jpg', '2010/fr-1002-192935-back.jpg']","[['breakage', 'Breakage'], ['cookiemonsta', 'Cookie Monsta']]",False,2
+190885.0,00:00,07:00,5,,"[['10858', 'Phil Dark']]","['2010/fr-0918-190885-front.jpg', '2010/fr-0918-190885-back.jpg']","[['saschbbc', 'Sasch BBC'], ['phildark', 'Phil Dark'], ['gregog', 'Grego G']]",False,18
+190883.0,19:00,06:00,5€ après 00H00,,"[['10858', 'Phil Dark']]",['2010/fr-0910-190883-front.jpg'],"[['samiwentz', 'Sami Wentz'], ['phildark', 'Phil Dark'], ['sucresale', 'Sucre Sale']]",False,8
+175247.0,,,20 euros,,[],['2010/fr-0903-175247-front.jpg'],[],False,1
+185799.0,00:00,06:00,10euros,,"[['5642', 'Taktile Touch']]","['2010/fr-0828-185799-front.jpg', '2010/fr-0828-185799-back.jpg']","[['snowball', 'Snowball']]",False,1
+182126.0,00:00,07:00,5�,,"[['10858', 'Phil Dark']]","['2010/fr-0807-182126-front.jpg', '2010/fr-0807-182126-back.jpg']","[['djflush', 'DJ Flush'], ['phildark', 'Phil Dark']]",False,23
+179114.0,00:00,07:00,8euros,,"[['5642', 'Taktile Touch']]","['2010/fr-0731-179114-front.jpg', '2010/fr-0731-179114-back.jpg']","[['sweed', 'Sweed']]",False,2
+165393.0,00:00,07:00,10,,"[['5642', 'Taktile Touch']]","['2010/fr-0529-165393-front.jpg', '2010/fr-0529-165393-back.jpg']","[['cyantific', 'Cyantific'], ['subterra', 'Subterra'], ['x_j', 'X_J']]",False,1
+154885.0,00:00,06:00,10�,,[],['2010/fr-0403-154885-front.jpg'],"[['baxterbeez', 'Baxter Beez']]",False,1
+151778.0,23:45,06:00,Free,,[],['2010/fr-0320-151778-front.jpg'],"[['pepperpot', 'Pepperpot'], ['birdy', 'Birdy']]",False,1
+146930.0,00:00,06:00,10euros,,"[['5642', 'Taktile Touch']]","['2010/fr-0306-146930-front.jpg', '2010/fr-0306-146930-back.jpg']",[],False,1
+219674.0,,,10€ en préventes et 12€ sur place,,[],"['2011/fr-0115-219674-front.jpg', '2011/fr-0115-219674-back.jpg']",[],False,3
+194159.0,,,TBC,,[],[],[],False,1
+197044.0,23:00,02:00,€20,,[],['2010/fr-1015-197044-front.jpg'],[],False,1
+172536.0,22:00,08:00,"25 eur at the door, 20eur presale",,[],['2010/fr-0925-172536-front.jpg'],"[['mandala', 'Mandala'], ['d-sens', 'D-sens']]",False,3
+192932.0,00:00,06h00:00,20 �,,[],"['2010/fr-0924-192932-front.jpg', '2010/fr-0924-192932-back.jpg']","[['noisia', 'Noisia'], ['excision', 'Excision']]",False,1
+153113.0,00:00,07:00,20�,,[],['2010/fr-0326-153113-front.jpg'],"[['dirtyphonics', 'Dirtyphonics'], ['djhazard', 'DJ Hazard']]",False,2
+210510.0,,,,,"[['2654', 'meandyou.']]",['2010/uk-1210-210510-front.jpg'],"[['moved', 'Move D'], ['arnaldo', 'Arnaldo']]",False,63
+200313.0,10:00,04:00,,,"[['2654', 'meandyou.']]",['2010/uk-1112-200313-front.jpg'],"[['newworldaquarium', 'Newworldaquarium']]",False,40
+188525.0,22:00,04:00,£10 (advance) more on the door,,"[['6510', '44']]",['2010/uk-1029-188525-front.jpg'],"[['ewanpearson', 'Ewan Pearson'], ['andrewhung', 'Andrew Hung'], ['mistersushi', 'Mister Sushi']]",False,14
+197168.0,22:00,04:00,£7,,"[['14726', 'Hupendi Muziki Wangu?!']]",['2010/uk-1016-197168-front.jpg'],"[['annabelfraser', 'Annabel Fraser']]",False,2
+194384.0,10:00,04:00,,,"[['2654', 'meandyou.']]",['2010/uk-1008-194384-front.jpg'],"[['xdb', 'XDB']]",False,31
+186117.0,22:00,04:00,,,"[['2654', 'meandyou.']]",['2010/uk-0910-186117-front.jpg'],"[['dor', 'Dor'], ['arnaldo', 'Arnaldo']]",False,38
+178628.0,22:00,04:00,,,"[['13173', 'Bohemian Grove Collective']]","['2010/uk-0904-178628-front.jpg', '2010/uk-0904-178628-back.jpg']","[['andystott', 'Andy Stott'], ['clarointelecto', 'Claro Intelecto'], ['ricknicholls', 'Rick Nicholls'], ['damob', 'Damo B']]",False,46
+182216.0,22:00,04:00,,,"[['2654', 'meandyou.']]","['2010/uk-0813-182216-front.jpg', '2010/uk-0813-182216-back.jpg']","[['spacedimensioncontroller', 'Space Dimension Controller']]",False,26
+168537.0,22:00,04:00,,,"[['2654', 'meandyou.']]",['2010/uk-0611-168537-front.jpg'],"[['dor', 'Dor']]",False,30
+168542.0,23:00,04:00,£3,,"[['12395', 'PPP']]","['2010/uk-0529-168542-front.jpg', '2010/uk-0529-168542-back.jpg']","[['fudgefingas', 'Fudge Fingas'], ['discreetunit', 'Discreet Unit'], ['conorthomas', 'Conor Thomas'], ['swingting', 'Swing Ting'], ['jonk', 'Jon K'], ['swingting', 'Swing Ting']]",False,8
+160328.0,22:00,04:00,,,"[['2654', 'meandyou.']]","['2010/uk-0515-160328-front.jpg', '2010/uk-0515-160328-back.jpg']","[['kylehall', 'Kyle Hall'], ['arnaldo', 'Arnaldo']]",False,37
+153645.0,22:00,04:00,,,"[['2654', 'meandyou.']]",['2010/uk-0409-153645-front.jpg'],"[['kassemmosse', 'Kassem Mosse']]",False,32
+213536.0,22:00,"05:00,New Years Eve",£15,,"[['1561', 'Sub Club']]",['2010/uk-1231-213536-front.jpg'],"[['lil-louis', ""Lil' Louis""], ['radioslave', 'Radio Slave'], ['esa', 'Esa'], ['telford', 'Telford']]",False,49
+205896.0,23:00,03:00,£10,,"[['1561', 'Sub Club']]",['2010/uk-1218-205896-front.jpg'],"[['terrenceparker', 'Terrence Parker']]",False,42
+214291.0,23:00,03:00,,,"[['2257', 'Numbers']]",['2010/uk-1217-214291-front.jpg'],"[['jamiexx', 'Jamie xx']]",False,3
+205895.0,23:00,03:00,£10,,"[['1561', 'Sub Club']]",[],"[['tensnake', 'Tensnake']]",False,39
+203871.0,23:00,04:00,"£12 adv, £14 on door",,"[['18695', 'Slam Events']]",['2010/uk-1210-203871-front.jpg'],"[['slam', 'Slam'], ['daveclarke', 'Dave Clarke']]",False,36
+205894.0,23:00,03:00,£8 B4 12 £10 AFTER,,"[['1561', 'Sub Club']]",['2010/uk-1204-205894-front.jpg'],[],False,26
+211280.0,23:00,03:00,£10,,"[['1561', 'Sub Club']]",['2010/uk-1203-211280-front.jpg'],"[['octaveone', 'Octave One'], ['miltonjackson', 'Milton Jackson'], ['esa', 'Esa']]",False,27
+205890.0,23:00,03:00,£8 B4 12 £10 AFTER,,"[['1561', 'Sub Club']]",[],"[['esa', 'Esa'], ['telford', 'Telford']]",False,8
+205889.0,23:00,03:00,£8 b4 midnight/£10 after,,"[['1561', 'Sub Club']]",['http://www.residentadvisor.net/images/clubs/uk-scotland-logo-subclub.jpg'],[],False,22
+205374.0,23:00,03:00,FREE BEFORE 12 // £10 AFTER,,"[['2280', 'SENSU']]",['2010/uk-1119-205374-front.jpg'],"[['shonky', 'Shonky']]",False,30
+205888.0,23:00,03:00,£8 b4 midnight/£10 after,,"[['1561', 'Sub Club']]",[],[],False,1
+198055.0,23:00,03:00,£10/8 students,,"[['18695', 'Slam Events']]",['2010/uk-1112-198055-front.jpg'],"[['slam', 'Slam'], ['maetrik', 'Maetrik']]",False,26
+205559.0,23:00,03:00,£8 B4 12 £10 AFTER,,"[['1561', 'Sub Club']]",[],"[['harri-domenic', 'Harri & Domenic']]",False,1
+196638.0,23:00,03:00,,,"[['2257', 'Numbers']]",['2010/uk-1105-196638-front.jpg'],"[['jamesblake', 'James Blake'], ['girlunit', 'Girl Unit']]",False,21
+196090.0,23:00,04:00,£8 B4 12 £10 AFTER,,"[['1561', 'Sub Club']]",['2010/uk-1030-196090-front.jpg'],[],False,3
+196089.0,23:00,04:00,£10,,"[['1561', 'Sub Club']]",['2010/uk-1023-196089-front.jpg'],[],False,8
+196273.0,23:00,03:00,£10,,"[['4677', 'Animal Farm']]",['2010/uk-1022-196273-front.jpg'],"[['marcelfengler', 'Marcel Fengler'], ['ryanelliott', 'Ryan Elliott']]",False,27
+196088.0,23:00,03:00,£8 B4 12 £10 AFTER,,"[['688', 'Subculture UK']]",['2010/uk-1016-196088-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,5
+189824.0,23:00,03:00,£tbc,,"[['2280', 'SENSU']]",['2010/uk-1015-189824-front.jpg'],[],False,34
+198048.0,19:00,22:00 (after party sub club),,,[],[],"[['slam', 'Slam']]",False,3
+192414.0,23:00,03:00,£12/10 Students,,"[['18695', 'Slam Events']]",['2010/uk-1008-192414-front.jpg'],"[['slam', 'Slam'], ['pan-pot', 'Pan-Pot']]",False,38
+193178.0,23:00,03:00,£10 b4 12 // £12 after,,[],['2010/uk-1002-193178-front.jpg'],"[['kink', 'KiNK']]",False,11
+193203.0,23:00,03:00,£10 + BF,,"[['8760', 'Monox']]",['2010/uk-1001-193203-front.jpg'],"[['dj-funk', 'DJ Funk'], ['danmonox', 'Dan Monox']]",False,8
+194453.0,23:00,03:00,£8 B4 12 £10 AFTER,,[],['2010/uk-0925-194453-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,2
+227240.0,23:00,3 :00,£5/8,,[],[],[],False,0
+186146.0,21:00,04:00,£10,,"[['102', 'Cotton Cake']]",['2010/uk-0917-186146-front.jpg'],"[['claudevonstroke', 'Claude VonStroke'], ['cottoncake', 'Cotton Cake'], ['amstradbillionaire', 'Am$trad Billionaire'], ['meddiemercury', 'Meddie Mercury']]",False,29
+189826.0,23:00,03:00,£8 b4 12 // £10 after,,[],['2010/uk-0911-189826-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,2
+187353.0,23:00,03:00,£7,,"[['18695', 'Slam Events']]",['2010/uk-0910-187353-front.jpg'],"[['slam', 'Slam']]",False,6
+184516.0,23:00,03:00,£tbc,,[],['2010/uk-0904-184516-front.jpg'],"[['soulclap', 'Soul Clap'], ['harri-domenic', 'Harri & Domenic']]",False,26
+185388.0,,,,,"[['2257', 'Numbers']]",['2010/uk-0903-185388-front.jpg'],"[['actress', 'Actress'], ['redinho', 'Redinho'], ['spencer', 'Spencer']]",False,5
+184518.0,23:00,03:00,£8,,[],['2010/uk-0828-184518-front.jpg'],"[['esa', 'Esa']]",False,8
+184517.0,23:00,03:00,£8,,[],['2010/uk-0821-184517-front.jpg'],"[['telford', 'Telford']]",False,5
+180051.0,23:00,03:00,£12,,"[['2280', 'SENSU']]",['2010/uk-0820-180051-front.jpg'],"[['anjaschneider', 'Anja Schneider'], ['sebok', 'Sebo K']]",False,39
+172413.0,23:00,03:00,£12,,[],['2010/uk-0814-172413-front.jpg'],"[['carlcraig', 'Carl Craig']]",False,14
+174981.0,23:00,03:00,£10,,"[['18695', 'Slam Events']]",['2010/uk-0813-174981-front.jpg'],"[['speedyj', 'Speedy J'], ['editselect', 'Edit Select']]",False,29
+180331.0,23:00,03:00,£10,,[],['2010/uk-0731-180331-front.jpg'],[],False,6
+181053.0,23:00,03:00,£6 b4 12 // £10,,[],['2010/uk-0724-181053-front.jpg'],[],False,4
+180933.0,22:00,04:00,£18,,[],[],"[['jeffmills', 'Jeff Mills'], ['jackmaster', 'Jackmaster']]",False,17
+176067.0,23:00,03:00,£10,,[],['2010/uk-0717-176067-front.jpg'],"[['graemepark', 'Graeme Park']]",False,4
+171924.0,2300:00,0300:00,£10 in advance / £12 door,,"[['11396', 'Cotton Cake Presents']]",['2010/uk-0716-171924-front.jpg'],"[['cottoncake', 'Cotton Cake'], ['thunderdiscoclub', 'Thunder Disco Club']]",False,9
+176065.0,23:00,03:00,£10,,[],['2010/uk-0710-176065-front.gif'],"[['carlcox', 'Carl Cox']]",False,14
+174977.0,23:00,03:00,£7,,"[['18695', 'Slam Events']]",['2010/uk-0709-174977-front.jpg'],"[['slam', 'Slam'], ['therevenge', 'The Revenge']]",False,13
+175279.0,23:00,03:00,6 b4 12 // 10 after,,[],['2010/uk-0703-175279-front.jpg'],"[['martinez', 'Martinez']]",False,11
+171756.0,23:00,03:00,,,"[['2257', 'Numbers']]",['2010/uk-0702-171756-front.jpg'],"[['bokbok', 'Bok Bok'], ['feadz', 'Feadz'], ['jackmaster', 'Jackmaster']]",False,6
+164622.0,23:00,03:00,TBC,,[],['2010/uk-0626-164622-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,4
+164603.0,23:00,03:00,£12,,[],['2010/uk-0619-164603-front.jpg'],"[['stevebug', 'Steve Bug']]",False,11
+167432.0,23:00,03:00,£10,,"[['4677', 'Animal Farm']]",['2010/uk-0618-167432-front.jpg'],"[['brendonmoeller', 'Brendon Moeller'], ['quail', 'Quail']]",False,17
+164595.0,23:00,03:00,£12,,[],['2010/uk-0612-164595-front.jpg'],"[['derrickcarter', 'Derrick Carter']]",False,8
+170278.0,23:00,03:00,£12,,"[['18695', 'Slam Events']]",['2010/uk-0611-170278-front.jpg'],"[['slam', 'Slam'], ['cajmere', 'Cajmere']]",False,13
+171230.0,23:00,03:00,£6 b4 12 // £10 after,,[],['2010/uk-0605-171230-front.jpg'],"[['esa', 'Esa'], ['telford', 'Telford']]",False,4
+165800.0,23:00,03:00,,,"[['2257', 'Numbers'], ['8760', 'Monox']]",[],"[['roberthood', 'Robert Hood'], ['levonvincent', 'Levon Vincent'], ['jused', 'Jus-Ed']]",False,30
+169611.0,23:00,03:00,£5 with wee chill band // £12 without,,[],['2010/uk-0529-169611-front.jpg'],"[['dixon', 'Dixon']]",False,6
+167312.0,23:00,03:00,£10 adv.,,"[['1960', 'Mixed Bizness']]","['2010/uk-0528-167312-front.jpg', '2010/uk-0528-167312-back.jpg']","[['dropthelime', 'Drop The Lime'], ['boris_dlugosch', 'Boris Dlugosch'], ['boommonkben', 'Boom Monk Ben']]",False,1
+163049.0,23:00,03:00,£6 b4 12 // £10 after,,[],['2010/uk-0522-163049-front.jpg'],[],False,5
+160698.0,23:00,03:00,£12,,"[['102', 'Cotton Cake']]",['2010/uk-0521-160698-front.jpg'],"[['kissysellout', 'Kissy Sell Out'], ['cottoncake', 'Cotton Cake'], ['amstradbillionaire', 'Am$trad Billionaire']]",False,9
+163046.0,23:00,03:00,£6 b4 12 // £10 after,,[],['2010/uk-0515-163046-front.jpg'],[],False,6
+163045.0,23:00,05:00,£5,,"[['18695', 'Slam Events']]",['2010/uk-0514-163045-front.jpg'],"[['slam', 'Slam']]",False,8
+154514.0,23:00,03:00,£12,,[],['2010/uk-0508-154514-front.jpg'],"[['carlcraig', 'Carl Craig']]",False,20
+160043.0,23:00,03:00,,,"[['2257', 'Numbers']]",[],"[['joyorbison', 'Joy Orbison']]",False,5
+163018.0,23:00,03:00,£6 NUS // £7 (1994 Prices),,[],['2010/uk-0501-163018-front.jpg'],"[['telford', 'Telford'], ['esa', 'Esa']]",False,13
+158098.0,23:00,03:00,£6 b4 12 // £10 after,,[],['2010/uk-0424-158098-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,2
+153517.0,23:00,03:00,£10,,"[['4677', 'Animal Farm']]",['2010/uk-0423-153517-front.jpg'],"[['sandwelldistrict', 'Sandwell District'], ['regis', 'Regis'], ['function', 'Function']]",False,30
+158091.0,23:00,03:00,£6 b4 12 // £10 after,,[],['2010/uk-0417-158091-front.jpg'],"[['jdtwitch', 'JD Twitch']]",False,1
+156805.0,23:00,03:00,£10,,"[['2280', 'SENSU']]","['2010/uk-0416-156805-front.jpg', '2010/uk-0416-156805-back.jpg']","[['damianlazarus', 'Damian Lazarus'], ['djwild', 'DJ W!ld']]",False,24
+158088.0,23:00,03:00,£6 b4 12 // £10 after,,[],['2010/uk-0410-158088-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,2
+155287.0,22:30,03:00,£12/10,,"[['18695', 'Slam Events']]",['2010/uk-0409-155287-front.jpg'],"[['nickcurly', 'Nick Curly']]",False,7
+154511.0,23:00,03:00,£12,,[],['2010/uk-0403-154511-front.jpg'],"[['derrickcarter', 'Derrick Carter']]",False,7
+155878.0,23:00,03:00,£10,,"[['8760', 'Monox']]",['2010/uk-0402-155878-front.jpg'],"[['marceldettmann', 'Marcel Dettmann']]",False,19
+155552.0,23:00,03:00,£6 b4 12 £10 after,,[],['2010/uk-0327-155552-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,1
+148991.0,23:00,04:00,£14,,"[['793', 'Smirnoff Experience'], ['1561', 'Sub Club'], ['2706', 'Retro'], ['18695', 'Slam Events']]",['2010/uk-0326-148991-front.jpg'],"[['andrewweatherall', 'Andrew Weatherall'], ['ivansmagghe', 'Ivan Smagghe']]",False,24
+146097.0,22:00,03:00,£12,,[],['2010/uk-0320-146097-front.jpg'],"[['moodymann', 'Moodymann'], ['harri-domenic', 'Harri & Domenic']]",False,40
+146485.0,23:00,03:00,£10 / £8 [Students],,"[['102', 'Cotton Cake'], ['11396', 'Cotton Cake Presents']]",['2010/uk-0319-146485-front.jpg'],"[['ewanpearson', 'Ewan Pearson'], ['cottoncake', 'Cotton Cake'], ['amstradbillionaire', 'Am$trad Billionaire']]",False,10
+146068.0,23:00,04:00,£12,,[],['2010/uk-0313-146068-front.jpg'],"[['deetron', 'Deetron'], ['2000andone', '2000 and One'], ['harri-domenic', 'Harri & Domenic']]",False,14
+148646.0,22:30,03:00,£12,,"[['18695', 'Slam Events']]",['2010/uk-0312-148646-front.jpg'],"[['paulritch', 'Paul Ritch'], ['okain', 'Okain']]",False,19
+142441.0,23:00,03:00,,,"[['2257', 'Numbers']]",['2010/uk-0305-142441-front.gif'],"[['martyn', 'Martyn'], ['kode9', 'Kode9'], ['floatingpoints', 'Floating Points']]",False,27
+146071.0,22:00,03:00,£9 b4 12 / £12 after,,[],['2010/uk-0227-146071-front.jpg'],"[['kerrichandler', 'Kerri Chandler'], ['tonylionni', 'Tony Lionni'], ['esa', 'Esa']]",False,22
+141694.0,23:00,03:00,£10,,"[['1960', 'Mixed Bizness']]",['2010/uk-0226-141694-front.jpg'],"[['toddlat', 'Toddla T'], ['caspa', 'Caspa'], ['boommonkben', 'Boom Monk Ben']]",False,4
+144352.0,23:00,03:00,£6 b4 12//£10 after,,[],['2010/uk-0220-144352-front.gif'],"[['miltonjackson', 'Milton Jackson']]",False,8
+138038.0,23:00,03:00,£10 b4 12 // £12 after,,"[['2280', 'SENSU']]",['2010/uk-0219-138038-front.jpg'],"[['tobineumann', 'Tobi Neumann'], ['cassy', 'Cassy']]",False,55
+144342.0,23:00,04:00,£6 b4 12//£10 after,,[],['2010/uk-0213-144342-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,2
+143636.0,23:00,03:00,£10/8,,"[['18695', 'Slam Events']]",['2010/uk-0212-143636-front.jpg'],"[['slam', 'Slam'], ['craigrichards', 'Craig Richards']]",False,8
+142460.0,23:00,04:00,12.00,,[],['2010/uk-0206-142460-front.jpg'],"[['shed', 'Shed'], ['prosumer', 'Prosumer']]",False,23
+138428.0,23:00,03:00,£10,,"[['8760', 'Monox']]",[],"[['seldomfelt', 'Seldom Felt'], ['cottam', 'Cottam'], ['jackmaster', 'Jackmaster']]",False,10
+138030.0,23:00,03:00,£6 b4 12 / £10 after,,[],['2010/uk-0130-138030-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,4
+138028.0,23:00,03:00,£6 b4 12 / £10 after,,[],['2010/uk-0123-138028-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,7
+216559.0,23:00,03:00,£6 b4 £8 after,,"[['1561', 'Sub Club']]",['2010/uk-0122-216559-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,1
+138033.0,23:00,03:00,£9 b4 12 / £12 after,,[],['2010/uk-0116-138033-front.jpg'],"[['delanosmith', 'Delano Smith']]",False,7
+135991.0,23:00,03:00,£10 / 8 [STUDENTS],,"[['102', 'Cotton Cake']]",['2010/uk-0115-135991-front.jpg'],"[['justuskohncke', 'Justus Kohncke'], ['cottoncake', 'Cotton Cake'], ['amstradbillionaire', 'Am$trad Billionaire']]",False,7
+216562.0,23:00,03:00,£10,,"[['1561', 'Sub Club']]",['2010/uk-0115-216562-front.jpg'],"[['ame', 'Âme']]",False,4
+138026.0,23:00,03:00,£6 b4 12 / £10 after,,[],['2010/uk-0109-138026-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,7
+135795.0,23:00,03:00,£5,,"[['18695', 'Slam Events']]",['2010/uk-0108-135795-front.jpg'],"[['slam', 'Slam'], ['craigrichards', 'Craig Richards']]",False,6
+131815.0,23:00,04:00,£5 ALL NIGHT,,[],['2010/uk-0102-131815-front.jpg'],"[['harri-domenic', 'Harri & Domenic']]",False,4
+191088.0,23:00,03:00,£8,,[],"['2010/uk-0924-191088-front.jpg', '2010/uk-0924-191088-back.jpg']","[['jdtwitch', 'JD Twitch']]",False,8
+190323.0,21:00,03:00,£10 in advance,,[],"['2010/uk-0911-190323-front.jpg', '2010/uk-0911-190323-back.jpg']",[],False,3
+146815.0,17:00,01:00,Free,,"[['7015', 'Red Bull Music Academy']]","['2010/uk-0226-146815-front.jpg', '2010/uk-0226-146815-back.jpg']","[['slam', 'Slam'], ['marcobernardi', 'Marco Bernardi'], ['caspa', 'Caspa'], ['toddlat', 'Toddla T'], ['tonylionni', 'Tony Lionni'], ['kerrichandler', 'Kerri Chandler'], ['tonylionni', 'Tony Lionni'], ['domeniccappello', 'Domenic Cappello'], ['esa', 'Esa']]",False,21
+200103.0,23:00,03:00,£10,,"[['9965', 'CODE']]",['2010/uk-1204-200103-front.jpg'],"[['tommyfourseven', 'Tommy Four Seven'], ['nickm', 'Nick M']]",False,13
+171185.0,23:00,03:00,£6,,[],['2010/uk-1203-171185-front.jpg'],"[['djnino', 'DJ Nino'], ['djmofo', 'DJ Mofo'], ['andylyon', 'Andy Lyon']]",False,33
+171183.0,23:00,03:00,£6,,[],"['2010/uk-1105-171183-front.jpg', '2010/uk-1105-171183-back.jpg']","[['ninjatechno', 'BCR Boys'], ['djnino', 'DJ Nino'], ['djmofo', 'DJ Mofo']]",False,29
+188077.0,1100:00,03:00,10 pound,,[],['2010/uk-1009-188077-front.jpg'],"[['justinrobertson', 'Justin Robertson'], ['aidentravers', 'Aiden Travers']]",False,0
+171181.0,23:00,03:00,£8,,[],['2010/uk-1001-171181-front.jpg'],"[['markstorie', 'Mark Storie'], ['djmofo', 'DJ Mofo']]",False,28
+185451.0,23:00,03:00,£10,,"[['9965', 'CODE']]",['2010/uk-0918-185451-front.jpg'],"[['perc', 'Perc'], ['nickm', 'Nick M']]",False,5
+188075.0,1100:00,03:00,5pound,,[],[],"[['aidentravers', 'Aiden Travers'], ['andycumming', 'Andy Cumming']]",False,2
+171180.0,23:00,03:00,£8,,[],['2010/uk-0903-171180-front.jpg'],"[['garybeck', 'Gary Beck']]",False,32
+179126.0,11:00,03:00,£8,,[],['2010/uk-0814-179126-front.jpg'],"[['siliconesoul', 'Silicone Soul'], ['aidentravers', 'Aiden Travers']]",False,1
+183109.0,23:00,03:00,£5,,[],['2010/uk-0807-183109-front.jpg'],[],False,1
+147316.0,23:00,03:00,£6,,[],['2010/uk-0806-147316-front.jpg'],"[['ivankutz', 'Ivan Kutz']]",False,22
+174197.0,23:00,03:00,£7.00,,[],['2010/uk-0723-174197-front.jpg'],"[['hansbouffmyhre', 'Hans Bouffmyhre'], ['johnnyallen', 'Johnny Allen']]",False,3
+176538.0,23:00,03:00,£10,,[],[],[],False,4
+147315.0,,,TBA,,[],['2010/uk-0702-147315-front.jpg'],"[['martinmuir', 'Martin Muir']]",False,25
+152703.0,23:00,03:00,£10,,"[['9965', 'CODE']]","['2010/uk-0619-152703-front.jpg', '2010/uk-0619-152703-back.jpg']","[['nickm', 'Nick M']]",False,16
+160866.0,23:00,03:00,10 pound,,[],['2010/uk-0612-160866-front.jpg'],"[['billynasty', 'Billy Nasty'], ['aidentravers', 'Aiden Travers']]",False,2
+147313.0,23:00,03:00,£6,,[],['2010/uk-0604-147313-front.jpg'],[],False,22
+159652.0,23:00,03:00,£12,,"[['5029', 'Seasons']]",['2010/uk-0523-159652-front.jpg'],"[['joelmull', 'Joel Mull']]",False,6
+160696.0,23:00,03:00,£10.00,,[],"['2010/uk-0521-160696-front.jpg', '2010/uk-0521-160696-back.jpg']","[['alanfitzpatrick', 'Alan Fitzpatrick'], ['johnnyallen', 'Johnny Allen']]",False,6
+163997.0,23:00,03:00,£10,,"[['236', 'Excentric']]",[],"[['fergie', 'Fergie'], ['mrhenryvon', 'Mr Henry Von']]",False,4
+147311.0,23:00,03:00,£8,,[],"['2010/uk-0507-147311-front.jpg', '2010/uk-0507-147311-back.jpg']","[['jamesharcourt', 'James Harcourt']]",False,26
+160865.0,23:00,03:00,7 pound,,[],['2010/uk-0501-160865-front.jpg'],"[['aidentravers', 'Aiden Travers']]",False,1
+159775.0,23:00,03:00,£8,,[],[],"[['aux88', 'Aux 88']]",False,1
+146451.0,23:00,3 :00,£7,,[],['2010/uk-0410-146451-front.jpg'],"[['djq', 'DJ Q'], ['aidentravers', 'Aiden Travers']]",False,1
+147310.0,23:00,03:00,£6,,[],"['2010/uk-0402-147310-front.jpg', '2010/uk-0402-147310-back.jpg']",[],False,12
+142583.0,10:30,03:00,£10.00,,[],['2010/uk-0312-142583-front.jpg'],"[['kylegeiger', 'Kyle Geiger'], ['johnnyallen', 'Johnny Allen']]",False,5
+146450.0,23:00,3 :00,£7,,[],['2010/uk-0306-146450-front.jpg'],"[['jimmasters', 'Jim Masters'], ['aidentravers', 'Aiden Travers']]",False,2
+142015.0,23:00,03:00,£8,,[],['2010/uk-0305-142015-front.jpg'],"[['resetrobot', 'Reset Robot']]",False,18
+142400.0,23:00,03:00,£10 STBF or £10 on the door,,"[['9965', 'CODE']]","['2010/uk-0219-142400-front.jpg', '2010/uk-0219-142400-back.jpg']","[['alexbau', 'Alex Bau']]",False,2
+140193.0,23:00,03:00,£6,,[],[],"[['andylyon', 'Andy Lyon']]",False,2
+130018.0,23:00,03:00,£15,,"[['5029', 'Seasons']]",['2010/uk-0123-130018-front.jpg'],"[['darrenemerson', 'Darren Emerson'], ['ivankutz', 'Ivan Kutz']]",False,10
+133596.0,23:00,"3,New Years Day:00",Free!!,,[],[],[],False,1
+213365.0,22:00,"03:00,New Years Eve",,,"[['2257', 'Numbers']]",['2010/uk-1231-213365-front.jpg'],"[['jackmaster', 'Jackmaster'], ['spencer', 'Spencer']]",False,10
+211268.0,19:00,03:00,£10,,[],['2010/uk-1217-211268-front.jpg'],[],False,3
+193557.0,19:00,22:30,,,"[['2439', 'Men and Machines']]",['2010/uk-1211-193557-front.jpg'],"[['menandmachines', 'Men and Machines']]",False,61
+203183.0,23:00,03:00,,,"[['4774', 'Huntleys & Palmers Audio Club']]","['2010/uk-1204-203183-front.jpg', '2010/uk-1204-203183-back.jpg']","[['matthewdear', 'Matthew Dear']]",False,114
+207173.0,23:00,04:00,£7,,[],['2010/uk-1203-207173-front.jpg'],"[['dirtynoise', 'Dirty Noise']]",False,1
+189150.0,23:00,04:00,,,"[['4774', 'Huntleys & Palmers Audio Club']]","['2010/uk-1030-189150-front.jpg', '2010/uk-1030-189150-back.jpg']","[['oniayhun', 'Oni Ayhun'], ['alexsmoke', 'Alex Smoke'], ['veronicavasicka', 'Veronica Vasicka']]",False,32
+193425.0,23:oo,03:00,,,"[['2439', 'Men and Machines']]","['2010/uk-1022-193425-front.jpg', '2010/uk-1022-193425-back.jpg']","[['cousincole', 'Cousin Cole'], ['menandmachines', 'Men and Machines']]",False,5
+191580.0,23:00,03:00,£5,,[],['2010/uk-1008-191580-front.jpg'],"[['clouds', 'Clouds']]",False,4
+188625.0,23:00,3 + afterparty:00,£3/5,,"[['4094', 'threestrokeone']]",['2010/uk-0918-188625-front.jpg'],"[['bobbywilson', 'Bobby Wilson'], ['trumandata', 'Truman Data'], ['alexash', 'Alex Ash']]",False,11
+185436.0,23:00,03:00,£5 Tickets or before Midnight / £6 After Midnight,,[],['2010/uk-0904-185436-front.jpg'],"[['themagician', 'The Magician'], ['aeroplane', 'Aeroplane']]",False,2
+183521.0,23:00,03:00,£3,,"[['4094', 'threestrokeone']]",['2010/uk-0827-183521-front.jpg'],"[['telford', 'Telford'], ['trumandata', 'Truman Data']]",False,9
+180498.0,23:00,03:00,£10,,"[['875', 'Noise Pollution']]",['2010/uk-0818-180498-front.jpg'],"[['surgeon', 'Surgeon']]",False,7
+178475.0,,,£8/6,,"[['13169', 'LETS GO BACK...WAY BACK!!!']]",[],[],False,4
+179647.0,23:00,03:00,£5,,"[['2439', 'Men and Machines']]",['2010/uk-0731-179647-front.jpg'],"[['menandmachines', 'Men and Machines'], ['theniallist', 'The Niallist'], ['kingcousin', 'King & Cousin']]",False,2
+175963.0,23:00,03:00,£4 (£2 before midnight),,"[['4094', 'threestrokeone']]",['2010/uk-0723-175963-front.jpg'],"[['bobbywilson', 'Bobby Wilson'], ['alexash', 'Alex Ash'], ['trumandata', 'Truman Data']]",False,9
+172502.0,23:00,03:00,£5,,[],"['2010/uk-0625-172502-front.jpg', '2010/uk-0625-172502-back.jpg']",[],False,7
+172612.0,23:00,03:00,£3,,"[['4094', 'threestrokeone']]",['2010/uk-0619-172612-front.jpg'],"[['bobbywilson', 'Bobby Wilson'], ['trumandata', 'Truman Data'], ['alexash', 'Alex Ash']]",False,5
+164997.0,23:00,03:00,£10,,"[['875', 'Noise Pollution']]",['2010/uk-0605-164997-front.jpg'],"[['ceephaxacidcrew', 'Ceephax Acid Crew'], ['jdtwitch', 'JD Twitch']]",False,2
+163431.0,11:00,03:00,£7,,"[['2395', 'Slabs of the Tabernacle'], ['4774', 'Huntleys & Palmers Audio Club']]",[],"[['rebolledo', 'Rebolledo'], ['capracara', 'Capracara'], ['briandsouza', ""Brian d'Souza""]]",False,4
+164680.0,23:00,04:00,£8/6 (Stag & Dagger ticket holders free),,"[['2439', 'Men and Machines']]",[],"[['sergesantiago', 'Serge Santiago'], ['menandmachines', 'Men and Machines']]",False,4
+165592.0,23:00,03:00,£3,,"[['4094', 'threestrokeone']]",['2010/uk-0521-165592-front.jpg'],"[['bobbywilson', 'Bobby Wilson'], ['trumandata', 'Truman Data'], ['alexash', 'Alex Ash']]",False,15
+159926.0,22:00,03:00,£6/7,,[],"['2010/uk-0514-159926-front.jpg', '2010/uk-0514-159926-back.jpg']","[['stripsteve', 'Strip Steve']]",False,1
+164252.0,23:00,03:00,£7,,"[['14679', 'Jungle Nation']]",[],"[['breakage', 'Breakage']]",False,1
+157685.0,23:00,03:00,£8,,"[['905', 'Tronic']]",[],"[['lukeabbott', 'Luke Abbott']]",False,2
+155815.0,23:00,03:00,£7,,"[['4094', 'threestrokeone']]",['2010/uk-0416-155815-front.jpg'],"[['katesimko', 'Kate Simko'], ['bobbywilson', 'Bobby Wilson'], ['trumandata', 'Truman Data'], ['alexash', 'Alex Ash']]",False,7
+150523.0,23:00,03:00,£5 (£3 before 12),,"[['4094', 'threestrokeone']]",['2010/uk-0319-150523-front.jpg'],"[['tomfrank', 'Tom Frank'], ['bobbywilson', 'Bobby Wilson'], ['trumandata', 'Truman Data'], ['alexash', 'Alex Ash']]",False,4
+139067.0,23:00,03:00,£10 (£8 adv),,"[['5903', 'TicTacToe Club']]","['2010/uk-0227-139067-front.jpg', '2010/uk-0227-139067-back.jpg']","[['mendo', 'Mendo'], ['andrewdoran', 'Andrew Doran']]",False,18
+137412.0,23:00,03:00,£5 / £10 after midnight,,"[['4094', 'threestrokeone']]","['2010/uk-0219-137412-front.jpg', '2010/uk-0220-137412-back.jpg']","[['ericcloutier', 'Eric Cloutier']]",False,11
+142071.0,23:00,03:00,£7,,[],['2010/uk-0206-142071-front.jpg'],"[['jdtwitch', 'JD Twitch']]",False,1
+138165.0,23:00,03:00,£5,,"[['2439', 'Men and Machines']]","['2010/uk-0129-138165-front.jpg', '2010/uk-0129-138165-back.jpg']","[['menandmachines', 'Men and Machines']]",False,2
+136508.0,23:00,03:00,£3,,"[['4094', 'threestrokeone']]",['2010/uk-0115-136508-front.jpg'],"[['bobbywilson', 'Bobby Wilson'], ['trumandata', 'Truman Data'], ['alexash', 'Alex Ash']]",False,2
+137334.0,11:59,23:59,"45,- Euro",,"[['3695', 'FCA Music'], ['60338', 'Free Your Mind Festival']]",['2010/nl-0605-137334-front.jpg'],"[['brentroozendaal', 'Brent Roozendaal'], ['estroe', 'Estroe'], ['djremy', 'DJ Remy'], ['planetaryassaultsystems', 'Planetary Assault Systems'], ['bennyrodrigues', 'Benny Rodrigues'], ['darkoesser', 'Darko Esser'], ['roberthood', 'Robert Hood'], ['secretcinema', 'Secret Cinema'], ['egbert', 'Egbert'], ['speedyj', 'Speedy J'], ['boemklatsch', 'Boemklatsch'], ['feadz', 'Feadz'], ['surkin', 'Surkin'], ['nobodybeatsthedrum', 'Nobody Beats The Drum'], ['mightyfools', 'Mightyfools'], ['phonicfunk', 'Phonic Funk'], ['firebeatz', 'Firebeatz'], ['baggibegovic', 'Baggi Begovic'], ['kraaksmaak', 'Kraak & Smaak'], ['ericke', 'Erick E'], ['funkerman', 'Funkerman'], ['gramophonedzie', 'Gramophonedzie'], ['bennyrodrigues', 'Benny Rodrigues'], ['sventettero', 'Sven & Tettero'], ['pitto', 'Pitto'], ['melonprods', 'Melon'], ['inlandknights', 'Inland Knights'], ['demanzonderschaduw', 'De Man Zonder Schaduw'], ['layoandbushwacka', 'Layo & Bushwacka!'], ['micheldehey', 'Michel de Hey'], ['stefanorichetta', 'Stefano Richetta'], ['juansanchez', 'Juan Sanchez'], ['billynasty', 'Billy Nasty'], ['steverachmad', 'Steve Rachmad'], ['bartskils', 'Bart Skils'], ['2000andone', '2000 and One'], ['technasia', 'Technasia'], ['dosem', 'Dosem'], ['bensims', 'Ben Sims'], ['surgeon', 'Surgeon'], ['felixkrocher', 'Felix Kröcher'], ['bertderooij', 'Bert de Rooij'], ['jornliefdeshuis', 'Jorn Liefdeshuis'], ['kabaleundliebe', 'Kabale und Liebe'], ['lauhaus', 'Lauhaus'], ['williamkouamdjoko', 'William Kouam Djoko'], ['aronfriedman', 'Aron Friedman'], ['mathiaskaden', 'Mathias Kaden'], ['lemos', 'Lemos'], ['livioroby', 'Livio & Roby']]",False,21
+157007.0,,,€ 50,,"[['140', 'ID&T']]",['2010/nl-0619-157007-front.jpg'],"[['davidguetta', 'David Guetta'], ['dennisferrer', 'Dennis Ferrer'], ['sidneysamson', 'Sidney Samson']]",False,2
+165396.0,11:00,23:00,"59,50 euros",,"[['12100', 'Q-Dance']]",[],"[['brennanheart', 'Brennan Heart'], ['coone', 'Coone'], ['frontliner', 'Frontliner'], ['headhunterz', 'Headhunterz'], ['noisecontrollers', 'Noisecontrollers'], ['wildstylez', 'Wildstylez'], ['b-front', 'B-Front'], ['psykopunkz', 'Psyko Punkz'], ['villain', 'Villain'], ['damouthofmadness', 'Da Mouth of Madness'], ['simonunderground', 'Simon Underground'], ['stormtrooper', 'Stormtrooper'], ['danielahaverbeck', 'Daniela Haverbeck'], ['fernandamartins', 'Fernanda Martins'], ['mikedrama', 'Mike Drama'], ['missdjax', 'Miss Djax'], ['nikfish', 'Nik Fish'], ['fierce', 'Fierce'], ['pavo', 'Pavo'], ['coone', 'Coone'], ['ruthless', 'Ruthless'], ['frequencerz', 'Frequencerz'], ['dustinzahn', 'Dustin Zahn']]",False,1
+148683.0,,,,,"[['157', 'Need2Soul'], ['21305', 'Stop Making Sense']]","['2010/hr-0904-148683-front.jpg', '2010/hr-0904-148683-back.jpg']","[['carlcraig', 'Carl Craig'], ['juanatkins', 'Juan Atkins'], ['theoparrish', 'Theo Parrish'], ['friendlyfires', 'Friendly Fires'], ['radioclit', 'Radioclit'], ['nathanfake', 'Nathan Fake'], ['toyselectah', 'Toy Selectah'], ['matiasaguayo', 'Matias Aguayo'], ['benjib', 'Benji B'], ['patricescott', 'Patrice Scott'], ['wbeeza', 'Wbeeza'], ['keithworthy', 'Keith Worthy'], ['kylehall', 'Kyle Hall'], ['isagt', 'Isa GT'], ['mark-e', 'Mark E'], ['rebolledo', 'Rebolledo'], ['chriscoco', 'Chris Coco'], ['richard-norris', 'Richard Norris'], ['tamasumo', 'Tama Sumo'], ['jamespriestley', 'James Priestley'], ['gilessmith', 'Giles Smith'], ['lakuti', 'Lakuti'], ['alitillett', 'Ali Tillett'], ['countchocula', 'Count Chocula']]",False,22
+148682.0,,,,,"[['157', 'Need2Soul'], ['21305', 'Stop Making Sense']]","['2010/hr-0903-148682-front.jpg', '2010/hr-0903-148682-back.jpg']","[['carlcraig', 'Carl Craig'], ['patricescott', 'Patrice Scott'], ['wbeeza', 'Wbeeza'], ['keithworthy', 'Keith Worthy'], ['kylehall', 'Kyle Hall'], ['isagt', 'Isa GT'], ['mark-e', 'Mark E'], ['rebolledo', 'Rebolledo'], ['chriscoco', 'Chris Coco'], ['richard-norris', 'Richard Norris'], ['tamasumo', 'Tama Sumo'], ['jamespriestley', 'James Priestley'], ['gilessmith', 'Giles Smith'], ['lakuti', 'Lakuti'], ['alitillett', 'Ali Tillett'], ['countchocula', 'Count Chocula']]",False,56
+174905.0,12:00,03:00,£80.00,,"[['11807', 'E-elephant'], ['39091', 'Electric Elephant']]",['2010/hr-0827-134478-front.jpg'],"[['fuckbuttons', 'Fuck Buttons'], ['soundstream', 'Soundstream'], ['architeq', 'Architeq'], ['francoisk', 'Francois K'], ['andrewweatherall', 'Andrew Weatherall'], ['juanmaclean', 'Juan Maclean'], ['toddterje', 'Todd Terje'], ['prosumer', 'Prosumer'], ['richard-norris', 'Richard Norris'], ['theunabombers', 'The Unabombers'], ['hunee', 'Hunee'], ['ashleybeedle', 'Ashley Beedle'], ['beppeloda', 'Beppe Loda'], ['ramadanman', 'Ramadanman'], ['chrisduckenfield', 'Chris Duckenfield'], ['kelvinandrews', 'Kelvin Andrews'], ['billbrewster', 'Bill Brewster'], ['rufdug', 'Ruf Dug'], ['rashidkhan', 'Rashid Khan'], ['discooutcasts', 'Disco Outcasts']]",False,6
+134478.0,12:00,03:00,,,"[['11807', 'E-elephant'], ['39091', 'Electric Elephant']]",['2010/hr-0827-134478-front.jpg'],"[['fuckbuttons', 'Fuck Buttons'], ['soundstream', 'Soundstream'], ['architeq', 'Architeq'], ['francoisk', 'Francois K'], ['andrewweatherall', 'Andrew Weatherall'], ['juanmaclean', 'Juan Maclean'], ['toddterje', 'Todd Terje'], ['prosumer', 'Prosumer'], ['richard-norris', 'Richard Norris'], ['leozero', 'Leo Zero'], ['theunabombers', 'The Unabombers'], ['hunee', 'Hunee'], ['ashleybeedle', 'Ashley Beedle'], ['beppeloda', 'Beppe Loda'], ['ramadanman', 'Ramadanman'], ['chrisduckenfield', 'Chris Duckenfield'], ['kelvinandrews', 'Kelvin Andrews'], ['billbrewster', 'Bill Brewster'], ['rufdug', 'Ruf Dug'], ['rashidkhan', 'Rashid Khan'], ['discooutcasts', 'Disco Outcasts']]",False,41
+169145.0,,,Weekend Adult Tickets: ï80pp,,"[['26998', 'SuncéBeat']]",['2010/hr-0813-169145-front.jpg'],"[['dennisferrer', 'Dennis Ferrer'], ['theoparrish', 'Theo Parrish'], ['rontrent', 'Ron Trent'], ['jazzanova', 'Jazzanova'], ['kerrichandler', 'Kerri Chandler'], ['rubntug', 'Rub N Tug'], ['joeynegro', 'Joey Negro'], ['soul2soul', 'Soul II Soul'], ['karizma', 'Karizma'], ['themartinezbros', 'The Martinez Brothers'], ['ronnieherel', 'Ronnie Herel'], ['philasher', 'Phil Asher'], ['kevbeadle', 'Kev Beadle'], ['luisradio', 'Luis Radio'], ['terryjones', 'Terry Jones'], ['souldynamic', 'Souldynamic'], ['larryheard', 'Larry Heard'], ['royayers', 'Roy Ayers']]",False,13
+149311.0,,,£75,,[],['2010/hr-0723-149311-front.jpg'],"[['thecinematicorchestra', 'The Cinematic Orchestra'], ['zero7', 'Zero 7'], ['toddlat', 'Toddla T'], ['benjib', 'Benji B'], ['djvadim', 'DJ Vadim'], ['andreyatriana', 'Andreya Triana'], ['bullion', 'Bullion'], ['paulwhite', 'Paul White'], ['debruit', 'dEbruit'], ['alexandernut', 'Alexander Nut'], ['bluedaisy', 'Blue Daisy'], ['channelonesound', 'Channel One Sound'], ['djcheeba', 'DJ Cheeba'], ['gentlemansdubclub', ""Gentleman's Dub Club""], ['illumsphere', 'Illum Sphere'], ['lone', 'Lone'], ['bedmodisco', 'Bedmo Disco'], ['fife', 'Fife'], ['thebpm', 'The bPm']]",False,13
+134680.0,,,€12 + BF,,"[['3768', 'The Garden Festival']]",['2010/hr-0710-134680-front.jpg'],"[['sebok', 'Sebo K'], ['sethtroxler', 'Seth Troxler']]",False,44
+125746.0,12:00,05:00,80 quid weekend pass 140 double Whammy,,"[['3768', 'The Garden Festival']]","['2010/hr-0702-125746-front.jpg', '2010/hr-0702-125746-back.jpg']","[['2020soundsystem', '2020 Soundsystem'], ['crazypenis', 'Crazy P'], ['henrikschwarz', 'Henrik Schwarz'], ['arthurrussell', 'Arthur Russell'], ['mayerhawthorne', 'Mayer Hawthorne'], ['phil-mison', 'Phil Mison'], ['simonmorell', 'Simon Morell'], ['tensnake', 'Tensnake'], ['thephenomenalhandclapband', 'The Phenomenal Handclap Band'], ['adamshelton', 'Adam Shelton'], ['alexfromtokyo', 'Alex From Tokyo'], ['bobbybeige', 'Bobby Beige'], ['bonobo', 'Bonobo'], ['davebeer-uk', 'Dave Beer'], ['deanoferrino', 'Deano Ferrino'], ['dixon', 'Dixon'], ['djlenny', 'DJ Lenny'], ['dolanbergin', 'Dolan Bergin'], ['domchung', 'Dom Chung'], ['elharvo', 'El Harvo'], ['fazeaction', 'Faze Action'], ['felixdickinson', 'Felix Dickinson'], ['filthydukes', 'Filthy Dukes'], ['floatingpoints', 'Floating Points'], ['floriankeller', 'Florian Keller'], ['gadimizrahi', 'Gadi Mizrahi'], ['geddes', 'Geddes'], ['gregwilson', 'Greg Wilson'], ['hangthedj', 'Hang the DJ'], ['horsemeatdisco', 'Horse Meat Disco'], ['ichisan', 'Ichisan'], ['ilijarudman', 'Ilija Rudman'], ['jameshillard', 'James Hillard'], ['jamiejones', 'Jamie Jones'], ['jimpster', 'Jimpster'], ['jogarde', 'Jogarde'], ['kelvinbrown', 'Kelvin Brown'], ['benterry', 'Ben Terry'], ['metroarea', 'Metro Area'], ['darshanjesrani', 'Darshan Jesrani'], ['mrscruff', 'Mr Scruff'], ['normanjay', 'Norman Jay'], ['pbrstreetgang', 'PBR Streetgang'], ['peteherbert', 'Pete Herbert'], ['phatphilcooper', 'Phat Phil Cooper'], ['qooldjmarv', 'Qool DJ Marv'], ['robdabank', 'Rob Da Bank'], ['rubntug', 'Rub N Tug'], ['seanbrosnan', 'Sean Brosnan'], ['sebok', 'Sebo K'], ['sethtroxler', 'Seth Troxler'], ['shur-i-kan', 'Shur-i-kan'], ['subb-an', 'Subb-an'], ['terryfarley', 'Terry Farley'], ['therevenge', 'The Revenge'], ['tristandacunha', 'Tristan da Cunha'], ['yamwho', 'Yam Who?']]",False,86
+179842.0,22:00,06:00,20 EUR,,[],['2010/hr-0730-179842-front.jpg'],"[['richiehawtin', 'Richie Hawtin'], ['jpls', 'JPLS'], ['perofullhouse', 'Pero Fullhouse'], ['stipe-it', 'Stipe']]",False,10
+174930.0,23:00,07:00,7 Eur (50 Kunas),,[],"['2010/hr-0724-174930-front.jpg', '2010/hr-0724-174930-back.jpg']","[['jennifercardini', 'Jennifer Cardini'], ['djmary', 'DJ Mary'], ['felver', 'Felver'], ['danielkunstek', 'Daniel Kunstek']]",False,4
+175578.0,,,50kn//00:00//70kn,,[],['2010/hr-0625-175578-front.jpg'],"[['terryfrancis', 'Terry Francis'], ['felver', 'Felver']]",False,2
+215937.0,,,-,,[],['2010/hr-1218-215937-front.jpg'],"[['dr.kucho', 'Dr. Kucho!']]",False,1
+208014.0,22:30,"06:30,New Years Eve","presale €19, doors €25",,"[['664', 'KozzMozz']]","['2010/be-1231-208014-front.jpg', '2010/be-1231-208014-back.jpg']","[['mightyfools', 'Mightyfools'], ['spacid', 'Spacid'], ['renaissanceman', 'Renaissance Man'], ['ultravid', 'Ultravid'], ['hector', 'Hector'], ['kastordice', 'Kastor & Dice']]",False,2
+203400.0,23:00,06:00,"presale €14, Doors €16",,"[['664', 'KozzMozz']]","['2010/be-1218-203400-front.jpg', '2010/be-1218-203400-back.jpg']","[['surgeon', 'Surgeon'], ['rolando', 'DJ Rolando'], ['kr-z', 'Kr!z'], ['spacid', 'Spacid'], ['blackfrancis', 'Black Francis']]",False,17
+196712.0,,,€ 9 - € 13,,[],['2010/be-1120-196712-front.jpg'],"[['jimmyedgar', 'Jimmy Edgar'], ['rustie', 'Rustie']]",False,4
+153746.0,12:30 ,21:30 ,Student: 9 EUR - 11 EUR at entrance / Other: 13 EUR - 15 EUR,,"[['664', 'KozzMozz'], ['2226', 'Rave Our Souls'], ['3284', 'Studio Brussel']]",[],"[['thesubs', 'The Subs'], ['villa', 'VillA']]",False,3
+188552.0,,,11/14,,[],[],"[['ltjbukem', 'LTJ Bukem'], ['mcconrad', 'MC Conrad']]",False,5
+192933.0,23:00,06:00,"presale €14, doors €18",,"[['664', 'KozzMozz'], ['38762', 'Daily Dubstep']]",['2010/be-1030-192933-front.jpg'],"[['digitalmystikz', 'Digital Mystikz'], ['sgtpokes', 'SGT Pokes'], ['ntype', 'N-Type'], ['hatcha', 'Hatcha'], ['djmate', 'DJ Mate']]",False,3
+188551.0,,,10/13,,[],[],"[['africahitech', 'Africa Hitech'], ['markpritchard', 'Mark Pritchard'], ['stevespacek', 'Steve Spacek']]",False,1
+194993.0,23:00,06:00,"presale €14 , doors €16",,"[['664', 'KozzMozz']]","['2010/be-1023-194993-front.jpg', '2010/be-1023-194993-back.jpg']","[['speedyj', 'Speedy J'], ['marcelfengler', 'Marcel Fengler'], ['kr-z', 'Kr!z'], ['spacid', 'Spacid'], ['tomdazing', 'Tom Dazing'], ['tomaz', 'Tomaz'], ['psytox', 'Psytox'], ['juannes', 'Juannes']]",False,17
+185560.0,,,18/22,,[],['2010/be-1008-185560-front.jpg'],"[['maximlany', 'Maxim Lany']]",False,0
+190139.0,23:00,06:00,"presale €12, doors €15",,"[['664', 'KozzMozz']]","['2010/be-1002-190139-front.jpg', '2010/be-1002-190139-back.jpg']","[['donrimini', 'Don Rimini'], ['congorock', 'Congorock'], ['mumbaiscience', 'Mumbai Science'], ['spacid', 'Spacid']]",False,2
+186619.0,23:00,06:00,"presale €13, doors €15",,"[['664', 'KozzMozz']]",[],"[['damonwild', 'Damon Wild'], ['frankyjones', 'Franky Jones'], ['spacid', 'Spacid']]",False,4
+172085.0,,,Combi: € 65 Day: 14,,"[['21424', '10 Days Off']]",['2010/be-0724-172085-front.jpg'],"[['jesserose', 'Jesse Rose'], ['faggetfairys', 'Fagget Fairys'], ['boemklatsch', 'Boemklatsch']]",False,3
+172084.0,23:00,08:30,Combi: € 65 Day: 14,,"[['21424', '10 Days Off']]",['2010/be-0723-172084-front.jpg'],"[['dimitriandreas', 'Dimitri Andreas'], ['tiefschwarz', 'Tiefschwarz'], ['guygerber', 'Guy Gerber'], ['ramontapia', 'Ramon Tapia']]",False,10
+172073.0,,,Combi: € 65 Day: 14,,"[['4301', 'We Play House Recordings'], ['21424', '10 Days Off']]",['2010/be-0717-172073-front.jpg'],"[['redd', 'Red D'], ['maximlany', 'Maxim Lany'], ['kerrichandler', 'Kerri Chandler'], ['gramophonedzie', 'Gramophonedzie']]",False,2
+166862.0,,,Combi: € 65 Day: 14,,"[['21424', '10 Days Off']]",['2010/be-0716-166862-front.jpg'],"[['mumbaiscience', 'Mumbai Science'], ['dr.lektroluv', 'Dr. Lektroluv'], ['thesubs', 'The Subs']]",False,10
+167841.0,23:00,06:00,presale €14 - doors €16,,"[['664', 'KozzMozz']]","['2010/be-0626-167841-front.jpg', '2010/be-0626-167841-back.jpg']","[['kennylarkin', 'Kenny Larkin'], ['jamesruskin', 'James Ruskin'], ['mikedehnert', 'Mike Dehnert'], ['spacid', 'Spacid'], ['kr-z', 'Kr!z']]",False,7
+154377.0,23:00,06:00,"presale €14,50 - doors €17,50",,"[['664', 'KozzMozz'], ['6579', 'FFWD']]","['2010/be-0424-154377-front.jpg', '2010/be-0424-154377-back.jpg']","[['fakeblood', 'Fake Blood'], ['beataucue', 'BeatauCue'], ['spacid', 'Spacid']]",False,1
+153818.0,,,16/19,,[],[],"[['lefto', 'Lefto'], ['hudsonmohawke', 'Hudson Mohawke']]",False,0
+156502.0,23:00,06:00,15/19,,"[['38762', 'Daily Dubstep']]",['2010/be-0403-156502-front.jpg'],"[['ntype', 'N-Type'], ['mala', 'Mala'], ['breakage', 'Breakage'], ['youngsta', 'Youngsta'], ['krypticminds', 'Kryptic Minds'], ['grimelock', 'Grimelock']]",False,1
+135536.0,22:00,06:00,12/15,,[],['2010/be-0402-135536-front.jpg'],"[['joakim', 'Joakim']]",False,1
+143952.0,23:00,06:00,"presale €14, doors €16",,"[['664', 'KozzMozz'], ['6579', 'FFWD']]","['2010/be-0320-143952-front.jpg', '2010/be-0320-143952-back.jpg']","[['lenfaki', 'Len Faki'], ['benklock', 'Ben Klock'], ['oscarmulero', 'Oscar Mulero'], ['kr-z', 'Kr!z'], ['sebalecompte', 'Seba Lecompte']]",False,9
+153815.0,,,11/13,,[],[],"[['mrscruff', 'Mr Scruff'], ['djliquid', 'DJ Liquid']]",False,2
+142484.0,22:00,05:00,tbc,,[],[],"[['brunopronsato', 'Bruno Pronsato'], ['marcelfengler', 'Marcel Fengler']]",False,12
+143084.0,23:00,06:00,€15 presale ; €19 doors,,"[['664', 'KozzMozz'], ['6579', 'FFWD']]",['2010/be-0306-143084-front.jpg'],"[['friction', 'Friction'], ['edrush', 'Ed Rush'], ['optical', 'Optical'], ['icicle', 'Icicle'], ['alixperez', 'Alix Perez'], ['spectrasoul', 'SpectraSoul'], ['lenzman', 'Lenzman'], ['etnik', 'Etnik']]",False,1
+142483.0,23:00,06:00,tbc,,[],[],"[['djmate', 'DJ Mate'], ['paulspymania', 'Paul Spymania'], ['slugabed', 'Slugabed'], ['untold', 'Untold'], ['scuba', 'Scuba']]",False,21
+142542.0,,,tbc,,[],[],"[['nsi', 'nsi.'], ['snd', 'SND']]",False,11
+140229.0,23:00,06:00,"presale €13 , doors €15",,"[['664', 'KozzMozz'], ['6579', 'FFWD']]","['2010/be-0213-140229-front.jpg', '2010/be-0213-140229-back.jpg']","[['cjbolland', 'CJ Bolland'], ['tomaz', 'Tomaz'], ['spacid', 'Spacid']]",False,4
+138246.0,20:00,23:59,25/28,,[],['2010/be-0212-138246-front.jpg'],"[['front242', 'Front 242']]",False,0
+217895.0,23:00,"06:00,New Years Eve",30€ pour les filles - 40€ pour les mâles,,[],['2010/be-1231-217895-front.jpg'],"[['missmee', 'Miss Mee'], ['ericpowab', 'Eric Powa B']]",False,1
+215481.0,,,€ 10,,"[['4121', 'Defected In The House']]",['2010/be-1218-215481-front.jpg'],"[['sandyrivera', 'Sandy Rivera']]",False,1
+214310.0,22:00,04:00,invitation,,[],[],"[['missmee', 'Miss Mee'], ['ericpowab', 'Eric Powa B']]",False,2
+152167.0,,,,,[],[],"[['pan-pot', 'Pan-Pot']]",False,3
+152166.0,,,,,[],[],"[['carlcraig', 'Carl Craig'], ['nickcurly', 'Nick Curly']]",False,1
+152165.0,,,,,[],[],"[['stevebug', 'Steve Bug'], ['danberkson', 'Dan Berkson'], ['jameswhat', 'James What']]",False,2
+152163.0,,,,,[],[],"[['guygerber', 'Guy Gerber'], ['spiritcatcher', 'Spirit Catcher']]",False,0
+163186.0,23:00 ,06:,5 euros & after 10 euros,,[],['2010/be-0430-163186-front.jpg'],"[['thejellybellies', 'The Jelly Bellies'], ['egoncarter', 'Egon Carter'], ['borderlinecorp', 'Borderline Corp.']]",False,3
+152162.0,,,,,[],[],"[['toddbodine', 'Todd Bodine'], ['tomclark', 'Tom Clark']]",False,0
+152160.0,,,,,[],[],"[['vincenzo', 'Vincenzo'], ['ryancrosson', 'Ryan Crosson'], ['spiritcatcher', 'Spirit Catcher']]",False,0
+147713.0,23:00 ,06:00 ,€5 - €10,,"[['10347', 'Phonotherapy']]",['2010/be-0416-147713-front.jpg'],"[['djulz', ""D'Julz""], ['elektromaniaks', 'Elektromaniaks'], ['nicogomez', 'Nico Gomez']]",False,3
+152158.0,,,,,[],[],"[['kasperbjorke', 'Kasper Bjørke'], ['duodeluxe', 'Duo Deluxe']]",False,0
+152156.0,,,,,[],[],"[['radioslave', 'Radio Slave'], ['jamesteej', 'James Teej'], ['tobytobias', 'Toby Tobias']]",False,0
+152155.0,,,,,[],[],"[['jimpster', 'Jimpster'], ['burnski', 'Burnski'], ['spiritcatcher', 'Spirit Catcher']]",False,2
+152150.0,,,,,[],[],"[['matthiasmeyer', 'Matthias Meyer'], ['tillvonsein', 'Till von Sein'], ['jonatan', 'Jonatan']]",False,2
+145866.0,23:00 ,06:00,€5 < 00.00 - €10>00.00,,"[['10347', 'Phonotherapy']]","['2010/be-0319-145866-front.jpg', '2010/be-0319-145866-back.jpg']","[['sasse', 'Sasse'], ['freestyleman', 'Freestyle Man'], ['elektromaniaks', 'Elektromaniaks'], ['nicogomez', 'Nico Gomez']]",False,2
+148222.0,,,,,[],[],"[['martinlandsky', 'Martin Landsky'], ['julienchaptal', 'Julien Chaptal']]",False,0
+148221.0,23:00,06:00,10 �,,[],"['2010/be-0306-150527-front.jpg', '2010/be-0306-150527-back.jpg']","[['tiefschwarz', 'Tiefschwarz'], ['me', '&ME'], ['fabricelig', 'Fabrice Lig']]",False,0
+146226.0,23:00,06:00,10:00pm,,[],[],"[['jaketherapper', 'Jake the Rapper'], ['beaner', 'Beaner'], ['duodeluxe', 'Duo Deluxe']]",False,1
+146140.0,23:oo,06:00,€10,,[],['2010/be-0220-146140-front.jpg'],"[['trentemoller', 'Trentemøller'], ['wagoncookin', 'Wagon Cookin'], ['spiritcatcher', 'Spirit Catcher']]",False,1
+157823.0,02:00,8 :00,0,,[],[],"[['daytonateam', 'Daytona Team'], ['garimarcos', 'Gari Marcos']]",False,1
+203883.0,23:00,06:00,,,"[['1138', 'mono_cult']]",['2010/uk-1210-203883-front.jpg'],"[['dixon', 'Dixon'], ['mattlong', 'Matt Long']]",False,122
+204802.0,23:00,05:00,£8 adv / NUS // £10 OTD,,"[['8300', 'Naughty Panda']]",['2010/uk-1119-204802-front.jpg'],"[['601', '601']]",False,7
+189830.0,23:00,06:00,£6 adv £8/10,,"[['1138', 'mono_cult']]","['2010/uk-1112-189830-front.jpg', '2010/uk-1112-189830-back.jpg']","[['ninakraviz', 'Nina Kraviz'], ['simonbaker', 'Simon Baker'], ['mattlong', 'Matt Long']]",False,117
+188538.0,23:00,05:00,£7 adv / NUS // £9 OTD,,"[['8300', 'Naughty Panda']]",['2010/uk-1015-188538-front.jpg'],"[['leecoombs', 'Lee Coombs'], ['chrisk', 'Chris K'], ['beatnix', 'Beatnix']]",False,4
+189829.0,23:00,06:00,£6 adv £8/10,,"[['1138', 'mono_cult']]",['2010/uk-1008-189829-front.jpg'],"[['sebok', 'Sebo K'], ['moved', 'Move D'], ['mattlong', 'Matt Long']]",False,113
+189828.0,23:00,06:00,£6 / 8,,"[['1138', 'mono_cult']]","['2010/uk-0917-189828-front.jpg', '2010/uk-0917-189828-back.jpg']","[['denizkurtel', 'Deniz Kurtel'], ['richyahmed', 'Richie Ahmed'], ['mattlong', 'Matt Long']]",False,64
+177670.0,11:00,06:00,£6 / 8 MOTD,,"[['1138', 'mono_cult']]",['2010/uk-0813-177670-front.jpg'],"[['glimpse', 'Glimpse'], ['alexjones', 'Alex Jones'], ['steroberts', 'Ste Roberts'], ['ryanhope', 'Ryan Hope'], ['mattlong', 'Matt Long']]",False,59
+175660.0,,,£6 / £4 GIRLS,,"[['2051', 'SUBDUB']]","['2010/uk-0716-175660-front.jpg', '2010/uk-0716-175660-back.jpg']","[['ramonjudah', 'Ramon Judah']]",False,1
+168645.0,11:00,06:00,£6 / 8 MOTD,,"[['1138', 'mono_cult']]","['2010/uk-0611-168645-front.jpg', '2010/uk-0611-168645-back.jpg']","[['ethyl', 'Ethyl'], ['mattlong', 'Matt Long'], ['davidhulme', 'David Hulme'], ['marsden', 'Marsden']]",False,41
+158102.0,11:00,06:00,,,"[['1138', 'mono_cult']]","['2010/uk-0514-158102-front.jpg', '2010/uk-0514-158102-back.jpg']","[['tensnake', 'Tensnake'], ['mattlong', 'Matt Long']]",False,91
+151297.0,,,£8 / 10,,"[['1138', 'mono_cult']]",['2010/uk-0409-151297-front.jpg'],"[['mcde', 'Motor City Drum Ensemble'], ['ralphlawson', 'Ralph Lawson'], ['mattlong', 'Matt Long']]",False,17
+155371.0,,,£7/6nus,,"[['5099', 'Polaroid']]",['2010/uk-0402-155371-front.jpg'],"[['andywhittaker', 'Andy Whittaker'], ['joemorris', 'Joe Morris'], ['polaroidsoundsystem', 'Polaroid Soundsystem']]",False,7
+139211.0,11:00,06:00,,,"[['1138', 'mono_cult']]","['2010/uk-0312-139211-front.jpg', '2010/uk-0312-139211-back.jpg']","[['moved', 'Move D'], ['djwild', 'DJ W!ld']]",False,82
+147029.0,11:00,04:00,£6/5nus,,"[['5099', 'Polaroid']]",['2010/uk-0305-147029-front.jpg'],"[['jayshepheard', 'Jay Shepheard'], ['deathonthebalcony', 'Death on the Balcony'], ['joemorris', 'Joe Morris'], ['polaroidsoundsystem', 'Polaroid Soundsystem']]",False,11
+137983.0,11:00,06:00,£8 GList / £10,,"[['1138', 'mono_cult']]",['2010/uk-0212-137983-front.jpg'],"[['prosumer', 'Prosumer'], ['mattlong', 'Matt Long']]",False,64
+137822.0,11:00,04:00,£6/5nus,,"[['5099', 'Polaroid']]",['2010/uk-0205-137822-front.jpg'],"[['ooft', 'OOFT'], ['joemorris', 'Joe Morris'], ['steroberts', 'Ste Roberts'], ['ryanhope', 'Ryan Hope'], ['polaroidsoundsystem', 'Polaroid Soundsystem']]",False,12
+137420.0,,,£6,,"[['6039', 'Ruffage.']]","['2010/uk-0122-137420-front.jpg', '2010/uk-0122-137420-back.jpg']","[['hatcha', 'Hatcha'], ['untold', 'Untold'], ['benufo', 'Ben UFO']]",False,1
+213881.0,20:00,"8,New Years Eve:00",£5 / £10,,"[['1858', 'detatched']]",[],"[['charlton', 'Charlton'], ['smear', 'Smear'], ['laurahemsley', 'Laura Hemsley']]",False,29
+199580.0,22:00,06:00,,,"[['1858', 'detatched']]",[],"[['makaton', 'Makaton'], ['samulikemppi', 'Samuli Kemppi'], ['giorgiogigli', 'Giorgio Gigli'], ['bengibson', 'Ben Gibson'], ['dezwilliams', 'Dez Williams'], ['joelsutcliffe', 'Joel Sutcliffe'], ['deacon', 'Deacon'], ['systemic', 'Systemic'], ['laurahemsley', 'Laura Hemsley']]",False,43
+197172.0,21:00,06:00,,,"[['1858', 'detatched']]",['2010/uk-1113-197172-front.jpg'],[],False,7
+199019.0,,,"Early Bird - £7, Adv - £10, On the door - £12",,[],['2010/uk-1106-199019-front.jpg'],"[['docscott', 'Doc Scott'], ['commix', 'Commix'], ['reubeng', 'Reuben G']]",False,1
+191618.0,21:00,06:00,"£10, £12, £13",,"[['1858', 'detatched']]",[],"[['basmooy', 'Bas Mooy'], ['ancientmethods', 'Ancient Methods'], ['nickdunton', 'Nick Dunton'], ['radial', 'Radial'], ['mikehumphries', 'Mike Humphries']]",False,20
+180548.0,21:00,06:00,£6-£8,,"[['1858', 'detatched']]",[],"[['robhall', 'Rob Hall']]",False,5
+180545.0,21:00,06:00,£8-£10,,"[['1858', 'detatched']]",['2010/uk-0807-180545-front.jpg'],"[['cjbolland', 'CJ Bolland']]",False,8
+151348.0,20:00,08:00,£13 / £15,,"[['1858', 'detatched']]",['2010/uk-0703-151348-front.jpg'],"[['octaveone', 'Octave One'], ['sandwelldistrict', 'Sandwell District'], ['djbone', 'DJ Bone']]",False,51
+164716.0,22:00,06:00,£10 / £12,,"[['1858', 'detatched']]",['2010/uk-0605-164716-front.jpg'],"[['gohiyama', 'Go Hiyama'], ['takaakiitoh', 'Takaaki Itoh'], ['forwardstrategygroup', 'Forward Strategy Group']]",False,13
+163441.0,22:00,06:00,5 Entry all night,,"[['1858', 'detatched']]",[],"[['horrorbrawl', 'Horror Brawl'], ['systemic', 'Systemic'], ['laurahemsley', 'Laura Hemsley'], ['skirt', 'Skirt'], ['marsden', 'Marsden'], ['adamdaniels', 'Adam Daniels'], ['jameswinter', 'James Winter']]",False,12
+146904.0,22:00,08:00,£12 adv / £15 otd,,"[['1858', 'detatched']]",['2010/uk-0423-146904-front.jpg'],"[['oscarmulero', 'Oscar Mulero'], ['bensims', 'Ben Sims'], ['petervanhoesen', 'Peter Van Hoesen'], ['jimmasters', 'Jim Masters'], ['casualviolence', 'Casual Violence'], ['smear', 'Smear']]",False,57
+146902.0,21:30,08:00,£12 adv / £15 otd,,"[['1858', 'detatched']]",[],"[['surgeon', 'Surgeon'], ['pacou', 'Pacou'], ['kirkdegiorgio', 'Kirk Degiorgio'], ['kr-z', 'Kr!z'], ['markturner', 'Mark Turner']]",False,18
+137322.0,21:30,08:00,£13 / £15,,"[['1858', 'detatched']]",['2010/uk-0213-137322-front.jpg'],"[['exium', 'Exium'], ['millerkeane', 'Miller & Keane'], ['andystott', 'Andy Stott'], ['pendlecoven', 'Pendle Coven'], ['mlz', 'MLZ'], ['bovill', 'Bovill'], ['demdikestare', 'Demdike Stare'], ['jonhussey', 'Jon Hussey']]",False,28
+206426.0,23:00,04:00,"£10 All night, Everyone",,"[['1141', 'Deviate']]","['2010/uk-1203-206426-front.jpg', '2010/uk-1203-206426-back.jpg']","[['irationsteppas', 'Iration Steppas'], ['mikejones', 'Mike Jones']]",False,4
+203746.0,23:00,04:00,£12 on the door / advance tickets from Beatdown Records,,"[['1284', 'Shindig']]",['2010/uk-1127-203746-front.gif'],"[['dannyhowells', 'Danny Howells'], ['alexniggemann', 'Alex Niggemann'], ['scottbradford', 'Scott Bradford'], ['marklowry', 'Mark Lowry']]",False,6
+199539.0,23:00,04:00,£8 B4 11:30 // £10 after,,"[['1141', 'Deviate']]","['2010/uk-1105-199539-front.jpg', '2010/uk-1105-199539-back.jpg']",[],False,5
+192231.0,23:00,04:00,£7 Adv (wegottickets.com),,"[['9891', 'Inertia @ WHQ']]","['2010/uk-1029-192231-front.jpg', '2010/uk-1029-192231-back.jpg']","[['hudsonmohawke', 'Hudson Mohawke']]",False,1
+190289.0,23:00,04:00,£6 B4 11:30 // £8 after,,"[['1141', 'Deviate']]","['2010/uk-1008-190289-front.jpg', '2010/uk-1008-190289-back.jpg']","[['maryannehobbs', 'Mary Anne Hobbs'], ['mikejones', 'Mike Jones'], ['shox', 'Shox']]",False,6
+187695.0,,,£12 on door,,"[['1284', 'Shindig']]",['2010/uk-0925-187695-front.jpg'],"[['nicfanciulli', 'Nic Fanciulli'], ['scottbradford', 'Scott Bradford'], ['garethsommerville', 'Gareth Sommerville'], ['neilbainbridge', 'Neil Bainbridge'], ['marklowry', 'Mark Lowry']]",False,1
+166971.0,23:00,04:00,£8 All Night - Everyone,,"[['1141', 'Deviate']]","['2010/uk-0604-166971-front.jpg', '2010/uk-0604-166971-back.jpg']","[['untold', 'Untold'], ['mikejones', 'Mike Jones'], ['annawall', 'Anna Wall']]",False,1
+165873.0,23:00,04:00,£8 ADV / £9 On The Door,,"[['1141', 'Deviate']]","['2010/uk-0528-165873-front.jpg', '2010/uk-0528-165873-back.jpg']","[['l-vis1990', 'L-Vis 1990'], ['deadboy', 'Deadboy'], ['mikejones', 'Mike Jones']]",False,3
+160756.0,23:00,05:00,£15 On Door,,"[['1284', 'Shindig']]",['2010/uk-0501-160756-front.jpg'],"[['claudevonstroke', 'Claude Von Stroke'], ['heidi', 'Heidi'], ['ooft', 'OOFT'], ['scottbradford', 'Scott Bradford'], ['neilbainbridge', 'Neil Bainbridge'], ['marklowry', 'Mark Lowry']]",False,4
+155642.0,23:00,04:00,£6 ADV // M.O.T.D.,,"[['1141', 'Deviate']]","['2010/uk-0423-155642-front.jpg', '2010/uk-0423-155642-back.jpg']","[['zerot', 'Zero T'], ['mikejones', 'Mike Jones']]",False,1
+150849.0,,,£12 on door,,"[['1284', 'Shindig']]",['2010/uk-0320-150849-front.jpg'],"[['marcromboy', 'Marc Romboy'], ['neilbainbridge', 'Neil Bainbridge'], ['marklowry', 'Mark Lowry']]",False,3
+147557.0,23:00,04:00,£8 ADV / M.O.T.D.,,"[['1141', 'Deviate']]","['2010/uk-0319-147557-front.jpg', '2010/uk-0319-147557-back.jpg']","[['roska', 'Roska'], ['brackles', 'Brackles'], ['mosca', 'Mosca'], ['mikejones', 'Mike Jones']]",False,1
+143641.0,23:00,04:00,£7 ADV // M.O.T.D.,,"[['1141', 'Deviate']]","['2010/uk-0305-143641-front.jpg', '2010/uk-0305-143641-back.jpg']","[['starkey', 'Starkey'], ['mikejones', 'Mike Jones']]",False,1
+142747.0,,,£12 on door,,"[['1284', 'Shindig']]",['2010/uk-0227-142747-front.jpg'],"[['jimpster', 'Jimpster'], ['ralphlawson', 'Ralph Lawson'], ['scottbradford', 'Scott Bradford'], ['neilbainbridge', 'Neil Bainbridge']]",False,2
+139326.0,23:00,04:00,£7 ADV // M.O.T.D.,,"[['1141', 'Deviate']]","['2010/uk-0212-139326-front.jpg', '2010/uk-0212-139326-back.jpg']","[['alixperez', 'Alix Perez'], ['mikejones', 'Mike Jones']]",False,1
+132948.0,23:00,04:00,£8 ADV / M.O.T.D.,,"[['1141', 'Deviate']]","['2010/uk-0130-132948-front.jpg', '2010/uk-0130-132948-back.jpg']","[['mikejones', 'Mike Jones']]",False,7
+140468.0,23:00,03:00,£7 Adv,,"[['9891', 'Inertia @ WHQ']]","['2010/uk-0129-140468-front.jpg', '2010/uk-0129-140468-back.jpg']","[['djzinc', 'DJ Zinc'], ['sully', 'Sully']]",False,1
+136007.0,,,£12 on door,,"[['1284', 'Shindig']]",['2010/uk-0127-136007-front.jpg'],"[['joeynegro', 'Joey Negro'], ['scottbradford', 'Scott Bradford'], ['marklowry', 'Mark Lowry'], ['neilbainbridge', 'Neil Bainbridge']]",False,2
+212947.0,21:00,"10:00,New Years Eve",Limited $60 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1231-212947-front.jpg'],"[['digweed', 'John Digweed']]",False,11
+209363.0,21:30,"08:00,Xmas Day",Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1225-209363-front.jpg'],"[['infectedmushroom', 'Infected Mushroom']]",False,2
+209369.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1218-209369-front.jpg'],"[['erickmorillo', 'Erick Morillo']]",False,1
+209356.0,21:30,05:00,Limited $10 Presales,,"[['857', 'Avalon Hollywood']]",['2010/us-1217-209356-front.jpg'],"[['dropthelime', 'Drop The Lime'], ['stareyes-us', 'Star Eyes']]",False,3
+209374.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1211-209374-front.jpg'],"[['robbierivera', 'Robbie Rivera'], ['matuss', 'Matuss']]",False,2
+209361.0,21:30,05:00,Limited $10 Presales,,"[['857', 'Avalon Hollywood']]",['2010/us-1210-209361-front.jpg'],"[['treasurefingers', 'Treasure Fingers']]",False,2
+209377.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",[],"[['steveangello', 'Steve Angello']]",False,2
+209380.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1127-209380-front.jpg'],"[['funkagenda', 'Funkagenda'], ['shapeshifters', 'The Shapeshifters']]",False,5
+198615.0,23:00,06:00,$10 ADV,,[],['2010/us-1126-198615-front.jpg'],"[['jesserose', 'Jesse Rose'], ['d.i.m', 'D.I.M.'], ['eclecticmethod', 'Eclectic Method'], ['cameronangeli', 'Cameron Angeli']]",False,5
+205941.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1120-205941-front.jpg'],"[['simianmobiledisco', 'Simian Mobile Disco'], ['paulapedroza', 'Paula Pedroza'], ['luismiolaro', 'Luis Miolaro']]",False,6
+204111.0,21:30,05:00,Limited $10 Presales,,"[['857', 'Avalon Hollywood']]",['2010/us-1119-204111-front.jpg'],"[['thecrystalmethod', 'The Crystal Method']]",False,3
+204123.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1113-204123-front.jpg'],"[['sharam', 'Sharam']]",False,3
+200216.0,,,$10-$25,,[],[],"[['lariots', 'LA Riots'], ['chrislake', 'Chris Lake']]",False,2
+204120.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1106-204120-front.jpg'],"[['sebastianingrosso', 'Sebastian Ingrosso'], ['an21', 'An21'], ['maxvangeli', 'Max Vangeli']]",False,3
+198706.0,,,$15,,[],['2010/us-1105-198706-front.jpg'],"[['dadalife', 'Dada Life'], ['boy8bit', 'Boy 8 Bit'], ['paparazzi', 'Paparazzi'], ['audreynapoleon', 'Audrey Napoleon']]",False,2
+191820.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]","['2010/us-1030-191820-front.jpg', '2010/us-1030-191820-back.jpg']","[['dirtysouth', 'Dirty South']]",False,5
+191800.0,21:30,05:00,Limited $10 Presales,,[],[],"[['claudevonstroke', 'Claude VonStroke'], ['justinmartin', 'Justin Martin'], ['j.phlip', 'J. Phlip']]",False,27
+204106.0,21:00,02:00,$10,,"[['857', 'Avalon Hollywood']]",['2010/us-1029-204106-front.jpg'],"[['junkiexl', 'Junkie XL'], ['samosoundboy', 'Samo Sound Boy'], ['samo', 'Samo']]",False,2
+198725.0,,,$15,,[],['2010/us-1022-198725-front.jpg'],"[['alexmetric', 'Alex Metric'], ['mr.white', 'Mr. White']]",False,1
+191821.0,21:30,08:00,Limited $20 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-1016-191821-front.jpg'],"[['erickmorillo', 'Erick Morillo']]",False,5
+198701.0,,,$15,,[],['2010/us-1015-198701-front.jpg'],"[['grum', 'Grum'], ['acidgirls', 'Acid Girls']]",False,3
+191822.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]","['2010/us-1009-191822-front.jpg', '2010/us-1009-191822-back.jpg']","[['dubfire', 'Dubfire']]",False,8
+188272.0,21:30,05:00,Limited $10 Presales,,[],[],"[['etiennedecrecy', 'Etienne De Crecy']]",False,8
+191823.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood']]","['2010/us-1002-191823-front.jpg', '2010/us-1002-191823-back.jpg']","[['badboybill', 'Bad Boy Bill']]",False,1
+188273.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-1001-188273-front.jpg', '2010/us-1001-188273-back.jpg']","[['dropthelime', 'Drop The Lime'], ['autoerotique', 'Autoerotique']]",False,2
+185352.0,21:30,05:00,Limited $10 Presales,,[],['2010/us-0924-185352-front.jpg'],"[['killthenoise', 'Kill The Noise']]",False,4
+185336.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland']]","['2010/us-0918-185336-front.jpg', '2010/us-0918-185336-back.jpg']","[['christopherlawrence', 'Christopher Lawrence'], ['blankjones', 'Blank & Jones']]",False,2
+185349.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-0917-185349-front.jpg', '2010/us-0917-185349-back.jpg']","[['rivastarr', 'Riva Starr'], ['anniemac', 'Annie Mac']]",False,8
+185343.0,21:30,08:00,Limited $10 Presales,,"[['121', 'Giant'], ['511', 'Avaland']]","['2010/us-0911-185343-front.jpg', '2010/us-0911-185343-back.jpg']","[['morganpage', 'Morgan Page'], ['glennmorrison', 'Glenn Morrison']]",False,1
+184878.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-0910-184878-front.jpg', '2010/us-0910-184878-back.jpg']","[['majorlazer', 'Major Lazer']]",False,3
+185342.0,21:30,08:00,Limited $15 Presales,,"[['121', 'Giant'], ['511', 'Avaland']]",['2010/us-0904-185342-front.jpg'],[],False,1
+185340.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-0903-185340-front.jpg', '2010/us-0903-185340-back.jpg']","[['kissysellout', 'Kissy Sell Out']]",False,4
+182695.0,21:30,08:00,Limited $20 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",['2010/us-0828-182695-front.jpg'],"[['felixdahousecat', 'Felix Da Housecat']]",False,5
+182841.0,21:30,05:00,Limited $10 Presales,,[],['2010/us-0827-182841-front.jpg'],"[['donaldglaude', 'Donald Glaude']]",False,2
+182694.0,21:30,08:00,Limited $20 Presales,,"[['121', 'Giant'], ['511', 'Avaland'], ['857', 'Avalon Hollywood'], ['2281', 'Liquified']]",['2010/us-0821-182694-front.jpg'],"[['sandervandoorn', 'Sander van Doorn']]",False,3
+182700.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-0820-182700-front.jpg', '2010/us-0820-182700-back.jpg']","[['dondiablo', 'Don Diablo'], ['zodiaccartel', 'Zodiac Cartel'], ['georgehatiras', 'Hatiras']]",False,2
+181829.0,21:30,06:00,$20,,"[['121', 'Giant'], ['2281', 'Liquified']]","['2010/us-0814-181829-front.jpg', '2010/us-0814-182839-back.jpg']","[['johndahlback', 'John Dahlbäck'], ['damianlazarus', 'Damian Lazarus'], ['torin', 'Torin']]",False,4
+182691.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-0813-182691-front.jpg', '2010/us-0813-182691-back.jpg']","[['wolfganggartner', 'Wolfgang Gartner'], ['harvardbass', 'Harvard Bass']]",False,3
+182689.0,21:30,05:00,Limited $20 Presales,,[],['2010/us-0807-182689-front.jpg'],"[['dirtysouth', 'Dirty South']]",False,1
+182688.0,21:30,05:00,Limited $10 Presales,,[],"['2010/us-0806-182688-front.jpg', '2010/us-0806-182688-back.jpg']","[['12thplanet', '12th Planet']]",False,1
+180786.0,21:30,08:00,Limited $20 Presales,,[],[],"[['felguk', 'Felguk'], ['luismiolaro', 'Luis Miolaro'], ['paulapedroza', 'Paula Pedroza']]",False,1
+180785.0,21:30,05:00,Limited $10 Presales,,[],[],"[['grum', 'Grum'], ['felguk', 'Felguk'], ['neoteric', 'Neoteric']]",False,1
+179432.0,21:30,08:00,$15 PRESALES,,[],['2010/us-0724-179432-front.jpg'],"[['nicfanciulli', 'Nic Fanciulli'], ['carlolio', 'Carlo Lio'], ['kazell', 'Kazell']]",False,4
+179425.0,21:30,05:00,$10 PRESALES,,[],['2010/us-0723-179425-front.jpg'],"[['jokersofthescene', 'Jokers of the Scene']]",False,1
+175897.0,21:30,08:00,$20 presale,,[],['2010/us-0717-175897-front.jpg'],"[['sharam', 'Sharam']]",False,4
+178014.0,21:30,05:00,$10 Presales,,[],['2010/us-0716-178014-front.jpg'],"[['onemanparty', 'One Man Party']]",False,1
+178015.0,21:30,08:00,$20 Presales,,[],[],"[['sanderk', 'Sander Kleinenberg'], ['djdan', 'DJ Dan']]",False,1
+178008.0,21:30,05:00,$10 PRESALE,,[],['2010/us-0709-178008-front.jpg'],"[['freestylers', 'Freestylers']]",False,1
+175545.0,21:30,08:00,$15.00,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified'], ['9911', 'Spundae']]",[],"[['misskittin', 'Miss Kittin'], ['paolomojo', 'Paolo Mojo']]",False,5
+174791.0,22:00,06:00,$20,,"[['511', 'Avaland']]",['2010/us-0626-174791-front.jpg'],"[['leeburridge', 'Lee Burridge'], ['eduardocastillo', 'Eduardo Castillo'], ['jimmymaheras', 'Jimmy Maheras']]",False,2
+169622.0,21:30,05:00,$15 presales @ wantickets.com/avalon,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]","['2010/us-0605-169622-front.jpg', '2010/us-0605-169622-back.jpg']","[['hernancattaneo', 'Hernan Cattaneo'], ['darinepsilon', 'Darin Epsilon']]",False,9
+166887.0,21:30,07:00,$20,,[],['2010/us-0529-166887-front.jpg'],"[['rogersanchez', 'Roger Sanchez']]",False,3
+159814.0,21:30 ,07:00 ,$20+,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['matthewdear', 'Matthew Dear'], ['magda', 'Magda'], ['konradblack', 'Konrad Black']]",False,25
+159813.0,21:30 ,05:00 ,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['adamfreeland', 'Adam Freeland']]",False,2
+159811.0,21:30 ,07:00 ,$20+,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['erickmorillo', 'Erick Morillo']]",False,2
+159810.0,21:30 ,05:00 ,$20+,,"[['857', 'Avalon Hollywood']]",[],[],False,3
+159808.0,21:30 ,07:00 ,$20+,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['felixdahousecat', 'Felix Da Housecat']]",False,6
+159807.0,21:30 ,05:00 ,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['lariots', 'LA Riots']]",False,4
+159806.0,21:30 ,07:00 ,$25 +,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['robbierivera', 'Robbie Rivera'], ['shapeshifters', 'The Shapeshifters'], ['bobina', 'Bobina']]",False,1
+159804.0,21:30 ,05:00 ,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['daedelus', 'Daedelus'], ['twofresh', 'Two Fresh']]",False,2
+157855.0,21:30 ,07:00 ,$20+,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['steveangello', 'Steve Angello'], ['an21', 'An21']]",False,4
+157854.0,21:30 ,05:00 ,$20+,,"[['857', 'Avalon Hollywood']]",[],"[['robertraine', 'Robert Raine'], ['steveprior', 'Steve Prior']]",False,3
+152951.0,22:00,07:00,$20+,,"[['121', 'Giant'], ['857', 'Avalon Hollywood'], ['2281', 'Liquified'], ['9911', 'Spundae']]",[],"[['badboybill', 'Bad Boy Bill']]",False,3
+152950.0,22:00,05:00,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['treasurefingers', 'Treasure Fingers']]",False,2
+152948.0,22:00,07:00,$20+,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['guiboratto', 'Gui Boratto']]",False,15
+152946.0,22:00,05:00,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['dadalife', 'Dada Life']]",False,3
+152944.0,22:00,07:00,$20+,,"[['121', 'Giant'], ['857', 'Avalon Hollywood'], ['2281', 'Liquified'], ['9911', 'Spundae']]",[],"[['axwell', 'Axwell']]",False,2
+152941.0,22:00,05:00,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['tiefschwarz', 'Tiefschwarz'], ['andrewgrant', 'Andrew Grant'], ['acidcircus', 'Acid Circus']]",False,25
+151286.0,22:00,07:00,20+,,"[['857', 'Avalon Hollywood'], ['2281', 'Liquified']]",[],"[['jorisvoorn', 'Joris Voorn'], ['nicfanciulli', 'Nic Fanciulli']]",False,4
+151481.0,22:00,05:00,$1,,"[['857', 'Avalon Hollywood']]",['2010/us-0326-151481-front.jpg'],"[['dondiablo', 'Don Diablo'], ['santiagobushido', 'Santiago & Bushido'], ['mr.white', 'Mr. White']]",False,2
+144509.0,22:00,07:00,30 $,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",['2010/us-0320-144509-front.jpg'],"[['digweed', 'John Digweed'], ['kazell', 'Kazell']]",False,16
+149872.0,22:00,05:00,$20+,,"[['857', 'Avalon Hollywood']]",['2010/us-0319-153939-front.jpg'],"[['anniemac', 'Annie Mac'], ['jesserose', 'Jesse Rose'], ['toddlat', 'Toddla T']]",False,2
+142105.0,22:00,07:00,$25,,"[['121', 'Giant'], ['511', 'Avaland'], ['2281', 'Liquified']]",[],"[['sasha', 'Sasha'], ['kazell', 'Kazell']]",False,12
+149732.0,22:00,05:00,$15 +,,[],[],"[['mandy', 'M.A.N.D.Y.'], ['felixcartal', 'Felix Cartal']]",False,7
+149731.0,22:00,07:00,$20+,,[],['2010/us-0306-149731-front.jpg'],"[['locodice', 'Loco Dice'], ['martinbuttrich', 'Martin Buttrich'], ['livioroby', 'Livio & Roby']]",False,16
+149730.0,22:00,05:00,$15 +,,[],['2010/us-0305-149730-front.jpg'],"[['jameszabiela', 'James Zabiela']]",False,7
+141775.0,,,TBA,,[],['2010/us-0227-141775-front.jpg'],"[['calvinharris', 'Calvin Harris'], ['damianlazarus', 'Damian Lazarus'], ['jamiejones', 'Jamie Jones'], ['sethtroxler', 'Seth Troxler'], ['denizkurtel', 'Deniz Kurtel']]",False,24
+147538.0,21:30,03:00m,$15-$25,,[],['2010/us-0226-147538-front.jpg'],"[['leeburridge', 'Lee Burridge'], ['dannyhowells', 'Danny Howells']]",False,7
+134691.0,,,tba,,[],[],"[['vitalic', 'Vitalic']]",False,9
+145336.0,22:00,07:00,$20 discount admission before 11:00PM,,[],"['2010/us-0213-145336-front.jpg', '2010/us-0213-145336-back.jpg']","[['dubfire', 'Dubfire'], ['davidesquillace', 'Davide Squillace'], ['carlolio', 'Carlo Lio'], ['nikolabaytala', 'Nikola Baytala'], ['djrin', 'DJ Rin']]",False,11
+146335.0,22:00,03:00,"$15 if you rsvp to [email protected] otherwise, $25 all night",,"[['7267', 'A Little Birdy Told Me']]",['2010/us-0212-146335-front.jpg'],"[['thecrystalmethod', 'The Crystal Method'], ['djloli', 'DJ Loli'], ['roxanne', 'Roxanne']]",False,1
+130298.0,12:00,04:00,N/A,,[],[],"[['missnine', 'Miss Nine'], ['maryzander', 'Mary Zander'], ['missnine', 'Miss Nine'], ['maryolivetti', 'Mary Olivetti']]",False,3
+139657.0,22:00,03:00,$15 +,,"[['857', 'Avalon Hollywood']]",[],[],False,3
+139655.0,22:00,07:00,$20+,,"[['511', 'Avaland'], ['857', 'Avalon Hollywood']]",[],"[['steveangello', 'Steve Angello']]",False,3
+143128.0,22:00,15:00,"$10 if you rsvp to [email protected] otherwise, $20 all night",,"[['7267', 'A Little Birdy Told Me']]",['2010/us-0129-143128-front.jpg'],"[['alanbraxe', 'Alan Braxe'], ['classixx', 'Classixx'], ['sweetfa', 'SweetFA'], ['audreynapoleon', 'Audrey Napoleon']]",False,1
+137264.0,,,$20+,,"[['511', 'Avaland'], ['857', 'Avalon Hollywood']]",[],"[['djdan', 'DJ Dan'], ['donaldglaude', 'Donald Glaude'], ['nickwarren', 'Nick Warren']]",False,4
+139469.0,,,$15 +,,"[['857', 'Avalon Hollywood']]",[],"[['plumpdjs', 'Plump DJs'], ['steveaoki', 'Steve Aoki']]",False,1
+135072.0,,,$25,,[],['2010/us-0116-135072-front.jpg'],"[['laidbackluke', 'Laidback Luke'], ['radioslave', 'Radio Slave'], ['ginaturner', 'Gina Turner'], ['palenkesoultribe', 'Palenke Soultribe'], ['krisbertrand', 'Kris Bertrand']]",False,11
+136534.0,22:00,03:00,$15 +,,"[['857', 'Avalon Hollywood']]",['2010/us-0115-136534-front.jpg'],"[['zodiaccartel', 'Zodiac Cartel'], ['mr.white', 'Mr. White']]",False,2
+136480.0,22:00,07:00,$20+,,"[['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-0109-136480-front.jpg'],"[['murk', 'Murk'], ['ralphfalcon', 'Ralph Falcon'], ['matttolfrey', 'Matt Tolfrey']]",False,3
+136533.0,22:00,03:00,$15 +,,"[['857', 'Avalon Hollywood']]",['2010/us-0108-136533-front.jpg'],"[['dropthelime', 'Drop The Lime']]",False,4
+135986.0,22:00,07:00,$25 +,,"[['511', 'Avaland'], ['857', 'Avalon Hollywood']]",['2010/us-0102-135986-front.jpg'],"[['joachimgarraud', 'Joachim Garraud']]",False,1
+185529.0,16:00,02:00,$10 RSVP or $20 DOOR,,"[['283', 'Droidbehavior'], ['7860', 'MEDIA CONTENDER'], ['10600', 'SMOG']]","['2010/us-0821-185529-front.jpg', '2010/us-0821-185529-back.jpg']","[['12thplanet', '12th Planet'], ['dlx', 'DLX'], ['dustmite', 'Dustmite'], ['skeet', 'Skeet'], ['skeet', 'Skeet'], ['theemikeb', 'Thee Mike B'], ['acidcircus', 'Acid Circus'], ['subcode', 'Subcode']]",False,6
+157475.0,20:00,03:00,$20 (sold out) $25 / $30,,[],[],"[['djdan', 'DJ Dan'], ['donaldglaude', 'Donald Glaude'], ['jeno', 'Jeno'], ['mimosa', 'MiMOSA'], ['barryweaver', 'Barry Weaver'], ['kether', 'Kether'], ['jasonblakemore', 'Jason Blakemore']]",False,3
+182953.0,,,Regular $60.0018+Service Fee $5.80 2 Day Pass $100.0018+Service Fee $7.00,,[],['2010/us-1030-182953-front.jpg'],"[['jackbeats', 'Jack Beats'], ['fakeblood', 'Fake Blood'], ['underworld', 'Underworld'], ['boysnoize', 'Boys Noize'], ['calvinharris', 'Calvin Harris'], ['atrak', 'A-Trak'], ['erolalkan', 'Erol Alkan'], ['bookashade', 'Booka Shade'], ['destructo', 'Destructo'], ['nero', 'Nero'], ['brodinski', 'Brodinski'], ['rusko', 'Rusko'], ['busyp', 'Busy P'], ['bloodybeetroots', 'The Bloody Beetroots'], ['crookers', 'Crookers'], ['l-vis1990', 'L-Vis 1990'], ['sbtrkt', 'SBTRKT']]",False,15
+136011.0,20:00,04:00,"$65 pre-sale, $75 at the door, $125 VIP",,"[['6818', 'The Do LaB']]","['2010/us-0213-136011-front.jpg', '2010/us-0213-136011-back.jpg']","[['bassnectar', 'Bassnectar'], ['stantonwarriors', 'Stanton Warriors'], ['lazersword', 'Lazer Sword'], ['anasia', 'Ana Sia'], ['lynx', 'Lynx'], ['andrewjones-uk', 'Andrew Jones']]",False,43
+214125.0,20:00,"02:00,New Years Eve",$60 general admission presale + $100 open bar all night presale,,"[['12887', 'jamie barren']]",['2010/us-1231-214125-front.jpg'],"[['yvonneblack', 'Yvonne Black']]",False,1
+193331.0,,,,,[],[],"[['einsturzendeneubauten', 'Einsturzende Neubauten']]",False,1
+170208.0,20:00,06:00,45 euros,,[],['2010/gr-0605-170208-front.jpg'],"[['hotchip', 'Hot Chip'], ['laurentgarnier', 'Laurent Garnier'], ['jimitenor', 'Jimi Tenor'], ['tonyallen', 'Tony Allen'], ['djkrush', 'DJ Krush'], ['cayetano', 'Cayetano'], ['booker', 'Booker'], ['jimmyedgar', 'Jimmy Edgar']]",False,5
+161332.0,,,tbc,,[],[],"[['laurentgarnier', 'Laurent Garnier'], ['hotchip', 'Hot Chip'], ['peaches', 'Peaches'], ['jimitenor', 'Jimi Tenor'], ['tonyallen', 'Tony Allen'], ['djkrush', 'DJ Krush'], ['fuckbuttons', 'Fuck Buttons'], ['beak', 'BEAK>'], ['alvanoto', 'Alva Noto'], ['busyp', 'Busy P'], ['jimmyedgar', 'Jimmy Edgar'], ['trusme', ""Trus'me""], ['balearicmike', 'Balearic Mike'], ['cayetano', 'Cayetano'], ['booker', 'Booker']]",False,16
+160799.0,23:00,05:00,10 Euro,,[],"['2010/gr-0423-160799-front.jpg', '2010/gr-0423-160799-back.jpg']","[['instramental', 'Instra:mental']]",False,4
+147075.0,23:00,05:00,10€ inc. drink,,[],"['2010/gr-0227-147075-front.jpg', '2010/gr-0227-147075-back.jpg']","[['el-b', 'El-B']]",False,1
+213165.0,23:00 ,03:00 ,0,,[],[],[],False,1
+182854.0,,,Always free at Edem,,[],['2010/gr-0806-182854-front.jpg'],"[['pandonis', 'Pandonis']]",False,1
+211056.0,21:30,"5,New Years Eve:00",$15 up to $30 day of event,,"[['5335', 'Sunset Sound System']]",['2010/us-1231-211056-front.jpg'],"[['kimannfoxman', 'Kim Ann Foxman'], ['timsweeney', 'Tim Sweeney'], ['solar', 'Solar'], ['peeplay', 'PeePlay'], ['joshcheon', 'Josh Cheon'], ['jasonkendig', 'Jason Kendig'], ['galen', 'Galen'], ['robothustle', 'Robot Hustle']]",False,30
+212524.0,22:00,04:00,$7 presale / $10 at the door,,[],['2010/us-1217-212524-front.jpg'],"[['djripley', 'DJ Ripley'], ['kidkameleon', 'Kid Kameleon']]",False,1
+213008.0,22:00,03:00,$10 before 11; $20 after,,"[['14234', 'Public Works']]","['2010/us-1210-213008-front.jpg', '2010/us-1210-213008-back.jpg']","[['thescumfrog', 'The Scumfrog'], ['benseagren', 'Ben Seagren']]",False,1
+209413.0,21:00,03:00,"$5 before 11pm, $10 after",,"[['14234', 'Public Works']]","['2010/us-1204-209413-front.jpg', '2010/us-1204-209413-back.jpg']",[],False,3
+208256.0,,,,,[],[],"[['tensnake', 'Tensnake']]",False,6
+205468.0,22:00,03:00,Free B4 11pm with RSVP to [email protected] $10 after,,"[['14234', 'Public Works']]",['2010/us-1113-205468-front.jpg'],"[['quivver', 'Quivver'], ['fedora', 'Fedora'], ['nikita', 'Nikita']]",False,2
+201965.0,22:00,07:30,$10-20,,"[['3321', 'Rock It Science']]",['2010/us-1106-201965-front.jpg'],"[['djcraze', 'DJ Craze'], ['burakasomsistema', 'Buraka Som Sistema'], ['ericsharp', 'Eric Sharp'], ['ultraviolet', 'Ultraviolet']]",False,3
+202755.0,22:00 ,03:00 ,"$10 presales, $15 door",,[],"['2010/us-1105-202755-front.jpg', '2010/us-1105-202755-back.jpg']","[['actress', 'Actress'], ['lowlimit', 'Low Limit'], ['juswan', 'Jus Wan'], ['shlohmo', 'Shlohmo']]",False,1
+196582.0,,,$8 w RSVP / $10 before 11pm / $15 after,,"[['12596', 'Surefire Sound']]","['2010/us-1016-196582-front.jpg', '2010/us-1016-196582-back.jpg']","[['pinch', 'Pinch'], ['gemmy', 'Gemmy']]",False,5
+189803.0,22:00,03:00,10-15,,"[['14234', 'Public Works']]","['2010/us-0925-189803-front.jpg', '2010/us-0925-189803-back.jpg']","[['mountkimbie', 'Mount Kimbie'], ['maryannehobbs', 'Mary Anne Hobbs'], ['dntel', 'Dntel'], ['asura', 'Asura'], ['grenier', 'DJG']]",False,3
+216773.0,22:00,"4,New Years Eve:00",Free for members/Memberships 60$ for year,,"[['9368', 'Gray Area Foundation']]",['2010/us-1231-216773-front.gif'],"[['moniker', 'Moniker'], ['qzen', 'Qzen'], ['nikolabaytala', 'Nikola Baytala'], ['worthy', 'Worthy']]",False,15
+208529.0,22:00,02:00,$5 before 11pm / $12 after,,"[['9368', 'Gray Area Foundation']]",['2010/us-1119-208529-front.jpg'],"[['mikaelstavostrand', 'Mikael Stavöstrand'], ['daveaju', 'Dave Aju'], ['jasonshort', 'Jason Short']]",False,9
+195012.0,18:30,12:00,$5-$10 (Symposium) / $10 (A/V performances) / $15 (Symposium + A/V performances),,"[['9368', 'Gray Area Foundation']]",['2010/us-1008-195012-front.jpg'],"[['ezekielhonig', 'Ezekiel Honig'], ['davidlast', 'David Last']]",False,4
+168454.0,19:00,22:30,"Recommended $5-10 donation, however no-one will be turned away for lack of funds.",,"[['10898', 'RML SF']]",['2010/us-0528-168454-front.jpg'],[],False,1
+161866.0,,,$10-$15 sliding scale,,"[['10898', 'RML SF']]","['2010/us-0430-161866-front.jpg', '2010/us-0430-161866-back.jpg']","[['smirk', 'Smirk'], ['dnumbers', 'D Numbers'], ['sutekh', 'Sutekh']]",False,4
+155392.0,22:00,02:00,$20,,"[['10898', 'RML SF']]",['2010/us-0416-155392-front.jpg'],"[['akufen', 'Akufen'], ['stephenbeaupre', 'Stephen Beaupré'], ['sutekh', 'Sutekh']]",False,19
+155395.0,19:00,21:00,$5-$10 Suggested donation,,"[['10898', 'RML SF']]",['2010/us-0326-155395-front.jpg'],"[['kode9', 'Kode9']]",False,1

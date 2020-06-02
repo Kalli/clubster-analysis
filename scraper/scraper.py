@@ -285,6 +285,7 @@ def get_all_dates_details(club_dates, year):
                 data.to_csv(data_path)
                 additions = []
 
+    data = data.append(pd.DataFrame(additions).set_index('id'))
     data.to_csv(data_path)
     return data
 
