@@ -1,0 +1,1 @@
+This folder serves as a local cache for scraped files from ResidentAdvisor.net. See `scraper.get_url` method for reference.
