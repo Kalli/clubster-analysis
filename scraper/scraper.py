@@ -39,7 +39,7 @@ def load_local_cache(file_path,  index_col=None, parse_dates=None):
                 index_col=index_col,
                 parse_dates=parse_dates
             )
-        except IOError:
+        except (IOError, pd.errors.EmptyDataError):
             pass
     return pd.DataFrame()
 
@@ -72,7 +72,7 @@ def get_url(url):
         if wait < CRAWL_DELAY:
             print('Sleeping for {} seconds'.format(CRAWL_DELAY - wait))
             sleep(CRAWL_DELAY - wait)
-            LAST_REQUEST = time()
+        LAST_REQUEST = time()
         r = requests.get(url)
         if r.status_code == 200:
             with open(path, 'w+') as fp:
@@ -276,10 +276,10 @@ def get_all_dates_details(club_dates, year):
             # save csv every 100 events in case of exceptions
             if len(additions) % 100 == 0:
                 data = data.append(additions)
-                data.to_csv(data_path)
+                data.to_csv(data_path, index=False)
                 additions = []
 
-    data.to_csv(data_path)
+    data.to_csv(data_path, index=False)
     return data
 
 
