@@ -281,11 +281,11 @@ def get_all_dates_details(club_dates, year):
 
             # save csv every 100 events in case of exceptions
             if len(additions) % 100 == 0:
-                data = data.append(additions)
-                data.to_csv(data_path, index=False)
+                data = data.append(pd.DataFrame(additions).set_index('id'))
+                data.to_csv(data_path)
                 additions = []
 
-    data.to_csv(data_path, index=False)
+    data.to_csv(data_path)
     return data
 
 
