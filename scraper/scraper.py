@@ -298,8 +298,11 @@ def get_date_details(listing_id):
     soup = BeautifulSoup(content, 'html.parser')
 
     date = find_and_extract(soup, 'div', 'Date /', TIME_REGEX, text=False)
-    start_time, end_time = extract_datetimes(date)
-
+    try:
+        start_time, end_time = extract_datetimes(date)
+    except Exception:
+        print('Error parsing {} datestring on {}'.format(date, link))
+        start_time, end_time = None, None
     cost = find_and_extract(soup, 'div', 'Cost /', re.compile('Cost /(.*)'))
     age = find_and_extract(
         soup,
@@ -389,11 +392,11 @@ def extract_datetimes(date_string):
         return [None, None]
     times = date_string.split(' - ')
     for index, t in enumerate(times):
-        t = t.replace('.', ':')
+        t = t.replace('.', ':').replace('(afternoon)', '').strip()
         pm = True if 'pm' in t else False
         t = t.replace('pm', '').replace('am', '')
         if ':' in t:
-            hours, minutes = t.split(':')
+            hours, minutes = t.split(':')[0:2]
         else:
             hours = t
             minutes = '00'
