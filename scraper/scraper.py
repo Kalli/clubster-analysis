@@ -20,19 +20,25 @@ TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3])(?:.|:)*(?:[0-5][0-9])*(?:am|pm)*'
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
 
-def load_local_cache(file_path,  index_col=None):
+def load_local_cache(file_path,  index_col=None, parse_dates=None):
     """
     Get a data frame if it exists and caching is enabled
 
     :param file_path (string): Path to the file
     :index_col (string):    The column to index on if any
+    :parse_dates: Column to parse as dates
 
     :return:    The local cache if it exists and is enabled, an empty data
                 frame otherwise
     """
+    parse_dates = parse_dates if parse_dates is not None else False
     if USE_LOCAL_CACHE:
         try:
-            return pd.read_csv(file_path, comment='#', index_col=index_col)
+            return pd.read_csv(
+                file_path,
+                index_col=index_col,
+                parse_dates=parse_dates
+            )
         except IOError:
             pass
     return pd.DataFrame()
@@ -182,7 +188,7 @@ def get_top_club_dates(top_clubs):
     dates in the top clubs in the period of 2010 to 2020
     """
     data_path = '../data/top-clubs-dates.csv'
-    data = load_local_cache(data_path, index_col='id')
+    data = load_local_cache(data_path, index_col='id', parse_dates=['date'])
 
     for club_id, club in top_clubs.iterrows():
         if club_id not in data['club_id'].unique():
@@ -261,13 +267,13 @@ def get_all_dates_details(club_dates, year):
 
     additions = []
     for index, listing in club_dates.iterrows():
-        if index in data.index or pd.to_datetime(listing['date']).year != year:
+        if index in data.index or listing['date'].year != year:
             continue
         # Only fetch Fridays and Saturdays
-        if pd.to_datetime(listing['date']).weekday() in [4, 5]:
+        if listing['date'].weekday() in [4, 5]:
             additions.append(get_date_details(index))
 
-            # save csv every 100 events
+            # save csv every 100 events in case of exceptions
             if len(additions) % 100 == 0:
                 data = data.append(additions)
                 data.to_csv(data_path)
@@ -401,7 +407,8 @@ def extract_datetimes(date_string):
 
 regions = get_top_regions()
 clubs = get_top_clubs(regions)
-# dates = get_top_club_dates(clubs)
+dates = get_top_club_dates(clubs)
 
-# for year in range(2010, 2020):
-#     date_details = get_all_dates_details(dates, year)
+for year in range(2010, 2020):
+    print('Fetching event details for {}'.format(year))
+    date_details = get_all_dates_details(dates, year)
