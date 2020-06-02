@@ -271,7 +271,13 @@ def get_all_dates_details(club_dates, year):
             continue
         # Only fetch Fridays and Saturdays
         if listing['date'].weekday() in [4, 5]:
-            additions.append(get_date_details(index))
+            try:
+                additions.append(get_date_details(index))
+            except AttributeError as e:
+                link = 'https://www.residentadvisor.net/events/{}'.format(
+                    int(index)
+                )
+                print('Error fetching {} {}'.format(link, e))
 
             # save csv every 100 events in case of exceptions
             if len(additions) % 100 == 0:
@@ -412,6 +418,6 @@ regions = get_top_regions()
 clubs = get_top_clubs(regions)
 dates = get_top_club_dates(clubs)
 
-for year in range(2010, 2020):
+for year in range(2010, 2015):
     print('Fetching event details for {}'.format(year))
     date_details = get_all_dates_details(dates, year)
