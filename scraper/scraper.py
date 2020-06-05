@@ -16,7 +16,17 @@ LAST_REQUEST = time() - CRAWL_DELAY
 
 RA_IMAGE_PATH = '/images/events/flyer/'
 
-TIME_PATTERN = '(?:[0-9]|0[0-9]|1[0-9]|2[0-3])(?:.|:)*(?:[0-5][0-9])*(?:am|pm)*'
+TIME_PATTERN = ''.join([
+    # the hour part e.g. '1', '01' or '23'
+    '(?:[1-9]|0[0-9]|1[0-9]|2[0-3]|0(?![1-9]))',
+    # minute / hour separator
+    '(?:|.|;|h\'|:)*'
+    # optional minute part 01-59
+    '(?:[0-5][0-9])*'
+    # optional am or pm prefix, hours converted in the function
+    '(?:am|pm)*'
+])
+
 TIME_REGEX = re.compile('({} - {})'.format(TIME_PATTERN, TIME_PATTERN))
 
 
@@ -406,8 +416,11 @@ def extract_datetimes(date_string):
     if not date_string:
         return [None, None]
     times = date_string.split(' - ')
+    hour_minutes_separator = '.;h\''
     for index, t in enumerate(times):
-        t = t.replace('.', ':').replace('(afternoon)', '').strip()
+        for split in hour_minutes_separator:
+            t = t.replace(split, ':')
+        t = t.replace('(afternoon)', '').strip()
         pm = True if 'pm' in t else False
         t = t.replace('pm', '').replace('am', '')
         if ':' in t:
@@ -422,10 +435,10 @@ def extract_datetimes(date_string):
         times[index] = t
     return times
 
+if __name__ == "__main__":
+    regions = get_top_regions()
+    clubs = get_top_clubs(regions)
+    dates = get_top_club_dates(clubs)
 
-regions = get_top_regions()
-clubs = get_top_clubs(regions)
-dates = get_top_club_dates(clubs)
-
-for year in range(2010, 2015):
-    date_details = get_all_dates_details(dates, year)
+    for year in range(2010, 2015):
+        date_details = get_all_dates_details(dates, year)

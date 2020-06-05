@@ -47,3 +47,21 @@ class ScraperTest(TestCase):
         self.assertEqual(
             extract_datetimes('22:00:pm - 12pm'), ['22:00', '12:00']
         )
+
+        self.assertEqual(
+            extract_datetimes('10;00pm - 4:00am'), ['22:00', '04:00']
+        )
+        self.assertEqual(
+            extract_datetimes('11h30pm - 7h30am'), ['23:30', '07:30']
+        )
+        self.assertEqual(
+            extract_datetimes('22\'30pm - 5\'00am'), ['22:30', '05:00']
+        )
+        self.assertEqual(
+            extract_datetimes('00h00pm - 07h00am'), ['12:00', '07:00']
+        )
+
+
+
+
+
