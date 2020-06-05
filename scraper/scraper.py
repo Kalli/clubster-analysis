@@ -265,6 +265,14 @@ def get_all_dates_details(club_dates, year):
     data_path = '../data/date-details-{}.csv'.format(year)
     data = load_local_cache(data_path, index_col='id')
 
+    count = len(club_dates[
+        (club_dates['date'] >= '{}-01-01'.format(year)) &
+        (club_dates['date'] < '{}-01-01'.format(year+1)) &
+        (club_dates['date'].dt.dayofweek > 3) &
+        (club_dates['date'].dt.dayofweek < 6)
+    ])
+    print('Fetching {} event details for {}'.format(count, year))
+
     additions = []
     for index, listing in club_dates.iterrows():
         if index in data.index or listing['date'].year != year:
@@ -420,5 +428,4 @@ clubs = get_top_clubs(regions)
 dates = get_top_club_dates(clubs)
 
 for year in range(2010, 2015):
-    print('Fetching event details for {}'.format(year))
     date_details = get_all_dates_details(dates, year)
