@@ -371,6 +371,10 @@ def get_date_details(listing_id):
         for img in flyer.find_all('img'):
             flyers.append(img.get('src').replace(RA_IMAGE_PATH, ''))
 
+    attending = int(
+        soup.find('h1', id='MembersFavouriteCount').get_text().replace(',', '')
+    )
+
     data = {
         'id': listing_id,
         'start_time': start_time if start_time else None,
@@ -381,7 +385,7 @@ def get_date_details(listing_id):
         'flyers': flyers,
         'artists': artists,
         'pick': True if soup.find('div', class_='pick-icon') else False,
-        'attending': int(soup.find('h1', id='MembersFavouriteCount').get_text())
+        'attending': attending
     }
     return data
 
