@@ -78,7 +78,7 @@ class NetworkChart extends Component {
 			.data(graph.nodes)
 			.enter()
 			.append("circle")
-			.attr("r", d => d.number_of_dates/5)
+			.attr("r", d => Math.sqrt(d.number_of_dates) * 2)
 			.attr("fill", "red")
 			.attr("stroke", "black")
 			.attr("transform", "translate(0,0)")
