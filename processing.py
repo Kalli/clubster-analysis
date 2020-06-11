@@ -111,6 +111,9 @@ def group_by_year_and_club(all_data):
     """
     all_data['year'] = all_data['date'].map(lambda x: x.year)
     return all_data.groupby(['year', 'name_club']).agg(
+        club_id=('id_club', 'first'),
+        name_region=('name_region', 'first'),
+        logo=('img', 'first'),
         number_of_dates=('date', pd.Series.nunique),
         number_of_unique_artists=('artist_name', pd.Series.nunique),
         total_number_of_artists=('artist_name', 'count'),
