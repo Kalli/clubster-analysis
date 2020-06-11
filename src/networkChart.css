@@ -1,0 +1,7 @@
+.networkWrapper {
+    display:flex;
+}
+
+li {
+    text-align: left;
+}

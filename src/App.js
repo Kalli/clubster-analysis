@@ -14,7 +14,7 @@ class App extends Component {
     }
 
     loadData() {
-        fetch(`/network.json`)
+        fetch(`/network-2019.json`)
             .then( (response) => {
                 return response.json()
             })
