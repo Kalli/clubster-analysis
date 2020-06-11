@@ -10,8 +10,6 @@ import json
 # Processes and parses the raw data from scraper into the networks and data
 # that we want to graph
 
-SIMILARITY_THRESHOLD = 0
-
 
 def load_csv_files():
     """
@@ -112,34 +110,12 @@ def group_by_year_and_club(all_data):
     Group all data by years and clubs
     """
     all_data['year'] = all_data['date'].map(lambda x: x.year)
-    return all_data.groupby(
-        [all_data['year'], all_data['name_club']],
-    ).artist_name.value_counts().reset_index(name='count')
-
-
-def create_club_lineup_counts(club_data):
-    """
-    Reduce a dataframe of club line ups into a dictionary keyed by club names,
-    with the values
-
-    Example:
-
-        "fabric": {
-            "Craig Richards": 10,
-            "John Tejada": 1,
-        }
-
-    """
-    data = {}
-    for _, r in club_data.iterrows():
-        club, artist, count = r['name_club'], r['artist_name'], r['count']
-        if club in data:
-            data[club][artist] = count
-        else:
-            data[club] = {
-                artist: count
-            }
-    return data
+    return all_data.groupby(['year', 'name_club']).agg(
+        number_of_dates=('date', pd.Series.nunique),
+        number_of_unique_artists=('artist_name', pd.Series.nunique),
+        total_number_of_artists=('artist_name', 'count'),
+        artists=('artist_name', Counter),
+    )
 
 
 def calculate_club_likeness(club_data):
@@ -149,12 +125,13 @@ def calculate_club_likeness(club_data):
         [source, target, jaccard_score]
     """
     similarities = []
-    keys = list(club_data.keys())
-    for i, k1 in enumerate(keys):
-        for k2 in keys[i+1:]:
-            similarity = jaccard_index(data[k1], data[k2])
-            if similarity > SIMILARITY_THRESHOLD:
-                similarities.append((k1, k2, similarity))
+    size = len(club_data)
+    for i in range(0, size):
+        club1 = club_data.iloc[i]
+        for j in range(i+1, size):
+            club2 = club_data.iloc[j]
+            similarity = jaccard_index(club1.artists, club2.artists)
+            similarities.append((club1.name[1], club2.name[1], similarity))
     return similarities
 
 
@@ -171,13 +148,11 @@ def jaccard_index(a, b):
     return len(intersection) / len(union)
 
 
-def create_graph(data, edges):
+def create_graph(nodes, edges):
     G = nx.Graph()
 
-    for k, v in data.items():
-        artists = len(v.keys())
-        appearances = sum(v.values())
-        G.add_node(k, size=appearances, artists=artists)
+    for (year, club_name), data in nodes.iterrows():
+        G.add_node(club_name, **data.to_dict())
 
     G.add_weighted_edges_from(edges)
 
@@ -202,11 +177,10 @@ if __name__ == "__main__":
             regions, clubs, dates, date_details, artists_to_dates
         )
 
-    year_club_artist_counts = group_by_year_and_club(all_data)
-    for year in year_club_artist_counts.year.unique():
-        d = year_club_artist_counts[year_club_artist_counts['year'] == year]
-        data = create_club_lineup_counts(d)
-        similarities = calculate_club_likeness(data)
-        G = create_graph(data, similarities)
+    club_data = group_by_year_and_club(all_data)
+
+    for year, df in club_data.groupby(level=0):
+        similarities = calculate_club_likeness(df)
+        G = create_graph(df, similarities)
         d = json_graph.node_link_data(G)
         json.dump(d, open('./public/network-{}.json'.format(year), 'w'))
