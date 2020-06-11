@@ -16,7 +16,7 @@ def load_csv_files():
     Loads csv files of all the raw data from the scraper
     """
     regions = pd.read_csv('./data/top-regions.csv')
-    clubs = pd.read_csv('./data/top-clubs.csv', index_col='id')
+    clubs = pd.read_csv('./data/top-clubs.csv', index_col='id').fillna('')
     dates = pd.read_csv(
         './data/top-clubs-dates.csv',
         index_col='id',
