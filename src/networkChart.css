@@ -1,7 +1,12 @@
 .networkWrapper {
     display:flex;
+    padding-top: 10px;
 }
 
 li {
     text-align: left;
+}
+
+img {
+    display: block;
 }
