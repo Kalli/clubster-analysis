@@ -168,7 +168,7 @@ class NetworkChart extends Component {
 	}
 
 	showNode(node){
-		const img = node.logo === '' || true ? '' : <img
+		const img = node.logo === '' ? '' : <img
 			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
 		/>
 
