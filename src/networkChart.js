@@ -139,7 +139,9 @@ class NetworkChart extends Component {
 		return <div>
 			<h4>Most booked artists</h4>
 			<ol>
-				{sorted.map((e) => <li>{e[0]} - {e[1]}</li>)}
+				{sorted.map((e) => {
+					return <li key={e[0]}>{e[0]} - {e[1]}</li>
+				})}
 			</ol>
 		</div>
 	}
@@ -158,7 +160,9 @@ class NetworkChart extends Component {
 		return <div>
 			<h4>Similar Clubs</h4>
 			<ol>
-				{edges.map((e) => <li>{e[0]} - {(e[1]*100).toFixed()}%</li>)}
+				{edges.map((e) => {
+					return <li key={e[0]}> {e[0]} - {(e[1]*100).toFixed()}%</li>
+				})}
 			</ol>
 		</div>
 	}
