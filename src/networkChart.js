@@ -7,12 +7,13 @@ import './networkChart.css';
 class NetworkChart extends Component {
 
 	constructor(props) {
-        super(props)
-        this.state = {
-            selectedNode: null,
-	        data: {}
-        }
-    }
+		super(props)
+		this.ref = React.createRef()
+		this.state = {
+			selectedNode: null,
+			data: {}
+		}
+	}
 
 	componentDidMount() {
 		// looks like the d3 functions in drawGraph are mutating data, deep copy
@@ -20,7 +21,7 @@ class NetworkChart extends Component {
 		const links = graph.links.filter((e) => e.weight >= 0.05)
 
 		const max = Math.max(...links.map((d) => d.weight))
-		const svg = this.refs.svg
+		const svg = this.ref.current
 		const width = 1000
 		const height = 1000
 		const simulation = d3
@@ -28,7 +29,7 @@ class NetworkChart extends Component {
 			.force(
 				"link", d3.forceLink()
 					.id(d => d.id)
-					.distance((d)=>100*(d.weight/max))
+					.distance((d) => 100 * (d.weight / max))
 			)
 			.force("charge", d3.forceManyBody().strength(-100))
 			.force("center", d3.forceCenter(width / 2, height / 3))
@@ -102,15 +103,15 @@ class NetworkChart extends Component {
 			.enter()
 			.append("text")
 			.text((d) => d.id)
-		    .style("text-anchor", "middle")
-		    .style("fill", "#555")
-		    .style("font-family", "Arial")
-		    .style("font-size", 12)
+			.style("text-anchor", "middle")
+			.style("fill", "#555")
+			.style("font-family", "Arial")
+			.style("font-size", 12)
 
 
 		node.append("title").text(d => {
 			return d.id
-		}).attr('dx',12).attr("dy", ".35em")
+		}).attr('dx', 12).attr("dy", ".35em")
 		simulation.nodes(nodes).on("tick", () => this.ticked(link, node, label))
 		simulation.force("link").links(links)
 	}
@@ -199,7 +200,7 @@ class NetworkChart extends Component {
 		const node = this.state.selectedNode
 		const nodeDisplay = !node? '' : this.showNode(node)
 		return <div className={'networkWrapper'}>
-			<svg ref="svg" width={1000} height={700}/>
+			<svg ref={this.ref}  width={1000} height={700}/>
 			<div>
 				{nodeDisplay}
 			</div>
