@@ -15,3 +15,10 @@ img {
 .clubDetail {
     display: flex;
 }
+
+.placeholder{
+    display: block;
+    height: 210px;
+    width: 312px;
+    background-color: white;
+}

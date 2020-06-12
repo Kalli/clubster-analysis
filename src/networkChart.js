@@ -193,12 +193,12 @@ class NetworkChart extends Component {
 	}
 
 	showNode(node){
-		const img = node.logo === '' ? '' : <img
+		const img = node.logo === '' ? <div className={'placeholder'}/> : <img
 			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
 		/>
 
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
-		return <div>
+		return <div key={node.club_id}>
 			<h3>
 				<a target='_blank' href={link}>
 					{img}
