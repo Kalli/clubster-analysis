@@ -15,10 +15,11 @@ class NetworkChart extends Component {
     }
 
 	componentDidMount() {
-		const graph = this.props.data
-		graph.links = graph.links.filter((e) => e.weight > 0.05)
+		// looks like the d3 functions in drawGraph are mutating data, deep copy
+		const graph = JSON.parse(JSON.stringify(this.props.data))
+		const links = graph.links.filter((e) => e.weight >= 0.05)
 
-		const max = Math.max(...graph.links.map((d) => d.weight))
+		const max = Math.max(...links.map((d) => d.weight))
 		const svg = this.refs.svg
 		const width = 1000
 		const height = 1000
@@ -30,11 +31,11 @@ class NetworkChart extends Component {
 					.distance((d)=>100*(d.weight/max))
 			)
 			.force("charge", d3.forceManyBody().strength(-100))
-			.force("center", d3.forceCenter(width / 3, height / 3))
+			.force("center", d3.forceCenter(width / 2, height / 3))
 			.force("x", d3.forceX())
 			.force("y", d3.forceY())
 
-		this.drawGraph(svg, graph, simulation)
+		this.drawGraph(svg, graph.nodes, links, simulation)
 	}
 
 	componentDidUpdate() {
@@ -57,13 +58,14 @@ class NetworkChart extends Component {
 		d.fy = null
 	}
 
-	drawGraph = (svg, graph, simulation) => {
+	drawGraph = (svg, nodes, links, simulation) => {
+
 		const link = d3
 			.select(svg)
 			.append("g")
 			.attr("class", "links")
 			.selectAll("line")
-			.data(graph.links)
+			.data(links)
 			.enter()
 			.append("line")
 			.attr("stroke-width", 1)
@@ -75,7 +77,7 @@ class NetworkChart extends Component {
 			.append("g")
 			.attr("class", "nodes")
 			.selectAll("circle")
-			.data(graph.nodes)
+			.data(nodes)
 			.enter()
 			.append("circle")
 			.attr("r", d => Math.sqrt(d.number_of_dates) * 2)
@@ -96,7 +98,7 @@ class NetworkChart extends Component {
 			.append("g")
 			.attr("class", "nodes")
 			.selectAll("circle")
-			.data(graph.nodes)
+			.data(nodes)
 			.enter()
 			.append("text")
 			.text((d) => d.id)
@@ -109,9 +111,8 @@ class NetworkChart extends Component {
 		node.append("title").text(d => {
 			return d.id
 		}).attr('dx',12).attr("dy", ".35em")
-
-		simulation.nodes(graph.nodes).on("tick", () => this.ticked(link, node, label))
-		simulation.force("link").links(graph.links)
+		simulation.nodes(nodes).on("tick", () => this.ticked(link, node, label))
+		simulation.force("link").links(links)
 	}
 
 	onNodeClick = (node) => {
@@ -145,37 +146,54 @@ class NetworkChart extends Component {
 
 	mostSimilarClubs(node){
 		const edges = this.props.data.links.filter((e) => {
-			return (e.source.id === node.id || e.target.id === node.id)
+			return (e.source === node.id || e.target === node.id)
 		})
 		.sort((a, b) => b.weight - a.weight)
 		.slice(0, 5)
 		.reduce((acc, e) => {
-			const club = e.source.id !== node.id? e.source : e.target
+			const club = e.source !== node.id? e.source : e.target
 			acc.push([club, e.weight])
 			return acc
 		}, [])
 		return <div>
 			<h4>Similar Clubs</h4>
 			<ol>
-				{edges.map((e) => <li>{e[0].id} - {(e[1]*100).toFixed()}%</li>)}
+				{edges.map((e) => <li>{e[0]} - {(e[1]*100).toFixed()}%</li>)}
 			</ol>
 		</div>
 	}
 
-	render() {
-		const node = this.state.selectedNode
-		const nodeDisplay = !node? '' : <div>
-			<h3>{node.id}</h3>
+	showNode(node){
+		const img = node.logo === '' || true ? '' : <img
+			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
+		/>
+
+		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
+		return <div>
+			<h3>
+				<a target='_blank' href={link}>
+					{img}
+					{node.id}
+				</a>
+			</h3>
+			
 			<div>Number of events: {node.number_of_dates}</div>
 			<div>Unique artists: {node.number_of_unique_artists}</div>
 			<div>Total artists booked: {node.total_number_of_artists}</div>
 			<div>
 				Average bookings per artist:
-				{(node.total_number_of_artists / node.number_of_unique_artists).toFixed(2)}
+				{(
+					node.total_number_of_artists / node.number_of_unique_artists
+				).toFixed(2)}
 			</div>
 			{this.mostCommonArtists(node)}
 			{this.mostSimilarClubs(node)}
 		</div>
+	}
+
+	render() {
+		const node = this.state.selectedNode
+		const nodeDisplay = !node? '' : this.showNode(node)
 		return <div className={'networkWrapper'}>
 			<svg ref="svg" width={1000} height={700}/>
 			<div>
