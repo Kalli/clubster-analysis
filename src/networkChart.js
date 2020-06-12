@@ -85,6 +85,7 @@ class NetworkChart extends Component {
 			.attr("fill", "red")
 			.attr("stroke", "black")
 			.attr("transform", "translate(0,0)")
+			.attr('id', (d) => 'id_'+d.club_id)
 			.call(
 				d3
 					.drag()
@@ -117,6 +118,11 @@ class NetworkChart extends Component {
 	}
 
 	onNodeClick = (node) => {
+		// if we'd previously selected a node, unmark it
+		if (this.state.selectedNode){
+			d3.select('#id_'+this.state.selectedNode.club_id).style("fill", "red")
+		}
+		d3.select('#id_'+node.club_id).style("fill", "yellow")
 		this.setState({selectedNode: node})
 	}
 
