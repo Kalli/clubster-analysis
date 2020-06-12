@@ -10,7 +10,7 @@ class NetworkChart extends Component {
 		super(props)
 		this.ref = React.createRef()
 		this.state = {
-			selectedNode: null,
+			selectedNodes: [],
 			data: {}
 		}
 	}
@@ -118,12 +118,26 @@ class NetworkChart extends Component {
 	}
 
 	onNodeClick = (node) => {
-		// if we'd previously selected a node, unmark it
-		if (this.state.selectedNode){
-			d3.select('#id_'+this.state.selectedNode.club_id).style("fill", "red")
+		// if we'd previously selected a node, unmark them
+		this.state.selectedNodes.forEach((e) => {
+			d3.select('#id_' + e.club_id).style("fill", "red")
+		})
+
+		// we allow max two selected nodes at a time
+		let selectedNodes = (this.state.selectedNodes || [])
+		const index = selectedNodes.indexOf(node)
+		if (index !== -1){
+			selectedNodes.splice(index, 1)
+		}else{
+			selectedNodes.push(node)
 		}
-		d3.select('#id_'+node.club_id).style("fill", "yellow")
-		this.setState({selectedNode: node})
+
+		selectedNodes = selectedNodes.slice(-2)
+		selectedNodes.forEach((e) =>
+			d3.select('#id_'+e.club_id).style("fill", "yellow")
+		)
+
+		this.setState({selectedNodes: selectedNodes})
 	}
 
 	ticked = (link, node, label) => {
@@ -174,6 +188,10 @@ class NetworkChart extends Component {
 		</div>
 	}
 
+	showNodes(){
+		return this.state.selectedNodes.map((e) => this.showNode(e))
+	}
+
 	showNode(node){
 		const img = node.logo === '' ? '' : <img
 			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
@@ -203,12 +221,11 @@ class NetworkChart extends Component {
 	}
 
 	render() {
-		const node = this.state.selectedNode
-		const nodeDisplay = !node? '' : this.showNode(node)
+		const selectedNodes = this.showNodes()
 		return <div className={'networkWrapper'}>
 			<svg ref={this.ref}  width={1000} height={700}/>
-			<div>
-				{nodeDisplay}
+			<div className={'clubDetail'}>
+				{selectedNodes}
 			</div>
 		</div>
 

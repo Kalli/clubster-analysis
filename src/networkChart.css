@@ -1,6 +1,7 @@
 .networkWrapper {
     display:flex;
     padding-top: 10px;
+    justify-content: flex-start;
 }
 
 li {
@@ -9,4 +10,8 @@ li {
 
 img {
     display: block;
+}
+
+.clubDetail {
+    display: flex;
 }
