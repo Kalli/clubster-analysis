@@ -162,6 +162,25 @@ def create_graph(nodes, edges):
     return G
 
 
+def artist_id_to_name_dict(all_data):
+    """
+    For most artists their id is a slugified version of their name
+    But there are exceptions, keep track of those
+    """
+
+    artist_name_to_ids = all_data.loc[:, 'artist_id':'artist_name']. \
+        drop_duplicates().set_index('artist_name').to_dict()['artist_id']
+    d = {}
+    for artist_name, artist_id in artist_name_to_ids.items():
+
+        if artist_id != artist_name.lower().replace(' ', ''):
+            d[artist_name] = artist_id
+    with open('/Users/karltryggvason/projects/club-charts/data/foo.json',
+              'w') as fp:
+        json.dump(d, fp)
+    return d
+
+
 if __name__ == "__main__":
 
     try:
@@ -181,9 +200,12 @@ if __name__ == "__main__":
         )
 
     club_data = group_by_year_and_club(all_data)
+    club_data.logo = club_data.logo.fillna('')
+    artist_name_to_ids = artist_id_to_name_dict(all_data)
 
     for year, df in club_data.groupby(level=0):
         similarities = calculate_club_likeness(df)
         G = create_graph(df, similarities)
         d = json_graph.node_link_data(G)
+        d['artist_names_to_ids'] = artist_name_to_ids
         json.dump(d, open('./public/network-{}.json'.format(year), 'w'))
