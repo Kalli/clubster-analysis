@@ -157,6 +157,8 @@ def get_top_clubs(regions):
         * address - The clubs address
         * rank - The rank this club has for this region
         * region - The RA slug for that region
+        * followers - Number of RA users following the club
+        * capacity - The capacity of the club according to their RA page
     """
 
     data_path = '../data/top-clubs.csv'
@@ -184,6 +186,32 @@ def get_top_clubs(regions):
             data = data.append(pd.DataFrame.from_records(top_clubs, index='id'))
             data.to_csv(data_path)
 
+    # Check if this data has been fetched from the club detail pages
+    if 'followers' in data.columns and 'capacity' in data.columns:
+        return data
+
+    # Otherwise zero these columns and fetch from RA
+    data['followers'] = 0
+    data['capacity'] = 0
+
+    for club_id, club in data.iterrows():
+        content = get_url(
+            'https://www.residentadvisor.net/club.aspx?id={}'.format(club_id)
+        )
+        soup = BeautifulSoup(content, 'html.parser')
+        try:
+            data.at[club_id, 'capacity'] = int(find_and_extract(
+                soup, 'div', 'Capacity /', re.compile('Capacity /(.*)')
+            ).replace(',', ''))
+        except AttributeError:
+            data.at[club_id, 'capacity'] = 0
+
+        followers_elem = soup.find('h1', id='MembersFavouriteCount')
+        data.at[club_id, 'followers'] = int(
+            followers_elem.get_text().replace(',', '')
+        )
+
+    data.to_csv(data_path)
     return data
 
 
