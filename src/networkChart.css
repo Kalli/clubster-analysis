@@ -4,6 +4,10 @@
     justify-content: flex-start;
 }
 
+h3, h4 {
+    text-align: center;
+}
+
 li {
     text-align: left;
 }
@@ -14,6 +18,19 @@ img {
 
 .clubDetail {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 35%;
+    text-align: left;
+}
+
+.clubDetail div {
+    flex: 1;
+}
+
+.similarities ul li {
+    display: inline;
+    list-style: none;
+    margin: 0.5em;
 }
 
 .placeholder{

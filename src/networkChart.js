@@ -161,7 +161,7 @@ class NetworkChart extends Component {
 			<h4>Most booked artists</h4>
 			<ol>
 				{sorted.map((e) => {
-					return <li key={e[0]}>{e[0]} - {e[1]}</li>
+					return <li key={e[0]}>{this.artistLink(e[0])} - {e[1]}</li>
 				})}
 			</ol>
 		</div>
@@ -185,6 +185,47 @@ class NetworkChart extends Component {
 					return <li key={e[0]}> {e[0]} - {(e[1]*100).toFixed()}%</li>
 				})}
 			</ol>
+		</div>
+	}
+
+	artistLink(artistName){
+		const artistId = ( this.props.data.artist_names_to_ids[artistName] ||
+				artistName.toLowerCase().replace(' ', '')
+		)
+		return <a href={'https://www.residentadvisor.net/dj/' + artistId} target={'_blank'}>
+			{artistName}
+		</a>
+	}
+
+	showSimilarities(){
+		if (this.state.selectedNodes.length !== 2){
+			return ''
+		}
+
+		const artists = this.state.selectedNodes.reduce((acc, e) => {
+			acc.push(Object.keys(e.artists))
+			return acc
+		}, [])
+		const union = artists[0].filter(e => artists[1].includes(e))
+
+		if (union.length === 0){
+			return <div className={'similarities'}>
+				<h4>No overlap in lineups - no common bookings</h4>
+			</div>
+		}
+
+		const ids = this.state.selectedNodes.map(e => e.id)
+		const overlap = (this.props.data.links.find(e => {
+			return ids.includes(e.source) && ids.includes(e.target)
+		}).weight * 100 ).toFixed(2)
+
+		return <div className={'similarities'}>
+			<h4>
+				{overlap}% overlap in lineups - {union.length} common bookings:
+			</h4>
+			<ul>
+				{union.map((e) => <li>{this.artistLink(e)}</li>)}
+			</ul>
 		</div>
 	}
 
@@ -222,10 +263,12 @@ class NetworkChart extends Component {
 
 	render() {
 		const selectedNodes = this.showNodes()
+		const similarities = this.showSimilarities()
 		return <div className={'networkWrapper'}>
 			<svg ref={this.ref}  width={1000} height={700}/>
 			<div className={'clubDetail'}>
 				{selectedNodes}
+				{similarities}
 			</div>
 		</div>
 
