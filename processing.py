@@ -110,15 +110,28 @@ def group_by_year_and_club(all_data):
     Group all data by years and clubs
     """
     all_data['year'] = all_data['date'].map(lambda x: x.year)
-    return all_data.groupby(['year', 'name_club']).agg(
+
+    attending = all_data.drop_duplicates(
+        'id_date'
+    ).groupby(
+        ['year', 'name_club']
+    ).agg(
+        attending=('attending', 'sum')
+    )
+
+    by_year_and_club = all_data.groupby(['year', 'name_club']).agg(
         club_id=('id_club', 'first'),
         name_region=('name_region', 'first'),
         logo=('img', 'first'),
-        number_of_dates=('date', pd.Series.nunique),
+        number_of_dates=('id_date', pd.Series.nunique),
         number_of_unique_artists=('artist_name', pd.Series.nunique),
         total_number_of_artists=('artist_name', 'count'),
         artists=('artist_name', Counter),
+        followers=('followers', 'first'),
+        capacity=('capacity', 'first'),
     )
+
+    return by_year_and_club.join(attending)
 
 
 def calculate_club_likeness(club_data):
@@ -175,9 +188,6 @@ def artist_id_to_name_dict(all_data):
 
         if artist_id != artist_name.lower().replace(' ', ''):
             d[artist_name] = artist_id
-    with open('/Users/karltryggvason/projects/club-charts/data/foo.json',
-              'w') as fp:
-        json.dump(d, fp)
     return d
 
 
@@ -199,6 +209,7 @@ if __name__ == "__main__":
             regions, clubs, dates, date_details, artists_to_dates
         )
 
+    all_data = all_data.reset_index()
     club_data = group_by_year_and_club(all_data)
     club_data.logo = club_data.logo.fillna('')
     artist_name_to_ids = artist_id_to_name_dict(all_data)
