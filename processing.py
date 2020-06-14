@@ -71,6 +71,15 @@ def join_data_frames(regions, clubs, dates, date_details, artists_to_dates):
     Join all the data frames into one big "table"
     """
 
+    # clarify region names
+    def region_name(x):
+        if x['name'] == x['country']:
+            return x['name']
+        else:
+            return '{} - {}'.format(x['name'], x['country'])
+
+    regions.name = regions.apply(region_name, axis=1)
+
     # join regions and clubs
     regions_top_clubs = regions.join(
         clubs.reset_index().set_index('region'),
