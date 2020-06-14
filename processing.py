@@ -5,7 +5,7 @@ from collections import Counter
 import networkx as nx
 from networkx.readwrite import json_graph
 import json
-
+import numpy as np
 
 # Processes and parses the raw data from scraper into the networks and data
 # that we want to graph
@@ -94,7 +94,6 @@ def join_data_frames(regions, clubs, dates, date_details, artists_to_dates):
     all_data = regions_top_club_dates_details.join(
         artists_to_dates,
         rsuffix='artists',
-        how='inner'
     ).drop_duplicates()
 
     all_data.index.name = 'id_date'
@@ -185,9 +184,10 @@ def artist_id_to_name_dict(all_data):
         drop_duplicates().set_index('artist_name').to_dict()['artist_id']
     d = {}
     for artist_name, artist_id in artist_name_to_ids.items():
+        if artist_id is not np.nan:
+            if artist_id != artist_name.lower().replace(' ', ''):
+                    d[artist_name] = artist_id
 
-        if artist_id != artist_name.lower().replace(' ', ''):
-            d[artist_name] = artist_id
     return d
 
 
