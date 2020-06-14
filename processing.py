@@ -11,6 +11,16 @@ import numpy as np
 # that we want to graph
 
 
+class NaNCounter(Counter):
+    """
+    A counter that excludes nan values
+    """
+    def update(self, *args, **kwds):
+        if isinstance(args[0], pd.Series):
+            args = (args[0].dropna(),)
+        super(NaNCounter, self).update(*args, **kwds)
+
+
 def load_csv_files():
     """
     Loads csv files of all the raw data from the scraper
@@ -125,7 +135,7 @@ def group_by_year_and_club(all_data):
         number_of_dates=('id_date', pd.Series.nunique),
         number_of_unique_artists=('artist_name', pd.Series.nunique),
         total_number_of_artists=('artist_name', 'count'),
-        artists=('artist_name', Counter),
+        artists=('artist_name', NaNCounter),
         followers=('followers', 'first'),
         capacity=('capacity', 'first'),
     )
@@ -160,7 +170,10 @@ def jaccard_index(a, b):
     """
     intersection = list((Counter(a) & Counter(b)).elements())
     union = list((Counter(a) | Counter(b)).elements())
-    return len(intersection) / len(union)
+    if len(union) == 0:
+        return 0
+    else:
+        return len(intersection) / len(union)
 
 
 def create_graph(nodes, edges):
