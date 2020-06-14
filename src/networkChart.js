@@ -60,9 +60,11 @@ class NetworkChart extends Component {
 			.force("center", d3.forceCenter(width / 2, height / 3))
 			.force("x", d3.forceX())
 			.force("y", d3.forceY())
+		const g = d3.select(svg)
+			.append("g")
+			.attr("class", "everything")
 
-		const link = d3
-			.select(svg)
+		const link = g
 			.append("g")
 			.attr("class", "links")
 			.selectAll("line")
@@ -73,8 +75,7 @@ class NetworkChart extends Component {
 			.attr("style", "stroke: #000000")
 			.attr("transform", "translate(0,0)")
 
-		const node = d3
-			.select(svg)
+		const node = g
 			.append("g")
 			.attr("class", "nodes")
 			.selectAll("circle")
@@ -95,8 +96,7 @@ class NetworkChart extends Component {
 			)
 			.on('click', this.onNodeClick)
 
-		const label = d3
-			.select(svg)
+		const label = g
 			.append("g")
 			.attr("class", "nodes")
 			.selectAll("circle")
@@ -109,12 +109,22 @@ class NetworkChart extends Component {
 			.style("font-family", "Arial")
 			.style("font-size", 12)
 
+		const zoom_handler = d3
+			.zoom()
+			.scaleExtent([1, 10])
+			.on("zoom", () => this.zoom(g))
+
+		zoom_handler(d3.select(svg))
 
 		node.append("title").text(d => {
 			return d.id
 		}).attr('dx', 12).attr("dy", ".35em")
 		simulation.nodes(nodes).on("tick", () => this.ticked(link, node, label))
 		simulation.force("link").links(links)
+	}
+
+	zoom = (zoomGroup) => {
+		zoomGroup.attr("transform", d3.event.transform)
 	}
 
 	onNodeClick = (node) => {
