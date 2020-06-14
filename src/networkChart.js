@@ -94,7 +94,7 @@ class NetworkChart extends Component {
 					.on("drag", d => this.dragged(d))
 					.on("end", d => this.dragended(d, simulation))
 			)
-			.on('click', this.onNodeClick)
+			.on('click', (node) => this.onNodeClick(node, links))
 
 		const label = g
 			.append("g")
@@ -108,6 +108,8 @@ class NetworkChart extends Component {
 			.style("fill", "#555")
 			.style("font-family", "Arial")
 			.style("font-size", 12)
+			.style("display", "none")
+			.attr('id', (d) => 'text_id_'+d.club_id)
 
 		const zoom_handler = d3
 			.zoom()
@@ -127,11 +129,10 @@ class NetworkChart extends Component {
 		zoomGroup.attr("transform", d3.event.transform)
 	}
 
-	onNodeClick = (node) => {
-		// if we'd previously selected a node, unmark them
-		this.state.selectedNodes.forEach((e) => {
-			d3.select('#id_' + e.club_id).style("fill", "red")
-		})
+	onNodeClick = (node, links) => {
+		// unmark previously selected nodes
+		d3.selectAll('circle').style("fill", "red")
+		d3.selectAll('text').style("display", "none")
 
 		// we allow max two selected nodes at a time
 		let selectedNodes = (this.state.selectedNodes || [])
@@ -143,9 +144,29 @@ class NetworkChart extends Component {
 		}
 
 		selectedNodes = selectedNodes.slice(-2)
-		selectedNodes.forEach((e) =>
-			d3.select('#id_'+e.club_id).style("fill", "yellow")
-		)
+
+		// color and show names of all connected nodes
+		links.filter((e) => {
+			return (
+				selectedNodes.includes(e.source) ||
+				selectedNodes.includes(e.target)
+			)
+		}).reduce((acc, e) => {
+			if (selectedNodes.includes(e.source)){
+				acc.push(e.target.club_id)
+			} else {
+				acc.push(e.source.club_id)
+			}
+			return acc
+		}, []).forEach((e) => {
+			d3.select('#text_id_' + e).style("display", "block")
+			d3.select('#id_' + e).style("fill", "green")
+		})
+
+		selectedNodes.forEach((e) => {
+			d3.select('#id_' + e.club_id).style("fill", "yellow")
+			d3.select('#text_id_' + e.club_id).style("display", "block")
+		})
 
 		this.setState({selectedNodes: selectedNodes})
 	}
