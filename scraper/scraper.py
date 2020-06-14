@@ -282,9 +282,11 @@ def get_all_dates_details(club_dates, year):
         (club_dates['date'].dt.dayofweek < 6)
     ])
     print('Fetching {} event details for {}'.format(count, year))
-
+    count = 0
     additions = []
     for index, listing in club_dates.iterrows():
+        print("Currently on row: {}; Currently iterrated {}% of rows".format(count, (count + 1)/len(club_dates.index) * 100))
+        count = count + 1
         if index in data.index or listing['date'].year != year:
             continue
         # Only fetch Fridays and Saturdays
@@ -444,5 +446,5 @@ if __name__ == "__main__":
     clubs = get_top_clubs(regions)
     dates = get_top_club_dates(clubs)
 
-    for year in range(2010, 2015):
+    for year in range(2016, 2017):
         date_details = get_all_dates_details(dates, year)
