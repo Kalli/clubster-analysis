@@ -1,6 +1,7 @@
 .networkWrapper {
     display:flex;
     padding-top: 10px;
+    margin-left: 50px;
     justify-content: flex-start;
 }
 

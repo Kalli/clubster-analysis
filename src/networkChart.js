@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './App.css'
-import * as d3 from "d3"
+import * as d3 from 'd3'
 import './networkChart.css';
 
 
@@ -24,19 +24,8 @@ class NetworkChart extends Component {
 		const svg = this.ref.current
 		const width = 1000
 		const height = 1000
-		const simulation = d3
-			.forceSimulation()
-			.force(
-				"link", d3.forceLink()
-					.id(d => d.id)
-					.distance((d) => 100 * (d.weight / max))
-			)
-			.force("charge", d3.forceManyBody().strength(-100))
-			.force("center", d3.forceCenter(width / 2, height / 3))
-			.force("x", d3.forceX())
-			.force("y", d3.forceY())
 
-		this.drawGraph(svg, graph.nodes, links, simulation)
+		this.drawGraph(svg, graph.nodes, links, width, height, max)
 	}
 
 	componentDidUpdate() {
@@ -59,7 +48,18 @@ class NetworkChart extends Component {
 		d.fy = null
 	}
 
-	drawGraph = (svg, nodes, links, simulation) => {
+	drawGraph = (svg, nodes, links, width, height, max) => {
+		const simulation = d3
+			.forceSimulation()
+			.force(
+				"link", d3.forceLink()
+					.id(d => d.id)
+					.distance((d) => 100 * (d.weight / max))
+			)
+			.force("charge", d3.forceManyBody().strength(-100))
+			.force("center", d3.forceCenter(width / 2, height / 3))
+			.force("x", d3.forceX())
+			.force("y", d3.forceY())
 
 		const link = d3
 			.select(svg)
