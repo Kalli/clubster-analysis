@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
 import * as d3 from 'd3'
+import {interpolateWarm} from 'd3-scale-chromatic'
 import './networkChart.css';
 
 
@@ -48,7 +49,23 @@ class NetworkChart extends Component {
 		d.fy = null
 	}
 
-	drawGraph = (svg, nodes, links, width, height, max) => {
+	drawGraph = (svg, nodes, links, w, h, max) => {
+        const margin = {top: 10, right: 20, bottom: 30, left: 50},
+        width = w - margin.left - margin.right,
+        height = h - margin.top - margin.bottom
+
+		const regions =[...new Set(nodes.map(e => e.name_region))]
+		const regionColor = (regionName) => {
+			return interpolateWarm(regions.indexOf(regionName) / regions.length)
+		}
+
+		const g = d3.select(svg)
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+			.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+			.attr("class", "graph")
+
 		const simulation = d3
 			.forceSimulation()
 			.force(
@@ -57,12 +74,10 @@ class NetworkChart extends Component {
 					.distance((d) => 100 * (d.weight / max))
 			)
 			.force("charge", d3.forceManyBody().strength(-100))
-			.force("center", d3.forceCenter(width / 2, height / 3))
+			.force("center", d3.forceCenter(width / 2, height / 2))
 			.force("x", d3.forceX())
 			.force("y", d3.forceY())
-		const g = d3.select(svg)
-			.append("g")
-			.attr("class", "everything")
+		this.createLegend(svg, regions, regionColor, margin)
 
 		const link = g
 			.append("g")
@@ -83,7 +98,8 @@ class NetworkChart extends Component {
 			.enter()
 			.append("circle")
 			.attr("r", d => Math.sqrt(d.number_of_dates) * 2)
-			.attr("fill", "red")
+			.attr("fill", d => regionColor(d.name_region))
+			.attr("opacity", 0.7)
 			.attr("stroke", "black")
 			.attr("transform", "translate(0,0)")
 			.attr('id', (d) => 'id_'+d.club_id)
@@ -94,7 +110,7 @@ class NetworkChart extends Component {
 					.on("drag", d => this.dragged(d))
 					.on("end", d => this.dragended(d, simulation))
 			)
-			.on('click', (node) => this.onNodeClick(node, links))
+			.on('click', (node) => this.onNodeClick(node, links, g))
 
 		const label = g
 			.append("g")
@@ -125,14 +141,52 @@ class NetworkChart extends Component {
 		simulation.force("link").links(links)
 	}
 
+	createLegend(svg, regions, regionColor, margin){
+        const legend = d3.select(svg)
+	        .append("g")
+			.attr("class", "legend")
+
+		// add nodes
+		legend
+		    .selectAll("rects")
+		    .data(regions)
+            .enter()
+            .append("circle")
+	            .attr("cx", margin.left / 2)
+	            .attr("cy", (d, i) => (i+1) * 30)
+	            .attr("r", 10)
+	            .style("fill", regionColor)
+
+		// add labels
+		legend
+			.selectAll("rects")
+			.data(regions)
+			.enter()
+			.append("text")
+	            .attr("x", 40)
+	            .attr("y", (d, i) => (i+1) * 30)
+		        .attr("text-anchor", "left")
+	            .style("alignment-baseline", "middle")
+	            .style("fill", regionColor)
+	            .style("display", "block")
+			    .text(d => d)
+			.on('click', (d) => this.onLegendClick(d))
+
+	}
+
+	onLegendClick = (node) => {
+		console.log(node)
+	}
+
+
 	zoom = (zoomGroup) => {
 		zoomGroup.attr("transform", d3.event.transform)
 	}
 
-	onNodeClick = (node, links) => {
+	onNodeClick = (node, links, graph) => {
 		// unmark previously selected nodes
-		d3.selectAll('circle').style("fill", "red")
-		d3.selectAll('text').style("display", "none")
+		graph.selectAll('circle').style("opacity", "0.7")
+		graph.selectAll('text').style("display", "none")
 
 		// we allow max two selected nodes at a time
 		let selectedNodes = (this.state.selectedNodes || [])
@@ -159,13 +213,12 @@ class NetworkChart extends Component {
 			}
 			return acc
 		}, []).forEach((e) => {
-			d3.select('#text_id_' + e).style("display", "block")
-			d3.select('#id_' + e).style("fill", "green")
+			graph.select('#text_id_' + e).style("display", "block")
 		})
 
 		selectedNodes.forEach((e) => {
-			d3.select('#id_' + e.club_id).style("fill", "yellow")
-			d3.select('#text_id_' + e.club_id).style("display", "block")
+			graph.select('#id_' + e.club_id).style("opacity", "1")
+			graph.select('#text_id_' + e.club_id).style("display", "block")
 		})
 
 		this.setState({selectedNodes: selectedNodes})
