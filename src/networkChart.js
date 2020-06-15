@@ -23,17 +23,18 @@ class NetworkChart extends Component {
 	componentDidMount() {
 		// looks like the d3 functions in drawGraph are mutating data, deep copy
 		const graph = JSON.parse(JSON.stringify(this.props.data))
-		const links = graph.links.filter((e) => e.weight >= 0.05)
-
+		this.links = graph.links.filter((e) => e.weight >= 0.05)
+		this.nodes = graph.nodes
 		const regions =[...new Set(graph.nodes.map(e => e.name_region).sort())]
-		const regionColor = (regionName) => {
+
+		this.regionColor = (regionName) => {
 			return interpolateWarm(regions.indexOf(regionName) / regions.length)
 		}
 
 		const svg = this.ref.current
 		this.createGraph(svg, graph)
-		this.createLegend(svg, regions, regionColor)
-		this.drawGraph(graph.nodes, links, regionColor)
+		this.createLegend(svg, regions)
+		this.drawGraph(this.nodes, this.links, [])
 	}
 
 	componentDidUpdate() {
@@ -93,6 +94,11 @@ class NetworkChart extends Component {
 			.attr("class", "nodes")
 			.selectAll("circle")
 
+		this.label = this.g
+			.append("g")
+			.attr("class", "nodes")
+			.selectAll("circle")
+
 		const zoom_handler = d3
 			.zoom()
 			.scaleExtent([1, 10])
@@ -101,22 +107,33 @@ class NetworkChart extends Component {
 		zoom_handler(d3.select(svg))
 	}
 
-	drawGraph = (nodes, links, regionColor) => {
-		this.link = this.link
-			.data(links)
-			.enter()
+	drawGraph = (nodes, links, selectedNodes) => {
+		const transition = d3.transition().duration(750).ease(d3.easeLinear)
+
+		this.link = this.link.data(links, d => d.id)
+		this.link.exit()
+			.transition(transition)
+			.style("opacity", 0)
+			.remove()
+		let newLinks = this.link.enter()
 			.append("line")
 			.attr("stroke-width", 1)
 			.attr("style", "stroke: #000000")
 			.attr("transform", "translate(0,0)")
 
-		this.node = this.node
-			.data(nodes)
-			.enter()
+
+		this.link = this.link.merge(newLinks)
+
+		this.node = this.node.data(nodes, d => d.id)
+		this.node.exit()
+			.transition(transition)
+			.style("opacity", 0)
+			.remove()
+
+		let newNode = this.node.enter()
 			.append("circle")
 			.attr("r", d => Math.sqrt(d.number_of_dates) * 2)
-			.attr("fill", d => regionColor(d.name_region))
-			.attr("opacity", 0.7)
+			.attr("fill", d => this.regionColor(d.name_region))
 			.attr("stroke", "black")
 			.attr("transform", "translate(0,0)")
 			.attr('id', (d) => 'id_'+d.club_id)
@@ -129,28 +146,32 @@ class NetworkChart extends Component {
 			)
 			.on('click', (node) => this.onNodeClick(node, links, this.g))
 
-		const label = this.g
-			.append("g")
-			.attr("class", "nodes")
-			.selectAll("circle")
-			.data(nodes)
-			.enter()
+		newNode.append("title").text(d => d.id)
+		newNode.transition(transition).style("opacity", 1)
+
+		this.node = this.node.merge(newNode)
+
+		this.label = this.label.data(nodes, d => d.id)
+		this.label.exit().transition().remove()
+		let newLabel = this.label.enter()
 			.append("text")
 			.text((d) => d.id)
+			.attr("id", d => "text_id_"+d.club_id)
 			.style("text-anchor", "middle")
 			.style("fill", "#555")
 			.style("font-family", "Arial")
 			.style("font-size", 12)
 			.style("display", "none")
-			.attr('id', (d) => 'text_id_'+d.club_id)
+
+		this.label = this.label.merge(newLabel)
 
 		this.simulation.nodes(nodes).on("tick", () => this.ticked(
-			this.link, this.node, label
+			this.link, this.node, this.label
 		))
 		this.simulation.force("link").links(links)
 	}
 
-	createLegend(svg, regions, regionColor){
+	createLegend(svg, regions){
         const legend = d3.select(svg)
 	        .append("g")
 			.attr("class", "legend")
@@ -164,7 +185,7 @@ class NetworkChart extends Component {
 	            .attr("cx", this.margin.left / 2)
 	            .attr("cy", (d, i) => (i+1) * 30)
 	            .attr("r", 10)
-	            .style("fill", regionColor)
+	            .style("fill", this.regionColor)
 				.on('click', (d) => this.onLegendClick(d))
 				.style("cursor", "pointer")
 
@@ -178,7 +199,7 @@ class NetworkChart extends Component {
 	            .attr("y", (d, i) => (i+1) * 30)
 		        .attr("text-anchor", "left")
 	            .style("alignment-baseline", "middle")
-	            .style("fill", regionColor)
+	            .style("fill", this.regionColor)
 	            .style("display", "block")
 			    .text(d => d)
 				.on('click', (d) => this.onLegendClick(d))
@@ -193,11 +214,7 @@ class NetworkChart extends Component {
 		zoomGroup.attr("transform", d3.event.transform)
 	}
 
-	onNodeClick = (node, links, graph) => {
-		// unmark previously selected nodes
-		graph.selectAll('circle').style("opacity", "0.7")
-		graph.selectAll('text').style("display", "none")
-
+	onNodeClick = (node) => {
 		// we allow max two selected nodes at a time
 		let selectedNodes = (this.state.selectedNodes || [])
 		const index = selectedNodes.indexOf(node)
@@ -208,30 +225,25 @@ class NetworkChart extends Component {
 		}
 
 		selectedNodes = selectedNodes.slice(-2)
-
-		// color and show names of all connected nodes
-		links.filter((e) => {
-			return (
-				selectedNodes.includes(e.source) ||
-				selectedNodes.includes(e.target)
-			)
-		}).reduce((acc, e) => {
-			if (selectedNodes.includes(e.source)){
-				acc.push(e.target.club_id)
-			} else {
-				acc.push(e.source.club_id)
-			}
-			return acc
-		}, []).forEach((e) => {
-			graph.select('#text_id_' + e).style("display", "block")
-		})
-
-		selectedNodes.forEach((e) => {
-			graph.select('#id_' + e.club_id).style("opacity", "1")
-			graph.select('#text_id_' + e.club_id).style("display", "block")
-		})
-
 		this.setState({selectedNodes: selectedNodes})
+
+		if (selectedNodes.length < 2){
+			this.drawGraph(this.nodes, this.links, selectedNodes)
+			return
+		}
+
+		const filteredLinks = this.links.filter((e) => { return (
+			selectedNodes.includes(e.source) ||
+			selectedNodes.includes(e.target)
+		)})
+
+		const filteredNodes = [...filteredLinks.reduce((acc, e) => {
+			acc.add(e.source)
+			acc.add(e.target)
+			return acc
+		}, new Set())]
+
+		this.drawGraph(filteredNodes, filteredLinks, selectedNodes)
 	}
 
 	ticked = (link, node, label) => {
