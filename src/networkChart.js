@@ -7,6 +7,10 @@ import './networkChart.css';
 
 class NetworkChart extends Component {
 
+	width = 1000
+	height = 1000
+	margin = {top: 10, right: 20, bottom: 30, left: 50}
+
 	constructor(props) {
 		super(props)
 		this.ref = React.createRef()
@@ -21,12 +25,15 @@ class NetworkChart extends Component {
 		const graph = JSON.parse(JSON.stringify(this.props.data))
 		const links = graph.links.filter((e) => e.weight >= 0.05)
 
-		const max = Math.max(...links.map((d) => d.weight))
-		const svg = this.ref.current
-		const width = 1000
-		const height = 1000
+		const regions =[...new Set(graph.nodes.map(e => e.name_region).sort())]
+		const regionColor = (regionName) => {
+			return interpolateWarm(regions.indexOf(regionName) / regions.length)
+		}
 
-		this.drawGraph(svg, graph.nodes, links, width, height, max)
+		const svg = this.ref.current
+		this.createGraph(svg, graph)
+		this.createLegend(svg, regions, regionColor)
+		this.drawGraph(graph.nodes, links, regionColor)
 	}
 
 	componentDidUpdate() {
@@ -49,24 +56,22 @@ class NetworkChart extends Component {
 		d.fy = null
 	}
 
-	drawGraph = (svg, nodes, links, w, h, max) => {
-        const margin = {top: 10, right: 20, bottom: 30, left: 50},
-        width = w - margin.left - margin.right,
-        height = h - margin.top - margin.bottom
+	createGraph = (svg, graph) => {
+        const width = this.width - this.margin.left - this.margin.right
+        const height = this.height - this.margin.top - this.margin.bottom
 
-		const regions =[...new Set(nodes.map(e => e.name_region))]
-		const regionColor = (regionName) => {
-			return interpolateWarm(regions.indexOf(regionName) / regions.length)
-		}
+		const links = graph.links.filter((e) => e.weight >= 0.05)
 
-		const g = d3.select(svg)
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
+		const max = Math.max(...links.map((d) => d.weight))
+
+		this.g = d3.select(svg)
+            .attr("width", width + this.margin.left + this.margin.right)
+            .attr("height", height + this.margin.top + this.margin.bottom)
 			.append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
 			.attr("class", "graph")
 
-		const simulation = d3
+		this.simulation = d3
 			.forceSimulation()
 			.force(
 				"link", d3.forceLink()
@@ -77,12 +82,27 @@ class NetworkChart extends Component {
 			.force("center", d3.forceCenter(width / 2, height / 2))
 			.force("x", d3.forceX())
 			.force("y", d3.forceY())
-		this.createLegend(svg, regions, regionColor, margin)
 
-		const link = g
+		this.link = this.g
 			.append("g")
 			.attr("class", "links")
 			.selectAll("line")
+
+		this.node = this.g
+			.append("g")
+			.attr("class", "nodes")
+			.selectAll("circle")
+
+		const zoom_handler = d3
+			.zoom()
+			.scaleExtent([1, 10])
+			.on("zoom", () => this.zoom(this.g))
+
+		zoom_handler(d3.select(svg))
+	}
+
+	drawGraph = (nodes, links, regionColor) => {
+		this.link = this.link
 			.data(links)
 			.enter()
 			.append("line")
@@ -90,10 +110,7 @@ class NetworkChart extends Component {
 			.attr("style", "stroke: #000000")
 			.attr("transform", "translate(0,0)")
 
-		const node = g
-			.append("g")
-			.attr("class", "nodes")
-			.selectAll("circle")
+		this.node = this.node
 			.data(nodes)
 			.enter()
 			.append("circle")
@@ -106,13 +123,13 @@ class NetworkChart extends Component {
 			.call(
 				d3
 					.drag()
-					.on("start", d => this.dragstarted(d, simulation))
+					.on("start", d => this.dragstarted(d, this.simulation))
 					.on("drag", d => this.dragged(d))
-					.on("end", d => this.dragended(d, simulation))
+					.on("end", d => this.dragended(d, this.simulation))
 			)
-			.on('click', (node) => this.onNodeClick(node, links, g))
+			.on('click', (node) => this.onNodeClick(node, links, this.g))
 
-		const label = g
+		const label = this.g
 			.append("g")
 			.attr("class", "nodes")
 			.selectAll("circle")
@@ -127,21 +144,13 @@ class NetworkChart extends Component {
 			.style("display", "none")
 			.attr('id', (d) => 'text_id_'+d.club_id)
 
-		const zoom_handler = d3
-			.zoom()
-			.scaleExtent([1, 10])
-			.on("zoom", () => this.zoom(g))
-
-		zoom_handler(d3.select(svg))
-
-		node.append("title").text(d => {
-			return d.id
-		}).attr('dx', 12).attr("dy", ".35em")
-		simulation.nodes(nodes).on("tick", () => this.ticked(link, node, label))
-		simulation.force("link").links(links)
+		this.simulation.nodes(nodes).on("tick", () => this.ticked(
+			this.link, this.node, label
+		))
+		this.simulation.force("link").links(links)
 	}
 
-	createLegend(svg, regions, regionColor, margin){
+	createLegend(svg, regions, regionColor){
         const legend = d3.select(svg)
 	        .append("g")
 			.attr("class", "legend")
@@ -152,10 +161,12 @@ class NetworkChart extends Component {
 		    .data(regions)
             .enter()
             .append("circle")
-	            .attr("cx", margin.left / 2)
+	            .attr("cx", this.margin.left / 2)
 	            .attr("cy", (d, i) => (i+1) * 30)
 	            .attr("r", 10)
 	            .style("fill", regionColor)
+				.on('click', (d) => this.onLegendClick(d))
+				.style("cursor", "pointer")
 
 		// add labels
 		legend
@@ -170,14 +181,13 @@ class NetworkChart extends Component {
 	            .style("fill", regionColor)
 	            .style("display", "block")
 			    .text(d => d)
-			.on('click', (d) => this.onLegendClick(d))
-
+				.on('click', (d) => this.onLegendClick(d))
+				.style("cursor", "pointer")
 	}
 
 	onLegendClick = (node) => {
 		console.log(node)
 	}
-
 
 	zoom = (zoomGroup) => {
 		zoomGroup.attr("transform", d3.event.transform)
