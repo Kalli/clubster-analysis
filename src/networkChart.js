@@ -308,7 +308,7 @@ class NetworkChart extends Component {
 				{overlap}% overlap in lineups - {union.length} common bookings:
 			</h4>
 			<ul>
-				{union.map((e) => <li>{this.artistLink(e)}</li>)}
+				{union.map((e) => <li key={e}>{this.artistLink(e)}</li>)}
 			</ul>
 		</div>
 	}
