@@ -6,6 +6,7 @@ import networkx as nx
 from networkx.readwrite import json_graph
 import json
 import numpy as np
+import community as community_louvain
 
 # Processes and parses the raw data from scraper into the networks and data
 # that we want to graph
@@ -192,6 +193,9 @@ def create_graph(nodes, edges):
         G.add_node(club_name, **data.to_dict())
 
     G.add_weighted_edges_from(edges)
+    partition = community_louvain.best_partition(G)
+    for key, value in partition.items():
+        G.nodes[key]["group"] = value
 
     return G
 
