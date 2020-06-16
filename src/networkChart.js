@@ -24,10 +24,9 @@ class NetworkChart extends Component {
 	componentDidMount() {
 		// looks like the d3 functions in drawGraph are mutating data, deep copy
 		const graph = JSON.parse(JSON.stringify(this.props.data))
-		this.links = graph.links.filter((e) => e.weight >= 0.05)
 		this.nodes = graph.nodes
 
-		// sort so adjacent goups get different colors
+		// sort so adjacent groups get different colors
 		this.categories = [
 			...new Set(graph.nodes.map(e => e.group).sort((a, b) => {
 				return a % 2 - b % 2 || a - b
@@ -47,7 +46,7 @@ class NetworkChart extends Component {
             e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
 
 			// set the radius of each node
-			const r = 400 * Math.log(e.attending / e.number_of_dates)
+			const r = 250 * Math.log(e.followers)
 			e.radius = Math.sqrt(r)
 
 			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
@@ -121,12 +120,14 @@ class NetworkChart extends Component {
 					.on("drag", d => this.dragged(d))
 					.on("end", d => this.dragended(d, this.simulation))
 			)
+			.on("click", d => this.onNodeClick(d))
 
 		this.label = this.g.append("text")
 			.attr("text-anchor", "middle")
 			.style("fill", "#fff")
             .style("font-size", 12)
 			.text(d => fitTextToScreen(d.id, d.radius))
+			.on("click", d => this.onNodeClick(d))
 
 		const zoom_handler = d3
 			.zoom()
@@ -196,27 +197,8 @@ class NetworkChart extends Component {
 		}else{
 			selectedNodes.push(node)
 		}
-
 		selectedNodes = selectedNodes.slice(-2)
 		this.setState({selectedNodes: selectedNodes})
-
-		if (selectedNodes.length < 2){
-			this.drawGraph(this.nodes, this.links, selectedNodes)
-			return
-		}
-
-		const filteredLinks = this.links.filter((e) => { return (
-			selectedNodes.includes(e.source) ||
-			selectedNodes.includes(e.target)
-		)})
-
-		const filteredNodes = [...filteredLinks.reduce((acc, e) => {
-			acc.add(e.source)
-			acc.add(e.target)
-			return acc
-		}, new Set())]
-
-		this.drawGraph(filteredNodes, filteredLinks, selectedNodes)
 	}
 
 	tick = () => {
@@ -286,7 +268,7 @@ class NetworkChart extends Component {
 
 	mostSimilarClubs(node){
 		const edges = this.props.data.links.filter((e) => {
-			return (e.source === node.id || e.target === node.id)
+			return e.weight > 0 && [e.source, e.target].includes(node.id)
 		})
 		.sort((a, b) => b.weight - a.weight)
 		.slice(0, 5)
@@ -295,6 +277,9 @@ class NetworkChart extends Component {
 			acc.push([club, e.weight])
 			return acc
 		}, [])
+		if (edges.length === 0 ){
+			return <h4>No Similar Clubs</h4>
+		}
 		return <div>
 			<h4>Similar Clubs</h4>
 			<ol>
@@ -346,11 +331,11 @@ class NetworkChart extends Component {
 		</div>
 	}
 
-	showNodes(){
-		return this.state.selectedNodes.map((e) => this.showNode(e))
+	showClubs(){
+		return this.state.selectedNodes.map((e) => this.showClub(e))
 	}
 
-	showNode(node){
+	showClub(node){
 		const img = node.logo === '' ? <div className={'placeholder'}/> : <img
 			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
 		/>
@@ -367,10 +352,23 @@ class NetworkChart extends Component {
 			<div>Number of events: {node.number_of_dates}</div>
 			<div>Unique artists: {node.number_of_unique_artists}</div>
 			<div>Total artists booked: {node.total_number_of_artists}</div>
+			<div>Region: {node.name_region}</div>
+			<div>Followers: {node.followers}</div>
+			<div>
+				Average RA user attendance per event:
+				{" " + (
+					node.attending / node.number_of_dates
+				).toFixed(0)}
+			</div>
 			<div>
 				Average bookings per artist:
-				{(
+				{" " +(
 					node.total_number_of_artists / node.number_of_unique_artists
+				).toFixed(2)}
+			</div>			<div>
+				Average artists per date:
+				{" " +(
+					node.total_number_of_artists / node.number_of_dates
 				).toFixed(2)}
 			</div>
 			{this.mostCommonArtists(node)}
@@ -378,13 +376,37 @@ class NetworkChart extends Component {
 		</div>
 	}
 
+	showCommunity(){
+		if (this.state.selectedNodes.length !== 1 ){
+			return ""
+		}
+		const club = this.state.selectedNodes[0]
+		const groupClubs = this.props.data.nodes.filter(e => {
+			return club.group === e.group
+		})
+		if (groupClubs.length === 1){
+			return ""
+		}
+		return <div>
+			<div className={'placeholder'}/>
+			<h4>Other clubs in this group</h4>
+			<ul>
+				{groupClubs.map((e) => {
+					return <li key={e.id}> {e.id} </li>
+				})}
+			</ul>
+		</div>
+	}
+
 	render() {
-		const selectedNodes = this.showNodes()
+		const selectedNodes = this.showClubs()
+		const community = this.showCommunity()
 		const similarities = this.showSimilarities()
 		return <div className={'networkWrapper'}>
-			<svg ref={this.ref}  width={1000} height={700}/>
+			<svg ref={this.ref}  width={1000} height={700} style={{border: "1px solid"}}/>
 			<div className={'clubDetail'}>
 				{selectedNodes}
+				{community}
 				{similarities}
 			</div>
 		</div>

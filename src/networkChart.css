@@ -26,6 +26,11 @@ img {
 
 .clubDetail div {
     flex: 1;
+    min-width: 312px;
+}
+
+.clubDetail img {
+    min-height: 200px;
 }
 
 .similarities ul li {
