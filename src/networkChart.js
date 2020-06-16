@@ -3,6 +3,7 @@ import './App.css'
 import * as d3 from 'd3'
 import {interpolateWarm} from 'd3-scale-chromatic'
 import './networkChart.css';
+import {fitTextToScreen} from './textHandling'
 
 
 class NetworkChart extends Component {
@@ -25,7 +26,13 @@ class NetworkChart extends Component {
 		const graph = JSON.parse(JSON.stringify(this.props.data))
 		this.links = graph.links.filter((e) => e.weight >= 0.05)
 		this.nodes = graph.nodes
-		this.categories = [...new Set(graph.nodes.map(e => e.group).sort())]
+
+		// sort so adjacent goups get different colors
+		this.categories = [
+			...new Set(graph.nodes.map(e => e.group).sort((a, b) => {
+				return a % 2 - b % 2 || a - b
+			}))
+		]
 
 		const groupCount = Math.max(...graph.nodes.map(e => e.group))
 		const clusters = new Array(groupCount)
@@ -40,7 +47,7 @@ class NetworkChart extends Component {
             e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
 
 			// set the radius of each node
-			const r = 4 * (e.attending / e.number_of_dates)
+			const r = 400 * Math.log(e.attending / e.number_of_dates)
 			e.radius = Math.sqrt(r)
 
 			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
@@ -96,25 +103,30 @@ class NetworkChart extends Component {
 			.append("g")
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
 			.attr("class", "graph")
-
-		this.node = this.g
-			.append("g")
 			.attr("class", "nodes")
-			.selectAll("circle")
+			.selectAll("g")
 			.data(this.nodes)
 			.enter()
-				.append("g")
-					.append("circle")
-					.attr("r", d => d.radius)
-					.attr("fill", d => this.fillColor(d.group))
-					.attr("class", "nodes")
-					.call(
-						d3
-						.drag()
-							.on("start", d => this.dragstarted(d, this.simulation))
-							.on("drag", d => this.dragged(d))
-							.on("end", d => this.dragended(d, this.simulation))
-					)
+			.append("g")
+
+		this.node = this.g
+			.append("circle")
+			.attr("r", d => d.radius)
+			.attr("fill", d => this.fillColor(d.group))
+			.attr("class", "nodes")
+			.call(
+				d3
+				.drag()
+					.on("start", d => this.dragstarted(d, this.simulation))
+					.on("drag", d => this.dragged(d))
+					.on("end", d => this.dragended(d, this.simulation))
+			)
+
+		this.label = this.g.append("text")
+			.attr("text-anchor", "middle")
+			.style("fill", "#fff")
+            .style("font-size", 12)
+			.text(d => fitTextToScreen(d.id, d.radius))
 
 		const zoom_handler = d3
 			.zoom()
@@ -209,9 +221,12 @@ class NetworkChart extends Component {
 
 	tick = () => {
 		this.node
-	      .attr("cx", d => d.x)
-	      .attr("cy", d => d.y)
-          .attr("r", d => d.radius)
+			.attr("cx", d => d.x)
+			.attr("cy", d => d.y)
+			.attr("r", d => d.radius)
+		this.label
+            .attr("dx", d => d.x )
+	        .attr("dy", d => d.y)
 	}
 
 	cluster = () => {
