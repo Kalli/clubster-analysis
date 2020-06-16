@@ -25,19 +25,31 @@ class NetworkChart extends Component {
 		const graph = JSON.parse(JSON.stringify(this.props.data))
 		this.links = graph.links.filter((e) => e.weight >= 0.05)
 		this.nodes = graph.nodes
-		const regions =[...new Set(graph.nodes.map(e => e.name_region).sort())]
+		this.categories = [...new Set(graph.nodes.map(e => e.group).sort())]
 
-		this.regionColor = (regionName) => {
-			return interpolateWarm(regions.indexOf(regionName) / regions.length)
-		}
+		const groupCount = Math.max(...graph.nodes.map(e => e.group))
+		const clusters = new Array(groupCount)
 
+		// add positioning data for initial position to help clustering
+		this.nodes.forEach((e) => {
+			// position along a circle, clustered by group
+			const radius = Math.min(this.width, this.height) / 4
+			const g = e.group
+			const angle = g / groupCount * 2 * Math.PI
+	        e.x  = Math.cos(angle) * radius + this.width / 2 + Math.random()
+            e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
+
+			// set the radius of each node
+			const r = 4 * (e.attending / e.number_of_dates)
+			e.radius = Math.sqrt(r)
+
+			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
+		})
+
+		this.clusters = clusters
 		const svg = this.ref.current
-		this.createGraph(svg, graph)
-		this.createLegend(svg, regions)
-		this.drawGraph(this.nodes, this.links, [])
-	}
-
-	componentDidUpdate() {
+		this.createGraph(svg)
+		this.createLegend(svg)
 	}
 
 	dragstarted = (d, simulation) => {
@@ -57,13 +69,26 @@ class NetworkChart extends Component {
 		d.fy = null
 	}
 
-	createGraph = (svg, graph) => {
+	fillColor = (category) => {
+		return interpolateWarm(
+			this.categories.indexOf(category) / this.categories.length
+		)
+	}
+
+	createGraph = (svg) => {
         const width = this.width - this.margin.left - this.margin.right
         const height = this.height - this.margin.top - this.margin.bottom
+		const padding = 1
 
-		const links = graph.links.filter((e) => e.weight >= 0.05)
-
-		const max = Math.max(...links.map((d) => d.weight))
+		this.simulation = d3
+			.forceSimulation()
+			.force('center', d3.forceCenter(width/2, height/2))
+			.force('x', d3.forceX(width / 2).strength(0.01))
+			.force('y', d3.forceY(height / 2).strength(0.01))
+			.force('cluster', this.cluster().strength(1))
+			.force('collide', d3.forceCollide(d => d.radius + padding))
+			.on('tick', this.tick)
+			.nodes(this.nodes)
 
 		this.g = d3.select(svg)
             .attr("width", width + this.margin.left + this.margin.right)
@@ -72,32 +97,24 @@ class NetworkChart extends Component {
             .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
 			.attr("class", "graph")
 
-		this.simulation = d3
-			.forceSimulation()
-			.force(
-				"link", d3.forceLink()
-					.id(d => d.id)
-					.distance((d) => 100 * (d.weight / max))
-			)
-			.force("charge", d3.forceManyBody().strength(-100))
-			.force("center", d3.forceCenter(width / 2, height / 2))
-			.force("x", d3.forceX())
-			.force("y", d3.forceY())
-
-		this.link = this.g
-			.append("g")
-			.attr("class", "links")
-			.selectAll("line")
-
 		this.node = this.g
 			.append("g")
 			.attr("class", "nodes")
 			.selectAll("circle")
-
-		this.label = this.g
-			.append("g")
-			.attr("class", "nodes")
-			.selectAll("circle")
+			.data(this.nodes)
+			.enter()
+				.append("g")
+					.append("circle")
+					.attr("r", d => d.radius)
+					.attr("fill", d => this.fillColor(d.group))
+					.attr("class", "nodes")
+					.call(
+						d3
+						.drag()
+							.on("start", d => this.dragstarted(d, this.simulation))
+							.on("drag", d => this.dragged(d))
+							.on("end", d => this.dragended(d, this.simulation))
+					)
 
 		const zoom_handler = d3
 			.zoom()
@@ -105,73 +122,17 @@ class NetworkChart extends Component {
 			.on("zoom", () => this.zoom(this.g))
 
 		zoom_handler(d3.select(svg))
+		var transitionTime = 3000;
+		var t = d3.timer((elapsed) => {
+	        var dt = elapsed / transitionTime
+		    this.simulation
+			    .force('collide')
+			    .strength(Math.pow(dt, 2) * 1)
+		    if (dt >= 1.0) t.stop()
+		})
 	}
 
-	drawGraph = (nodes, links, selectedNodes) => {
-		const transition = d3.transition().duration(750).ease(d3.easeLinear)
-
-		this.link = this.link.data(links, d => d.id)
-		this.link.exit()
-			.transition(transition)
-			.style("opacity", 0)
-			.remove()
-		let newLinks = this.link.enter()
-			.append("line")
-			.attr("stroke-width", 1)
-			.attr("style", "stroke: #000000")
-			.attr("transform", "translate(0,0)")
-
-
-		this.link = this.link.merge(newLinks)
-
-		this.node = this.node.data(nodes, d => d.id)
-		this.node.exit()
-			.transition(transition)
-			.style("opacity", 0)
-			.remove()
-
-		let newNode = this.node.enter()
-			.append("circle")
-			.attr("r", d => Math.sqrt(d.number_of_dates) * 2)
-			.attr("fill", d => this.regionColor(d.name_region))
-			.attr("stroke", "black")
-			.attr("transform", "translate(0,0)")
-			.attr('id', (d) => 'id_'+d.club_id)
-			.call(
-				d3
-					.drag()
-					.on("start", d => this.dragstarted(d, this.simulation))
-					.on("drag", d => this.dragged(d))
-					.on("end", d => this.dragended(d, this.simulation))
-			)
-			.on('click', (node) => this.onNodeClick(node, links, this.g))
-
-		newNode.append("title").text(d => d.id)
-		newNode.transition(transition).style("opacity", 1)
-
-		this.node = this.node.merge(newNode)
-
-		this.label = this.label.data(nodes, d => d.id)
-		this.label.exit().transition().remove()
-		let newLabel = this.label.enter()
-			.append("text")
-			.text((d) => d.id)
-			.attr("id", d => "text_id_"+d.club_id)
-			.style("text-anchor", "middle")
-			.style("fill", "#555")
-			.style("font-family", "Arial")
-			.style("font-size", 12)
-			.style("display", "none")
-
-		this.label = this.label.merge(newLabel)
-
-		this.simulation.nodes(nodes).on("tick", () => this.ticked(
-			this.link, this.node, this.label
-		))
-		this.simulation.force("link").links(links)
-	}
-
-	createLegend(svg, regions){
+	createLegend(svg){
         const legend = d3.select(svg)
 	        .append("g")
 			.attr("class", "legend")
@@ -179,27 +140,27 @@ class NetworkChart extends Component {
 		// add nodes
 		legend
 		    .selectAll("rects")
-		    .data(regions)
+		    .data(this.categories)
             .enter()
             .append("circle")
 	            .attr("cx", this.margin.left / 2)
 	            .attr("cy", (d, i) => (i+1) * 30)
 	            .attr("r", 10)
-	            .style("fill", this.regionColor)
+	            .style("fill", this.fillColor)
 				.on('click', (d) => this.onLegendClick(d))
 				.style("cursor", "pointer")
 
 		// add labels
 		legend
 			.selectAll("rects")
-			.data(regions)
+			.data(this.categories)
 			.enter()
 			.append("text")
 	            .attr("x", 40)
 	            .attr("y", (d, i) => (i+1) * 30)
 		        .attr("text-anchor", "left")
 	            .style("alignment-baseline", "middle")
-	            .style("fill", this.regionColor)
+	            .style("fill", this.fillColor)
 	            .style("display", "block")
 			    .text(d => d)
 				.on('click', (d) => this.onLegendClick(d))
@@ -246,16 +207,51 @@ class NetworkChart extends Component {
 		this.drawGraph(filteredNodes, filteredLinks, selectedNodes)
 	}
 
-	ticked = (link, node, label) => {
-		node.attr("cx", d => d.x * 1).attr("cy", d => d.y * 1)
-		link
-			.attr("x1", d => d.source.x * 1)
-			.attr("y1", d => d.source.y * 1)
-			.attr("x2", d => d.target.x * 1)
-			.attr("y2", d => d.target.y * 1)
-        label
-	        .attr("x", function(d){ return d.x; })
-            .attr("y", function (d) {return d.y - 10; });
+	tick = () => {
+		this.node
+	      .attr("cx", d => d.x)
+	      .attr("cy", d => d.y)
+          .attr("r", d => d.radius)
+	}
+
+	cluster = () => {
+		// adapted from
+		// https://bl.ocks.org/ericsoco/38b4f8b51ecf116e6fb0727d25687e8e
+		let nodes,
+			strength = 0.1;
+
+		const force = (alpha) => {
+			// scale + curve alpha value
+			alpha *= strength * alpha;
+
+			nodes.forEach((d) => {
+				let cluster = this.clusters[d.group]
+				if (cluster === d) return
+				let x = d.x - cluster.x,
+					y = d.y - cluster.y,
+					l = Math.sqrt(x * x + y * y),
+					r = d.radius + cluster.radius;
+
+				if (l !== r) {
+					l = (l - r) / l * alpha;
+					d.x -= x *= l;
+					d.y -= y *= l;
+					cluster.x += x;
+					cluster.y += y;
+				}
+			});
+		}
+
+		force.initialize = function (_) {
+			nodes = _;
+		}
+
+		force.strength = _ => {
+			strength = _ == null ? strength : _;
+			return force;
+		};
+
+		return force;
 	}
 
 	mostCommonArtists(node){
