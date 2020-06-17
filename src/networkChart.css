@@ -34,7 +34,12 @@ img {
     min-width: 312px;
 }
 
-.clubDetail img {
+.image{
+    display: flex;
+    justify-content: center;
+}
+
+.image img {
     min-height: 200px;
 }
 

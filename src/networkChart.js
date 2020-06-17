@@ -384,9 +384,9 @@ class NetworkChart extends Component {
 	}
 
 	showClub(node){
-		const img = node.logo === '' ? <div className={'placeholder'}/> : <img
-			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
-		/>
+		const img = node.logo === '' ? <div className={'placeholder'}/> : <div className={"image"}>
+			<img src={'/img/'+node.logo.split("/").slice(-1)[0]} alt={node.id} />
+		</div>
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
 		const total_appearances = Object.values(node.artists)
 			.reduce((a, b) => a + b, 0)
