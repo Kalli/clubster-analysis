@@ -15,6 +15,9 @@ class NetworkChart extends Component {
 	constructor(props) {
 		super(props)
 		this.ref = React.createRef()
+		this.nodes = this.props.data.nodes
+		this.links = this.props.data.links
+
 		this.state = {
 			selectedNodes: [],
 			data: {}
@@ -22,18 +25,14 @@ class NetworkChart extends Component {
 	}
 
 	componentDidMount() {
-		// looks like the d3 functions in drawGraph are mutating data, deep copy
-		const graph = JSON.parse(JSON.stringify(this.props.data))
-		this.nodes = graph.nodes
-
 		// sort so adjacent groups get different colors
 		this.categories = [
-			...new Set(graph.nodes.map(e => e.group).sort((a, b) => {
+			...new Set(this.nodes.map(e => e.group).sort((a, b) => {
 				return a % 2 - b % 2 || a - b
 			}))
 		]
 
-		const groupCount = Math.max(...graph.nodes.map(e => e.group))
+		const groupCount = Math.max(...this.nodes.map(e => e.group))
 		const clusters = new Array(groupCount)
 
 		// add positioning data for initial position to help clustering
@@ -294,8 +293,8 @@ class NetworkChart extends Component {
 	}
 
 	mostSimilarClubs(node){
-		const edges = this.props.data.links.filter((e) => {
-			return e.weight > 0 && [e.source, e.target].includes(node.id)
+		const edges = this.links.filter((e) => {
+			return [e.source, e.target].includes(node.id)
 		})
 		.sort((a, b) => b.weight - a.weight)
 		.slice(0, 5)
@@ -362,7 +361,7 @@ class NetworkChart extends Component {
 		}
 
 		const ids = this.state.selectedNodes.map(e => e.id)
-		const overlap = (this.props.data.links.find(e => {
+		const overlap = (this.links.find(e => {
 			return ids.includes(e.source) && ids.includes(e.target)
 		}).weight * 100 ).toFixed(2)
 
@@ -388,6 +387,8 @@ class NetworkChart extends Component {
 		const total_appearances = Object.values(node.artists)
 			.reduce((a, b) => a + b, 0)
 
+		const region = node.region === node.country?
+			node.region : node.region + ", " + node.country
 		return <div key={node.club_id}>
 			{img}
 			<h3>
@@ -397,11 +398,11 @@ class NetworkChart extends Component {
 					{node.id}
 				</a>
 			</h3>
-			
+
 			<div>Number of events: {node.number_of_dates}</div>
 			<div>Unique artists: {node.number_of_unique_artists}</div>
 			<div>Total artists booked: {node.total_number_of_artists}</div>
-			<div>Region: {node.name_region}</div>
+			<div>Region: {region} </div>
 			<div>Followers: {node.followers}</div>
 			<div>
 				Average RA user attendance per event:
@@ -454,16 +455,44 @@ class NetworkChart extends Component {
 		</div>
 	}
 
+	controls(){
+		const countries = [...new Set(this.nodes.map(e => e.country))]
+			.sort()
+			.map(c => <option key={c}>{c}</option>)
+
+		const regions = [...new Set(this.nodes.map(e => e.region))]
+			.sort()
+			.map(c => <option key={c}>{c}</option>)
+
+		return <>
+			<select name="countries" defaultValue={"Countries"}>
+				<option disabled={true}>Countries</option>
+				{countries}
+			</select>
+			<select name="regions" defaultValue={countries}>
+				<option disabled={true} >Regions</option>
+				{regions}
+			</select>
+		</>
+	}
+
 	render() {
 		const selectedNodes = this.showClubs()
 		const community = this.showCommunity()
+		const controls = this.controls()
 		const similarities = this.showSimilarities()
-		return <div className={'networkWrapper'}>
-			<svg ref={this.ref}  width={1000} height={1000} style={{border: "1px solid"}}/>
-			<div className={'clubDetail'}>
-				{selectedNodes}
-				{community}
-				{similarities}
+		return <div>
+			<div className={"controls"}>
+				{controls}
+			</div>
+			<div className={'networkWrapper'}>
+
+				<svg ref={this.ref}  width={1000} height={1000} style={{border: "1px solid"}}/>
+				<div className={'clubDetail'}>
+					{selectedNodes}
+					{community}
+					{similarities}
+				</div>
 			</div>
 		</div>
 

@@ -1,6 +1,10 @@
+
+.controls {
+    margin: 10px 0 10px 50px;
+    display: flex;
+}
 .networkWrapper {
     display:flex;
-    padding-top: 10px;
     margin-left: 50px;
     justify-content: flex-start;
 }
