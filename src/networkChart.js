@@ -39,14 +39,14 @@ class NetworkChart extends Component {
 		// add positioning data for initial position to help clustering
 		this.nodes.forEach((e) => {
 			// position along a circle, clustered by group
-			const radius = Math.min(this.width, this.height) / 4
+			const radius = Math.min(this.width, this.height) / 2
 			const g = e.group
 			const angle = g / groupCount * 2 * Math.PI
 	        e.x  = Math.cos(angle) * radius + this.width / 2 + Math.random()
             e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
 
 			// set the radius of each node
-			const r = 250 * Math.log(e.followers)
+			const r = 200 * Math.log(e.followers)
 			e.radius = Math.sqrt(r)
 
 			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
@@ -256,6 +256,9 @@ class NetworkChart extends Component {
 			.sort((a, b) => b[1] - a[1])
 			.slice(0, 5)
 
+		if (sorted.length === 0){
+			return ""
+		}
 		return <div>
 			<h4>Most booked artists</h4>
 			<ol>
@@ -339,12 +342,16 @@ class NetworkChart extends Component {
 		const img = node.logo === '' ? <div className={'placeholder'}/> : <img
 			src={'https://www.residentadvisor.net'+node.logo} alt={node.id}
 		/>
-
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
+		const total_appearances = Object.values(node.artists)
+			.reduce((a, b) => a + b, 0)
+
 		return <div key={node.club_id}>
+			{img}
 			<h3>
-				<a target='_blank' href={link}>
-					{img}
+				<a className={"clubName"}
+				   style={{backgroundColor: this.fillColor(node.group)}}
+					target='_blank' href={link}>
 					{node.id}
 				</a>
 			</h3>
@@ -363,12 +370,12 @@ class NetworkChart extends Component {
 			<div>
 				Average bookings per artist:
 				{" " +(
-					node.total_number_of_artists / node.number_of_unique_artists
+					total_appearances / node.number_of_unique_artists
 				).toFixed(2)}
 			</div>			<div>
 				Average artists per date:
 				{" " +(
-					node.total_number_of_artists / node.number_of_dates
+					total_appearances / node.number_of_dates
 				).toFixed(2)}
 			</div>
 			{this.mostCommonArtists(node)}
@@ -389,7 +396,14 @@ class NetworkChart extends Component {
 		}
 		return <div>
 			<div className={'placeholder'}/>
-			<h4>Other clubs in this group</h4>
+			<h4>
+				<span
+					className={"clubName"}
+					style={{backgroundColor: this.fillColor(club.group)}}
+				>
+					Other clubs in this group
+				</span>
+			</h4>
 			<ul>
 				{groupClubs.map((e) => {
 					return <li key={e.id}> {e.id} </li>
