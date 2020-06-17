@@ -8,7 +8,7 @@ const CHAR_W = {
 
 function fitTextToScreen(text, radius){
 	const fittedText = text.split("").reduce((acc, e) => {
-		if (acc.length < radius){
+		if (acc.length < 1.6 * radius){
 			acc.length = acc.length + (CHAR_W[e] || CHAR_W.a)
 			acc.text = acc.text + e
 		}

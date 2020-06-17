@@ -46,16 +46,20 @@ class NetworkChart extends Component {
             e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
 
 			// set the radius of each node
-			const r = 200 * Math.log(e.followers)
-			e.radius = Math.sqrt(r)
+			const r = this.calculateRadius(e)
+			e.radius = r
 
 			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
 		})
 
 		this.clusters = clusters
 		const svg = this.ref.current
-		this.createGraph(svg)
 		this.createLegend(svg)
+		this.createGraph(svg)
+	}
+
+	calculateRadius(e){
+		return 12 * Math.log(Math.sqrt(e.followers))
 	}
 
 	dragstarted = (d, simulation) => {
@@ -96,11 +100,12 @@ class NetworkChart extends Component {
 			.on('tick', this.tick)
 			.nodes(this.nodes)
 
+		const translate = `translate(${this.width - width}, ${this.height - height})`
 		this.g = d3.select(svg)
             .attr("width", width + this.margin.left + this.margin.right)
             .attr("height", height + this.margin.top + this.margin.bottom)
 			.append("g")
-            .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")")
+            .attr("transform", translate)
 			.attr("class", "graph")
 			.attr("class", "nodes")
 			.selectAll("g")
@@ -146,42 +151,61 @@ class NetworkChart extends Component {
 	}
 
 	createLegend(svg){
+		const sizes = [10000, 1000, 10]
+		const radiuses = sizes.map((e) => {
+			return this.calculateRadius({followers: e})
+		})
+
+		const x = 10
+		const lineHeight = 30
+		const paddingBottom = 10
+		const y = this.height - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
+
         const legend = d3.select(svg)
 	        .append("g")
 			.attr("class", "legend")
+            .attr("x", x)
+            .attr("y", y)
+            .attr("transform", `translate(${x}, ${y})`)
+	        .style("text-align", "center")
 
+		const max = Math.max(...radiuses)
 		// add nodes
-		legend
-		    .selectAll("rects")
-		    .data(this.categories)
-            .enter()
-            .append("circle")
-	            .attr("cx", this.margin.left / 2)
-	            .attr("cy", (d, i) => (i+1) * 30)
-	            .attr("r", 10)
-	            .style("fill", this.fillColor)
-				.on('click', (d) => this.onLegendClick(d))
-				.style("cursor", "pointer")
+		legend.selectAll("rects")
+		.data(radiuses)
+		.enter()
+		.append("circle")
+		    .attr("cx", max)
+		    .attr("cy", d => 2 * max - (d) + 0.5*lineHeight)
+		    .attr("r", d => d)
+			.attr("fill", "white")
+			.attr("stroke", "black")
+			.attr("alignment-baseline", "middle")
 
-		// add labels
-		legend
-			.selectAll("rects")
-			.data(this.categories)
-			.enter()
-			.append("text")
-	            .attr("x", 40)
-	            .attr("y", (d, i) => (i+1) * 30)
-		        .attr("text-anchor", "left")
-	            .style("alignment-baseline", "middle")
-	            .style("fill", this.fillColor)
-	            .style("display", "block")
-			    .text(d => d)
-				.on('click', (d) => this.onLegendClick(d))
-				.style("cursor", "pointer")
-	}
+		legend.selectAll("rects")
+		.data(radiuses)
+		.enter()
+		.append("text")
+		    .attr("x", max)
+		    .attr("y", (d, i) => {
+		    	// this is messy, but the best looking option I could find
+			    // smallest circle is labelled in center, others at the top
+		    	if (i === 0){
+		    		return 2 * max - 1.4 * d
+			    }
+		    	if (i === 1){
+		    		return 2 * max - 1.2 * d
+			    }
+		    	return 2 * max - (d) + 0.5*lineHeight
+		    })
+			.text((d, i) => sizes[i])
+			.attr("text-anchor", "middle")
 
-	onLegendClick = (node) => {
-		console.log(node)
+		legend.append('text')
+			.text("RA club followers")
+			.attr("text-anchor", "start")
+			.attr("x", 0)
+			.attr("y", 2 * max + lineHeight)
 	}
 
 	zoom = (zoomGroup) => {
@@ -435,7 +459,7 @@ class NetworkChart extends Component {
 		const community = this.showCommunity()
 		const similarities = this.showSimilarities()
 		return <div className={'networkWrapper'}>
-			<svg ref={this.ref}  width={1000} height={700} style={{border: "1px solid"}}/>
+			<svg ref={this.ref}  width={1000} height={1000} style={{border: "1px solid"}}/>
 			<div className={'clubDetail'}>
 				{selectedNodes}
 				{community}
