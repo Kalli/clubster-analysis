@@ -286,11 +286,29 @@ class NetworkChart extends Component {
 		return <div>
 			<h4>Similar Clubs</h4>
 			<ol>
-				{edges.map((e) => {
-					return <li key={e[0]}> {e[0]} - {(e[1]*100).toFixed()}%</li>
-				})}
+				{edges.map(e => this.clubButton(e, node))}
 			</ol>
 		</div>
+	}
+
+	clubButton(clubData, parentClub){
+		const [clubId, percentage] = clubData
+		return <li key={clubId}>
+			<button
+				className={"clubButton"}
+				onClick={(e) => this.clubButtonClickHandler(clubId, parentClub)}
+			>
+				{clubId}
+			</button>  - {(percentage*100).toFixed()}%
+		</li>
+	}
+
+	clubButtonClickHandler(clubId, parentClub){
+		const club = this.nodes.find(e => e.id === clubId)
+		// we want to maintain the position of the parent club in selected club
+		const selectedClubs = this.state.selectedNodes[0] === parentClub?
+			[parentClub, club] : [club, parentClub]
+		this.setState({selectedNodes: selectedClubs})
 	}
 
 	artistLink(artistName){
