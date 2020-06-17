@@ -72,15 +72,6 @@ def join_data_frames(regions, clubs, dates, date_details, artists_to_dates):
     Join all the data frames into one big "table"
     """
 
-    # clarify region names
-    def region_name(x):
-        if x['name'] == x['country']:
-            return x['name']
-        else:
-            return '{} - {}'.format(x['name'], x['country'])
-
-    regions.name = regions.apply(region_name, axis=1)
-
     # join regions and clubs
     regions_top_clubs = regions.join(
         clubs.reset_index().set_index('region'),
@@ -140,7 +131,8 @@ def group_by_year_and_club(all_data):
 
     by_year_and_club = all_data.groupby(['year', 'name_club']).agg(
         club_id=('id_club', 'first'),
-        name_region=('name_region', 'first'),
+        region=('name_region', 'first'),
+        country=('country', 'first'),
         logo=('img', 'first'),
         number_of_dates=('id_date', pd.Series.nunique),
         number_of_unique_artists=('artist_name', pd.Series.nunique),
@@ -166,7 +158,8 @@ def calculate_club_likeness(club_data):
         for j in range(i+1, size):
             club2 = club_data.iloc[j]
             similarity = jaccard_index(club1.artists, club2.artists)
-            similarities.append((club1.name[1], club2.name[1], similarity))
+            if similarity > 0:
+                similarities.append((club1.name[1], club2.name[1], similarity))
     return similarities
 
 
