@@ -144,7 +144,7 @@ class NetworkChart extends Component {
 	        var dt = elapsed / transitionTime
 		    this.simulation
 			    .force('collide')
-			    .strength(Math.pow(dt, 2) * 1)
+			    .strength(Math.pow(dt, 2))
 		    if (dt >= 1.0) t.stop()
 		})
 	}
@@ -338,7 +338,11 @@ class NetworkChart extends Component {
 		const artistId = ( this.props.data.artist_names_to_ids[artistName] ||
 				artistName.toLowerCase().replace(' ', '')
 		)
-		return <a href={'https://www.residentadvisor.net/dj/' + artistId} target={'_blank'}>
+		return <a
+			href={'https://www.residentadvisor.net/dj/' + artistId}
+			rel={'noopener'}
+			target={'_blank'}
+		>
 			{artistName}
 		</a>
 	}
@@ -394,7 +398,10 @@ class NetworkChart extends Component {
 			<h3>
 				<a className={"clubName"}
 				   style={{backgroundColor: this.fillColor(node.group)}}
-					target='_blank' href={link}>
+			       rel={'noopener'}
+	               target={'_blank'}
+                   href={link}
+				>
 					{node.id}
 				</a>
 			</h3>
