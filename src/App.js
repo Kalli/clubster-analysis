@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import NetworkChart from './networkChart'
-
+import FrontPage from './frontPage'
 
 class App extends Component {
 
@@ -34,13 +34,15 @@ class App extends Component {
     }
 
     render(){
+		const frontPage = <FrontPage />
 	    const network = this.state.loading? '' : <NetworkChart
 		    data={this.state.data}
 		    size={[500,500]}
 	    />
         return (
             <div className='App'>
-                <div>
+	            {frontPage}
+                <div id={"start"} >
                     {network}
                 </div>
             </div>

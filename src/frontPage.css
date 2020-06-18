@@ -1,0 +1,46 @@
+
+.frontPage{
+    background-size: cover !important;
+    background: url('/img/montage.jpg') no-repeat center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbotron{
+    top: 20%;
+    max-width: 60%;
+    height: max-content;
+    background-color: white;
+    border-radius: 15px;
+    padding-bottom: 48px;
+    padding-top: 48px;
+}
+
+.jumbotron p{
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: left;
+}
+
+.center{
+    text-align: center;
+}
+
+
+.scrollDown{
+    animation-duration: 1s;
+    animation-name: bounce;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    font-size: 50px;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
