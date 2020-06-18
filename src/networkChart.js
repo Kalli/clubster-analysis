@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
-import './App.css'
 import * as d3 from 'd3'
 import {interpolateWarm} from 'd3-scale-chromatic'
-import './networkChart.css';
+import './networkChart.scss';
 import {fitTextToScreen} from './textHandling'
 import BarChart from './BarChart'
 

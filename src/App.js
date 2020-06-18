@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './App.css';
+import './App.scss';
 import NetworkChart from './networkChart'
 import FrontPage from './frontPage'
 
