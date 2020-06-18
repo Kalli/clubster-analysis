@@ -4,6 +4,7 @@ import * as d3 from 'd3'
 import {interpolateWarm} from 'd3-scale-chromatic'
 import './networkChart.css';
 import {fitTextToScreen} from './textHandling'
+import BarChart from './BarChart'
 
 
 class NetworkChart extends Component {
@@ -442,18 +443,17 @@ class NetworkChart extends Component {
 		const region = node.region === node.country?
 			node.region : node.region + ", " + node.country
 		return <div key={node.club_id}>
-			{img}
 			<h3>
 				<a className={"clubName"}
 				   style={{backgroundColor: this.fillColor(node.group)}}
-			       rel={'noopener'}
+			       rel={'noopener noreferrer'}
 	               target={'_blank'}
                    href={link}
 				>
 					{node.id}
 				</a>
 			</h3>
-
+			{img}
 			<div>Number of events: {node.number_of_dates}</div>
 			<div>Unique artists: {node.number_of_unique_artists}</div>
 			<div>Total artists booked: {node.total_number_of_artists}</div>
@@ -492,20 +492,30 @@ class NetworkChart extends Component {
 		if (groupClubs.length === 1){
 			return ""
 		}
+
+		const stats = groupClubs.reduce((acc, e) => {
+			acc[e.region] = (acc[e.region] + 1 || 1)
+			return acc
+		}, {})
+
+		const color = this.fillColor(club.group)
 		return <div>
-			<div className={'placeholder'}/>
 			<h4>
 				<span
 					className={"clubName"}
-					style={{backgroundColor: this.fillColor(club.group)}}
+					style={{backgroundColor: color}}
 				>
 					Other clubs in this group
 				</span>
 			</h4>
+			<BarChart
+				data={Object.entries(stats)}
+				width={312}
+				height={210}
+				color={color}
+			/>
 			<ul>
-				{groupClubs.map((e) => {
-					return <li key={e.id}> {e.id} </li>
-				})}
+				{groupClubs.map(e => this.clubButton(club, e.id))}
 			</ul>
 		</div>
 	}
