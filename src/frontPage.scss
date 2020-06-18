@@ -1,3 +1,5 @@
+@import './constants.scss';
+
 
 .frontPage{
     background-size: cover !important;
@@ -11,7 +13,7 @@
     top: 20%;
     max-width: 60%;
     height: max-content;
-    background-color: white;
+    background-color: $primaryColor;
     border-radius: 15px;
     padding-bottom: 48px;
     padding-top: 48px;

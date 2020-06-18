@@ -1,0 +1,16 @@
+//Thanks color hunt! https://colorhunt.co/palette/183392
+$primaryColor: #303960;
+$secondaryColor: #ea9a96;
+$tertiaryColor: #f8b24f;
+$quaternaryColor: #e5e5e5;
+
+body{
+    font-size: 16px;
+    color: $secondaryColor;
+    background-color: $primaryColor;
+}
+
+a{
+    color: $quaternaryColor;
+;
+}
