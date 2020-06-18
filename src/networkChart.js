@@ -4,7 +4,8 @@ import {interpolateWarm} from 'd3-scale-chromatic'
 import './networkChart.scss';
 import {fitTextToScreen} from './textHandling'
 import BarChart from './BarChart'
-
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 class NetworkChart extends Component {
 
@@ -442,6 +443,13 @@ class NetworkChart extends Component {
 		const region = node.region === node.country?
 			node.region : node.region + ", " + node.country
 		return <div key={node.club_id}>
+			<button
+				className={"clubButton"}
+				id={"close"}
+				onClick={(e) => this.onNodeClick(node)}
+			>
+				 <FontAwesomeIcon icon={faTimesCircle} />
+			</button>
 			<h3>
 				<a className={"clubName"}
 				   style={{backgroundColor: this.fillColor(node.group)}}
