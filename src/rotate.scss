@@ -1,0 +1,23 @@
+@import './constants.scss';
+
+.rotate{
+    display:none;
+    visibility: hidden;
+}
+
+/* only when orientation is in portrait mode */
+@media (max-width: 400px) and (orientation:portrait) {
+    .rotate {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        background: $primaryColor;
+        border-radius: 15px;
+        height: 100vh;
+        visibility: visible;
+    }
+    svg{
+        margin-right: 0.5em;
+    }
+}
