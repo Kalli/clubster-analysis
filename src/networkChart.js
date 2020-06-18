@@ -15,12 +15,15 @@ class NetworkChart extends Component {
 	constructor(props) {
 		super(props)
 		this.ref = React.createRef()
+		// these are the currently selected values
+		// if you need all values, you should use this.props.data
 		this.nodes = this.props.data.nodes
 		this.links = this.props.data.links
 
 		this.state = {
 			selectedNodes: [],
-			data: {}
+			data: {},
+			filters: {}
 		}
 	}
 
@@ -55,6 +58,7 @@ class NetworkChart extends Component {
 		const svg = this.ref.current
 		this.createLegend(svg)
 		this.createGraph(svg)
+		this.drawGraph()
 	}
 
 	calculateRadius(e){
@@ -85,6 +89,7 @@ class NetworkChart extends Component {
 	}
 
 	createGraph = (svg) => {
+		this.initial = true
         const width = this.width - this.margin.left - this.margin.right
         const height = this.height - this.margin.top - this.margin.bottom
 		const padding = 1
@@ -96,8 +101,6 @@ class NetworkChart extends Component {
 			.force('y', d3.forceY(height / 2).strength(0.01))
 			.force('cluster', this.cluster().strength(1))
 			.force('collide', d3.forceCollide(d => d.radius + padding))
-			.on('tick', this.tick)
-			.nodes(this.nodes)
 
 		const translate = `translate(${this.width - width}, ${this.height - height})`
 		this.g = d3.select(svg)
@@ -105,18 +108,46 @@ class NetworkChart extends Component {
             .attr("height", height + this.margin.top + this.margin.bottom)
 			.append("g")
             .attr("transform", translate)
-			.attr("class", "graph")
 			.attr("class", "nodes")
-			.selectAll("g")
-			.data(this.nodes)
-			.enter()
-			.append("g")
 
-		this.node = this.g
+		this.node = this.g.selectAll("circle")
+		this.label = this.g.selectAll("text")
+
+		this.simulation
+			.on('tick', this.tick)
+			.nodes(this.nodes)
+
+		const zoom_handler = d3
+			.zoom()
+			.scaleExtent([0, 10])
+			.on("zoom", () => this.zoom(this.g))
+
+		zoom_handler(d3.select(svg))
+		const transitionTime = 3000;
+		var t = d3.timer((elapsed) => {
+	        var dt = elapsed / transitionTime
+		    this.simulation
+			    .force('collide')
+			    .strength(Math.pow(dt, 2))
+		    if (dt >= 1.0){
+		    	t.stop()
+		    }
+		})
+	}
+
+	drawGraph = () => {
+		const transition = d3.transition().duration(1500)
+
+		this.node = this.node.data(this.nodes, d=> d.id)
+		this.node.exit().transition(transition).style("opacity", 0).remove()
+
+		let newNode = this.node
+			.enter()
 			.append("circle")
 			.attr("r", d => d.radius)
 			.attr("fill", d => this.fillColor(d.group))
 			.attr("class", "nodes")
+			.style("opacity", this.initial? "1": "0")
 			.call(
 				d3
 				.drag()
@@ -125,32 +156,34 @@ class NetworkChart extends Component {
 					.on("end", d => this.dragended(d, this.simulation))
 			)
 			.on("click", d => this.onNodeClick(d))
+			.transition(transition).style("opacity", 1)
 
-		this.label = this.g.append("text")
+		this.node = this.node.merge(newNode)
+
+		this.label = this.label.data(this.nodes, d=> d.id)
+		this.label.exit().transition(transition).style("opacity", 0).remove()
+		let newLabel = this.label.enter()
+			.append("text")
 			.attr("text-anchor", "middle")
 			.style("fill", "#fff")
+			.style("opacity", "0")
             .style("font-size", 12)
 			.text(d => fitTextToScreen(d.id, d.radius))
 			.on("click", d => this.onNodeClick(d))
+			.transition(transition).style("opacity", 1)
 
-		const zoom_handler = d3
-			.zoom()
-			.scaleExtent([1, 10])
-			.on("zoom", () => this.zoom(this.g))
-
-		zoom_handler(d3.select(svg))
-		var transitionTime = 3000;
-		var t = d3.timer((elapsed) => {
-	        var dt = elapsed / transitionTime
-		    this.simulation
-			    .force('collide')
-			    .strength(Math.pow(dt, 2))
-		    if (dt >= 1.0) t.stop()
-		})
+		newLabel.transition(transition).style("opacity", 1)
+		this.label = this.label.merge(newLabel)
+		if (!this.initial){
+			// restart simulation so nodes wont get stuck on next filter
+			this.simulation.alphaTarget(0.3).restart()
+			this.simulation.alphaTarget(0)
+		}
+		this.initial = false
 	}
 
 	createLegend(svg){
-		const sizes = [10000, 1000, 10]
+		const sizes = [10000, 1000, 100, 10]
 		const radiuses = sizes.map((e) => {
 			return this.calculateRadius({followers: e})
 		})
@@ -379,6 +412,22 @@ class NetworkChart extends Component {
 		</div>
 	}
 
+	componentDidUpdate( prevProps, prevState){
+		const filters = this.state.filters
+		if (Object.keys(filters).length !== 0){
+			this.nodes = this.props.data.nodes.filter((e) => {
+				return Object.keys(filters).every((f) => {
+					return filters[f] === "all" || e[f] === filters[f]
+				})
+			})
+			const ids = this.nodes.map(e => e.id)
+			this.links = this.props.data.links.filter((e) => {
+				return ids.includes(e.target) && ids.includes(e.source)
+			})
+		}
+		this.drawGraph()
+	}
+
 	showClubs(){
 		return this.state.selectedNodes.map((e) => this.showClub(e))
 	}
@@ -462,22 +511,41 @@ class NetworkChart extends Component {
 		</div>
 	}
 
-	controls(){
-		const countries = [...new Set(this.nodes.map(e => e.country))]
-			.sort()
-			.map(c => <option key={c}>{c}</option>)
+	setFilters =(e) => {
+		const filter = {}
+		filter[e.target.name] = e.target.value
+		this.setState({"filters": filter, "selectedNodes": []})
+	}
 
-		const regions = [...new Set(this.nodes.map(e => e.region))]
+	controls(){
+		const countries = [...new Set(this.props.data.nodes.map(e => e.country))]
 			.sort()
 			.map(c => <option key={c}>{c}</option>)
+		const selectedCountry = this.state.filters.country?
+			this.state.filters.country : "all"
+
+		const regions = [...new Set(this.props.data.nodes.map(e => e.region))]
+			.sort()
+			.map(c => <option key={c}>{c}</option>)
+		const selectedRegion = this.state.filters.region?
+			this.state.filters.region : "all"
+
 
 		return <>
-			<select name="countries" defaultValue={"Countries"}>
-				<option disabled={true}>Countries</option>
+			<select
+				name="country"
+				value={selectedCountry}
+		        onChange={this.setFilters}
+			>
+				<option value={"all"}>All Countries</option>
 				{countries}
 			</select>
-			<select name="regions" defaultValue={countries}>
-				<option disabled={true} >Regions</option>
+			<select
+				name="region"
+				value={selectedRegion}
+		        onChange={this.setFilters}
+			>
+				<option value={"all"} >All Regions</option>
 				{regions}
 			</select>
 		</>
