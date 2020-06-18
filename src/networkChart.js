@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import * as d3 from 'd3'
 import {interpolateWarm} from 'd3-scale-chromatic'
-import './networkChart.scss';
+import './networkChart.scss'
 import {fitTextToScreen} from './textHandling'
 import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
@@ -284,11 +284,11 @@ class NetworkChart extends Component {
 		// adapted from
 		// https://bl.ocks.org/ericsoco/38b4f8b51ecf116e6fb0727d25687e8e
 		let nodes,
-			strength = 0.1;
+			strength = 0.1
 
 		const force = (alpha) => {
 			// scale + curve alpha value
-			alpha *= strength * alpha;
+			alpha *= strength * alpha
 
 			nodes.forEach((d) => {
 				let cluster = this.clusters[d.group]
@@ -296,28 +296,28 @@ class NetworkChart extends Component {
 				let x = d.x - cluster.x,
 					y = d.y - cluster.y,
 					l = Math.sqrt(x * x + y * y),
-					r = d.radius + cluster.radius;
+					r = d.radius + cluster.radius
 
 				if (l !== r) {
-					l = (l - r) / l * alpha;
-					d.x -= x *= l;
-					d.y -= y *= l;
-					cluster.x += x;
-					cluster.y += y;
+					l = (l - r) / l * alpha
+					d.x -= x *= l
+					d.y -= y *= l
+					cluster.x += x
+					cluster.y += y
 				}
-			});
+			})
 		}
 
 		force.initialize = function (_) {
-			nodes = _;
+			nodes = _
 		}
 
 		force.strength = _ => {
-			strength = _ == null ? strength : _;
-			return force;
-		};
+			strength = _ == null ? strength : _
+			return force
+		}
 
-		return force;
+		return force
 	}
 
 	mostCommonArtists(node){
