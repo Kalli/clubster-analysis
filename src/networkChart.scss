@@ -4,10 +4,12 @@
     margin: 10px 0 10px 50px;
     display: flex;
 }
+
 .networkWrapper {
     display:flex;
     margin-left: 50px;
     justify-content: flex-start;
+    height: 95%;
 }
 
 h3, h4 {
@@ -28,6 +30,7 @@ img {
     max-width: 35%;
     text-align: left;
     margin-left: 10px;
+    overflow-y: scroll;
 }
 
 .clubDetail div {
@@ -54,7 +57,6 @@ img {
     display: block;
     height: 210px;
     width: 312px;
-    background-color: white;
 }
 
 .clubName{
@@ -78,6 +80,7 @@ img {
 
 svg {
     fill: $quaternaryColor;
+    font-size: 12px;
 }
 svg .legend circle{
     fill: $secondaryColor;
@@ -87,4 +90,40 @@ svg .legend circle{
     float:right;
     display:inline-block;
     padding: 2px 5px;
+}
+
+@media (max-width: 850px) {
+
+    .networkWrapper {
+        margin-left: 10px;
+        overflow: hidden;
+    }
+
+    .clubDetail div {
+        flex: 1;
+        min-width: 156px;
+        width: 40%;
+    }
+
+    .image{
+        width: 156px;
+        height: 105px;
+    }
+
+    .image img {
+        min-height: 100px;
+        min-width: 156px;
+    }
+    svg {
+        font-size: 10px;
+    }
+
+    .clubDetail {
+        max-width: 50%;
+    }
+
+    .placeholder{
+        height: 105px;
+        width: 156px;
+    }
 }

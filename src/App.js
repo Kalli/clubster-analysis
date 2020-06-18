@@ -37,7 +37,6 @@ class App extends Component {
 		const frontPage = <FrontPage />
 	    const network = this.state.loading? '' : <NetworkChart
 		    data={this.state.data}
-		    size={[500,500]}
 	    />
         return (
             <div className='App'>

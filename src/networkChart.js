@@ -9,8 +9,6 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 class NetworkChart extends Component {
 
-	width = 1000
-	height = 1000
 	margin = {top: 10, right: 20, bottom: 30, left: 50}
 
 	constructor(props) {
@@ -24,11 +22,21 @@ class NetworkChart extends Component {
 		this.state = {
 			selectedNodes: [],
 			data: {},
-			filters: {}
+			filters: {},
+			width: window.innerWidth,
+			height: window.innerHeight,
+			svgWidth: window.innerWidth,
+			svgHeight: window.innerHeight - 50
 		}
 	}
 
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.updateWindowDimensions)
+	}
+
 	componentDidMount() {
+		this.updateWindowDimensions()
+		window.addEventListener('resize', this.updateWindowDimensions)
 		// sort so adjacent groups get different colors
 		this.categories = [
 			...new Set(this.nodes.map(e => e.group).sort((a, b) => {
@@ -42,11 +50,11 @@ class NetworkChart extends Component {
 		// add positioning data for initial position to help clustering
 		this.nodes.forEach((e) => {
 			// position along a circle, clustered by group
-			const radius = Math.min(this.width, this.height) / 2
+			const radius = Math.min(this.state.svgWidth, this.state.svgHeight) / 2
 			const g = e.group
 			const angle = g / groupCount * 2 * Math.PI
-	        e.x  = Math.cos(angle) * radius + this.width / 2 + Math.random()
-            e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
+	        e.x  = Math.cos(angle) * radius + this.state.svgWidth / 2 + Math.random()
+            e.y = Math.sin(angle) * radius + this.state.svgWidth / 2 + Math.random()
 
 			// set the radius of each node
 			const r = this.calculateRadius(e)
@@ -63,7 +71,9 @@ class NetworkChart extends Component {
 	}
 
 	calculateRadius(e){
-		return 12 * Math.log(Math.sqrt(e.followers))
+		// the bubbles need to scale according to the viewport
+		const m = Math.min(this.state.svgWidth, this.state.svgHeight) / 800
+		return 12 * Math.log(Math.sqrt(e.followers)) * m
 	}
 
 	dragstarted = (d, simulation) => {
@@ -91,8 +101,8 @@ class NetworkChart extends Component {
 
 	createGraph = (svg) => {
 		this.initial = true
-        const width = this.width - this.margin.left - this.margin.right
-        const height = this.height - this.margin.top - this.margin.bottom
+        const width = this.state.svgWidth - this.margin.left - this.margin.right
+        const height = this.state.svgHeight - this.margin.top - this.margin.bottom
 		const padding = 1
 
 		this.simulation = d3
@@ -103,7 +113,9 @@ class NetworkChart extends Component {
 			.force('cluster', this.cluster().strength(1))
 			.force('collide', d3.forceCollide(d => d.radius + padding))
 
-		const translate = `translate(${this.width - width}, ${this.height - height})`
+		const translateX = this.state.svgWidth - width
+		const translateY = this.state.svgHeight - height
+		const translate = `translate(${translateX}, ${translateY})`
 		this.g = d3.select(svg)
             .attr("width", width + this.margin.left + this.margin.right)
             .attr("height", height + this.margin.top + this.margin.bottom)
@@ -124,7 +136,7 @@ class NetworkChart extends Component {
 			.on("zoom", () => this.zoom(this.g))
 
 		zoom_handler(d3.select(svg))
-		const transitionTime = 3000;
+		const transitionTime = 3000
 		var t = d3.timer((elapsed) => {
 	        var dt = elapsed / transitionTime
 		    this.simulation
@@ -192,7 +204,7 @@ class NetworkChart extends Component {
 		const x = 10
 		const lineHeight = 30
 		const paddingBottom = 10
-		const y = this.height - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
+		const y = this.state.svgHeight - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
 
         const legend = d3.select(svg)
 	        .append("g")
@@ -567,20 +579,31 @@ class NetworkChart extends Component {
 		</>
 	}
 
+	updateWindowDimensions= () => {
+		this.setState({
+			width: window.innerWidth, height: window.innerHeight,
+			svgWidth: window.innerWidth, svgHeight: window.innerHeight - 50
+		})
+	}
+
+
 	render() {
 		const selectedNodes = this.showClubs()
 		const community = this.showCommunity()
 		const controls = this.controls()
 		const similarities = this.showSimilarities()
-		return <div>
+
+		return <div
+            style={{height: this.state.height, width: this.state.width}}
+		>
 			<div className={"controls"}>
 				{controls}
 			</div>
 			<div className={'networkWrapper'}>
 				<svg
 					ref={this.ref}
-					width={1000}
-					height={1000}
+					width={this.state.svgWidth}
+					height={this.state.svgHeight}
 					style={{border: "1px solid"}}
 				/>
 				<div className={'clubDetail'}>
