@@ -342,20 +342,19 @@ class NetworkChart extends Component {
 		return <div>
 			<h4>Similar Clubs</h4>
 			<ol>
-				{edges.map(e => this.clubButton(e, node))}
+				{edges.map(e => this.clubButton(node, e[0], e[1]))}
 			</ol>
 		</div>
 	}
 
-	clubButton(clubData, parentClub){
-		const [clubId, percentage] = clubData
+	clubButton(parentClub, clubId, percentage=null){
 		return <li key={clubId}>
 			<button
 				className={"clubButton"}
 				onClick={(e) => this.clubButtonClickHandler(clubId, parentClub)}
 			>
 				{clubId}
-			</button>  - {(percentage*100).toFixed()}%
+			</button> {percentage? " - " + (percentage*100).toFixed() + "%": "" }
 		</li>
 	}
 
@@ -373,7 +372,7 @@ class NetworkChart extends Component {
 		)
 		return <a
 			href={'https://www.residentadvisor.net/dj/' + artistId}
-			rel={'noopener'}
+			rel={'noopener noreferrer'}
 			target={'_blank'}
 		>
 			{artistName}
@@ -561,8 +560,12 @@ class NetworkChart extends Component {
 				{controls}
 			</div>
 			<div className={'networkWrapper'}>
-
-				<svg ref={this.ref}  width={1000} height={1000} style={{border: "1px solid"}}/>
+				<svg
+					ref={this.ref}
+					width={1000}
+					height={1000}
+					style={{border: "1px solid"}}
+				/>
 				<div className={'clubDetail'}>
 					{selectedNodes}
 					{community}
