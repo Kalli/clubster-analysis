@@ -320,44 +320,35 @@ class NetworkChart extends Component {
 		return force
 	}
 
-	mostCommonArtists(node){
-		const sorted = Object.entries(node.artists)
-			.sort((a, b) => b[1] - a[1])
-			.slice(0, 5)
-
-		if (sorted.length === 0){
-			return ""
-		}
-		return <div>
-			<h4>Most booked artists</h4>
-			<ol>
-				{sorted.map((e) => {
-					return <li key={e[0]}>{this.artistLink(e[0])} - {e[1]}</li>
-				})}
-			</ol>
-		</div>
+	createTable(header, data){
+		return <tr key={header+"row"}>
+			<td key={header+"cell"}>{header}</td>
+			{data.map(e => <td key={e}>{e}</td>)}
+		</tr>
 	}
 
-	mostSimilarClubs(node){
-		const edges = this.links.filter((e) => {
-			return [e.source, e.target].includes(node.id)
+	mostCommonArtists(){
+		return this.state.selectedNodes.map(node => {
+			return Object.entries(node.artists)
+				.sort((a, b) => b[1] - a[1])
+				.slice(0, 5)
+				.map(e => <li id={e[0]+e[1]}>{this.artistLink(e[0])}{" - " + e[1]}</li>)
 		})
-		.sort((a, b) => b.weight - a.weight)
-		.slice(0, 5)
-		.reduce((acc, e) => {
-			const club = e.source !== node.id? e.source : e.target
-			acc.push([club, e.weight])
-			return acc
-		}, [])
-		if (edges.length === 0 ){
-			return <h4>No Similar Clubs</h4>
-		}
-		return <div>
-			<h4>Similar Clubs</h4>
-			<ol>
-				{edges.map(e => this.clubButton(node, e[0], e[1]))}
-			</ol>
-		</div>
+	}
+
+	mostSimilarClubs(){
+		return this.state.selectedNodes.map(f => {
+			return this.links.filter((e) => {
+				return [e.source, e.target].includes(f.id)
+			})
+			.sort((a, b) => b.weight - a.weight)
+			.slice(0, 5)
+			.reduce((acc, e) => {
+				const club = e.source !== f.id? e.source : e.target
+				acc.push(this.clubButton(f, club, e.weight))
+				return acc
+			}, [])
+		})
 	}
 
 	clubButton(parentClub, clubId, percentage=null){
@@ -405,7 +396,7 @@ class NetworkChart extends Component {
 
 		if (union.length === 0){
 			return <div className={'similarities'}>
-				<h4>No overlap in lineups - no common bookings</h4>
+				<h4>No overlap in lineups - no common artists</h4>
 			</div>
 		}
 
@@ -416,7 +407,7 @@ class NetworkChart extends Component {
 
 		return <div className={'similarities'}>
 			<h4>
-				{overlap}% overlap in lineups - {union.length} common bookings:
+				{overlap}% overlap in lineups - {union.length} common artists:
 			</h4>
 			<ul>
 				{union.map((e) => <li key={e}>{this.artistLink(e)}</li>)}
@@ -441,7 +432,11 @@ class NetworkChart extends Component {
 	}
 
 	showClubs(){
-		return this.state.selectedNodes.map((e) => this.showClub(e))
+		const clubs = this.state.selectedNodes
+		return <div className={"clubInfo"+clubs.length}>
+			{clubs.map((e) => this.showClub(e))}
+			{this.createClubTable()}
+		</div>
 	}
 
 	showClub(node){
@@ -449,12 +444,7 @@ class NetworkChart extends Component {
 			<img src={'/img/'+node.logo.split("/").slice(-1)[0]} alt={node.id} />
 		</div>
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
-		const total_appearances = Object.values(node.artists)
-			.reduce((a, b) => a + b, 0)
-
-		const region = node.region === node.country?
-			node.region : node.region + ", " + node.country
-		return <div key={node.club_id}>
+		return <div key={node.club_id} className={"clubPanel"}>
 			<button
 				className={"clubButton"}
 				id={"close"}
@@ -473,34 +463,65 @@ class NetworkChart extends Component {
 				</a>
 			</h3>
 			{img}
-			<div>Number of events: {node.number_of_dates}</div>
-			<div>Unique artists: {node.number_of_unique_artists}</div>
-			<div>Total artists booked: {node.total_number_of_artists}</div>
-			<div>Region: {region} </div>
-			<div>Followers: {node.followers}</div>
-			<div>
-				Average RA user attendance per event:
-				{" " + (
-					node.attending / node.number_of_dates
-				).toFixed(0)}
+			<div className={"center"}>
+				{node.region}
+				{node.region === node.country ? "" : " - " + node.country}
 			</div>
-			<div>
-				Average bookings per artist:
-				{" " +(
-					total_appearances / node.number_of_unique_artists
-				).toFixed(2)}
-			</div>			<div>
-				Average artists per date:
-				{" " +(
-					total_appearances / node.number_of_dates
-				).toFixed(2)}
-			</div>
-			{this.mostCommonArtists(node)}
-			{this.mostSimilarClubs(node)}
 		</div>
 	}
 
-	showCommunity(){
+	createClubTable(){
+		if (this.state.selectedNodes.length === 0){
+			return ""
+		}
+		const rows = this.state.selectedNodes.map(club=> {
+			const total_appearances = Object.values(club.artists)
+			.reduce((a, b) => a + b, 0)
+			return [
+				club.number_of_dates,
+				club.number_of_unique_artists,
+				club.total_number_of_artists,
+				club.followers,
+				(club.attending / club.number_of_dates).toFixed(1),
+				(total_appearances / club.number_of_dates).toFixed(1),
+				(total_appearances / club.number_of_dates).toFixed(2),
+			]
+		})
+
+		const headers = [
+			"Number of events",
+            "Unique artists",
+            "Total artists booked",
+            "Followers",
+			"Average event attendance",
+			"Average bookings per artist",
+			"Average artists per date",
+		]
+
+		let tableRows = headers.map((e, i) => {
+			return <tr key={i}>
+				<td key={e} >{e}</td>
+				{rows.map((e) => <td key={e[i]+i}>{e[i]}</td>)}
+			</tr>
+		}).concat(
+			this.createTable("Most Booked Artists", this.mostCommonArtists())
+		).concat(
+			this.createTable("Most Similar Clubs", this.mostSimilarClubs())
+		)
+
+		const header = rows.length !== 2? null : <thead>
+			<tr>
+				<th key={"empty"} />
+				{this.state.selectedNodes.map(e=><th key={e.id}>{e.id}</th>)}
+			</tr>
+		</thead>
+		return <table>
+			{header}
+			<tbody>{tableRows}</tbody>
+		</table>
+	}
+
+	showGroup(){
 		if (this.state.selectedNodes.length !== 1 ){
 			return ""
 		}
@@ -558,7 +579,6 @@ class NetworkChart extends Component {
 		const selectedRegion = this.state.filters.region?
 			this.state.filters.region : "all"
 
-
 		return <>
 			<select
 				name="country"
@@ -580,19 +600,26 @@ class NetworkChart extends Component {
 	}
 
 	updateWindowDimensions= () => {
+		const w = document.documentElement.clientWidth
+		const h = document.documentElement.clientHeight
 		this.setState({
-			width: window.innerWidth, height: window.innerHeight,
-			svgWidth: window.innerWidth, svgHeight: window.innerHeight - 50
+			width: w, height: h, svgWidth: w, svgHeight: h - 50
 		})
 	}
 
+	showClubInfo(){
+		if (this.state.selectedNodes.length === 0){
+			return <div className={"clubDetail hidden"} />
+		}
+		return <div className={"clubDetail visible"}>
+			{this.showClubs()}
+			{this.showGroup()}
+			{this.showSimilarities()}
+		</div>
+	}
 
 	render() {
-		const selectedNodes = this.showClubs()
-		const community = this.showCommunity()
 		const controls = this.controls()
-		const similarities = this.showSimilarities()
-
 		return <div
             style={{height: this.state.height, width: this.state.width}}
 		>
@@ -606,14 +633,9 @@ class NetworkChart extends Component {
 					height={this.state.svgHeight}
 					style={{border: "1px solid"}}
 				/>
-				<div className={'clubDetail'}>
-					{selectedNodes}
-					{community}
-					{similarities}
-				</div>
+				{this.showClubInfo()}
 			</div>
 		</div>
-
 	}
 }
 
