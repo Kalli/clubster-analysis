@@ -32,7 +32,7 @@ class FrontPage extends Component {
 	            style={{height: this.state.height, width: this.state.width}}
 			>
 				<div className="jumbotron">
-					<h1 className="text-center">
+					<h1 className="center">
 						Resident Advisor Club Communities
 					</h1>
 					<p>

@@ -445,7 +445,7 @@ class NetworkChart extends Component {
 	}
 
 	showClub(node){
-		const img = node.logo === '' ? <div className={'placeholder'}/> : <div className={"image"}>
+		const img = node.logo === '' ? <div className={'placeholder'}/> : <div className={"image center"}>
 			<img src={'/img/'+node.logo.split("/").slice(-1)[0]} alt={node.id} />
 		</div>
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
