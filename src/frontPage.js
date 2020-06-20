@@ -26,6 +26,7 @@ class FrontPage extends Component {
 
 	render(){
 		return <>
+			<div className={"backgroundImage"} />
 			<Rotate />
 			<div
 				className={"frontPage"}
