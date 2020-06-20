@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './App.scss';
 import NetworkChart from './networkChart'
 import FrontPage from './frontPage'
 
@@ -39,12 +38,12 @@ class App extends Component {
 		    data={this.state.data}
 	    />
         return (
-            <div className='App'>
+            <>
 	            {frontPage}
                 <div id={"start"} >
                     {network}
                 </div>
-            </div>
+            </>
         )
     }
 }
