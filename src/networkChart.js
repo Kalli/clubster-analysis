@@ -446,7 +446,12 @@ class NetworkChart extends Component {
 				{this.showClubInfo()}
 			</div>
 		</div>
-		<ScrollyTelling enter={this.onStepEnter} exit={this.onStepExit} />
+		<ScrollyTelling
+			enter={this.onStepEnter}
+			exit={this.onStepExit}
+			nodes={this.nodes}
+			links={this.links}
+		/>
     </div>
 	}
 }
