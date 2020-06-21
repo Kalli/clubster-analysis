@@ -1,5 +1,4 @@
 import pandas as pd
-import glob
 from ast import literal_eval
 from collections import Counter
 import networkx as nx
@@ -33,14 +32,12 @@ def load_csv_files():
         index_col='id',
         parse_dates=['date']
     )
-    all_files = glob.glob(r'./data/date-details-201*.csv')
 
-    li = []
-    for filename in all_files:
-        df = pd.read_csv(filename, index_col='id', header=0)
-        li.append(df)
-
-    date_details = pd.concat(li, axis=0)
+    date_details = pd.read_csv(
+        r'./data/date-details-2019.csv',
+        index_col='id',
+        header=0
+    )
 
     # artists are saved as list representations of lists
     date_details.artists = date_details.artists.apply(lambda x: literal_eval(x))
@@ -109,9 +106,6 @@ def join_data_frames(regions, clubs, dates, date_details, artists_to_dates):
 
     all_data.index.name = 'id_date'
 
-    # dumps the data so we can read the local cache if it exists
-    all_data.to_csv('./data/all_data.csv')
-
     return all_data
 
 
@@ -135,6 +129,7 @@ def group_by_year_and_club(all_data):
         country=('country', 'first'),
         logo=('img', 'first'),
         number_of_dates=('id_date', pd.Series.nunique),
+        rank=('rank_club', 'first'),
         number_of_unique_artists=('artist_name', pd.Series.nunique),
         total_number_of_artists=('artist_name', 'count'),
         artists=('artist_name', NaNCounter),
@@ -171,12 +166,12 @@ def jaccard_index(a, b):
 
     https://en.wikipedia.org/wiki/Jaccard_index
     """
-    intersection = list((Counter(a) & Counter(b)).elements())
-    union = list((Counter(a) | Counter(b)).elements())
-    if len(union) == 0:
+    intersection = len(list((Counter(a) & Counter(b)).elements()))
+    union = sum(Counter(a).values()) + sum(Counter(b).values()) - intersection
+    if union == 0:
         return 0
     else:
-        return len(intersection) / len(union)
+        return intersection / union
 
 
 def create_graph(nodes, edges):
@@ -212,21 +207,12 @@ def artist_id_to_name_dict(all_data):
 
 if __name__ == "__main__":
 
-    try:
-        # check if we have already combined all the raw data into a csv
-        all_data = pd.read_csv(
-            './data/all_data.csv',
-            index_col='id_date',
-            parse_dates=['date']
-        )
-    except (IOError, pd.errors.EmptyDataError):
-        # otherwise load and save
-        regions, clubs, dates, date_details = load_csv_files()
-        artists_to_dates = normalize_artist_data(date_details)
-        date_details = date_details.drop('artists', axis=1)
-        all_data = join_data_frames(
-            regions, clubs, dates, date_details, artists_to_dates
-        )
+    regions, clubs, dates, date_details = load_csv_files()
+    artists_to_dates = normalize_artist_data(date_details)
+    date_details = date_details.drop('artists', axis=1)
+    all_data = join_data_frames(
+        regions, clubs, dates, date_details, artists_to_dates
+    )
 
     all_data = all_data.reset_index()
     club_data = group_by_year_and_club(all_data)

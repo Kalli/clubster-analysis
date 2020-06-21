@@ -230,15 +230,14 @@ def get_top_club_dates(top_clubs):
 
     for club_id, club in top_clubs.iterrows():
         if club_id not in data['club_id'].unique():
-            for year in range(2010, 2020):
-                # for clubs with very few events year pages return duplicate
-                # data filter those out
-                club_listings = [
-                    cl for cl in get_club_year_dates(club_id, year)
-                    if not cl['id'] in data.index
-                ]
-                data.append(club_listings)
-            data.to_csv(data_path)
+            # for clubs with very few events year pages return duplicate
+            # data filter those out
+            club_listings = [
+                cl for cl in get_club_year_dates(club_id, 2019)
+                if not cl['id'] in data.index
+            ]
+            data.append(club_listings)
+        data.to_csv(data_path)
 
     return data
 
