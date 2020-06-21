@@ -562,7 +562,9 @@ class NetworkChart extends Component {
 
 	setFilters =(e) => {
 		const filter = {}
-		filter[e.target.name] = e.target.value
+		const v = e.target.name === "rank"?
+			parseInt(e.target.value) : e.target.value
+		filter[e.target.name] = v
 		this.setState({"filters": filter, "selectedNodes": []})
 	}
 
@@ -578,6 +580,12 @@ class NetworkChart extends Component {
 			.map(c => <option key={c}>{c}</option>)
 		const selectedRegion = this.state.filters.region?
 			this.state.filters.region : "all"
+
+		const rankings = [...new Set(this.props.data.nodes.map(e => e.rank))]
+			.sort()
+			.map(c => <option key={c} value={c}>{c+1}</option>)
+		const selectedRank = this.state.filters.rank?
+			this.state.filters.rank : "all"
 
 		return <>
 			<select
@@ -595,6 +603,14 @@ class NetworkChart extends Component {
 			>
 				<option value={"all"} >All Regions</option>
 				{regions}
+			</select>
+			<select
+				name="rank"
+				value={selectedRank}
+		        onChange={this.setFilters}
+			>
+				<option value={"all"}>All Positions</option>
+				{rankings}
 			</select>
 		</>
 	}
