@@ -205,6 +205,21 @@ def artist_id_to_name_dict(all_data):
     return d
 
 
+def optimise_json(d):
+    """
+    Change dictionaries into lists to optimise space in json.
+    Convert back in js.
+    """
+    d['node_keys'] = list(d['nodes'][0].keys())
+    for i, node in enumerate(d['nodes']):
+        d['nodes'][i] = list(node.values())
+
+    d['link_keys'] = list(d['links'][0].keys())
+    for i, link in enumerate(d['links']):
+        d['links'][i] = list(link.values())
+    return d
+
+
 if __name__ == "__main__":
 
     regions, clubs, dates, date_details = load_csv_files()
@@ -224,4 +239,5 @@ if __name__ == "__main__":
         G = create_graph(df, similarities)
         d = json_graph.node_link_data(G)
         d['artist_names_to_ids'] = artist_name_to_ids
+        d = optimise_json(d)
         json.dump(d, open('./public/network-{}.json'.format(year), 'w'))
