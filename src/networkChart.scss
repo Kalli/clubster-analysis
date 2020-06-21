@@ -1,8 +1,20 @@
 @import './constants.scss';
 
+.wrapper{
+    display: block;
+    overflow: auto;
+}
+
 .controls {
     margin: 10px 0 10px 50px;
     display: flex;
+}
+
+.sticky{
+    position: sticky;
+    position: -webkit-sticky; /* for Safari */
+    top: 0;
+    z-index: 1;
 }
 
 .networkWrapper {
@@ -32,7 +44,7 @@ li {
     border-radius: 15px;
     border: 1px solid $secondaryColor;
     width: 40%;
-    height: calc(100% - 50px);;
+    height: calc(100% - 40px);;
     background: $primaryColor;
     position: absolute;
     right: 0;

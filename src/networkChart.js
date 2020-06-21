@@ -6,6 +6,7 @@ import {fitTextToScreen} from './textHandling'
 import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import ScrollyTelling from "./ScrollyTelling"
 
 class NetworkChart extends Component {
 
@@ -601,7 +602,7 @@ class NetworkChart extends Component {
 				value={selectedRegion}
 		        onChange={this.setFilters}
 			>
-				<option value={"all"} >All Regions</option>
+				<option value={"all"}>All Regions</option>
 				{regions}
 			</select>
 			<select
@@ -634,11 +635,20 @@ class NetworkChart extends Component {
 		</div>
 	}
 
+    onStepEnter = ({element, data, direction}) => {
+		console.log(element, data, direction)
+	}
+
+	onStepExit = ({element, data, direction}) => {
+		console.log(element, data, direction)
+	}
+
 	render() {
 		const controls = this.controls()
-		return <div
+		return <div className={"wrapper"}
             style={{height: this.state.height, width: this.state.width}}
 		>
+		<div className={"sticky"}>
 			<div className={"controls"}>
 				{controls}
 			</div>
@@ -652,6 +662,8 @@ class NetworkChart extends Component {
 				{this.showClubInfo()}
 			</div>
 		</div>
+		<ScrollyTelling enter={this.onStepEnter} exit={this.onStepExit} />
+    </div>
 	}
 }
 

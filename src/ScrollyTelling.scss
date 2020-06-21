@@ -1,0 +1,13 @@
+@import './constants.scss';
+
+.step {
+    position: relative;
+    display: block;
+    width: 40%;
+    z-index: 99999;
+    padding: 20vh 10px 20vh 10px;
+    margin: 10vh 0 10vh 50px;
+    border: 1px solid $secondaryColor;
+    background: $primaryColor;
+    border-radius: 15px;
+}

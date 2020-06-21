@@ -52,7 +52,7 @@ class App extends Component {
 	    />
         return (
             <>
-	            {frontPage}
+	            {/*{frontPage}*/}
                 <div id={"start"} >
                     {network}
                 </div>
