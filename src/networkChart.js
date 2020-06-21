@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
-import * as d3 from 'd3'
-import {interpolateWarm} from 'd3-scale-chromatic'
 import './networkChart.scss'
-import {fitTextToScreen} from './textHandling'
 import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
+import {ClusterChart, fillColor, calculateRadius} from "./ClusterChart"
+
 
 class NetworkChart extends Component {
 
@@ -58,7 +57,9 @@ class NetworkChart extends Component {
             e.y = Math.sin(angle) * radius + this.state.svgWidth / 2 + Math.random()
 
 			// set the radius of each node
-			const r = this.calculateRadius(e)
+			const r = calculateRadius(
+				e, this.state.svgHeight, this.state.svgWidth
+			)
 			e.radius = r
 
 			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
@@ -66,196 +67,18 @@ class NetworkChart extends Component {
 
 		this.clusters = clusters
 		const svg = this.ref.current
-		this.createLegend(svg)
-		this.createGraph(svg)
-		this.drawGraph()
-	}
-
-	calculateRadius(e){
-		// the bubbles need to scale according to the viewport
-		const m = Math.min(this.state.svgWidth, this.state.svgHeight) / 800
-		return 12 * Math.log(Math.sqrt(e.followers)) * m
-	}
-
-	dragstarted = (d, simulation) => {
-		if (!d3.event.active) simulation.alphaTarget(0.3).restart()
-		d.fx = d.x
-		d.fy = d.y
-	}
-
-	dragged = d => {
-		d.fx = d3.event.x
-		d.fy = d3.event.y
-	}
-
-	dragended = (d, simulation) => {
-		if (!d3.event.active) simulation.alphaTarget(0)
-		d.fx = null
-		d.fy = null
-	}
-
-	fillColor = (category) => {
-		return interpolateWarm(
-			this.categories.indexOf(category) / this.categories.length
+		this.clusterChart = new ClusterChart(
+			svg, this.margin, this.categories, this.clusters
 		)
-	}
-
-	createGraph = (svg) => {
-		this.initial = true
-        const width = this.state.svgWidth - this.margin.left - this.margin.right
-        const height = this.state.svgHeight - this.margin.top - this.margin.bottom
-		const padding = 1
-
-		this.simulation = d3
-			.forceSimulation()
-			.force('center', d3.forceCenter(width/2, height/2))
-			.force('x', d3.forceX(width / 2).strength(0.01))
-			.force('y', d3.forceY(height / 2).strength(0.01))
-			.force('cluster', this.cluster().strength(1))
-			.force('collide', d3.forceCollide(d => d.radius + padding))
-
-		const translateX = this.state.svgWidth - width
-		const translateY = this.state.svgHeight - height
-		const translate = `translate(${translateX}, ${translateY})`
-		this.g = d3.select(svg)
-            .attr("width", width + this.margin.left + this.margin.right)
-            .attr("height", height + this.margin.top + this.margin.bottom)
-			.append("g")
-            .attr("transform", translate)
-			.attr("class", "nodes")
-
-		this.node = this.g.selectAll("circle")
-		this.label = this.g.selectAll("text")
-
-		this.simulation
-			.on('tick', this.tick)
-			.nodes(this.nodes)
-
-		const zoom_handler = d3
-			.zoom()
-			.scaleExtent([0, 10])
-			.on("zoom", () => this.zoom(this.g))
-
-		zoom_handler(d3.select(svg))
-		const transitionTime = 3000
-		var t = d3.timer((elapsed) => {
-	        var dt = elapsed / transitionTime
-		    this.simulation
-			    .force('collide')
-			    .strength(Math.pow(dt, 2))
-		    if (dt >= 1.0){
-		    	t.stop()
-		    }
-		})
-	}
-
-	drawGraph = () => {
-		const transition = d3.transition().duration(1500)
-
-		this.node = this.node.data(this.nodes, d=> d.id)
-		this.node.exit().transition(transition).style("opacity", 0).remove()
-
-		let newNode = this.node
-			.enter()
-			.append("circle")
-			.attr("r", d => d.radius)
-			.attr("fill", d => this.fillColor(d.group))
-			.attr("class", "nodes")
-			.style("opacity", this.initial? "1": "0")
-			.call(
-				d3
-				.drag()
-					.on("start", d => this.dragstarted(d, this.simulation))
-					.on("drag", d => this.dragged(d))
-					.on("end", d => this.dragended(d, this.simulation))
-			)
-			.on("click", d => this.onNodeClick(d))
-			.transition(transition).style("opacity", 1)
-
-		this.node = this.node.merge(newNode)
-
-		this.label = this.label.data(this.nodes, d=> d.id)
-		this.label.exit().transition(transition).style("opacity", 0).remove()
-		let newLabel = this.label.enter()
-			.append("text")
-			.attr("text-anchor", "middle")
-			.style("fill", "#fff")
-			.style("opacity", "0")
-            .style("font-size", 12)
-			.text(d => fitTextToScreen(d.id, d.radius))
-			.on("click", d => this.onNodeClick(d))
-			.transition(transition).style("opacity", 1)
-
-		newLabel.transition(transition).style("opacity", 1)
-		this.label = this.label.merge(newLabel)
-		if (!this.initial){
-			// restart simulation so nodes wont get stuck on next filter
-			this.simulation.alphaTarget(0.3).restart()
-			this.simulation.alphaTarget(0)
-		}
-		this.initial = false
-	}
-
-	createLegend(svg){
-		const sizes = [10000, 1000, 100, 10]
-		const radiuses = sizes.map((e) => {
-			return this.calculateRadius({followers: e})
-		})
-
-		const x = 10
-		const lineHeight = 30
-		const paddingBottom = 10
-		const y = this.state.svgHeight - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
-
-        const legend = d3.select(svg)
-	        .append("g")
-			.attr("class", "legend")
-            .attr("x", x)
-            .attr("y", y)
-            .attr("transform", `translate(${x}, ${y})`)
-	        .style("text-align", "center")
-
-		const max = Math.max(...radiuses)
-		// add nodes
-		legend.selectAll("rects")
-		.data(radiuses)
-		.enter()
-		.append("circle")
-		    .attr("cx", max)
-		    .attr("cy", d => 2 * max - (d) + 0.5*lineHeight)
-		    .attr("r", d => d)
-			.attr("fill", "white")
-			.attr("stroke", "black")
-			.attr("alignment-baseline", "middle")
-
-		legend.selectAll("rects")
-		.data(radiuses)
-		.enter()
-		.append("text")
-		    .attr("x", max)
-		    .attr("y", (d, i) => {
-		    	// this is messy, but the best looking option I could find
-			    // smallest circle is labelled in center, others at the top
-		    	if (i === 0){
-		    		return 2 * max - 1.4 * d
-			    }
-		    	if (i === 1){
-		    		return 2 * max - 1.2 * d
-			    }
-		    	return 2 * max - (d) + 0.5*lineHeight
-		    })
-			.text((d, i) => sizes[i])
-			.attr("text-anchor", "middle")
-
-		legend.append('text')
-			.text("RA club followers")
-			.attr("text-anchor", "start")
-			.attr("x", 0)
-			.attr("y", 2 * max + lineHeight)
-	}
-
-	zoom = (zoomGroup) => {
-		zoomGroup.attr("transform", d3.event.transform)
+		this.clusterChart.createGraph(
+			this.nodes,
+			this.state.svgHeight,
+			this.state.svgWidth,
+		)
+		this.clusterChart.createLegend(
+			this.state.svgHeight, this.state.svgWidth
+		)
+		this.clusterChart.drawGraph(this.nodes, this.onNodeClick)
 	}
 
 	onNodeClick = (node) => {
@@ -269,56 +92,6 @@ class NetworkChart extends Component {
 		}
 		selectedNodes = selectedNodes.slice(-2)
 		this.setState({selectedNodes: selectedNodes})
-	}
-
-	tick = () => {
-		this.node
-			.attr("cx", d => d.x)
-			.attr("cy", d => d.y)
-			.attr("r", d => d.radius)
-		this.label
-            .attr("dx", d => d.x )
-	        .attr("dy", d => d.y)
-	}
-
-	cluster = () => {
-		// adapted from
-		// https://bl.ocks.org/ericsoco/38b4f8b51ecf116e6fb0727d25687e8e
-		let nodes,
-			strength = 0.1
-
-		const force = (alpha) => {
-			// scale + curve alpha value
-			alpha *= strength * alpha
-
-			nodes.forEach((d) => {
-				let cluster = this.clusters[d.group]
-				if (cluster === d) return
-				let x = d.x - cluster.x,
-					y = d.y - cluster.y,
-					l = Math.sqrt(x * x + y * y),
-					r = d.radius + cluster.radius
-
-				if (l !== r) {
-					l = (l - r) / l * alpha
-					d.x -= x *= l
-					d.y -= y *= l
-					cluster.x += x
-					cluster.y += y
-				}
-			})
-		}
-
-		force.initialize = function (_) {
-			nodes = _
-		}
-
-		force.strength = _ => {
-			strength = _ == null ? strength : _
-			return force
-		}
-
-		return force
 	}
 
 	createTable(header, data){
@@ -429,7 +202,7 @@ class NetworkChart extends Component {
 				return ids.includes(e.target) && ids.includes(e.source)
 			})
 		}
-		this.drawGraph()
+		this.clusterChart.drawGraph(this.nodes)
 	}
 
 	showClubs(){
@@ -444,7 +217,9 @@ class NetworkChart extends Component {
 		const img = node.logo === '' ? <div className={'placeholder'}/> : <div className={"image center"}>
 			<img src={'/img/'+node.logo.split("/").slice(-1)[0]} alt={node.id} />
 		</div>
+		const color = fillColor(node.group, this.categories)
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
+
 		return <div key={node.club_id} className={"clubPanel"}>
 			<button
 				className={"clubButton"}
@@ -455,7 +230,7 @@ class NetworkChart extends Component {
 			</button>
 			<h3>
 				<a className={"clubName"}
-				   style={{backgroundColor: this.fillColor(node.group)}}
+				   style={{backgroundColor: color}}
 			       rel={'noopener noreferrer'}
 	               target={'_blank'}
                    href={link}
@@ -539,7 +314,7 @@ class NetworkChart extends Component {
 			return acc
 		}, {})
 
-		const color = this.fillColor(club.group)
+		const color = fillColor(club.group, this.categories)
 		return <div>
 			<h4>
 				<span
