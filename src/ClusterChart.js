@@ -1,4 +1,10 @@
-import * as d3 from "d3"
+import {forceSimulation, forceCenter, forceX, forceY} from "d3-force"
+import {select, event} from 'd3-selection'
+import {drag} from 'd3-drag'
+import {transition} from 'd3-transition'
+import {forceCollide} from "d3-force"
+import {zoom} from "d3-zoom"
+import {timer} from "d3-timer"
 import {fitTextToScreen} from "./textHandling"
 import {interpolateWarm} from 'd3-scale-chromatic'
 
@@ -18,18 +24,17 @@ class ClusterChart{
 	    const height = h - this.margin.top - this.margin.bottom
 		const padding = 1
 
-		this.simulation = d3
-			.forceSimulation()
-			.force('center', d3.forceCenter(width/2, height/2))
-			.force('x', d3.forceX(width / 2).strength(0.01))
-			.force('y', d3.forceY(height / 2).strength(0.01))
+		this.simulation = forceSimulation()
+			.force('center', forceCenter(width/2, height/2))
+			.force('x', forceX(width / 2).strength(0.01))
+			.force('y', forceY(height / 2).strength(0.01))
 			.force('cluster', this.cluster().strength(1))
-			.force('collide', d3.forceCollide(d => d.radius + padding))
+			.force('collide', forceCollide(d => d.radius + padding))
 
 		const translateX = w - width
 		const translateY = h - height
 		const translate = `translate(${translateX}, ${translateY})`
-		this.g = d3.select(this.svg)
+		this.g = select(this.svg)
 	        .attr("width", width + this.margin.left + this.margin.right)
 	        .attr("height", height + this.margin.top + this.margin.bottom)
 			.append("g")
@@ -43,14 +48,13 @@ class ClusterChart{
 			.on('tick', this.tick)
 			.nodes(nodes)
 
-		const zoom_handler = d3
-			.zoom()
+		const zoom_handler = zoom()
 			.scaleExtent([0, 10])
 			.on("zoom", () => this.zoom(this.g))
 
-		d3.select(this.svg).call(zoom_handler).on("wheel.zoom", null)
+		select(this.svg).call(zoom_handler).on("wheel.zoom", null)
 		const transitionTime = 3000
-		var t = d3.timer((elapsed) => {
+		var t = timer((elapsed) => {
 	        var dt = elapsed / transitionTime
 		    this.simulation
 			    .force('collide')
@@ -62,15 +66,15 @@ class ClusterChart{
 	}
 
 	zoom = (zoomGroup) => {
-		zoomGroup.attr("transform", d3.event.transform)
+		zoomGroup.attr("transform", event.transform)
 	}
 
 	drawGraph = (nodes, clickHandler) => {
-		const transition = d3.transition().duration(1500)
-		const labelTransition = d3.transition().duration(2500)
+		const t = transition().duration(1500)
+		const labelTransition = transition().duration(2500)
 
 		this.node = this.node.data(nodes, d=> d.id)
-		this.node.exit().transition(transition).style("opacity", 0).remove()
+		this.node.exit().transition(t).style("opacity", 0).remove()
 
 		let newNode = this.node
 			.enter()
@@ -79,20 +83,18 @@ class ClusterChart{
 			.attr("fill", d => fillColor(d.group, this.categories))
 			.attr("class", "nodes")
 			.style("opacity", this.initial? "1": "0")
-			.call(
-				d3
-				.drag()
+			.call(drag()
 					.on("start", d => this.dragstarted(d, this.simulation))
 					.on("drag", d => this.dragged(d))
 					.on("end", d => this.dragended(d, this.simulation))
 			)
 			.on("click", d => clickHandler(d))
-			.transition(transition).style("opacity", 1)
+			.transition(t).style("opacity", 1)
 
 		this.node = this.node.merge(newNode)
 
 		this.label = this.label.data(nodes, d=> d.id)
-		this.label.exit().transition(transition).style("opacity", 0).remove()
+		this.label.exit().transition(t).style("opacity", 0).remove()
 		let newLabel = this.label.enter()
 			.append("text")
 			.attr("text-anchor", "middle")
@@ -103,7 +105,7 @@ class ClusterChart{
 			.on("click", d => clickHandler(d))
 			.transition(labelTransition).style("opacity", 1)
 
-		newLabel.transition(transition).style("opacity", 1)
+		newLabel.transition(t).style("opacity", 1)
 		this.label = this.label.merge(newLabel)
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
@@ -165,18 +167,18 @@ class ClusterChart{
 	}
 
 	dragstarted = (d, simulation) => {
-		if (!d3.event.active) simulation.alphaTarget(0.3).restart()
+		if (!event.active) simulation.alphaTarget(0.3).restart()
 		d.fx = d.x
 		d.fy = d.y
 	}
 
 	dragged = d => {
-		d.fx = d3.event.x
-		d.fy = d3.event.y
+		d.fx = event.x
+		d.fy = event.y
 	}
 
 	dragended = (d, simulation) => {
-		if (!d3.event.active) simulation.alphaTarget(0)
+		if (!event.active) simulation.alphaTarget(0)
 		d.fx = null
 		d.fy = null
 	}
@@ -192,7 +194,7 @@ class ClusterChart{
 		const paddingBottom = 10
 		const y = height - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
 
-	    const legend = d3.select(this.svg)
+	    const legend = select(this.svg)
 	        .append("g")
 			.attr("class", "legend")
 	        .attr("x", x)
