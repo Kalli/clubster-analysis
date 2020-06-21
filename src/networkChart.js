@@ -48,9 +48,9 @@ class NetworkChart extends Component {
 		const clusters = new Array(groupCount)
 
 		// add positioning data for initial position to help clustering
+		const radius = Math.min(this.state.svgWidth, this.state.svgHeight) / 2
 		this.nodes.forEach((e) => {
 			// position along a circle, clustered by group
-			const radius = Math.min(this.state.svgWidth, this.state.svgHeight) / 2
 			const g = e.group
 			const angle = g / groupCount * 2 * Math.PI
 	        e.x  = Math.cos(angle) * radius + this.state.svgWidth / 2 + Math.random()
@@ -70,15 +70,11 @@ class NetworkChart extends Component {
 		this.clusterChart = new ClusterChart(
 			svg, this.margin, this.categories, this.clusters
 		)
-		this.clusterChart.createGraph(
-			this.nodes,
-			this.state.svgHeight,
-			this.state.svgWidth,
-		)
+
 		this.clusterChart.createLegend(
 			this.state.svgHeight, this.state.svgWidth
 		)
-		this.clusterChart.drawGraph(this.nodes, this.onNodeClick)
+
 	}
 
 	onNodeClick = (node) => {
@@ -202,7 +198,16 @@ class NetworkChart extends Component {
 				return ids.includes(e.target) && ids.includes(e.source)
 			})
 		}
-		this.clusterChart.drawGraph(this.nodes)
+		if (this.state.draw){
+			if (this.clusterChart.initial){
+				this.clusterChart.createGraph(
+					this.nodes,
+					this.state.svgHeight,
+					this.state.svgWidth,
+				)
+			}
+			this.clusterChart.drawGraph(this.nodes, this.onNodeClick)
+		}
 	}
 
 	showClubs(){
@@ -411,11 +416,15 @@ class NetworkChart extends Component {
 	}
 
     onStepEnter = ({element, data, direction}) => {
-		console.log(element, data, direction)
+	    if (data){
+			this.setState(data)
+	    }
 	}
 
 	onStepExit = ({element, data, direction}) => {
-		console.log(element, data, direction)
+	    if (data){
+			this.setState(data)
+	    }
 	}
 
 	render() {
