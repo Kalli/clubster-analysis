@@ -303,35 +303,33 @@ def get_all_dates_details(club_dates, year):
     data_path = '../data/date-details-{}.csv'.format(year)
     data = load_local_cache(data_path, index_col='id')
 
-    count = len(club_dates[
+    club_dates = club_dates[
         (club_dates['date'] >= '{}-01-01'.format(year)) &
-        (club_dates['date'] < '{}-01-01'.format(year+1)) &
-        (club_dates['date'].dt.dayofweek > 3) &
-        (club_dates['date'].dt.dayofweek < 6)
-    ])
-    print('Fetching {} event details for {}'.format(count, year))
-    count = 0
-    additions = []
-    for index, listing in club_dates.iterrows():
-        print("Currently on row: {}; Currently iterrated {}% of rows".format(count, (count + 1)/len(club_dates.index) * 100))
-        count = count + 1
-        if index in data.index or listing['date'].year != year:
-            continue
-        # Only fetch Fridays and Saturdays
-        if listing['date'].weekday() in [4, 5]:
-            try:
-                additions.append(get_date_details(index))
-            except AttributeError as e:
-                link = 'https://www.residentadvisor.net/events/{}'.format(
-                    int(index)
-                )
-                print('Error fetching {} {}'.format(link, e))
+        (club_dates['date'] < '{}-01-01'.format(year + 1))
+    ]
 
-            # save csv every 100 events in case of exceptions
-            if len(additions) % 100 == 0:
-                data = data.append(pd.DataFrame(additions).set_index('id'))
-                data.to_csv(data_path)
-                additions = []
+    # we don't have to fetch details that are already there
+    club_dates = club_dates[~club_dates.index.isin(data.index)]
+    additions = []
+
+    for pos, (index, listing) in enumerate(club_dates.iterrows()):
+        if pos % 100 == 0:
+            print("Currently on row: {}; Fetched {}% of {} rows".format(
+                pos, ((pos + 1)/len(club_dates)) * 100, len(club_dates))
+            )
+        try:
+            additions.append(get_date_details(index))
+        except AttributeError as e:
+            link = 'https://www.residentadvisor.net/events/{}'.format(
+                int(index)
+            )
+            print('Error fetching {} {}'.format(link, e))
+
+        # save csv every 100 events in case of exceptions
+        if len(additions) % 100 == 0:
+            data = data.append(pd.DataFrame(additions).set_index('id'))
+            data.to_csv(data_path)
+            additions = []
 
     data = data.append(pd.DataFrame(additions).set_index('id'))
     data.to_csv(data_path)
@@ -474,5 +472,4 @@ if __name__ == "__main__":
     clubs = get_top_clubs(regions)
     dates = get_top_club_dates(clubs)
 
-    for year in range(2016, 2017):
-        date_details = get_all_dates_details(dates, year)
+    date_details = get_all_dates_details(dates, 2019)
