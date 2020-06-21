@@ -28,7 +28,7 @@ class ClusterChart{
 			.force('center', forceCenter(width/2, height/2))
 			.force('x', forceX(width / 2).strength(0.01))
 			.force('y', forceY(height / 2).strength(0.01))
-			.force('cluster', this.cluster().strength(1))
+			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
 		const translateX = w - width
@@ -61,6 +61,9 @@ class ClusterChart{
 			    .strength(Math.pow(dt, 2))
 		    if (dt >= 1.0){
 		        t.stop()
+			    // disable x and y for less jitter
+			    this.simulation.force("x", null)
+			    this.simulation.force("y", null)
 		    }
 		})
 	}
@@ -154,7 +157,6 @@ class ClusterChart{
 		}
 
 		force.initialize = function (_) {
-			console.log(force.initialize, _)
 			nodes = _
 		}
 
@@ -241,9 +243,6 @@ class ClusterChart{
 			.attr("y", 2 * max + lineHeight)
 	}
 }
-
-
-
 
 function calculateRadius(e, height, width){
 	// scale node radius according to svg size
