@@ -22,10 +22,10 @@ class NetworkChart extends Component {
 			selectedNodes: [],
 			data: {},
 			filters: {},
-			width: window.innerWidth,
-			height: window.innerHeight,
-			svgWidth: window.innerWidth,
-			svgHeight: window.innerHeight - 50
+			width: document.documentElement.clientWidth,
+			height: document.documentElement.clientHeight,
+			svgWidth: document.documentElement.clientWidth,
+			svgHeight: document.documentElement.clientHeight - 50
 		}
 	}
 
@@ -192,9 +192,14 @@ class NetworkChart extends Component {
 					return filters[f] === "all" || e[f] === filters[f]
 				})
 			})
-			const ids = this.nodes.map(e => e.id)
-			this.links = this.props.data.links.filter((e) => {
-				return ids.includes(e.target) && ids.includes(e.source)
+		}else{
+			this.nodes = this.props.data.nodes
+		}
+		if (this.state.scroll){
+			// dumb but can't figure out how to be sure page is fully in view
+			window.scrollTo({
+				top: document.documentElement.clientHeight,
+				behavior: 'smooth'
 			})
 		}
 		if (this.state.draw){
@@ -218,8 +223,9 @@ class NetworkChart extends Component {
 	}
 
 	showClub(node){
+		const imgPath =`${process.env.PUBLIC_URL}/img/`
 		const img = node.logo === '' ? <div className={'placeholder'}/> : <div className={"image center"}>
-			<img src={'/img/'+node.logo.split("/").slice(-1)[0]} alt={node.id} />
+			<img src={imgPath+node.logo.split("/").slice(-1)[0]} alt={node.id} />
 		</div>
 		const color = fillColor(node.group, this.categories)
 		const link = 'https://www.residentadvisor.net/club.aspx?id=' + node.club_id
