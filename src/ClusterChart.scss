@@ -1,0 +1,9 @@
+@import './constants.scss';
+
+.nodes{
+  cursor: pointer;
+}
+
+.legend circle{
+    fill: $secondaryColor;
+}

@@ -7,6 +7,7 @@ import {zoom} from "d3-zoom"
 import {timer} from "d3-timer"
 import {fitTextToScreen} from "./textHandling"
 import {interpolateWarm} from 'd3-scale-chromatic'
+import './ClusterChart.scss'
 
 
 class ClusterChart{
@@ -236,10 +237,11 @@ class ClusterChart{
 			.text((d, i) => sizes[i])
 			.attr("text-anchor", "middle")
 
-		legend.append('text')
-			.text("RA club followers")
-			.attr("text-anchor", "start")
-			.attr("x", 0)
+		legend
+			.append('text')
+			.text("RA Club Followers")
+			.attr("text-anchor", "middle")
+			.attr("x", max)
 			.attr("y", 2 * max + lineHeight)
 	}
 }
