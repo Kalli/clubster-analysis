@@ -13,7 +13,7 @@ class App extends Component {
     }
 
     loadData() {
-        fetch(`/network-2019.json`)
+        fetch(`${process.env.PUBLIC_URL}/network-2019.json`)
             .then( (response) => {
                 return response.json()
             })
@@ -52,7 +52,7 @@ class App extends Component {
 	    />
         return (
             <>
-	            {/*{frontPage}*/}
+	            {frontPage}
                 <div id={"start"} >
                     {network}
                 </div>
