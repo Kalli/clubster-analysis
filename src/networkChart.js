@@ -210,7 +210,11 @@ class NetworkChart extends Component {
 					this.state.svgWidth,
 				)
 			}
-			this.clusterChart.drawGraph(this.nodes, this.onNodeClick)
+			this.clusterChart.drawGraph(
+				this.nodes,
+				this.onNodeClick,
+				this.state.selectedNodes
+			)
 		}
 	}
 

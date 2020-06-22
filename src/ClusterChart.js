@@ -73,7 +73,7 @@ class ClusterChart{
 		zoomGroup.attr("transform", event.transform)
 	}
 
-	drawGraph = (nodes, clickHandler) => {
+	drawGraph = (nodes, clickHandler, selectedNodes) => {
 		const t = transition().duration(1500)
 		const labelTransition = transition().duration(2500)
 
@@ -86,7 +86,7 @@ class ClusterChart{
 			.attr("r", d => d.radius)
 			.attr("fill", d => fillColor(d.group, this.categories))
 			.attr("class", "nodes")
-			.style("opacity", this.initial? "1": "0")
+			.style("opacity", this.initial? 1: 1)
 			.call(drag()
 					.on("start", d => this.dragstarted(d, this.simulation))
 					.on("drag", d => this.dragged(d))
@@ -102,6 +102,7 @@ class ClusterChart{
 		let newLabel = this.label.enter()
 			.append("text")
 			.attr("text-anchor", "middle")
+			.attr("class", "label")
 			.style("fill", "#fff")
 			.style("opacity", "0")
             .style("font-size", 12)
@@ -116,7 +117,22 @@ class ClusterChart{
 			this.simulation.alphaTarget(0.3).restart()
 			this.simulation.alphaTarget(0)
 		}
+		this.highlightSelected(selectedNodes)
 		this.initial = false
+	}
+
+	highlightSelected(selectedNodes){
+		// highlight selected nodes if any
+		this.g
+			.selectAll(".nodes")
+			.style("opacity", (d)=>{
+				return selectedNodes.includes(d)? 0.6 : 1
+			})
+		this.g
+			.selectAll(".label")
+			.attr("text-decoration", (d)=>{
+				return selectedNodes.includes(d)? "underline" : ""
+			})
 	}
 
 	tick = () => {
