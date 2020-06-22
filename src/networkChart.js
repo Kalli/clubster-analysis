@@ -17,7 +17,6 @@ class NetworkChart extends Component {
 		// these are the currently selected values
 		// if you need all values, you should use this.props.data
 		this.nodes = this.props.data.nodes
-		this.links = this.props.data.links
 
 		this.state = {
 			selectedNodes: [],
@@ -108,7 +107,7 @@ class NetworkChart extends Component {
 
 	mostSimilarClubs(){
 		return this.state.selectedNodes.map(f => {
-			return this.links.filter((e) => {
+			return this.props.data.links.filter((e) => {
 				return [e.source, e.target].includes(f.id)
 			})
 			.sort((a, b) => b.weight - a.weight)
@@ -171,7 +170,7 @@ class NetworkChart extends Component {
 		}
 
 		const ids = this.state.selectedNodes.map(e => e.id)
-		const overlap = (this.links.find(e => {
+		const overlap = (this.props.data.links.find(e => {
 			return ids.includes(e.source) && ids.includes(e.target)
 		}).weight * 100 ).toFixed(2)
 
@@ -449,8 +448,8 @@ class NetworkChart extends Component {
 		<ScrollyTelling
 			enter={this.onStepEnter}
 			exit={this.onStepExit}
-			nodes={this.nodes}
-			links={this.links}
+			nodes={this.props.data.nodes}
+			links={this.props.data.links}
 		/>
     </div>
 	}
