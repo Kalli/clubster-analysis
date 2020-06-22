@@ -8,8 +8,10 @@ import "./ScrollyTelling.scss"
 class ScrollyTelling extends Component {
 
 	stepsData = [
-		{draw: true, filters: {region: "all"}},
-		{filters: {"region": "Berlin"}},
+		{draw: true, filters: {region: "all"}, selectedNodes: [], scroll: true},
+		{filters: {region: "Berlin"}, selectedNodes: [] },
+		{filters: {country: "United Kingdom"}, selectedNodes: [] },
+		{filters: {country: "all"}, selectedNodes: [] },
 	]
 
 	constructor(props) {
@@ -23,12 +25,23 @@ class ScrollyTelling extends Component {
 		const {source, target, weight} = this.props.links.reduce((acc, e)=>{
 			return acc.weight > e.weight? acc : e
 		}, {weight: 0})
+
+		// Show De School and Berghain in step 4
+		this.stepsData[3].selectedNodes = this.props.nodes.filter((e) => {
+			return [112491, 5031].includes(e.club_id)
+		})
+		const clubCount = this.props.nodes.length
+		const total = this.props.links.reduce((acc, e) => acc+e.weight, 0)
+		const averageWeight = total / (clubCount * (clubCount-1) / 2)
+
 		const data = {
-			"$clubCount": this.props.nodes.length,
+			"$clubCount": clubCount,
 			"$linkCount": this.props.links.length,
 			"$source": source,
 			"$target": target,
 			"$weight": (weight*100).toFixed(0),
+			"$total": total,
+			"$averageWeight": (averageWeight*100).toFixed(0.2),
 		}
 
 		fetch(steps)
@@ -61,7 +74,6 @@ class ScrollyTelling extends Component {
 			onStepEnter={this.props.enter}
 			onStepExit={this.props.exit}
 			offset={0.75}
-			debug
 		>
 			{steps}
 		</Scrollama>
