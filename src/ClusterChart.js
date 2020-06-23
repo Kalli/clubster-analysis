@@ -78,22 +78,21 @@ class ClusterChart{
 		const labelTransition = transition().duration(2500)
 
 		this.node = this.node.data(nodes, d=> d.id)
-		this.node.exit().transition(t).style("opacity", 0).remove()
+		this.node.exit().transition(t).style("fill-opacity", 0).remove()
 
-		let newNode = this.node
-			.enter()
+		let newNode = this.node.enter()
 			.append("circle")
 			.attr("r", d => d.radius)
 			.attr("fill", d => fillColor(d.group, this.categories))
 			.attr("class", "nodes")
-			.style("opacity", this.initial? 1: 1)
+			.style("fill-opacity", this.initial? "1":"0")
 			.call(drag()
 					.on("start", d => this.dragstarted(d, this.simulation))
 					.on("drag", d => this.dragged(d))
 					.on("end", d => this.dragended(d, this.simulation))
 			)
 			.on("click", d => clickHandler(d))
-			.transition(t).style("opacity", 1)
+			.transition(t).style("fill-opacity", 1)
 
 		this.node = this.node.merge(newNode)
 
@@ -110,7 +109,6 @@ class ClusterChart{
 			.on("click", d => clickHandler(d))
 			.transition(labelTransition).style("opacity", 1)
 
-		newLabel.transition(t).style("opacity", 1)
 		this.label = this.label.merge(newLabel)
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
