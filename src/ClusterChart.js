@@ -12,32 +12,32 @@ import './ClusterChart.scss'
 
 class ClusterChart{
 
-	constructor(svg, margin, categories, clusters) {
+	constructor(svg, margin, categories, clusters, h, w) {
 		this.svg = svg
 		this.initial = true
 		this.margin = margin
 		this.categories = categories
 		this.clusters = clusters
+		this.width = w - this.margin.left - this.margin.right
+	    this.height = h - this.margin.top - this.margin.bottom
 	}
 
-	createGraph(nodes, h, w){
-	    const width = w - this.margin.left - this.margin.right
-	    const height = h - this.margin.top - this.margin.bottom
+	createGraph(nodes){
 		const padding = 1
 
 		this.simulation = forceSimulation()
-			.force('center', forceCenter(width/2, height/2))
-			.force('x', forceX(width / 2).strength(0.01))
-			.force('y', forceY(height / 2).strength(0.01))
+			.force('center', forceCenter(this.width/2, this.height/2))
+			.force('x', forceX(this.width / 2).strength(0.01))
+			.force('y', forceY(this.height / 2).strength(0.01))
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
-		const translateX = w - width
-		const translateY = h - height
+		const translateX = this.margin.left + this.margin.right
+		const translateY = this.margin.top + this.margin.bottom
 		const translate = `translate(${translateX}, ${translateY})`
 		this.g = select(this.svg)
-	        .attr("width", width + this.margin.left + this.margin.right)
-	        .attr("height", height + this.margin.top + this.margin.bottom)
+	        .attr("width", this.width + this.margin.left + this.margin.right)
+	        .attr("height", this.height + this.margin.top + this.margin.bottom)
 			.append("g")
 	        .attr("transform", translate)
 			.attr("class", "nodes")
@@ -200,16 +200,16 @@ class ClusterChart{
 		d.fy = null
 	}
 
-	createLegend(height, width){
+	createLegend(){
 		const sizes = [10000, 1000, 100, 10]
 		const radiuses = sizes.map(e => {
-			return calculateRadius({followers: e}, height, width)
+			return calculateRadius({followers: e}, this.height, this.width)
 		})
 
 		const x = 10
 		const lineHeight = 30
 		const paddingBottom = 10
-		const y = height - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
+		const y = this.height - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
 
 	    const legend = select(this.svg)
 	        .append("g")

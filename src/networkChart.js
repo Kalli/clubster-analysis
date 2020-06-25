@@ -67,13 +67,10 @@ class NetworkChart extends Component {
 		this.clusters = clusters
 		const svg = this.ref.current
 		this.clusterChart = new ClusterChart(
-			svg, this.margin, this.categories, this.clusters
-		)
-
-		this.clusterChart.createLegend(
+			svg, this.margin, this.categories, this.clusters,
 			this.state.svgHeight, this.state.svgWidth
 		)
-
+		this.clusterChart.createLegend()
 	}
 
 	onNodeClick = (node) => {
@@ -204,11 +201,7 @@ class NetworkChart extends Component {
 		}
 		if (this.state.draw){
 			if (this.clusterChart.initial){
-				this.clusterChart.createGraph(
-					this.nodes,
-					this.state.svgHeight,
-					this.state.svgWidth,
-				)
+				this.clusterChart.createGraph(this.nodes)
 			}
 			this.clusterChart.drawGraph(
 				this.nodes,
