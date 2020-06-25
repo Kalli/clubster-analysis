@@ -1,19 +1,23 @@
 In the chart to the right we see the $clubCount clubs that we looked at. 
 The size of each bubble reflects the amount of RA users following that club, 
-while the colour of the bubble reflects the group that it belongs to. 
+while the colour of the bubble reflects the community that it belongs to. 
 
-The groups are calculated based on how similar the line ups for each pair of 
+The communities are calculated based on how similar the line ups for each pair of 
 clubs are. If two clubs have many artists and djs in common then those two clubs 
-are likely to be be in the same group<sup>1</sup>.
+are likely to be be in the same community<sup>1</sup>.
 
 You can click on each club to see more details about it, which artists featured 
 on their line up most often and which other clubs are similar to it. Keep
 scrolling to learn more.
 
-<small>
-1. For more details on how groups are calculated, read the fine print at the end
-of the page.
-</small>
+<div class="footnote">
+
+1\. To calculate communities we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
+
+From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and the Jaccard index are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly connected themselves. This groups 
+
+
+</div>
 
 --- 
 
@@ -22,14 +26,14 @@ Lets take a look at the clubs of a specific region. Let's begin with
 clubbing capitals.
 
 It is noticeable that except for Berghain / Panorama Bar all these clubs belong 
-to the same group. This pattern holds for quite a few regions and countries, 
+to the same community. A similar pattern holds for quite a few regions and countries, 
 perhaps because many clubs rely on local or domestic talent for many of their 
 bookings while the superclubs can book a wider variety of international talent?
 
 ---
 
 If we change our view to the country level and go to the United Kingdom we can 
-see that most London clubs fall into one group while other parts of Britain and 
+see that most London clubs fall into one community while other parts of Britain and 
 Glasgow cluster in a different way. Perhaps there is a specific London sound that 
 dominates the capital? 
 
