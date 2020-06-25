@@ -265,16 +265,14 @@ class NetworkChart extends Component {
 			return ""
 		}
 		const rows = this.state.selectedNodes.map(club=> {
-			const total_appearances = Object.values(club.artists)
-			.reduce((a, b) => a + b, 0)
 			return [
 				club.number_of_dates,
 				club.number_of_unique_artists,
 				club.total_number_of_artists,
 				club.followers,
 				(club.attending / club.number_of_dates).toFixed(1),
-				(total_appearances / club.number_of_dates).toFixed(1),
-				(total_appearances / club.number_of_dates).toFixed(2),
+				(club.total_number_of_artists / club.number_of_unique_artists).toFixed(1),
+				(club.total_number_of_artists / club.number_of_dates).toFixed(2),
 			]
 		})
 
@@ -352,7 +350,7 @@ class NetworkChart extends Component {
 
 	setFilters =(e) => {
 		const filter = {}
-		const v = e.target.name === "rank"?
+		const v = e.target.name === "rank" && e.target.value !== "all"?
 			parseInt(e.target.value) : e.target.value
 		filter[e.target.name] = v
 		this.setState({"filters": filter, "selectedNodes": []})
