@@ -4,7 +4,8 @@ import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
-import {ClusterChart, fillColor, calculateRadius} from "./ClusterChart"
+import {fillColor, calculateRadius} from "./charts/ClusterChart"
+import {ChartWrapper} from "./charts/ChartWrapper"
 
 
 class NetworkChart extends Component {
@@ -66,11 +67,11 @@ class NetworkChart extends Component {
 
 		this.clusters = clusters
 		const svg = this.ref.current
-		this.clusterChart = new ClusterChart(
-			svg, this.margin, this.categories, this.clusters,
+		this.chartWrapper = new ChartWrapper(
+			svg, this.margin, this.categories, clusters,
 			this.state.svgHeight, this.state.svgWidth
 		)
-		this.clusterChart.createLegend()
+		this.chartWrapper.chart.createLegend()
 	}
 
 	onNodeClick = (node) => {
@@ -200,10 +201,10 @@ class NetworkChart extends Component {
 			})
 		}
 		if (this.state.draw){
-			if (this.clusterChart.initial){
-				this.clusterChart.createGraph(this.nodes)
+			if (this.chartWrapper.chart.initial){
+				this.chartWrapper.chart.createGraph(this.nodes)
 			}
-			this.clusterChart.drawGraph(
+			this.chartWrapper.chart.drawGraph(
 				this.nodes,
 				this.onNodeClick,
 				this.state.selectedNodes

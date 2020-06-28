@@ -1,11 +1,11 @@
 import {forceSimulation, forceCenter, forceX, forceY} from "d3-force"
+import {forceCollide} from "d3-force"
 import {select, event} from 'd3-selection'
 import {drag} from 'd3-drag'
 import {transition} from 'd3-transition'
-import {forceCollide} from "d3-force"
 import {zoom} from "d3-zoom"
 import {timer} from "d3-timer"
-import {fitTextToScreen} from "./textHandling"
+import {fitTextToScreen} from "../textHandling"
 import {interpolateWarm} from 'd3-scale-chromatic'
 import './ClusterChart.scss'
 
