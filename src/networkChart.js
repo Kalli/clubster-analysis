@@ -4,7 +4,8 @@ import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
-import {fillColor, ClusterChart} from "./charts/ClusterChart"
+import {fillColor} from "./lib"
+import {ClusterChart} from "./charts/ClusterChart"
 import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
 

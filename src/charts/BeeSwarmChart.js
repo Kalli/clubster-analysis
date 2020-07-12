@@ -4,7 +4,7 @@ import {max} from 'd3-array'
 import {axisBottom} from 'd3-axis'
 import {transition} from 'd3-transition'
 import './ClusterChart.scss'
-import {fillColor} from "./ClusterChart"
+import {fillColor} from "../lib"
 import {Chart} from "./Chart"
 
 class BeeSwarmChart extends Chart{

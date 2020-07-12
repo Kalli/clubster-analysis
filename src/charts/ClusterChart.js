@@ -6,7 +6,7 @@ import {transition} from 'd3-transition'
 import {zoom} from "d3-zoom"
 import {timer} from "d3-timer"
 import {fitTextToScreen} from "../textHandling"
-import {interpolateWarm} from 'd3-scale-chromatic'
+import {fillColor} from "../lib"
 import './ClusterChart.scss'
 import {Chart} from "./Chart"
 
@@ -270,10 +270,6 @@ class ClusterChart extends Chart{
 
 }
 
-function fillColor(category, categories){
-	return interpolateWarm(
-		categories.indexOf(category) / categories.length
-	)
-}
 
-export {ClusterChart, fillColor}
+
+export {ClusterChart}
