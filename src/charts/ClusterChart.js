@@ -49,6 +49,7 @@ class ClusterChart extends Chart{
 			    this.simulation.force("y", null)
 		    }
 		})
+		this.createLegend()
 	}
 
 	zoom = (zoomGroup) => {

@@ -190,7 +190,6 @@ class NetworkChart extends Component {
 		if (this.state.draw){
 			if (this.chartWrapper.chart.initial){
 				this.chartWrapper.chart.createGraph(this.nodes)
-				this.chartWrapper.chart.createLegend()
 			}
 			this.chartWrapper.chart.drawGraph(
 				this.nodes,

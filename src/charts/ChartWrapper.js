@@ -22,11 +22,10 @@ class ChartWrapper{
 	    this.chart.exit()
 
         newChart.createGraph(nodes)
-        newChart.createLegend(nodes)
+        newChart.g = this.chart.g
         newChart.node = this.chart.node
         newChart.label = this.chart.label
 	    newChart.initial = true
-        newChart.g = this.chart.g
         this.chart = newChart
     }
 
