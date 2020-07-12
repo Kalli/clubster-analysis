@@ -21,6 +21,7 @@ class Chart{
 			this.node = this.g.selectAll("circle")
 			this.label = this.g.selectAll("text")
 		}
+		this.g.transition(1000).attr("transform", "translate(0, 0), scale(1)")
 	}
 
 	highlightSelected(selectedNodes){
