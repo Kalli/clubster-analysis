@@ -133,7 +133,7 @@ class ClusterChart extends Chart{
             e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
 
 			// set the radius of each node
-			const r = calculateRadius(e, this.height, this.width)
+			const r = this.calculateRadius(e)
 			e.radius = r
 
 			if (!this.clusters[g] || r > this.clusters[g]) this.clusters[e.group] = e
@@ -210,7 +210,7 @@ class ClusterChart extends Chart{
 	createLegend(){
 		const sizes = [10000, 1000, 100, 10]
 		const radiuses = sizes.map(e => {
-			return calculateRadius({followers: e}, this.height, this.width)
+			return this.calculateRadius({followers: e})
 		})
 
 		const x = 10
@@ -271,12 +271,13 @@ class ClusterChart extends Chart{
 		this.legend.transition(2500).style("fill-opacity", 0).remove()
 		this.zoomHandler.on(".zoom", null)
 	}
-}
 
-function calculateRadius(e, height, width){
-	// scale node radius according to svg size
-	const m = Math.min(width, height) / 800
-	return 12 * Math.log(Math.sqrt(e.followers)) * m
+	calculateRadius(e){
+		// scale node radius according to svg size
+		const m = Math.min(this.width, this.height) / 800
+		return 12 * Math.log(Math.sqrt(e.followers)) * m
+	}
+
 }
 
 function fillColor(category, categories){
@@ -285,4 +286,4 @@ function fillColor(category, categories){
 	)
 }
 
-export {ClusterChart, fillColor, calculateRadius}
+export {ClusterChart, fillColor}
