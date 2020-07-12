@@ -110,10 +110,6 @@ class BeeSwarmChart extends Chart{
 			.attr("transform", translate)
 		this.legend.call(axisBottom(this.xScale))
 	}
-
-	exit(){
-		this.legend.transition(2500).style("fill-opacity", 0).remove()
-	}
 }
 
 export {BeeSwarmChart}

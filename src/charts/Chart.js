@@ -1,4 +1,4 @@
-import {select} from 'd3-selection'
+import {select, selectAll} from 'd3-selection'
 
 // Common chart functionality
 class Chart{
@@ -10,6 +10,7 @@ class Chart{
 		this.categories = categories
 		this.width = w - this.margin.left - this.margin.right
 	    this.height = h - this.margin.top - this.margin.bottom
+		this.legend = null
 	}
 
 	createGraph(nodes){
@@ -34,6 +35,10 @@ class Chart{
 			.attr("text-decoration", (d)=>{
 				return selectedNodes.includes(d)? "underline" : ""
 			})
+	}
+
+	exit(){
+		selectAll(".legend").transition(2500).style("opacity", 0).remove()
 	}
 }
 

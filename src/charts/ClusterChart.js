@@ -257,8 +257,8 @@ class ClusterChart extends Chart{
 	}
 
 	exit(){
+		super.exit()
 		this.simulation.stop()
-		this.legend.transition(2500).style("fill-opacity", 0).remove()
 		this.zoomHandler.on(".zoom", null)
 	}
 

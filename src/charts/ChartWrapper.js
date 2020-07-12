@@ -14,16 +14,15 @@ class ChartWrapper{
 	}
 
     setChartType(nodes, ChartType){
+	    this.chart.exit()
         const newChart = new ChartType(
             this.svg, this.margin, this.categories, this.h, this.w
         )
-	    this.chart.exit()
-
-        newChart.createGraph(nodes)
         newChart.g = this.chart.g
         newChart.node = this.chart.node
         newChart.label = this.chart.label
 	    newChart.initial = true
+        newChart.createGraph(nodes)
         this.chart = newChart
     }
 
