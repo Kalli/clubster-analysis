@@ -70,16 +70,23 @@ class NetworkChart extends Component {
 	createTable(header, data){
 		return <tr key={header+"row"}>
 			<td key={header+"cell"}>{header}</td>
-			{data.map(e => <td key={e}>{e}</td>)}
+			{data.map((e, i) => {
+				return <td key={header+"-"+i}>{e}</td>
+			})}
 		</tr>
 	}
 
 	mostCommonArtists(){
-		return this.state.selectedNodes.map(node => {
+		return this.state.selectedNodes.map((node, i) => {
 			return Object.entries(node.artists)
 				.sort((a, b) => b[1] - a[1])
 				.slice(0, 5)
-				.map(e => <li id={e[0]+e[1]}>{this.artistLink(e[0])}{" - " + e[1]}</li>)
+				.map((e, j) => {
+					const key = "artist"+i+"-"+j
+					return <li key={key}>
+						{this.artistLink(e[0])}{" - " + e[1]}
+					</li>
+				})
 		})
 	}
 
@@ -270,7 +277,7 @@ class NetworkChart extends Component {
 		let tableRows = headers.map((e, i) => {
 			return <tr key={i}>
 				<td key={e} >{e}</td>
-				{rows.map((e) => <td key={e[i]+i}>{e[i]}</td>)}
+				{rows.map((e, j) => <td key={i+"-"+j}>{e[i]}</td>)}
 			</tr>
 		}).concat(
 			this.createTable("Most Booked Artists", this.mostCommonArtists())
