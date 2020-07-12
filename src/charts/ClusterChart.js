@@ -94,9 +94,9 @@ class ClusterChart extends Chart{
             .style("font-size", 12)
 			.text(d => fitTextToScreen(d.id, d.radius))
 			.on("click", d => clickHandler(d))
-			.transition(labelTransition).style("opacity", 1)
 
 		this.label = this.label.merge(newLabel)
+		this.label.transition(labelTransition).style("opacity", 1)
 
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
