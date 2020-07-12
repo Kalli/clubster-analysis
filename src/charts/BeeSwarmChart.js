@@ -13,7 +13,7 @@ class BeeSwarmChart extends Chart{
 	constructor(svg, margin, categories, h, w) {
 		super(svg, margin, categories, h, w)
 		this.groups = []
-		this.radius = 10
+		this.radius = 15
 	}
 
 	y = e => e.group
@@ -41,7 +41,10 @@ class BeeSwarmChart extends Chart{
 
         this.yScale = scaleBand()
             .domain(this.groups)
-            .range([this.margin.top, this.height + this.margin.top])
+            .range([
+            	this.margin.top,
+	            this.height + this.margin.top - this.margin.bottom
+            ])
 		this.createLegend()
 	}
 
@@ -91,15 +94,16 @@ class BeeSwarmChart extends Chart{
 	}
 
 	filterNodes = (nodes) => {
-		const minDates = 0
+		const minArtists = 20
 		this.nodes = nodes.filter(e =>{
-			return this.x(e) !== 0 && e.number_of_dates > minDates
+			return this.x(e) !== 0 && e.number_of_unique_artists > minArtists
 		})
 	}
 
 
 	createLegend(){
-		const translate = `translate(0, ${this.height-this.margin.bottom})`
+		const yOffset = this.height+this.margin.top-this.margin.bottom
+		const translate = `translate(0, ${yOffset})`
 		this.legend = select(this.svg)
 			.append("g")
 			.attr("class", "legend")
