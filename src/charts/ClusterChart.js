@@ -19,6 +19,7 @@ class ClusterChart extends Chart{
 	}
 
 	createGraph(nodes){
+		super.createGraph(nodes)
 		const padding = 1
 
 		this.simulation = forceSimulation()
@@ -27,20 +28,6 @@ class ClusterChart extends Chart{
 			.force('y', forceY(this.height / 2).strength(0.01))
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
-
-		if (!this.g) {
-			const translateX = this.margin.left + this.margin.right
-			const translateY = this.margin.top + this.margin.bottom
-			const translate = `translate(${translateX}, ${translateY})`
-			this.g = select(this.svg)
-				.attr("width", this.width + this.margin.left + this.margin.right)
-				.attr("height", this.height + this.margin.top + this.margin.bottom)
-				.append("g")
-				.attr("transform", translate)
-				.attr("class", "nodes")
-			this.node = this.g.selectAll("circle")
-			this.label = this.g.selectAll("text")
-		}
 
 		this.zoomHandler = zoom()
 			.scaleExtent([0, 10])

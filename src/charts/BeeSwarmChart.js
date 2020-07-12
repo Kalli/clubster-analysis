@@ -24,6 +24,8 @@ class BeeSwarmChart extends Chart{
     }
 
 	createGraph(nodes){
+		super.createGraph(nodes)
+
 		// filter out 0 attributes from nodes
 		this.filterNodes(nodes)
 
@@ -40,20 +42,6 @@ class BeeSwarmChart extends Chart{
         this.yScale = scaleBand()
             .domain(this.groups)
             .range([this.margin.top, this.height + this.margin.top])
-
-		if (!this.g){
-			this.g = select(this.svg)
-		        .attr("width", this.width)
-				.attr("class", "graph")
-	            .attr("height", this.height)
-				.append("g")
-				.attr("class", "nodes")
-		}
-
-		if (!this.node) {
-			this.node = this.g.selectAll("circle")
-			this.label = this.g.selectAll("label")
-		}
 		this.createLegend()
 	}
 
@@ -81,11 +69,6 @@ class BeeSwarmChart extends Chart{
 		this.node = this.node.merge(newNode)
 	    // if we are transitioning from another chart:
 	    this.node.transition(t)
-            .attr("r", this.radius)
-            .attr("cx", d => d.x)
-            .attr("cy",d => d.y)
-
-		this.label.transition(t)
             .attr("r", this.radius)
             .attr("cx", d => d.x)
             .attr("cy",d => d.y)
