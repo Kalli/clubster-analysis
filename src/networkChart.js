@@ -4,7 +4,8 @@ import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
-import {fillColor, calculateRadius} from "./charts/ClusterChart"
+import {fillColor, ClusterChart} from "./charts/ClusterChart"
+import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
 
 
@@ -23,6 +24,8 @@ class NetworkChart extends Component {
 			selectedNodes: [],
 			data: {},
 			filters: {},
+			draw: true,
+			chartType: ClusterChart,
 			width: document.documentElement.clientWidth,
 			height: document.documentElement.clientHeight,
 			svgWidth: document.documentElement.clientWidth,
@@ -44,34 +47,11 @@ class NetworkChart extends Component {
 			}))
 		]
 
-		const groupCount = Math.max(...this.nodes.map(e => e.group))
-		const clusters = new Array(groupCount)
-
-		// add positioning data for initial position to help clustering
-		const radius = Math.min(this.state.svgWidth, this.state.svgHeight) / 2
-		this.nodes.forEach((e) => {
-			// position along a circle, clustered by group
-			const g = e.group
-			const angle = g / groupCount * 2 * Math.PI
-	        e.x  = Math.cos(angle) * radius + this.state.svgWidth / 2 + Math.random()
-            e.y = Math.sin(angle) * radius + this.state.svgWidth / 2 + Math.random()
-
-			// set the radius of each node
-			const r = calculateRadius(
-				e, this.state.svgHeight, this.state.svgWidth
-			)
-			e.radius = r
-
-			if (!clusters[g] || r > clusters[g]) clusters[e.group] = e
-		})
-
-		this.clusters = clusters
 		const svg = this.ref.current
 		this.chartWrapper = new ChartWrapper(
-			svg, this.margin, this.categories, clusters,
+			svg, this.margin, this.categories,
 			this.state.svgHeight, this.state.svgWidth
 		)
-		this.chartWrapper.chart.createLegend()
 	}
 
 	onNodeClick = (node) => {
@@ -200,9 +180,17 @@ class NetworkChart extends Component {
 				behavior: 'smooth'
 			})
 		}
+
+		if (this.state.chartType){
+			if (this.state.chartType.name !== this.chartWrapper.chart.constructor.name){
+			    this.chartWrapper.setChartType(this.nodes, this.state.chartType)
+			}
+		}
+
 		if (this.state.draw){
 			if (this.chartWrapper.chart.initial){
 				this.chartWrapper.chart.createGraph(this.nodes)
+				this.chartWrapper.chart.createLegend()
 			}
 			this.chartWrapper.chart.drawGraph(
 				this.nodes,
@@ -397,7 +385,7 @@ class NetworkChart extends Component {
 		</>
 	}
 
-	updateWindowDimensions= () => {
+	updateWindowDimensions = () => {
 		const w = document.documentElement.clientWidth
 		const h = document.documentElement.clientHeight
 		this.setState({

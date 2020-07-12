@@ -12,12 +12,12 @@ import './ClusterChart.scss'
 
 class ClusterChart{
 
-	constructor(svg, margin, categories, clusters, h, w) {
+	constructor(svg, margin, categories, h, w) {
 		this.svg = svg
 		this.initial = true
 		this.margin = margin
 		this.categories = categories
-		this.clusters = clusters
+		this.clusters = {}
 		this.width = w - this.margin.left - this.margin.right
 	    this.height = h - this.margin.top - this.margin.bottom
 	}
@@ -32,28 +32,27 @@ class ClusterChart{
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
-		const translateX = this.margin.left + this.margin.right
-		const translateY = this.margin.top + this.margin.bottom
-		const translate = `translate(${translateX}, ${translateY})`
-		this.g = select(this.svg)
-	        .attr("width", this.width + this.margin.left + this.margin.right)
-	        .attr("height", this.height + this.margin.top + this.margin.bottom)
-			.append("g")
-	        .attr("transform", translate)
-			.attr("class", "nodes")
+		if (!this.g) {
+			const translateX = this.margin.left + this.margin.right
+			const translateY = this.margin.top + this.margin.bottom
+			const translate = `translate(${translateX}, ${translateY})`
+			this.g = select(this.svg)
+				.attr("width", this.width + this.margin.left + this.margin.right)
+				.attr("height", this.height + this.margin.top + this.margin.bottom)
+				.append("g")
+				.attr("transform", translate)
+				.attr("class", "nodes")
+			this.node = this.g.selectAll("circle")
+			this.label = this.g.selectAll("text")
+		}
 
-		this.node = this.g.selectAll("circle")
-		this.label = this.g.selectAll("text")
-
-		this.simulation
-			.on('tick', this.tick)
-			.nodes(nodes)
-
-		const zoom_handler = zoom()
+		this.zoomHandler = zoom()
 			.scaleExtent([0, 10])
 			.on("zoom", () => this.zoom(this.g))
 
-		select(this.svg).call(zoom_handler).on("wheel.zoom", null)
+		select(this.svg).call(this.zoomHandler).on("wheel.zoom", null)
+		select(this.svg).call(this.zoomHandler).on("dblclick.zoom", null)
+
 		const transitionTime = 3000
 		var t = timer((elapsed) => {
 	        var dt = elapsed / transitionTime
@@ -74,6 +73,8 @@ class ClusterChart{
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
+		// todo this mutates and is ugly
+		this.calculateInitialPositions(nodes)
 		const t = transition().duration(1500)
 		const labelTransition = transition().duration(2500)
 
@@ -116,7 +117,30 @@ class ClusterChart{
 			this.simulation.alphaTarget(0)
 		}
 		this.highlightSelected(selectedNodes)
+
+		this.simulation
+			.on('tick', this.tick)
+			.nodes(nodes)
 		this.initial = false
+	}
+
+	calculateInitialPositions = (nodes) => {
+		const radius = Math.min(this.width, this.height) / 2
+		const groupCount = Math.max(...nodes.map(e => e.group))
+		this.clusters = new Array(groupCount)
+		nodes.forEach((e) => {
+			// position along a circle, clustered by group
+			const g = e.group
+			const angle = g / groupCount * 2 * Math.PI
+	        e.x  = Math.cos(angle) * radius + this.width / 2 + Math.random()
+            e.y = Math.sin(angle) * radius + this.height / 2 + Math.random()
+
+			// set the radius of each node
+			const r = calculateRadius(e, this.height, this.width)
+			e.radius = r
+
+			if (!this.clusters[g] || r > this.clusters[g]) this.clusters[e.group] = e
+		})
 	}
 
 	highlightSelected(selectedNodes){
@@ -211,7 +235,7 @@ class ClusterChart{
 		const paddingBottom = 10
 		const y = this.height - 2 * Math.max(...radiuses) - lineHeight - paddingBottom
 
-	    const legend = select(this.svg)
+	    this.legend = select(this.svg)
 	        .append("g")
 			.attr("class", "legend")
 	        .attr("x", x)
@@ -221,7 +245,7 @@ class ClusterChart{
 
 		const max = Math.max(...radiuses)
 		// add nodes
-		legend.selectAll("rects")
+		this.legend.selectAll("rects")
 		.data(radiuses)
 		.enter()
 		.append("circle")
@@ -232,7 +256,7 @@ class ClusterChart{
 			.attr("stroke", "black")
 			.attr("alignment-baseline", "middle")
 
-		legend.selectAll("rects")
+		this.legend.selectAll("rects")
 		.data(radiuses)
 		.enter()
 		.append("text")
@@ -251,12 +275,18 @@ class ClusterChart{
 			.text((d, i) => sizes[i])
 			.attr("text-anchor", "middle")
 
-		legend
+		this.legend
 			.append('text')
 			.text("RA Club Followers")
 			.attr("text-anchor", "middle")
 			.attr("x", max)
 			.attr("y", 2 * max + lineHeight)
+	}
+
+	exit(){
+		this.simulation.stop()
+		this.legend.transition(2500).style("fill-opacity", 0).remove()
+		this.zoomHandler.on(".zoom", null)
 	}
 }
 

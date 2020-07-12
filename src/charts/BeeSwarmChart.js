@@ -1,14 +1,14 @@
 import {select} from 'd3-selection'
-import {scaleLinear} from 'd3-scale'
+import {scaleLinear, scaleBand} from 'd3-scale'
 import {max} from 'd3-array'
-import {axisLeft, axisBottom} from 'd3-axis'
+import {axisBottom} from 'd3-axis'
 import {transition} from 'd3-transition'
 import './ClusterChart.scss'
 import {fillColor} from "./ClusterChart"
 
 class BeeSwarmChart{
 
-	constructor(svg, margin, categories, _, h, w) {
+	constructor(svg, margin, categories, h, w) {
 		this.svg = svg
 		this.initial = true
 		this.margin = margin
@@ -16,9 +16,10 @@ class BeeSwarmChart{
 		this.width = w - this.margin.left - this.margin.right
 	    this.height = h - this.margin.top - this.margin.bottom
 		this.groups = []
+		this.radius = 10
 	}
 
-	y = e => this.groups.indexOf(e.group) +1
+	y = e => e.group
 
 	x = e => {
 		return e.number_of_unique_artists !== 0?
@@ -27,26 +28,21 @@ class BeeSwarmChart{
 
 	createGraph(nodes){
 		// filter out 0 attributes from nodes
-		this.groups = [...new Set(nodes
-			.filter(e => this.x(e) !== 0)
-			.map(e => e.group)
-		)]
+		this.filterNodes(nodes)
+
+		// how many bands do we have on the y axis
+		this.groups = [...new Set(this.nodes.map(e => this.y(e)))]
 
         this.xScale = scaleLinear()
-            .domain([0.5, max(nodes, d => this.x(d))]).nice()
+            .domain([1, max(this.nodes, d => this.x(d))])
             .range([
             	this.margin.left,
 	            this.width - this.margin.right - this.margin.left
             ])
 
-        this.yScale = scaleLinear()
-            .domain([0, this.groups.length])
-            .range([this.height-this.margin.bottom, this.margin.top])
-
-		nodes.forEach((e) => {
-	        e.x  = this.xScale(this.x(e))
-            e.y = this.yScale(this.y(e))
-		})
+        this.yScale = scaleBand()
+            .domain(this.groups)
+            .range([this.margin.top, this.height + this.margin.top])
 
 		if (!this.g){
 			this.g = select(this.svg)
@@ -57,20 +53,6 @@ class BeeSwarmChart{
 				.attr("class", "nodes")
 		}
 
-		const xAxis = `translate(0, ${this.height-this.margin.bottom})`
-			select(this.svg)
-			.append("g")
-            .attr("transform", xAxis)
-            .call(axisBottom(this.xScale))
-
-		const yAxis =`translate(${this.margin.left}, ${0})`
-		select(this.svg)
-			.append("g")
-            .attr("transform", yAxis)
-            .call(
-            	axisLeft(this.yScale).tickFormat(d => d).tickSizeOuter(0)
-            )
-
 		if (!this.node) {
 			this.node = this.g.selectAll("circle")
 			this.label = this.g.selectAll("label")
@@ -79,10 +61,18 @@ class BeeSwarmChart{
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
-		nodes = nodes.filter(e => this.x(e) !== 0)
+		this.filterNodes(nodes)
+		if (this.initial){
+			this.calculateInitialPositions()
+		}
+
 		const t = transition().duration(2500)
 
-		this.node = this.node.data(nodes, d => d.id)
+		// we don't show labels in this chart
+		this.label.transition(t)
+			.style("fill-opacity", 0)
+
+		this.node = this.node.data(this.nodes, d => d.id)
 		this.node.exit().transition(t).style("fill-opacity", 0).remove()
 
 		let newNode = this.node.enter()
@@ -90,31 +80,37 @@ class BeeSwarmChart{
 			.attr("fill", d => fillColor(d.group, this.categories))
 			.attr("class", "nodes")
 			.attr("cx", d => this.xScale(this.x(d)))
-			.attr("cy", d => this.yScale(this.y(d)))
-			.attr("r", d => d.radius)
+			.attr("cy", d => d.y)
+			.attr("r", this.radius)
 			.style("fill-opacity", "1")
 			.on("click", d => clickHandler(d))
 
 		this.node = this.node.merge(newNode)
-
-		this.label = this.label.data(nodes, d=> d.id)
-		this.label.exit().transition(t).style("opacity", 0).remove()
-		let newLabel = this.label.enter()
-			.append("text")
-			.attr("text-anchor", "middle")
-			.attr("class", "label")
-			.style("fill", "#fff")
-			.style("opacity", "1")
-            .style("font-size", 12)
-            .attr("dx", d => this.xScale(this.x(d)))
-            .attr("dy",d => this.yScale(this.y(d)))
-			// .text(d => fitTextToScreen(d.id, 30))
-			.text(d => this.x(d).toFixed(2))
-
-		this.label = this.label.merge(newLabel)
+	    // if we are transitioning from another chart:
+	    this.node.transition(t)
+            .attr("r", this.radius)
+            .attr("cx", d => d.x)
+            .attr("cy",d => d.y)
 
 		this.highlightSelected(selectedNodes)
 		this.initial = false
+	}
+
+	calculateInitialPositions = () => {
+		// Calculate positions
+		const stepBand = Math.floor(this.yScale.step()/this.radius)
+		this.nodes.forEach((e, i) => {
+			const offset = Math.floor(Math.random() * stepBand)
+	        e.x  = this.xScale(this.x(e))
+            e.y = this.yScale(this.y(e)) + offset * this.radius
+		})
+	}
+
+	filterNodes = (nodes) => {
+		const minDates = 0
+		this.nodes = nodes.filter(e =>{
+			return this.x(e) !== 0 && e.number_of_dates > minDates
+		})
 	}
 
 	highlightSelected(selectedNodes){
@@ -131,11 +127,17 @@ class BeeSwarmChart{
 			})
 	}
 
-
-
-	createLegend(height, width){
+	createLegend(){
+		const translate = `translate(0, ${this.height-this.margin.bottom})`
+		this.xAxis = select(this.svg)
+			.append("g")
+			.attr("transform", translate)
+            .call(axisBottom(this.xScale))
 	}
 
+	exit(){
+		this.xAxis.transition(2500).style("fill-opacity", 0).remove()
+	}
 }
 
 export {BeeSwarmChart}
