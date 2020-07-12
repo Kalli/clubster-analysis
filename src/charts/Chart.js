@@ -14,15 +14,9 @@ class Chart{
 
 	createGraph(nodes){
 		if (!this.g) {
-			const translateX = this.margin.left + this.margin.right
-			const translateY = this.margin.top + this.margin.bottom
-			const translate = `translate(${translateX}, ${translateY})`
 			this.g = select(this.svg)
-				.attr("width", this.width + this.margin.left + this.margin.right)
-				.attr("height", this.height + this.margin.top + this.margin.bottom)
 				.append("g")
-				.attr("transform", translate)
-				.attr("class", "nodes")
+				.attr("class", "graph")
 			this.node = this.g.selectAll("circle")
 			this.label = this.g.selectAll("text")
 		}
