@@ -53,6 +53,7 @@ class ClusterChart extends Chart{
 	}
 
 	zoom = (zoomGroup) => {
+		if (!this.active) return
 		zoomGroup.attr("transform", event.transform)
 	}
 
@@ -181,17 +182,20 @@ class ClusterChart extends Chart{
 	}
 
 	dragstarted = (d, simulation) => {
+		if (!this.active) return
 		if (!event.active) simulation.alphaTarget(0.3).restart()
 		d.fx = d.x
 		d.fy = d.y
 	}
 
 	dragged = d => {
+		if (!this.active) return
 		d.fx = event.x
 		d.fy = event.y
 	}
 
 	dragended = (d, simulation) => {
+		if (!this.active) return
 		if (!event.active) simulation.alphaTarget(0)
 		d.fx = null
 		d.fy = null
@@ -259,7 +263,6 @@ class ClusterChart extends Chart{
 	exit(){
 		super.exit()
 		this.simulation.stop()
-		this.zoomHandler.on(".zoom", null)
 	}
 
 	calculateRadius(e){

@@ -1,4 +1,5 @@
 import {select, selectAll} from 'd3-selection'
+import {transition} from 'd3-transition'
 
 // Common chart functionality
 class Chart{
@@ -11,6 +12,8 @@ class Chart{
 		this.width = w - this.margin.left - this.margin.right
 	    this.height = h - this.margin.top - this.margin.bottom
 		this.legend = null
+		this.active = true
+		this.t = transition().duration(1500)
 	}
 
 	createGraph(nodes){
@@ -39,6 +42,7 @@ class Chart{
 	}
 
 	exit(){
+		this.active = false
 		selectAll(".legend").transition(2500).style("opacity", 0).remove()
 	}
 }
