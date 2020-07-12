@@ -57,7 +57,9 @@ class ClusterChart extends Chart{
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
 		// todo this mutates and is ugly
-		this.calculateInitialPositions(nodes)
+		if (this.initial){
+			this.calculateInitialPositions(nodes)
+		}
 		const t = transition().duration(1500)
 		const labelTransition = transition().duration(2500)
 
