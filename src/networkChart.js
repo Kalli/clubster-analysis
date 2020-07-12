@@ -25,7 +25,7 @@ class NetworkChart extends Component {
 			data: {},
 			filters: {},
 			draw: true,
-			chartType: ClusterChart,
+			chartType: BeeSwarmChart,
 			width: document.documentElement.clientWidth,
 			height: document.documentElement.clientHeight,
 			svgWidth: document.documentElement.clientWidth,
@@ -50,7 +50,8 @@ class NetworkChart extends Component {
 		const svg = this.ref.current
 		this.chartWrapper = new ChartWrapper(
 			svg, this.margin, this.categories,
-			this.state.svgHeight, this.state.svgWidth
+			this.state.svgHeight, this.state.svgWidth,
+			this.state.chartType
 		)
 	}
 
