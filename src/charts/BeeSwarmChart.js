@@ -5,16 +5,13 @@ import {axisBottom} from 'd3-axis'
 import {transition} from 'd3-transition'
 import './ClusterChart.scss'
 import {fillColor} from "./ClusterChart"
+import {Chart} from "./Chart"
 
-class BeeSwarmChart{
+class BeeSwarmChart extends Chart{
+
 
 	constructor(svg, margin, categories, h, w) {
-		this.svg = svg
-		this.initial = true
-		this.margin = margin
-		this.categories = categories
-		this.width = w - this.margin.left - this.margin.right
-	    this.height = h - this.margin.top - this.margin.bottom
+		super(svg, margin, categories, h, w)
 		this.groups = []
 		this.radius = 10
 	}
@@ -57,7 +54,7 @@ class BeeSwarmChart{
 			this.node = this.g.selectAll("circle")
 			this.label = this.g.selectAll("label")
 		}
-
+		this.createLegend()
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
@@ -67,10 +64,6 @@ class BeeSwarmChart{
 		}
 
 		const t = transition().duration(2500)
-
-		// we don't show labels in this chart
-		this.label.transition(t)
-			.style("fill-opacity", 0)
 
 		this.node = this.node.data(this.nodes, d => d.id)
 		this.node.exit().transition(t).style("fill-opacity", 0).remove()
@@ -91,6 +84,14 @@ class BeeSwarmChart{
             .attr("r", this.radius)
             .attr("cx", d => d.x)
             .attr("cy",d => d.y)
+
+		this.label.transition(t)
+            .attr("r", this.radius)
+            .attr("cx", d => d.x)
+            .attr("cy",d => d.y)
+
+		// we don't show labels in this chart
+		this.label.style("opacity", 0)
 
 		this.highlightSelected(selectedNodes)
 		this.initial = false
@@ -113,30 +114,18 @@ class BeeSwarmChart{
 		})
 	}
 
-	highlightSelected(selectedNodes){
-		// highlight selected nodes if any
-		this.g
-			.selectAll(".nodes")
-			.style("opacity", (d)=>{
-				return selectedNodes.includes(d)? 0.6 : 1
-			})
-		this.g
-			.selectAll(".label")
-			.attr("text-decoration", (d)=>{
-				return selectedNodes.includes(d)? "underline" : ""
-			})
-	}
 
 	createLegend(){
 		const translate = `translate(0, ${this.height-this.margin.bottom})`
-		this.xAxis = select(this.svg)
+		this.legend = select(this.svg)
 			.append("g")
+			.attr("class", "legend")
 			.attr("transform", translate)
-            .call(axisBottom(this.xScale))
+		this.legend.call(axisBottom(this.xScale))
 	}
 
 	exit(){
-		this.xAxis.transition(2500).style("fill-opacity", 0).remove()
+		this.legend.transition(2500).style("fill-opacity", 0).remove()
 	}
 }
 

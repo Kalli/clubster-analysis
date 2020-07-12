@@ -8,18 +8,14 @@ import {timer} from "d3-timer"
 import {fitTextToScreen} from "../textHandling"
 import {interpolateWarm} from 'd3-scale-chromatic'
 import './ClusterChart.scss'
+import {Chart} from "./Chart"
 
 
-class ClusterChart{
+class ClusterChart extends Chart{
 
 	constructor(svg, margin, categories, h, w) {
-		this.svg = svg
-		this.initial = true
-		this.margin = margin
-		this.categories = categories
+		super(svg, margin, categories, h, w)
 		this.clusters = {}
-		this.width = w - this.margin.left - this.margin.right
-	    this.height = h - this.margin.top - this.margin.bottom
 	}
 
 	createGraph(nodes){
@@ -111,6 +107,7 @@ class ClusterChart{
 			.transition(labelTransition).style("opacity", 1)
 
 		this.label = this.label.merge(newLabel)
+
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
 			this.simulation.alphaTarget(0.3).restart()
@@ -141,20 +138,6 @@ class ClusterChart{
 
 			if (!this.clusters[g] || r > this.clusters[g]) this.clusters[e.group] = e
 		})
-	}
-
-	highlightSelected(selectedNodes){
-		// highlight selected nodes if any
-		this.g
-			.selectAll(".nodes")
-			.style("opacity", (d)=>{
-				return selectedNodes.includes(d)? 0.6 : 1
-			})
-		this.g
-			.selectAll(".label")
-			.attr("text-decoration", (d)=>{
-				return selectedNodes.includes(d)? "underline" : ""
-			})
 	}
 
 	tick = () => {
