@@ -62,31 +62,42 @@ class ClusterChart extends Chart{
 		if (this.initial){
 			this.calculateInitialPositions(nodes)
 		}
-		const t = transition().duration(1500)
-		const labelTransition = transition().duration(2500)
+		// resize all nodes
+		this.node.selectAll("circle")
+			.transition(this.t)
+			.attr("r", d => this.calculateRadius(d))
+
+		// and show labels
+		this.node.selectAll("text")
+			.transition(this.t)
+			.style("opacity", "1")
+			.style("display", "block")
 
 		this.node = this.node.data(nodes, d=> d.id)
-		this.node.exit().transition(t).style("fill-opacity", 0).remove()
+		this.node.exit()
+			.transition(this.t)
+			.style("fill-opacity", 0)
+			.remove()
 
 		let newNode = this.node.enter()
-			.append("circle")
-			.attr("r", d => d.radius)
-			.attr("fill", d => fillColor(d.group, this.categories))
-			.attr("class", "nodes")
-			.style("fill-opacity", this.initial? "1":"0")
+			.append("g")
+			.on("click", d => clickHandler(d))
 			.call(drag()
 					.on("start", d => this.dragstarted(d, this.simulation))
 					.on("drag", d => this.dragged(d))
 					.on("end", d => this.dragended(d, this.simulation))
 			)
-			.on("click", d => clickHandler(d))
-			.transition(t).style("fill-opacity", 1)
 
-		this.node = this.node.merge(newNode)
+		newNode
+			.append("circle")
+			.attr("r", d => this.calculateRadius(d))
+			.attr("fill", d => fillColor(d.group, this.categories))
+			.attr("class", "nodes")
+			.style("fill-opacity", this.initial? "1":"0")
 
-		this.label = this.label.data(nodes, d=> d.id)
-		this.label.exit().transition(t).style("opacity", 0).remove()
-		let newLabel = this.label.enter()
+			.transition(this.t).style("fill-opacity", 1)
+
+		newNode
 			.append("text")
 			.attr("text-anchor", "middle")
 			.attr("class", "label")
@@ -94,10 +105,9 @@ class ClusterChart extends Chart{
 			.style("opacity", "0")
             .style("font-size", 12)
 			.text(d => fitTextToScreen(d.id, d.radius))
-			.on("click", d => clickHandler(d))
+			.transition(this.t).style("opacity", 1)
 
-		this.label = this.label.merge(newLabel)
-		this.label.transition(labelTransition).style("opacity", 1)
+		this.node = this.node.merge(newNode)
 
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
@@ -127,18 +137,15 @@ class ClusterChart extends Chart{
 			const r = this.calculateRadius(e)
 			e.radius = r
 
-			if (!this.clusters[g] || r > this.clusters[g]) this.clusters[e.group] = e
+			if (!this.clusters[g] || r > this.clusters[g]){
+				this.clusters[e.group] = e
+			}
 		})
 	}
 
 	tick = () => {
 		this.node
-			.attr("cx", d => d.x)
-			.attr("cy", d => d.y)
-			.attr("r", d => d.radius)
-		this.label
-            .attr("dx", d => d.x )
-	        .attr("dy", d => d.y)
+			.attr("transform", d => "translate("+d.x + "," + d.y+")")
 	}
 
 	cluster = () => {

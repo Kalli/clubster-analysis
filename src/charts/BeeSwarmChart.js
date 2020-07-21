@@ -49,35 +49,37 @@ class BeeSwarmChart extends Chart{
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
+		// resize all nodes
+		this.node.selectAll("circle")
+			.transition(this.t)
+			.attr("r", this.radius)
+
+		// and hide labels
+		this.node.selectAll("text")
+			.transition(this.t)
+			.style("opacity", "0")
+			.style("display", "none")
+
+
 		this.filterNodes(nodes)
 		if (this.initial){
 			this.calculateInitialPositions()
 		}
 
-		const t = transition().duration(2500)
 
 		this.node = this.node.data(this.nodes, d => d.id)
-		this.node.exit().transition(t).style("fill-opacity", 0).remove()
+		this.node.exit()
+			.transition(this.t)
+			.style("fill-opacity", 0)
+			.remove()
 
 		let newNode = this.node.enter()
-			.append("circle")
-			.attr("fill", d => fillColor(d.group, this.categories))
-			.attr("class", "nodes")
-			.attr("cx", d => this.xScale(this.x(d)))
-			.attr("cy", d => d.y)
-			.attr("r", this.radius)
-			.style("fill-opacity", "1")
-			.on("click", d => clickHandler(d))
+			.append("g")
 
 		this.node = this.node.merge(newNode)
 	    // if we are transitioning from another chart:
-	    this.node.transition(t)
-            .attr("r", this.radius)
-            .attr("cx", d => d.x)
-            .attr("cy",d => d.y)
-
-		// we don't show labels in this chart
-		this.label.style("opacity", 0)
+	    this.node.transition(this.t)
+            .attr("transform", d => "translate("+d.x + "," + d.y+")")
 
 		this.highlightSelected(selectedNodes)
 		this.initial = false
@@ -94,12 +96,16 @@ class BeeSwarmChart extends Chart{
 	}
 
 	filterNodes = (nodes) => {
+		const minDates = 10
 		const minArtists = 20
 		this.nodes = nodes.filter(e =>{
-			return this.x(e) !== 0 && e.number_of_unique_artists > minArtists
+			return (
+				this.x(e) !== 0 &&
+				e.number_of_unique_artists > minArtists &&
+				e.number_of_dates > minDates
+			)
 		})
 	}
-
 
 	createLegend(){
 		const yOffset = this.height+this.margin.top-this.margin.bottom
