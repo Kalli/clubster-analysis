@@ -2,9 +2,7 @@ import {select} from 'd3-selection'
 import {scaleLinear, scaleBand} from 'd3-scale'
 import {max} from 'd3-array'
 import {axisBottom} from 'd3-axis'
-import {transition} from 'd3-transition'
-import './ClusterChart.scss'
-import {fillColor} from "../lib"
+import './Chart.scss'
 import {Chart} from "./Chart"
 
 class BeeSwarmChart extends Chart{
@@ -59,6 +57,7 @@ class BeeSwarmChart extends Chart{
 			.transition(this.t)
 			.style("opacity", "0")
 			.style("display", "none")
+			.text(d => d.id)
 
 
 		this.filterNodes(nodes)

@@ -2,12 +2,11 @@ import {forceSimulation, forceCenter, forceX, forceY} from "d3-force"
 import {forceCollide} from "d3-force"
 import {select, event} from 'd3-selection'
 import {drag} from 'd3-drag'
-import {transition} from 'd3-transition'
 import {zoom} from "d3-zoom"
 import {timer} from "d3-timer"
 import {fitTextToScreen} from "../textHandling"
 import {fillColor} from "../lib"
-import './ClusterChart.scss'
+import './Chart.scss'
 import {Chart} from "./Chart"
 
 
@@ -72,6 +71,7 @@ class ClusterChart extends Chart{
 			.transition(this.t)
 			.style("opacity", "1")
 			.style("display", "block")
+			.text(d => fitTextToScreen(d.id, d.radius))
 
 		this.node = this.node.data(nodes, d=> d.id)
 		this.node.exit()
