@@ -67,10 +67,7 @@ class BeeSwarmChart extends Chart{
 
 
 		this.node = this.node.data(this.nodes, d => d.id)
-		this.node.exit()
-			.transition(this.t)
-			.style("fill-opacity", 0)
-			.remove()
+		this.node.exit().remove()
 
 		let newNode = this.node.enter()
 			.append("g")
