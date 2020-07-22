@@ -28,12 +28,10 @@ class ClusterChart extends Chart{
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
-		this.zoomHandler = zoom()
+		zoom()
 			.scaleExtent([0.8, 5])
+			.filter(() => event.target.nodeName !== "svg")
 			.on("zoom", () => this.zoom(this.g))
-
-		select(this.svg).call(this.zoomHandler).on("wheel.zoom", null)
-		select(this.svg).call(this.zoomHandler).on("dblclick.zoom", null)
 
 		const transitionTime = 3000
 		var t = timer((elapsed) => {
