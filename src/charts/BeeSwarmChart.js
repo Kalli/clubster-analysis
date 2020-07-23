@@ -44,9 +44,6 @@ class BeeSwarmChart extends Chart{
 	            this.height + this.margin.top - this.margin.bottom
             ])
 		this.createLegend()
-	}
-
-	drawGraph = (nodes, clickHandler, selectedNodes) => {
 		// resize all nodes
 		this.node.selectAll("circle")
 			.transition(this.t)
@@ -58,7 +55,9 @@ class BeeSwarmChart extends Chart{
 			.style("opacity", "0")
 			.style("display", "none")
 			.text(d => d.id)
+	}
 
+	drawGraph = (nodes, clickHandler, selectedNodes) => {
 
 		this.filterNodes(nodes)
 		if (this.initial){
@@ -74,8 +73,10 @@ class BeeSwarmChart extends Chart{
 
 		this.node = this.node.merge(newNode)
 	    // if we are transitioning from another chart:
-	    this.node.transition(this.t)
-            .attr("transform", d => "translate("+d.x + "," + d.y+")")
+		if (this.initial){
+		    this.node.transition(this.t)
+                .attr("transform", d => "translate("+d.x + "," + d.y+")")
+		}
 
 		this.highlightSelected(selectedNodes)
 		this.initial = false

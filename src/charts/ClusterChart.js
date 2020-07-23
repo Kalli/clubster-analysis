@@ -47,6 +47,17 @@ class ClusterChart extends Chart{
 		    }
 		})
 		this.createLegend()
+		// resize all nodes if we were coming from a different graph
+		this.node.selectAll("circle")
+			.transition(this.t)
+			.attr("r", d => this.calculateRadius(d))
+
+		// and show labels
+		this.node.selectAll("text")
+			.transition(this.t)
+			.style("opacity", "1")
+			.style("display", "block")
+			.text(d => fitTextToScreen(d.id, d.radius))
 	}
 
 	zoom = (zoomGroup) => {
@@ -59,17 +70,6 @@ class ClusterChart extends Chart{
 		if (this.initial){
 			this.calculateInitialPositions(nodes)
 		}
-		// resize all nodes
-		this.node.selectAll("circle")
-			.transition(this.t)
-			.attr("r", d => this.calculateRadius(d))
-
-		// and show labels
-		this.node.selectAll("text")
-			.transition(this.t)
-			.style("opacity", "1")
-			.style("display", "block")
-			.text(d => fitTextToScreen(d.id, d.radius))
 
 		this.node = this.node.data(nodes, d=> d.id)
 		this.node.exit()
