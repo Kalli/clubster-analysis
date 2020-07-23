@@ -28,10 +28,11 @@ class ClusterChart extends Chart{
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
-		zoom()
+		this.zoomHandler = zoom()
 			.scaleExtent([0.8, 5])
 			.filter(() => event.target.nodeName !== "svg")
 			.on("zoom", () => this.zoom(this.g))
+		select(this.svg).call(this.zoomHandler)
 
 		const transitionTime = 3000
 		var t = timer((elapsed) => {
@@ -73,8 +74,8 @@ class ClusterChart extends Chart{
 
 		this.node = this.node.data(nodes, d=> d.id)
 		this.node.exit()
-			.transition(this.t)
-			.style("fill-opacity", 0)
+			.transition().duration(2000)
+			.style("opacity", 0)
 			.remove()
 
 		let newNode = this.node.enter()
@@ -86,24 +87,24 @@ class ClusterChart extends Chart{
 					.on("end", d => this.dragended(d, this.simulation))
 			)
 
+
 		newNode
 			.append("circle")
 			.attr("r", d => this.calculateRadius(d))
 			.attr("fill", d => fillColor(d.group, this.categories))
 			.attr("class", "nodes")
-			.style("fill-opacity", this.initial? "1":"0")
-
-			.transition(this.t).style("fill-opacity", 1)
+			.style("fill-opacity", this.initial? 1: 0)
+			.transition().duration(2000).style("fill-opacity", 1)
 
 		newNode
 			.append("text")
 			.attr("text-anchor", "middle")
 			.attr("class", "label")
 			.style("fill", "#fff")
-			.style("opacity", "0")
+			.style("opacity", 0)
             .style("font-size", 12)
 			.text(d => fitTextToScreen(d.id, d.radius))
-			.transition(this.t).style("opacity", 1)
+			.transition().duration(2000).style("opacity", 1)
 
 		this.node = this.node.merge(newNode)
 
