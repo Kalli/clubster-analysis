@@ -35,7 +35,10 @@ class ScrollyTelling extends Component {
 		})
 		const clubCount = this.props.nodes.length
 		const total = this.props.links.reduce((acc, e) => acc+e.weight, 0)
-		const averageWeight = total / (clubCount * (clubCount-1) / 2)
+		const averageWeight = total / this.props.links.length
+		const combinations = Math.floor(
+			factorial(clubCount) / (2 * factorial(clubCount - 2))
+		)
 
 		const data = {
 			"$clubCount": clubCount,
@@ -43,7 +46,7 @@ class ScrollyTelling extends Component {
 			"$source": source,
 			"$target": target,
 			"$weight": (weight*100).toFixed(0),
-			"$total": total,
+			"$combinations": combinations,
 			"$averageWeight": (averageWeight*100).toFixed(0.2),
 		}
 

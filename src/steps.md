@@ -1,4 +1,4 @@
-In the chart to the right we see the $clubCount clubs that we looked at. 
+In the chart to the right we see the $clubCount clubs that are part of this data set. 
 The size of each bubble reflects the amount of RA users following that club, 
 while the colour of the bubble reflects the community that it belongs to. 
 
@@ -25,28 +25,28 @@ Lets take a look at the clubs of a specific region. Let's begin with
 [Berlin](https://www.residentadvisor.net/events/de/berlin) one of the worlds 
 clubbing capitals.
 
-It is noticeable that except for Berghain / Panorama Bar all these clubs belong 
-to the same community. A similar pattern holds for quite a few regions and countries, 
-perhaps because many clubs rely on local or domestic talent for many of their 
-bookings while the superclubs can book a wider variety of international talent?
+It is noticeable that except for Berghain / Panorama Bar and ://about blank all 
+these clubs belong to the same community. A similar pattern holds for quite a 
+few regions and countries, perhaps because many clubs rely on local or domestic 
+talent for many of their bookings while the superclubs can book a wider variety 
+of international talent?
 
 ---
 
 If we change our view to the country level and go to the United Kingdom we can 
 see that most London clubs fall into one community while other parts of Britain and 
 Glasgow cluster in a different way. Perhaps there is a specific London sound that 
-dominates the capital? 
+dominates the English capital? 
 
 ---
 
 Let's compare two of my favourite clubs. Berlin's *Berghain / Panorama Bar* and
-Amsterdam's *De School*. I went into this project thinking that the line ups 
- were more similar than they turned out to be. For instance for these two clubs
-  I assumed that overlap would be greater as their music policies feel quite 
-  similar to me. 
+Amsterdam's *De School*. In their line ups there is a 9.58% overlap. I went into
+ this project thinking that the line ups were more similar than they turned out to be. 
+ For instance for these two clubs I assumed that overlap would be greater as 
+ their music policies feel quite similar to me. 
  
-Whether you find 10% high or low depends on your perspective of course. On
-average the clubs in this data set had around $averageWeight% overlap. There were 
-$linkCount pairs of out of $total pairs of clubs that had any commonalities in 
-their line ups. *$source* and *$target* have the most similar line ups, with 
-$weight% overlap in their bookings.
+Whether you find 10% high or low depends on your perspective of course.
+Out of $combinations possible pairs of clubs, $linkCount paris had any overlap at all, 
+out of those the average overlap was $averageWeight%. *$source* and *$target* have 
+the most similar line ups, with $weight% overlap in their bookings.
