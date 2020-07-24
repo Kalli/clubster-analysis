@@ -67,6 +67,10 @@ class ClusterChart extends Chart{
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
+		// prevent nodes from jumping on filter operations
+		if (!this.initial){
+			this.simulation.stop()
+		}
 		// todo this mutates and is ugly
 		if (this.initial){
 			this.calculateInitialPositions(nodes)
@@ -111,7 +115,9 @@ class ClusterChart extends Chart{
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
 			this.simulation.alphaTarget(0.3).restart()
-			this.simulation.alphaTarget(0)
+			setTimeout( () => {
+				this.simulation.alphaTarget(0)
+			}, 500)
 		}
 		this.highlightSelected(selectedNodes)
 
