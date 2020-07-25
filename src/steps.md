@@ -25,7 +25,7 @@ Lets take a look at the clubs of a specific region. Let's begin with
 [Berlin](https://www.residentadvisor.net/events/de/berlin) one of the worlds 
 clubbing capitals.
 
-It is noticeable that except for Berghain / Panorama Bar and ://about blank all 
+It is noticeable that except for *Berghain / Panorama Bar* and *://about blank* all 
 these clubs belong to the same community. A similar pattern holds for quite a 
 few regions and countries, perhaps because many clubs rely on local or domestic 
 talent for many of their bookings while the superclubs can book a wider variety 
@@ -34,19 +34,26 @@ of international talent?
 ---
 
 If we change our view to the country level and go to the United Kingdom we can 
-see that most London clubs fall into one community while other parts of Britain and 
-Glasgow cluster in a different way. Perhaps there is a specific London sound that 
-dominates the English capital? 
-
+see that most [Manchester](https://www.residentadvisor.net/guide/uk/manchester) and 
+[Glasgow](https://www.residentadvisor.net/guide/uk/glasgow) clubs fall in one community 
+while [London](https://www.residentadvisor.net/guide/uk/london), the 
+[Midlands](https://www.residentadvisor.net/guide/uk/midlands)) and 
+the [South + East](https://www.residentadvisor.net/guide/uk/southeast) are clustered 
+in another? Perhaps there is a North / South divide in the line ups of British clubs?
 ---
 
+But how similar are the most popular clubs on Resident Advisor?
+
 Let's compare two of my favourite clubs. Berlin's *Berghain / Panorama Bar* and
-Amsterdam's *De School*. In their line ups there is a 9.58% overlap. I went into
- this project thinking that the line ups were more similar than they turned out to be. 
- For instance for these two clubs I assumed that overlap would be greater as 
- their music policies feel quite similar to me. 
+Amsterdam's *De School*. In their line ups there is a 9.58% overlap. I went into 
+this project thinking that the line ups were more similar than they turned out to be. 
+For instance for these two clubs I assumed that overlap would be greater as 
+their music policies feel quite similar to me. 
  
-Whether you find 10% high or low depends on your perspective of course.
-Out of $combinations possible pairs of clubs, $linkCount paris had any overlap at all, 
+Whether you find 10% high or low depends on your perspective of course. Should 
+each city and club have their own distinct scenes and flavours? Or is it to be  
+expected that big global names dominate clubs across countries and continents?
+
+Out of $combinations possible pairs of clubs, $linkCount pairs had any overlap at all, 
 out of those the average overlap was $averageWeight%. *$source* and *$target* have 
 the most similar line ups, with $weight% overlap in their bookings.
