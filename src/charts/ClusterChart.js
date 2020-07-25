@@ -30,7 +30,9 @@ class ClusterChart extends Chart{
 
 		this.zoomHandler = zoom()
 			.scaleExtent([0.8, 5])
-			.filter(() => event.target.nodeName !== "svg")
+			.filter(() => {
+				return event.type !== "wheel" || event.target.nodeName !== "svg"
+			})
 			.on("zoom", () => this.zoom(this.g))
 		select(this.svg).call(this.zoomHandler)
 
