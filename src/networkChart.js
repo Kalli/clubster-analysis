@@ -4,7 +4,7 @@ import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
-import {fillColor} from "./lib"
+import {fillColor, artistLink} from "./lib"
 import {ClusterChart} from "./charts/ClusterChart"
 import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
@@ -127,16 +127,7 @@ class NetworkChart extends Component {
 	}
 
 	artistLink(artistName){
-		const artistId = ( this.props.data.artist_names_to_ids[artistName] ||
-				artistName.toLowerCase().replace(' ', '')
-		)
-		return <a
-			href={'https://www.residentadvisor.net/dj/' + artistId}
-			rel={'noopener noreferrer'}
-			target={'_blank'}
-		>
-			{artistName}
-		</a>
+		return artistLink(artistName, this.props.data.artist_names_to_ids)
 	}
 
 	showSimilarities(){
