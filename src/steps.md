@@ -65,3 +65,17 @@ The average residency factor is $averageResidency and only a handful of clubs go
 Furthermore all the data here is limited to djs and artists that have a profile on Resident Advisor. For some genres and scenes, like house and techno, this the coverage is near complete, but for <a href="https://www.residentadvisor.net/events/1281396">others</a> this data is sometimes incomplete.
 
 </div>
+
+--- 
+
+That is not to say that there aren't regularly booked residents at these clubs. 
+In fact the most booked artists in this data set are ones that are doing week after 
+week at the same club. [Hitch](https://www.residentadvisor.net/dj/hitch) (76 bookings at *Input*), 
+[Raymundo Rodriguez](https://www.residentadvisor.net/dj/raymundorodriguez) (51 bookings at *Corsica Studios*) 
+and [Dexon](https://www.residentadvisor.net/dj/dexon)  (46 bookings at *Melkweg*) are 
+the three most booked artists across the 131  clubs in this data set.
+ 
+But there are also a great number of one off bookings, bringing the averages down. 
+Whether this is good or bad thing is probably subjective. But it supports the theory 
+that the most popular clubs today build their popularity not honing and supporting 
+local residents but rather from a more transient and travelling talent pool. 
