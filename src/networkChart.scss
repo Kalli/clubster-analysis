@@ -8,6 +8,7 @@
 .controls {
     margin: 10px 0 10px 50px;
     display: flex;
+    max-height: 50px;
 }
 
 .sticky{
@@ -16,12 +17,12 @@
     top: 0;
     z-index: 1;
     overflow-x: hidden;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .networkWrapper {
     display: flex;
-    margin-left: 50px;
-    margin-right: 50px;
     justify-content: flex-start;
     height: 95%;
 }
