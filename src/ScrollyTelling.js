@@ -3,15 +3,18 @@ import {Scrollama, Step} from "react-scrollama"
 import marked from "marked"
 import steps from "./steps.md"
 import "./ScrollyTelling.scss"
+import {BeeSwarmChart} from "./charts/BeeSwarmChart"
+import {ClusterChart} from "./charts/ClusterChart"
+import {factorial} from "./lib"
 
 
 class ScrollyTelling extends Component {
 
 	stepsData = [
 		{draw: true, filters: {region: "all"}, selectedNodes: [], scroll: true},
-		{filters: {region: "Berlin"}, selectedNodes: [] },
-		{filters: {country: "United Kingdom"}, selectedNodes: [] },
-		{filters: {country: "all"}, selectedNodes: [] },
+		{filters: {region: "Berlin"}, chartType: ClusterChart, selectedNodes: []},
+		{filters: {country: "all"}, chartType: ClusterChart, selectedNodes: [] },
+		{filters: {region: "all"}, chartType: BeeSwarmChart, selectedNodes: []},
 	]
 
 	constructor(props) {
@@ -30,7 +33,7 @@ class ScrollyTelling extends Component {
 		}, {weight: 0})
 
 		// Show De School and Berghain in step 4
-		this.stepsData[3].selectedNodes = this.props.nodes.filter((e) => {
+		this.stepsData[2].selectedNodes = this.props.nodes.filter((e) => {
 			return [112491, 5031].includes(e.club_id)
 		})
 		const clubCount = this.props.nodes.length
@@ -40,6 +43,13 @@ class ScrollyTelling extends Component {
 			factorial(clubCount) / (2 * factorial(clubCount - 2))
 		)
 
+		const averageResidency = (this.props.nodes.reduce((acc, e) => {
+			if (e.number_of_unique_artists !== 0){
+				return acc + e.total_number_of_artists / e.number_of_unique_artists
+			}
+			return acc
+		}, 0) / clubCount).toFixed(2)
+
 		const data = {
 			"$clubCount": clubCount,
 			"$linkCount": this.props.links.length,
@@ -48,6 +58,7 @@ class ScrollyTelling extends Component {
 			"$weight": (weight*100).toFixed(0),
 			"$combinations": combinations,
 			"$averageWeight": (averageWeight*100).toFixed(0.2),
+			"$averageResidency": averageResidency,
 		}
 
 		fetch(steps)

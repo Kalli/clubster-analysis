@@ -16,7 +16,6 @@ scrolling to learn more.
 
 From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and the Jaccard index are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly connected themselves. This groups 
 
-
 </div>
 
 --- 
@@ -25,35 +24,44 @@ Lets take a look at the clubs of a specific region. Let's begin with
 [Berlin](https://www.residentadvisor.net/events/de/berlin) one of the worlds 
 clubbing capitals.
 
-It is noticeable that except for *Berghain / Panorama Bar* and *://about blank* all 
-these clubs belong to the same community. A similar pattern holds for quite a 
+It is noticeable that except for *Berghain / Panorama Bar* all these clubs belong 
+to the same community. A similar pattern holds for quite a 
 few regions and countries, perhaps because many clubs rely on local or domestic 
-talent for many of their bookings while the superclubs can book a wider variety 
+talent for many of their bookings while the superclubs book a wider variety 
 of international talent?
 
----
-
-If we change our view to the country level and go to the United Kingdom we can 
-see that most [Manchester](https://www.residentadvisor.net/guide/uk/manchester) and 
-[Glasgow](https://www.residentadvisor.net/guide/uk/glasgow) clubs fall in one community 
-while [London](https://www.residentadvisor.net/guide/uk/london), the 
-[Midlands](https://www.residentadvisor.net/guide/uk/midlands)) and 
-the [South + East](https://www.residentadvisor.net/guide/uk/southeast) are clustered 
-in another? Perhaps there is a North / South divide in the line ups of British clubs?
----
-
+--- 
 But how similar are the most popular clubs on Resident Advisor?
 
 Let's compare two of my favourite clubs. Berlin's *Berghain / Panorama Bar* and
-Amsterdam's *De School*. In their line ups there is a 9.58% overlap. I went into 
+*De School* in Amsterdam. In their line ups there is a 9.58% overlap. I went into 
 this project thinking that the line ups were more similar than they turned out to be. 
-For instance for these two clubs I assumed that overlap would be greater as 
+For these two clubs for instance I assumed that the overlap would be greater as 
 their music policies feel quite similar to me. 
  
 Whether you find 10% high or low depends on your perspective of course. Should 
 each city and club have their own distinct scenes and flavours? Or is it to be  
 expected that big global names dominate clubs across countries and continents?
 
-Out of $combinations possible pairs of clubs, $linkCount pairs had any overlap at all, 
+Out of $combinations possible pairs of clubs, $linkCount pairs had some overlap, 
 out of those the average overlap was $averageWeight%. *$source* and *$target* have 
 the most similar line ups, with $weight% overlap in their bookings.
+
+---
+
+Now we've changed the view to look at something I call *the residency factor*. 
+For this we take the number of unique artists booked and divide it by the total 
+number of bookings, that is to say how often on average a club books a given artist<sup>2</sup>.
+
+For clubs that rely on residents, the same artists playing at a club regularly and repeatedly, 
+this number would be higher whereas if you only book each artist once this number would be 1.
+
+The average residency factor is $averageResidency and only a handful of clubs go above 2.
+
+<div class="footnote">
+
+2\. A few caveats here. For this view we've filtered out clubs that had less than 10 dates or booked fewer than 20 artists in total in 2019. 
+
+Furthermore all the data here is limited to djs and artists that have a profile on Resident Advisor. For some genres and scenes, like house and techno, this the coverage is near complete, but for <a href="https://www.residentadvisor.net/events/1281396">others</a> this data is sometimes incomplete.
+
+</div>
