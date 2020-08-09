@@ -36,19 +36,7 @@ class ClusterChart extends Chart{
 			.on("zoom", () => this.zoom(this.g))
 		select(this.svg).call(this.zoomHandler)
 
-		const transitionTime = 3000
-		var t = timer((elapsed) => {
-	        var dt = elapsed / transitionTime
-		    this.simulation
-			    .force('collide')
-			    .strength(Math.pow(dt, 2))
-		    if (dt >= 1.0){
-		        t.stop()
-			    // disable x and y for less jitter
-			    this.simulation.force("x", null)
-			    this.simulation.force("y", null)
-		    }
-		})
+		this.decay()
 		this.createLegend()
 		// resize all nodes if we were coming from a different graph
 		this.node.selectAll("circle")
@@ -61,6 +49,24 @@ class ClusterChart extends Chart{
 			.style("opacity", "1")
 			.style("display", "block")
 			.text(d => fitTextToScreen(d.id, d.radius))
+	}
+
+	decay = () => {
+		const transitionTime = 3000
+		const t = timer((elapsed) => {
+	        var dt = elapsed / transitionTime
+		    this.simulation
+			    .force('collide')
+			    .strength(Math.pow(dt, 2))
+		    if (dt >= 1.0){
+		        t.stop()
+			    // disable forces for less jitter
+			    this.simulation.force("x", null)
+			    this.simulation.force("y", null)
+			    this.simulation.force("center", null)
+                this.simulation.force('cluster', this.cluster().strength(0.1))
+		    }
+		})
 	}
 
 	zoom = (zoomGroup) => {
@@ -119,7 +125,8 @@ class ClusterChart extends Chart{
 			this.simulation.alphaTarget(0.3).restart()
 			setTimeout( () => {
 				this.simulation.alphaTarget(0)
-			}, 500)
+			}, 100)
+			this.decay()
 		}
 		this.highlightSelected(selectedNodes)
 
