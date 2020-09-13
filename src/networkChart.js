@@ -11,8 +11,8 @@ import {ChartWrapper} from "./charts/ChartWrapper"
 
 
 class NetworkChart extends Component {
-
-	margin = {top: 10, right: 20, bottom: 30, left: 50}
+	controlHeight = 70
+	margin = {top: 10, right: 20, bottom: 20, left: 50}
 
 	constructor(props) {
 		super(props)
