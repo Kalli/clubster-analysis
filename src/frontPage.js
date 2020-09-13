@@ -44,7 +44,7 @@ class FrontPage extends Component {
 					<p>
 						In an attempt to answer these questions and others like them we looked
 						at the most recommended clubs for the top 20 regions on the
-						reputable website <a href="https://www.residentadvisor.net/events">Resident Advisor</a>.
+						reputable website <a href="https://www.residentadvisor.net/events">Resident Advisor (RA)</a>.
 						We gathered all the listings for the year 2019 and then compared
 						the clubs based on djs and artists that played there.
 						Take a look to see where your favourite club fits in.
