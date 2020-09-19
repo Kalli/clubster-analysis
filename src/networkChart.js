@@ -28,11 +28,11 @@ class NetworkChart extends Component {
 			data: {},
 			filters: {},
 			draw: true,
-			chartType: BeeSwarmChart,
+			chartType: ClusterChart,
 			width: document.documentElement.clientWidth,
-			height: document.documentElement.clientHeight,
+			height: elementHeight,
 			svgWidth: document.documentElement.clientWidth,
-			svgHeight: document.documentElement.clientHeight - 50
+			svgHeight: elementHeight - this.controlHeight
 		}
 	}
 
