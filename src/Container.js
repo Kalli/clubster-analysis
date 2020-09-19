@@ -10,7 +10,6 @@ import {ChartWrapper} from "./charts/ChartWrapper"
 
 
 class Container extends Component {
-	navbar = 60;
 	controlHeight = 70
 	margin = {top: 10, right: 20, bottom: 20, left: 50}
 
@@ -20,7 +19,7 @@ class Container extends Component {
 		// these are the currently selected values
 		// if you need all values, you should use this.props.data
 		this.nodes = this.props.data.nodes
-		const elementHeight = document.documentElement.clientHeight - this.navbar
+		const elementHeight = document.documentElement.clientHeight - this.controlHeight
 
 		this.state = {
 			selectedNodes: [],

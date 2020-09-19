@@ -16,15 +16,14 @@
     position: -webkit-sticky; /* for Safari */
     top: $navbarHeight;
     z-index: 1;
-    overflow-x: hidden;
     margin-left: 20px;
     margin-right: 20px;
+    overflow: hidden;
 }
 
 .networkWrapper {
     display: flex;
     justify-content: flex-start;
-    height: 95%;
 }
 
 h3, h4 {
