@@ -105,13 +105,23 @@ class BeeSwarmChart extends Chart{
 	}
 
 	createLegend(){
-		const yOffset = this.height+this.margin.top-this.margin.bottom
+		const yOffset = this.height + this.margin.top - this.margin.bottom
 		const translate = `translate(0, ${yOffset})`
 		this.legend = select(this.svg)
 			.append("g")
 			.attr("class", "legend")
 			.attr("transform", translate)
-		this.legend.call(axisBottom(this.xScale))
+		const axis = axisBottom(this.xScale)
+			.tickValues(this.xScale.ticks().concat(this.xScale.domain()))
+		this.legend.call(axis)
+
+		const labelOffset = `translate(0, ${this.margin.top + 20})`
+		select(this.svg)
+			.append("g")
+			.attr("transform", labelOffset)
+			.attr("class", "label legend")
+			.append('text')
+		    .text("Average number of bookings per artist by club in 2019");
 	}
 }
 
