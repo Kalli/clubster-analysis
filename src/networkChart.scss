@@ -45,7 +45,7 @@ li {
     box-shadow: 0 0 30px #333;
     border-radius: 15px;
     border: 1px solid $secondaryColor;
-    width: 40%;
+    width: 50%;
     height: calc(100% - 40px);;
     background: $primaryColor;
     position: absolute;
@@ -131,6 +131,10 @@ li {
     text-decoration: underline;
     cursor: pointer;
     font-size: 1em;
+}
+
+.image img{
+    max-width: 100%;
 }
 
 svg {

@@ -225,13 +225,8 @@ class NetworkChart extends Component {
 			>
 				 <FontAwesomeIcon icon={faTimesCircle} />
 			</button>
-			<h3>
-				<a className={"clubName"}
-				   style={{backgroundColor: color}}
-			       rel={'noopener noreferrer'}
-	               target={'_blank'}
-                   href={link}
-				>
+			<h3 style={{backgroundColor: color}} className={"clubName"}>
+				<a rel={'noopener noreferrer'} target={'_blank'} href={link}>
 					{node.id}
 				</a>
 			</h3>
@@ -310,7 +305,7 @@ class NetworkChart extends Component {
 		}, {})
 
 		const color = fillColor(club.group, this.categories)
-		return <div>
+		return <div style={{width: '50%'}}>
 			<h4>
 				<span
 					className={"clubName"}
