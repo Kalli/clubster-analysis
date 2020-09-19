@@ -304,14 +304,9 @@ class Container extends Component {
 
 		const color = fillColor(club.group, this.categories)
 		return <div style={{width: '50%'}}>
-			<h4>
-				<span
-					className={"clubName"}
-					style={{backgroundColor: color}}
-				>
-					Other clubs in this group
-				</span>
-			</h4>
+			<h3 >
+				Other clubs in this group
+			</h3>
 			<BarChart
 				data={Object.entries(stats)}
 				width={312}
@@ -383,7 +378,7 @@ class Container extends Component {
 		const w = document.documentElement.clientWidth
 		const h = document.documentElement.clientHeight
 		this.setState({
-			width: w, height: h, svgWidth: w, svgHeight: h - 50
+			width: w, height: h, svgWidth: w, svgHeight: h - this.controlHeight
 		})
 	}
 
