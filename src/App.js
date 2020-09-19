@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NetworkChart from './networkChart'
+import Container from './Container'
 import FrontPage from './frontPage'
 import Navbar from './navbar'
 
@@ -48,7 +48,7 @@ class App extends Component {
 
     render(){
 		const frontPage = <FrontPage />
-	    const network = this.state.loading? '' : <NetworkChart
+	    const network = this.state.loading? '' : <Container
 		    data={this.state.data}
 	    />
         return (

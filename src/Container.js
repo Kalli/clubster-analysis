@@ -1,16 +1,15 @@
 import React, {Component} from 'react'
-import './networkChart.scss'
+import './container.scss'
 import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
 import {fillColor, artistLink} from "./lib"
 import {ClusterChart} from "./charts/ClusterChart"
-import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
 
 
-class NetworkChart extends Component {
+class Container extends Component {
 	navbar = 60;
 	controlHeight = 70
 	margin = {top: 10, right: 20, bottom: 20, left: 50}
@@ -440,4 +439,4 @@ class NetworkChart extends Component {
 	}
 }
 
-export default NetworkChart
+export default Container
