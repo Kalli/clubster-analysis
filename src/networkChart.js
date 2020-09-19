@@ -11,6 +11,7 @@ import {ChartWrapper} from "./charts/ChartWrapper"
 
 
 class NetworkChart extends Component {
+	navbar = 60;
 	controlHeight = 70
 	margin = {top: 10, right: 20, bottom: 20, left: 50}
 
@@ -20,6 +21,7 @@ class NetworkChart extends Component {
 		// these are the currently selected values
 		// if you need all values, you should use this.props.data
 		this.nodes = this.props.data.nodes
+		const elementHeight = document.documentElement.clientHeight - this.navbar
 
 		this.state = {
 			selectedNodes: [],
@@ -429,7 +431,6 @@ class NetworkChart extends Component {
 					ref={this.ref}
 					width={this.state.svgWidth}
 					height={this.state.svgHeight}
-					style={{border: "1px solid"}}
 				/>
 				{this.showClubInfo()}
 			</div>

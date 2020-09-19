@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NetworkChart from './networkChart'
 import FrontPage from './frontPage'
+import Navbar from './navbar'
 
 class App extends Component {
 
@@ -52,6 +53,7 @@ class App extends Component {
 	    />
         return (
             <>
+	            <Navbar />
 	            {frontPage}
                 <div id={"start"} >
                     {network}

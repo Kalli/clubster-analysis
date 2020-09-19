@@ -14,7 +14,7 @@
 .sticky{
     position: sticky;
     position: -webkit-sticky; /* for Safari */
-    top: 0;
+    top: $navbarHeight;
     z-index: 1;
     overflow-x: hidden;
     margin-left: 50px;
