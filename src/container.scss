@@ -10,14 +10,14 @@
     top: $navbarHeight;
     display: flex;
     max-height: 40px;
-    z-index: 11;
+    z-index: 5;
 }
 
 .graphic{
     flex-basis: 60%;
     width: 100%;
     position: fixed;
-    position: -webkit-sticky; /* for Safari */
+    top: 0;
     z-index: 1;
     align-self: flex-start
 }
@@ -42,9 +42,9 @@ li {
     width: 50%;
     height: 100%;
     background: $primaryColor;
-    position: absolute;
+    position: fixed;
     right: 0;
-    top: 0;
+    top: $navbarHeight;
     display: flex;
     flex-wrap: wrap;
     text-align: left;

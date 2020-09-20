@@ -3,6 +3,7 @@
 
 .frontPage{
     display: flex;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
@@ -12,11 +13,12 @@
     position: absolute;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 6;
     width: 100%;
     height: 100vh;
     background-size: cover !important;
     background: url(montage.jpg) no-repeat center;
+    background-color: $primaryColor;
 }
 
 // Set a semi transparent overlay to the image
@@ -41,7 +43,7 @@
     border-radius: 15px;
     padding-bottom: 48px;
     padding-top: 48px;
-    z-index: 2;
+    z-index: 7;
 }
 
 .jumbotron p{

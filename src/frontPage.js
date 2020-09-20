@@ -11,35 +11,21 @@ class FrontPage extends Component {
         this.state = { width: 0, height: 0 };
 	}
 
-	componentDidMount() {
-		this.updateWindowDimensions();
-		window.addEventListener('resize', this.updateWindowDimensions);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateWindowDimensions);
-	}
-
-	updateWindowDimensions= () => {
-		this.setState({ width: window.innerWidth, height: window.innerHeight });
-	}
-
 	render(){
 		return <>
 			<div className={"backgroundImage"} />
 			<Rotate />
 			<div
 				className={"frontPage"}
-	            style={{height: this.state.height, width: this.state.width}}
 			>
 				<div className="jumbotron">
 					<h1 className="center">
 						Resident Advisor Club Communities
 					</h1>
 					<p>
-						How different or similar are the worlds biggest night clubs?
+						How similar are the line ups of the worlds most popular night clubs?
 						Which clubs rely on residents and which have djs rotate through?
-						How different are the super clubs from the underground fare?
+						How different are the super clubs from the more underground fare?
 					</p>
 					<p>
 						In an attempt to answer these questions and others like them we looked

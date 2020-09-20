@@ -54,7 +54,7 @@ class App extends Component {
         return (
             <>
 	            <Navbar />
-	            {/*{frontPage}*/}
+	            {frontPage}
                 {container}
             </>
         )
