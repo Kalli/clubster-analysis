@@ -1,6 +1,6 @@
 In the chart below we see the $clubCount clubs that are part of this data set. 
 The size of each bubble reflects the amount of RA users following that club, 
-while the colour of the bubble reflects the community that it belongs to. 
+while the colour of the bubble reflects the *community* that it belongs to. 
 
 The communities are calculated based on how similar the line ups for each pair of 
 clubs are. If two clubs have many artists and djs in common then those two clubs 
@@ -15,7 +15,7 @@ scrolling to learn more.
 
 1\. To calculate communities we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
 
-From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and the Jaccard index are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly connected themselves. This groups 
+From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and their Jaccard index values are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly connected themselves. This groups 
 
 </details>
 
@@ -80,5 +80,5 @@ are the three most booked artists across the 131 clubs in this data set.
  
 But there are also a great number of one-off bookings, bringing the averages down. 
 This lends support to the theory that the most popular clubs today build their 
-appeal not by honing and supporting local residents but rather from a wider, 
-transient and travelling talent pool. 
+appeal not by honing and supporting local residents but rather by building on a wider, 
+globetrotting talent pool. 

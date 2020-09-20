@@ -17,16 +17,11 @@
     text-overflow: ellipsis;
 }
 
-// hide footnotes by default
+.step:last-child{
+    margin-bottom: 100vh;
+}
+
 details {
     font-size: smaller;
     color: white;
-}
-
-// hide footnotes by default
-.show .footnote{
-    p {
-        text-overflow: unset;
-        white-space: pre-wrap;
-    }
 }
