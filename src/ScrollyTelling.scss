@@ -1,17 +1,21 @@
 @import './constants.scss';
 
+.scroller{
+    flex-basis: 35%;
+}
+
 .step {
     position: relative;
     display: block;
-    width: 30%;
-    z-index: 99999;
+    z-index: 10;
     padding: 5vh 10px 5vh 10px;
-    margin: 30vh 0 100vh 50px;
+    margin: 100vh 0 40vh 50px;
     border: 1px solid $secondaryColor;
     background: $primaryColor;
     border-radius: 15px;
     overflow-x: hidden;
     text-overflow: ellipsis;
+    max-width: 50%;
 }
 
 // hide footnotes by default

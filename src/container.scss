@@ -1,29 +1,25 @@
 @import './constants.scss';
 
-.wrapper{
-    display: block;
-    overflow: auto;
+.container{
+    display: flex;
 }
 
 .controls {
     margin: 10px 0 10px 0;
+    position: fixed;
+    top: $navbarHeight;
     display: flex;
     max-height: 40px;
+    z-index: 11;
 }
 
-.sticky{
-    position: sticky;
+.graphic{
+    flex-basis: 60%;
+    width: 100%;
+    position: fixed;
     position: -webkit-sticky; /* for Safari */
-    top: $navbarHeight;
     z-index: 1;
-    margin-left: 20px;
-    margin-right: 20px;
-    overflow: hidden;
-}
-
-.networkWrapper {
-    display: flex;
-    justify-content: flex-start;
+    align-self: flex-start
 }
 
 h3, h4 {
@@ -38,17 +34,17 @@ li {
     transform: translate3d(100vw, 0vw, 0px)  translateX(-100%);
 }
 
-
 .clubDetail {
     transition: visibility 2s, transform 0.5s ease 0s;
     box-shadow: 0 0 30px #333;
     border-radius: 15px;
     border: 1px solid $secondaryColor;
     width: 50%;
-    height: calc(100% - 80px);;
+    height: 100%;
     background: $primaryColor;
     position: absolute;
     right: 0;
+    top: 0;
     display: flex;
     flex-wrap: wrap;
     text-align: left;

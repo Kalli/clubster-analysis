@@ -106,13 +106,15 @@ class ScrollyTelling extends Component {
 				{this.step(step)}
 			</Step>
 		})
-		return <Scrollama
-			onStepEnter={this.props.enter}
-			onStepExit={this.props.exit}
-			offset={0.75}
-		>
-			{steps}
-		</Scrollama>
+		return <div className={"scroller"}>
+			<Scrollama
+				onStepEnter={this.props.enter}
+				onStepExit={this.props.exit}
+				offset={0.50}
+			>
+				{steps}
+			</Scrollama>
+		</div>
 	}
 }
 

@@ -53,7 +53,7 @@ class FrontPage extends Component {
 						Scroll down to get started!
 					</h3>
 					<div className={'scrollDown center'}>
-						<a  href="#start">
+						<a href="#start">
 							<FontAwesomeIcon icon={faChevronDown} />
 						</a>
 					</div>

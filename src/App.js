@@ -38,7 +38,7 @@ class App extends Component {
             	})
             });
     }
-    
+
 	componentDidMount() {
         this.setState({
 	        loading: true,
@@ -48,16 +48,14 @@ class App extends Component {
 
     render(){
 		const frontPage = <FrontPage />
-	    const network = this.state.loading? '' : <Container
+	    const container = this.state.loading? '' : <Container
 		    data={this.state.data}
 	    />
         return (
             <>
 	            <Navbar />
-	            {frontPage}
-                <div id={"start"} >
-                    {network}
-                </div>
+	            {/*{frontPage}*/}
+                {container}
             </>
         )
     }

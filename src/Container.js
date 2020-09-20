@@ -19,7 +19,6 @@ class Container extends Component {
 		// these are the currently selected values
 		// if you need all values, you should use this.props.data
 		this.nodes = this.props.data.nodes
-		const elementHeight = document.documentElement.clientHeight - this.controlHeight
 
 		this.state = {
 			selectedNodes: [],
@@ -28,9 +27,8 @@ class Container extends Component {
 			draw: true,
 			chartType: ClusterChart,
 			width: document.documentElement.clientWidth,
-			height: elementHeight,
 			svgWidth: document.documentElement.clientWidth,
-			svgHeight: elementHeight - this.controlHeight
+			svgHeight: document.documentElement.clientHeight - this.controlHeight
 		}
 	}
 
@@ -173,14 +171,6 @@ class Container extends Component {
 		}else{
 			this.nodes = this.props.data.nodes
 		}
-		if (this.state.scroll){
-			// dumb but can't figure out how to be sure page is fully in view
-			window.scrollTo({
-				top: document.documentElement.clientHeight,
-				behavior: 'smooth'
-			})
-		}
-
 		if (this.state.chartType){
 			if (this.state.chartType.name !== this.chartWrapper.chart.constructor.name){
 			    this.chartWrapper.setChartType(this.nodes, this.state.chartType)
@@ -407,14 +397,17 @@ class Container extends Component {
 
 	render() {
 		const controls = this.controls()
-		return <div className={"wrapper"}
-            style={{height: this.state.height, width: this.state.width}}
-		>
-		<div className={"sticky"}>
+		return <div className="container" id={"start"}>
 			<div className={"controls"}>
 				{controls}
 			</div>
-			<div className={'networkWrapper'}>
+			<ScrollyTelling
+				enter={this.onStepEnter}
+				exit={this.onStepExit}
+				nodes={this.props.data.nodes}
+				links={this.props.data.links}
+			/>
+			<div className={"graphic"}>
 				<svg
 					ref={this.ref}
 					width={this.state.svgWidth}
@@ -422,14 +415,7 @@ class Container extends Component {
 				/>
 				{this.showClubInfo()}
 			</div>
-		</div>
-		<ScrollyTelling
-			enter={this.onStepEnter}
-			exit={this.onStepExit}
-			nodes={this.props.data.nodes}
-			links={this.props.data.links}
-		/>
-    </div>
+        </div>
 	}
 }
 

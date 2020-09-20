@@ -37,3 +37,8 @@ a {
 .center{
     text-align: center
 }
+
+.root{
+    display: flex;
+    flex-flow: column;
+}
