@@ -1,4 +1,4 @@
-In the chart to the right we see the $clubCount clubs that are part of this data set. 
+In the chart below we see the $clubCount clubs that are part of this data set. 
 The size of each bubble reflects the amount of RA users following that club, 
 while the colour of the bubble reflects the community that it belongs to. 
 
@@ -10,13 +10,15 @@ You can click on each club to see more details about it, which artists featured
 on their line up most often and which other clubs are similar to it. Keep
 scrolling to learn more.
 
-<div class="footnote">
+<details>
+<summary>Show footnotes</summary>
 
 1\. To calculate communities we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
 
 From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and the Jaccard index are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly connected themselves. This groups 
 
-</div>
+</details>
+
 
 --- 
 
@@ -34,7 +36,7 @@ of international talent?
 But how similar are the most popular clubs on Resident Advisor?
 
 Let's compare two of my favourite clubs. Berlin's *Berghain / Panorama Bar* and
-*De School* in Amsterdam. In their line ups there is a 9.58% overlap. I went into 
+*De School* in Amsterdam. Their line have a 9.58% overlap. I went into 
 this project thinking that the line ups were more similar than they turned out to be. 
 For these two clubs for instance I assumed that the overlap would be greater as 
 their music policies feel quite similar to me. 
@@ -58,13 +60,14 @@ this number would be higher whereas if you only book each artist once this numbe
 
 The average residency factor is $averageResidency and only a handful of clubs go above 2.
 
-<div class="footnote">
+<details>
+<summary>Show footnotes</summary>
 
 2\. A few caveats here. For this view we've filtered out clubs that had less than 10 dates or booked fewer than 20 artists in total in 2019. 
 
 Furthermore all the data here is limited to djs and artists that have a profile on Resident Advisor. For some genres and scenes, like house and techno, this the coverage is near complete, but for <a href="https://www.residentadvisor.net/events/1281396">others</a> this data is sometimes incomplete.
 
-</div>
+</details>
 
 --- 
 

@@ -1,7 +1,7 @@
 @import './constants.scss';
 
 .scroller{
-    flex-basis: 35%;
+    flex-basis: 50%;
 }
 
 .step {
@@ -15,24 +15,12 @@
     border-radius: 15px;
     overflow-x: hidden;
     text-overflow: ellipsis;
-    max-width: 50%;
 }
 
 // hide footnotes by default
-.footnote {
-    display: inline-block;
-    width: 100%;
-    max-height: 1.2em;
-    p{
-        font-size: smaller;
-        display: none;
-    }
-    p:first-child{
-        display: block;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+details {
+    font-size: smaller;
+    color: white;
 }
 
 // hide footnotes by default
@@ -40,19 +28,5 @@
     p {
         text-overflow: unset;
         white-space: pre-wrap;
-        display: inline-block;
     }
-}
-
-.readMoreButton{
-    background: none!important;
-    border: none;
-    padding: 0!important;
-    /*optional*/
-    font-family: arial, sans-serif;
-    /*input has OS specific font-family*/
-    color: $quaternaryColor;
-    text-decoration: underline;
-    cursor: pointer;
-    font-size: smaller;
 }

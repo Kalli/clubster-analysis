@@ -21,7 +21,6 @@ class ScrollyTelling extends Component {
 		super(props)
 		this.state = {
 			steps: null,
-			readMore: false,
 		}
 	}
 
@@ -73,25 +72,9 @@ class ScrollyTelling extends Component {
 			})
 	}
 
-	readMoreOnClick = (e) => {
-		this.setState({readMore: !this.state.readMore})
-	}
-
 	step(stepHtml) {
-		const show = this.state.readMore
-		// if the step has footnotes, show a read more button
-		const readMore = stepHtml.indexOf("footnote") === -1? "" : <div>
-			<button
-				className={"readMoreButton"}
-		        onClick={(e) => this.readMoreOnClick()}
-			>
-				{show? "Hide footnotes" : "Show footnotes"}
-			</button>
-		</div>
-
-		return <div className={"step " + (show? "show" : "") }>
+		return <div className={"step "}>
 			<div dangerouslySetInnerHTML={{__html: stepHtml}} />
-			{readMore}
 		</div>
 	}
 
