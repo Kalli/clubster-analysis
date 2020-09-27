@@ -1,10 +1,10 @@
 In the chart below we see the $clubCount clubs that are part of this data set. 
-The size of each bubble reflects the amount of RA users following that club, 
-while the colour of the bubble reflects the *community* that it belongs to. 
+The size of each bubble reflects the amount of RA users that follow the club, 
+while the colour of the bubble reflects the *community* it belongs to. 
 
 The communities are calculated based on how similar the line ups for each pair of 
-clubs are. If two clubs have many artists and djs in common then those two clubs 
-are likely to be be in the same community<sup>1</sup>.
+clubs are. If two clubs have booked many of the same artists and djs then they 
+are more likely to be be in the same community<sup>1</sup>.
 
 You can click on each club to see more details about it, which artists featured 
 on their line up most often and which other clubs are similar to it. Keep
@@ -15,14 +15,14 @@ scrolling to learn more.
 
 1\. To calculate communities we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
 
-From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and their Jaccard index values are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly connected themselves. This groups 
+From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and their Jaccard index values are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly internally connected. This groups similar clubs in clusters or communities.
 
 </details>
 
 
 --- 
 
-Lets take a look at the clubs of a specific region. Let's begin with 
+Lets take a look at the clubs of a specific region. Here is 
 [Berlin](https://www.residentadvisor.net/events/de/berlin) one of the worlds 
 clubbing capitals.
 
@@ -33,17 +33,18 @@ talent for many of their bookings while the superclubs book a wider variety
 of international talent?
 
 --- 
+
 But how similar are the most popular clubs on Resident Advisor?
 
 Let's compare two of my favourite clubs. Berlin's *Berghain / Panorama Bar* and
-*De School* in Amsterdam. Their line have a 9.58% overlap. I went into 
+*De School* in Amsterdam. Their line ups have a 9.58% overlap. I went into 
 this project thinking that the line ups were more similar than they turned out to be. 
 For these two clubs for instance I assumed that the overlap would be greater as 
 their music policies feel quite similar to me. 
  
 Whether you find 10% high or low depends on your perspective of course. Should 
-each city and club have their own distinct scenes and flavours? Or is it to be  
-expected that big global names dominate clubs across countries and continents?
+each city or club have their own distinct scenes and flavours? Or is it to be  
+expected that big global names dominate clubs across continents?
 
 Out of $combinations possible pairs of clubs, $linkCount pairs had some overlap, 
 out of those the average overlap was $averageWeight%. *$source* and *$target* have 
@@ -52,10 +53,10 @@ the most similar line ups, with $weight% overlap in their bookings.
 ---
 
 Now we've changed the view to look at something I call *the residency factor*. 
-For this we take the number of unique artists booked and divide it by the total 
+We take the number of unique artists booked at a club and divide it by the total 
 number of bookings, that is to say how often on average a club books a given artist<sup>2</sup>.
 
-For clubs that rely on residents, the same artists playing at a club regularly and repeatedly, 
+For clubs that rely more on residents, the same artists playing at a club regularly and repeatedly, 
 this number would be higher whereas if you only book each artist once this number would be 1.
 
 The average residency factor is $averageResidency and only a handful of clubs go above 2.

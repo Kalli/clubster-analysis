@@ -29,11 +29,11 @@ class FrontPage extends Component {
 					</p>
 					<p>
 						In an attempt to answer these questions and others like them we looked
-						at the most recommended clubs for the top 20 regions on the
+						at the most recommended clubs for the most popular regions on the
 						reputable website <a href="https://www.residentadvisor.net/events">Resident Advisor (RA)</a>.
-						We gathered all the listings for the year 2019 and then compared
-						the clubs based on djs and artists that played there.
-						Take a look to see where your favourite club fits in.
+						We gathered all their listings for 2019 and then compared
+						the clubs based on djs and artists that played there that year.
+						Take a look to see how your favourite club fits in.
 					</p>
 					<h3>
 						Scroll down to get started!
