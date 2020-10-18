@@ -8,6 +8,14 @@
     fill: $secondaryColor;
 }
 
+.fill {
+    fill: $secondaryColor;
+}
+
+.line {
+    stroke: $secondaryColor;
+}
+
 
 g:hover > text{
   opacity: 1 !important;
