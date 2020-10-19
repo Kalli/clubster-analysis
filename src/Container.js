@@ -401,6 +401,7 @@ class Container extends Component {
 			<div className={"controls"}>
 				{controls}
 			</div>
+			<div id={"tooltip"} />
 			<ScrollyTelling
 				enter={this.onStepEnter}
 				exit={this.onStepExit}

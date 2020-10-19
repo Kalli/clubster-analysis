@@ -1,4 +1,4 @@
-import {select} from 'd3-selection'
+import {select, event} from 'd3-selection'
 import {scaleLinear, scaleBand} from 'd3-scale'
 import {max} from 'd3-array'
 import {axisBottom} from 'd3-axis'
@@ -11,6 +11,7 @@ class CandleStickChart extends Chart{
 	constructor(svg, margin, categories, h, w) {
 		super(svg, margin, categories, h, w)
 		this.groups = []
+		this.tooltipData = null
 	}
 
 	y = e => {
@@ -29,17 +30,17 @@ class CandleStickChart extends Chart{
 			return acc
 		}, {})
 	    return Object.keys(groups).reduce((acc, key) => {
-	    	const nodes = groups[key]
-		    const d = nodes.map(e => this.x(e))
+	    	const nodes = groups[key].sort((a, b) => this.x(b) - this.x(a))
+		    const d = nodes.map(e => this.x(e)).sort()
 		    acc.push({
-			    'percentile_95': d.sort()[Math.floor(0.95*d.length)-1],
-			    'percentile_5': d.sort()[Math.ceil(0.05*d.length)],
+			    'percentile_95': d[Math.floor(0.95*d.length)-1],
+			    'percentile_5': d[Math.ceil(0.05*d.length)],
 				'mean': d.reduce((acc, e) => acc + e, 0) / d.length,
 			    'max': Math.max(...d),
 			    'min': Math.min(...d),
 			    'count': d.length,
 			    'id': key,
-			    'nodes': nodes,
+			    'nodes': nodes
 		    })
 	    	return acc
 	    }, []).filter((e) => e.count > 1)
@@ -83,9 +84,10 @@ class CandleStickChart extends Chart{
 
 		let newNode = this.node.enter()
 			.append("g")
+			.attr("class", "nodes")
 
 		const bw = this.yScale.bandwidth();
-		newNode.on("click", d => clickHandler(d))
+		newNode.on("click", d => this.click(d))
 
 		// box
 		newNode
@@ -145,8 +147,23 @@ class CandleStickChart extends Chart{
             .text(d => `${d.id} (${d.count})`)
 			.transition().duration(2000).style("opacity", 1)
 
+		this.tooltip = select("#tooltip")
+
 		this.node = this.node.merge(newNode)
 		this.initial = false
+	}
+
+	click = (d) => {
+		if(this.tooltipData !== d){
+		    this.tooltip.transition().duration(200).style("opacity", 1)
+			this.tooltip.html(this.detail(d))
+		         .style("left", (event.pageX) + "px")
+		         .style("top", (event.pageY - 28) + "px")
+			this.tooltipData = d
+		}else{
+		    this.tooltip.transition().duration(500).style("opacity", 0)
+			this.tooltipData = null
+		}
 	}
 
 	filterNodes = (nodes) => {
@@ -179,6 +196,31 @@ class CandleStickChart extends Chart{
 			.attr("class", "label legend")
 			.append('text')
 		    .text("Average number of bookings per artist by region in 2019")
+	}
+
+	detail(data){
+		const rows = data.nodes.map(club => {
+			return `<tr>
+				<td>${club.id}</td>
+				<td>
+					${(
+						club.total_number_of_artists / club.number_of_unique_artists
+					).toFixed(1)}
+				</td>
+			</tr>`
+		})
+		return `<h2 class="center">${data.id}</h2>
+			<table>
+			<thead>
+				<tr>
+					<th>Club Name</th>
+					<th>Average bookings per artist</th>
+				</tr>
+			</thead>
+			<tbody>
+				${rows.join("")}
+			</tbody>
+		</table>`
 	}
 }
 

@@ -17,7 +17,7 @@
     flex-basis: 60%;
     width: 100%;
     position: fixed;
-    top: 0;
+    top: $navbarHeight;
     z-index: 1;
     align-self: flex-start
 }
@@ -93,6 +93,18 @@ li {
         }
     }
 }
+
+#tooltip{
+    opacity: 0;
+    position: absolute;
+    border-radius: 15px;
+    border: 1px solid $secondaryColor;
+    z-index: 100;
+    background-color: $primaryColor;
+    padding: 10px;
+    text-align: center;
+}
+
 .similarities {
     width: 100%;
 }
