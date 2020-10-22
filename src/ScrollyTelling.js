@@ -26,7 +26,6 @@ class ScrollyTelling extends Component {
 
 	componentDidMount() {
 		// fetch the markdown and replace any variables
-
 		const {source, target, weight} = this.props.links.reduce((acc, e)=>{
 			return acc.weight > e.weight? acc : e
 		}, {weight: 0})
@@ -92,8 +91,7 @@ class ScrollyTelling extends Component {
 		return <div className={"scroller"}>
 			<Scrollama
 				onStepEnter={this.props.enter}
-				onStepExit={this.props.exit}
-				offset={0.50}
+				offset={0.75}
 			>
 				{steps}
 			</Scrollama>

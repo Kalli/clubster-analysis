@@ -1,6 +1,6 @@
 @import './constants.scss';
 
-.scroller{
+.scroller {
     flex-basis: 50%;
 }
 
@@ -17,7 +17,7 @@
     text-overflow: ellipsis;
 }
 
-.step:last-child{
+.step:last-child {
     margin-bottom: 100vh;
 }
 
