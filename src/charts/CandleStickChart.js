@@ -70,6 +70,116 @@ class CandleStickChart extends Chart{
 	            this.height + this.margin.top - this.margin.bottom
             ])
 		this.createLegend()
+		this.bw = this.yScale.bandwidth();
+	}
+
+	exitPrevChart(){
+		let n = 0
+		this.node.exit()
+			.each(() => n++)
+			.attr("class", "candlestick")
+			.transition("exit").duration(2000)
+            .attr("transform", d => {
+            	const agg = this.data.filter(e => e.id === d[this.groupBy])[0]
+	            const x = agg? this.xScale(agg.mean) : 0
+            	const y = this.yScale(this.y(d.region)) + this.bw / 2
+	            if (x === 0){
+	            	return "scale(0, 0)"
+	            }
+            	return "translate("+ x + "," + (y? y : 0) +")"
+            })
+			.on('end', () => {
+				n--
+				if (n === 0){
+					this.drawBox()
+				}
+			})
+			.transition().duration(2000)
+			.remove()
+	}
+
+	drawBox(){
+		let n = 0
+
+		this.newNode
+			.each(() => n++)
+			.append("rect")
+			.attr("height", 0)
+			.attr("width", 0)
+	        .attr("class", "fill")
+			.attr("x", d => this.xScale(d.mean))
+			.attr("rx", 15)
+			.attr("y", d => this.yScale(this.y(d.id)) + this.bw / 2)
+			.attr("ry", 15)
+			.transition("drawbox").duration(1000)
+			.attr("height", this.bw)
+				.attr("x", d => this.xScale(d.percentile_5))
+				.attr("y", d => this.yScale(this.y(d.id)))
+				.attr('width', d => {
+					const start = this.xScale(d.percentile_95)
+					const end = this.xScale(d.percentile_5)
+					return start - end
+				})
+				.on("end", () => {
+					n--
+					if (n === 0){
+						this.drawWhiskers()
+						this.drawMean()
+						this.addLabel()
+					}
+				})
+	}
+
+	drawWhiskers(){
+		const offset = this.bw / 2
+		this.newNode
+			.append("line")
+			.attr("x1", d => this.xScale(d.percentile_5))
+			.attr("x2", d => this.xScale(d.percentile_5))
+			.attr("y1", d => this.yScale(this.y(d.id)) + offset)
+			.attr("y2", d => this.yScale(this.y(d.id)) + offset)
+	        .attr("class", "line")
+			.transition("drawWhiskers1").duration(1000)
+				.attr("x2", d => this.xScale(d.min))
+
+		this.newNode
+			.append("line")
+			.attr("x1", d => this.xScale(d.percentile_95))
+			.attr("x2", d => this.xScale(d.percentile_95))
+			.attr("y1", d => this.yScale(this.y(d.id)) + offset)
+			.attr("y2", d => this.yScale(this.y(d.id)) + offset)
+	        .attr("class", "line")
+			.transition("drawWhiskers2").duration(1000)
+				.attr("x2", d => this.xScale(d.max))
+
+	}
+
+	addLabel(){
+		// text
+		this.newNode
+			.append("text")
+			.attr("x", d => {
+				const start = this.xScale(d.percentile_5)
+				const length = this.xScale(d.percentile_95) - start
+				return start + (length / 2)
+			})
+			.attr("y", d => this.yScale(this.y(d.id)) + this.bw/2)
+			.attr("text-anchor", "middle")
+			.attr("class", "label")
+			.style("fill", "#fff")
+            .style("font-size", 12)
+            .text(d => `${d.id} (${d.count})`)
+	}
+
+	drawMean(){
+		// mean
+		this.newNode
+			.append("line")
+			.attr("x1", d => this.xScale(d.mean))
+			.attr("x2", d => this.xScale(d.mean))
+			.attr("y1", d => this.yScale(this.y(d.id)))
+			.attr("y2", d => this.yScale(this.y(d.id)) + this.bw)
+	        .attr("class", "mean")
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
@@ -77,79 +187,16 @@ class CandleStickChart extends Chart{
 
 		this.node = this.node.data(this.data, d=> d.id)
 
-		this.node.exit()
-			.transition().duration(2000)
-			.style("opacity", 0)
-			.remove()
-
-		let newNode = this.node.enter()
+		this.newNode = this.node.enter()
 			.append("g")
-			.attr("class", "nodes")
+			.attr("class", "candlestick")
 
-		const bw = this.yScale.bandwidth();
-		newNode.on("click", d => this.click(d))
+		this.exitPrevChart()
 
-		// box
-		newNode
-			.append("rect")
-			.attr("x", d => this.xScale(d.percentile_5))
-			.attr("y", d => this.yScale(this.y(d.id)))
-			.attr('height', bw)
-	        .attr("class", "fill")
-			.attr('width', d => this.xScale(d.percentile_95) - this.xScale(d.percentile_5))
-			.style("fill-opacity", this.initial? 1: 0)
-			.transition().duration(2000).style("fill-opacity", 1)
-
-		// mean
-		newNode
-			.append("line")
-			.attr("x1", d => this.xScale(d.mean))
-			.attr("x2", d => this.xScale(d.mean))
-			.attr("y1", d => this.yScale(this.y(d.id)))
-			.attr("y2", d => this.yScale(this.y(d.id)) + bw)
-	        .style("stroke", "black")
-			.transition().duration(2000).style("fill-opacity", 1)
-
-		// whiskers
-		newNode
-			.append("line")
-			.attr("x2", d => this.xScale(d.min))
-			.attr("x1", d => this.xScale(d.percentile_5))
-			.attr("y1", d => this.yScale(this.y(d.id)) + bw / 2)
-			.attr("y2", d => this.yScale(this.y(d.id)) + bw / 2)
-	        .attr("class", "line")
-			.style("fill-opacity", this.initial? 1: 0)
-			.transition().duration(2000).style("fill-opacity", 1)
-
-		newNode
-			.append("line")
-			.attr("x2", d => this.xScale(d.max))
-			.attr("x1", d => this.xScale(d.percentile_95))
-			.attr("y1", d => this.yScale(this.y(d.id)) + bw / 2)
-			.attr("y2", d => this.yScale(this.y(d.id)) + bw / 2)
-	        .attr("class", "line")
-			.style("fill-opacity", this.initial? 1: 0)
-			.transition().duration(2000).style("fill-opacity", 1)
-
-		// text
-		newNode
-			.append("text")
-			.attr("x", d => {
-				const start = this.xScale(d.percentile_5)
-				const length = this.xScale(d.percentile_95) - start
-				return start + (length / 2)
-			})
-			.attr("y", d => this.yScale(this.y(d.id)) + bw/2)
-			.attr("text-anchor", "middle")
-			.attr("class", "label")
-			.style("fill", "#fff")
-            .style("font-size", 12)
-            .text(d => `${d.id} (${d.count})`)
-			.transition().duration(2000).style("opacity", 1)
-
+		this.newNode.on("click", d => this.click(d))
 		this.tooltip = select("#tooltip")
 
-		this.node = this.node.merge(newNode)
+		this.node = this.node.merge(this.newNode)
 		this.initial = false
 	}
 

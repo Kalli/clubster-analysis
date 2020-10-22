@@ -16,6 +16,19 @@
     stroke: $secondaryColor;
 }
 
+.candlestick circle{
+    fill: $secondaryColor;
+    transition: fill 2000ms linear;
+}
+
+.candlestick .mean{
+  stroke: $primaryColor;
+}
+
+.candlestick text{
+  font-weight: bold;
+  size: 14px;
+}
 
 g:hover > text{
   opacity: 1 !important;

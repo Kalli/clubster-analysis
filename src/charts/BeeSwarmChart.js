@@ -4,6 +4,7 @@ import {max} from 'd3-array'
 import {axisBottom} from 'd3-axis'
 import './Chart.scss'
 import {Chart} from "./Chart"
+import {fillColor} from "../lib"
 
 class BeeSwarmChart extends Chart{
 
@@ -54,7 +55,7 @@ class BeeSwarmChart extends Chart{
 			.transition(this.t)
 			.style("opacity", "0")
 			.style("display", "none")
-			.text(d => d.id)
+			.text(d => d.id + " - " + this.x(d).toFixed(2))
 	}
 
 	drawGraph = (nodes, clickHandler, selectedNodes) => {
@@ -64,12 +65,25 @@ class BeeSwarmChart extends Chart{
 			this.calculateInitialPositions()
 		}
 
-
 		this.node = this.node.data(this.nodes, d => d.id)
-		this.node.exit().remove()
+		this.node.exit()
+			.remove()
 
 		let newNode = this.node.enter()
 			.append("g")
+
+		newNode
+			.append("circle")
+			.attr("r", this.radius)
+			.attr("fill", d => fillColor(d.group, this.categories))
+			.attr("class", "nodes")
+			.style("fill-opacity", this.initial? 1: 0)
+
+		newNode
+			.append("text")
+			.style("opacity", "0")
+			.style("display", "none")
+			.text(d => d.id + " - " + this.x(d).toFixed(2))
 
 		this.node = this.node.merge(newNode)
 	    // if we are transitioning from another chart:
