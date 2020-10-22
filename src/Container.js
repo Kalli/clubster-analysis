@@ -230,7 +230,7 @@ class Container extends Component {
 		if (this.state.selectedNodes.length === 0){
 			return ""
 		}
-		const rows = this.state.selectedNodes.map(club=> {
+		const rows = this.state.selectedNodes.map(club => {
 			return [
 				club.number_of_dates,
 				club.number_of_unique_artists,
@@ -389,11 +389,6 @@ class Container extends Component {
 	    }
 	}
 
-	onStepExit = ({element, data, direction}) => {
-	    if (data){
-			this.setState(data)
-	    }
-	}
 
 	render() {
 		const controls = this.controls()
@@ -404,7 +399,6 @@ class Container extends Component {
 			<div id={"tooltip"} />
 			<ScrollyTelling
 				enter={this.onStepEnter}
-				exit={this.onStepExit}
 				nodes={this.props.data.nodes}
 				links={this.props.data.links}
 			/>
