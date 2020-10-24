@@ -12,6 +12,7 @@
 .backgroundImage {
     position: absolute;
     left: 0;
+    top: $navbarHeight;
     right: 0;
     z-index: 6;
     width: 100%;
