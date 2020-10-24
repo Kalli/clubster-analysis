@@ -6,6 +6,7 @@ from networkx.readwrite import json_graph
 import json
 import numpy as np
 import community as community_louvain
+from scipy import stats
 
 # Processes and parses the raw data from scraper into the networks and data
 # that we want to graph
@@ -220,6 +221,32 @@ def optimise_json(d):
     return d
 
 
+def residency_factor(club):
+    if club['number_of_unique_artists'] == 0:
+        return 0
+    return club['total_number_of_artists'] / club['number_of_unique_artists']
+
+
+def compare_underlying_distribution(clubs, calculation, aggregation):
+    t = []
+    aggregate_values = set()
+    for club in clubs:
+        t.append([
+            club[aggregation],
+            calculation(club)
+        ])
+        aggregate_values.add(club[aggregation])
+
+    for key in aggregate_values:
+        n1 = [a[1] for a in t if a[0] == key]
+        n2 = [a[1] for a in t if a[0] != key]
+        a = stats.ks_2samp(n1, n2)
+        if a[1] <= 0.01:
+            print(f'{key} is likely not from the same distribution')
+        else:
+            print(f'{key}')
+
+
 if __name__ == "__main__":
 
     regions, clubs, dates, date_details = load_csv_files()
@@ -239,5 +266,9 @@ if __name__ == "__main__":
         G = create_graph(df, similarities)
         d = json_graph.node_link_data(G)
         d['artist_names_to_ids'] = artist_name_to_ids
+
+        compare_underlying_distribution(
+            d['nodes'], residency_factor, 'region'
+        )
         d = optimise_json(d)
         json.dump(d, open('./public/network-{}.json'.format(year), 'w'))
