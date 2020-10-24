@@ -52,7 +52,7 @@ the most similar line ups, with $weight% overlap in their bookings.
 
 ---
 
-Now we've changed the view to look at something I call *the residency factor*. 
+Now we've changed the view to look at something I call "*the residency factor*". 
 We take the number of unique artists booked at a club and divide it by the total 
 number of bookings, that is to say how often on average a club books a given artist<sup>2</sup>.
 
@@ -60,6 +60,8 @@ For clubs that rely more on residents, the same artists playing at a club regula
 this number would be higher whereas if you only book each artist once this number would be 1.
 
 The average residency factor is $averageResidency and only a handful of clubs go above 2.
+
+Click or hover on individual clubs to see more information on them.
 
 <details>
 <summary>Show footnotes</summary>
@@ -83,3 +85,45 @@ But there are also a great number of one-off bookings, bringing the averages dow
 This lends support to the theory that the most popular clubs today build their 
 appeal not by honing and supporting local residents but rather by building on a wider, 
 globetrotting talent pool. 
+
+--- 
+
+Let's now zoom out and look at the "*residency factor*" through the region the 
+different clubs are in.In this chart the box represents the range of the 90% of 
+the clubs within that region, the lines represent the outliers (5th and 95th 
+percentile). The blue line denotes the mean or average for that region. You can 
+click each region to see the clubs that belong to it.
+
+
+<details>
+<summary>Show footnotes</summary>
+
+We are still filtering out clubs with only a few dates (less than 10) and the 
+ones that booked less than 20 artists. This is why some regions have more clubs 
+than others and also why some regions were filtered out entirely (e.g. Los Angeles)
+
+</details>
+
+---
+
+[Manchester](https://www.residentadvisor.net/guide/uk/manchester)) and 
+[Ibiza](https://www.residentadvisor.net/guide/es/ibiza) have the biggest range 
+and the highest average and stand out from the other regions. 
+
+Maybe Ibiza clubs rotate their bookings less because their audience is in 
+constant rotation (Ibiza being a seasonal tourist destination)? This is pure 
+speculation though and I have no theory for why Manchester clubs to book 
+the same artists more often than the other regions.
+
+We can also see that Berlin might be an outlier. In fact when you run this data 
+through statistical analysis it suggests that Ibiza and Berlin are the only 
+regions that do not come from the same underlying distribution when it comes to 
+the "*residency factor*".<sup>3</sup>
+
+<details>
+<summary>Show footnotes</summary>
+
+3\. P value < 1% using the Kolmogorov-Smirnov statistic for the residency factor 
+of the various regions.
+
+</details>

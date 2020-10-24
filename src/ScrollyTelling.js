@@ -4,6 +4,7 @@ import marked from "marked"
 import steps from "./steps.md"
 import "./ScrollyTelling.scss"
 import {BeeSwarmChart} from "./charts/BeeSwarmChart"
+import {CandleStickChart} from "./charts/CandleStickChart"
 import {ClusterChart} from "./charts/ClusterChart"
 import {factorial} from "./lib"
 
@@ -15,6 +16,8 @@ class ScrollyTelling extends Component {
 		{filters: {region: "Berlin"}, chartType: ClusterChart, selectedNodes: []},
 		{filters: {country: "all"}, chartType: ClusterChart, selectedNodes: [] },
 		{filters: {region: "all"}, chartType: BeeSwarmChart, selectedNodes: []},
+		{filters: {region: "all"}, chartType: BeeSwarmChart, selectedNodes: []},
+		{filters: {region: "all"}, chartType: CandleStickChart, selectedNodes: []},
 	]
 
 	constructor(props) {
