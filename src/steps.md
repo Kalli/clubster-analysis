@@ -1,6 +1,6 @@
 In the chart below we see the $clubCount clubs that are part of this data set. 
 The size of each bubble reflects the amount of RA users that follow the club, 
-while the colour of the bubble reflects the *community* it belongs to. 
+while its colour reflects the *community* it belongs to. 
 
 The communities are calculated based on how similar the line ups for each pair of 
 clubs are. If two clubs have booked many of the same artists and djs then they 
@@ -89,10 +89,10 @@ globetrotting talent pool.
 --- 
 
 Let's now zoom out and look at the "*residency factor*" through the region the 
-different clubs are in.In this chart the box represents the range of the 90% of 
+different clubs are in. In this chart the box represents the range of the 90% of 
 the clubs within that region, the lines represent the outliers (5th and 95th 
-percentile). The blue line denotes the mean or average for that region. You can 
-click each region to see the clubs that belong to it.
+percentile). The blue vertical line denotes the mean or average for that region. 
+You can click each region to see the clubs that belong to it.
 
 
 <details>
@@ -115,10 +115,10 @@ constant rotation (Ibiza being a seasonal tourist destination)? This is pure
 speculation though and I have no theory for why Manchester clubs to book 
 the same artists more often than the other regions.
 
-We can also see that Berlin might be an outlier. In fact when you run this data 
-through statistical analysis it suggests that Ibiza and Berlin are the only 
-regions that do not come from the same underlying distribution when it comes to 
-the "*residency factor*".<sup>3</sup>
+We can also see that [Berlin](https://www.residentadvisor.net/guide/de/berlin) might 
+be an outlier. In fact when you run this data through statistical analysis it  
+suggests that Ibiza and Berlin are the only regions that do not come from the 
+same underlying distribution when it comes to the "*residency factor*".<sup>3</sup>
 
 <details>
 <summary>Show footnotes</summary>
