@@ -43,16 +43,19 @@ class Outro extends Component {
 				That concludes this analysis of the listings and line ups for
 				the most recommended clubs in the most popular regions on Resident
 				Advisor. I hope it has provided insight into how these clubs are
-				alike and different.
+				alike and different and given you a glimpse of how the world of
+				electronic dance music worked in 2019.
 			</p>
 			<p>
 				The data was retrieved in April to May 2020.
-				If you'd like to learn more you can view all the
-				<a href="https://github.com/kalli/club-charts/">code</a> for
+				If you'd like to learn more you can view all the <a href="https://github.com/kalli/club-charts/">code</a> for
 				retrieving and visualising this data. If you have any questions
-				you can reach me on
-				<a href="https://twitter.com/karltryggvason">twitter</a> or
-				<a href="mailto:ktryggvason@gmail.com">email</a>.
+				you can reach me on <a href="https://twitter.com/karltryggvason">twitter</a> or
+				through <a href="mailto:ktryggvason@gmail.com">email</a>.
+			</p>
+			<p>
+				A <a href="https://lazilyevaluated.co/">Lazily Evaluated</a> production.
+				By <a href="https://karltryggvason.com/">Karl Tryggvason</a> and <a href="https://soundcloud.com/moffandtarkin">Magnús Felix Tryggvason</a>
 			</p>
 		</>
 		return <Section content={content} intro={false} />

@@ -116,7 +116,7 @@ speculation though and I have no theory for why Manchester clubs to book
 the same artists more often than the other regions.
 
 We can also see that [Berlin](https://www.residentadvisor.net/guide/de/berlin) might 
-be an outlier. In fact when you run this data through statistical analysis it  
+be an outlier. In fact when you run this data through statistical analysis it 
 suggests that Ibiza and Berlin are the only regions that do not come from the 
 same underlying distribution when it comes to the "*residency factor*".<sup>3</sup>
 
