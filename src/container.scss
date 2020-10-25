@@ -4,15 +4,6 @@
     display: flex;
 }
 
-.controls {
-    margin: 10px 0 10px 0;
-    position: fixed;
-    top: $navbarHeight;
-    display: flex;
-    max-height: 40px;
-    z-index: 5;
-}
-
 .graphic{
     flex-basis: 60%;
     width: 100%;
@@ -107,6 +98,7 @@ li {
 
 .similarities {
     width: 100%;
+    padding-bottom: $navbarHeight;
 }
 
 .similarities ul li {

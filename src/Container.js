@@ -317,53 +317,6 @@ class Container extends Component {
 		this.setState({"filters": filter, "selectedNodes": []})
 	}
 
-	controls(){
-		const countries = [...new Set(this.props.data.nodes.map(e => e.country))]
-			.sort()
-			.map(c => <option key={c}>{c}</option>)
-		const selectedCountry = this.state.filters.country?
-			this.state.filters.country : "all"
-
-		const regions = [...new Set(this.props.data.nodes.map(e => e.region))]
-			.sort()
-			.map(c => <option key={c}>{c}</option>)
-		const selectedRegion = this.state.filters.region?
-			this.state.filters.region : "all"
-
-		const rankings = [...new Set(this.props.data.nodes.map(e => e.rank))]
-			.sort()
-			.map(c => <option key={c} value={c}>{c+1}</option>)
-		const selectedRank = this.state.filters.rank?
-			this.state.filters.rank : "all"
-
-		return <>
-			<select
-				name="country"
-				value={selectedCountry}
-		        onChange={this.setFilters}
-			>
-				<option value={"all"}>All Countries</option>
-				{countries}
-			</select>
-			<select
-				name="region"
-				value={selectedRegion}
-		        onChange={this.setFilters}
-			>
-				<option value={"all"}>All Regions</option>
-				{regions}
-			</select>
-			<select
-				name="rank"
-				value={selectedRank}
-		        onChange={this.setFilters}
-			>
-				<option value={"all"}>All Positions</option>
-				{rankings}
-			</select>
-		</>
-	}
-
 	updateWindowDimensions = () => {
 		const w = document.documentElement.clientWidth
 		const h = document.documentElement.clientHeight
@@ -389,13 +342,8 @@ class Container extends Component {
 	    }
 	}
 
-
 	render() {
-		const controls = this.controls()
 		return <div className="container" id={"start"}>
-			<div className={"controls"}>
-				{controls}
-			</div>
 			<div id={"tooltip"} />
 			<ScrollyTelling
 				enter={this.onStepEnter}
