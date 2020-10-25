@@ -6,7 +6,7 @@ import './rotate.scss';
 
 function Rotate(){
 	return <div className="rotate">
-		<div>
+		<div className={"center"}>
 			<h2>
 				Please turn your phone to landscape mode to properly view
 				this webpage.
