@@ -3,7 +3,7 @@
 .navbar{
     background-color: $primaryColor;
     color: $secondaryColor;
-    border-bottom: 2px solid $tertiaryColor;
+    border-bottom: 2px solid $secondaryColor;
     top: 0;
     position: sticky;
     position: -webkit-sticky; /* for Safari */
