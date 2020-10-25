@@ -4,9 +4,9 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import Rotate from "./Rotate"
 
-class FrontPage extends Component {
+class Intro extends Component {
 	render(){
-		const content = <div className="jumbotron">
+		const content = <>
 			<h1 className="center">
 				Resident Advisor Club Communities
 			</h1>
@@ -31,23 +31,49 @@ class FrontPage extends Component {
 					<FontAwesomeIcon icon={faChevronDown} />
 				</a>
 			</div>
-		</div>
-		return <Section content={content} />
+		</>
+		return <Section content={content} intro={true}/>
+	}
+}
+
+class Outro extends Component {
+	render (){
+		const content = <>
+			<p>
+				That concludes this analysis of the listings and line ups for
+				the most recommended clubs in the most popular regions on Resident
+				Advisor. I hope it has provided insight into how these clubs are
+				alike and different.
+			</p>
+			<p>
+				The data was retrieved in April to May 2020.
+				If you'd like to learn more you can view all the
+				<a href="https://github.com/kalli/club-charts/">code</a> for
+				retrieving and visualising this data. If you have any questions
+				you can reach me on
+				<a href="https://twitter.com/karltryggvason">twitter</a> or
+				<a href="mailto:ktryggvason@gmail.com">email</a>.
+			</p>
+		</>
+		return <Section content={content} intro={false} />
 	}
 }
 
 class Section extends Component {
-
 	render(){
-		return <>
-			<div className={"backgroundImage"} />
+		const contentClass = "sectionsContent " + (
+			!this.props.intro? "bottom" : ""
+		)
+		return <div className={"sections"}>
+			<div className={ this.props.intro? "top" : ""} />
 			<Rotate />
-			<div
-				className={"sections"}
-			>
-				{this.props.content}
+			<div className={contentClass}>
+				<div className="jumbotron">
+					{this.props.content}
+				</div>
 			</div>
-		</>
+		</div>
 	}
 }
-export default FrontPage
+
+export {Intro, Outro}

@@ -1,7 +1,12 @@
 @import './constants.scss';
 
-
 .sections{
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+
+.sectionsContent{
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -9,32 +14,38 @@
 }
 
 // Set a background image
-.backgroundImage {
-    position: absolute;
-    left: 0;
-    top: $navbarHeight;
-    right: 0;
+.top {
     z-index: 6;
-    width: 100%;
-    height: 100vh;
     background-size: cover !important;
     background: url(montage.jpg) no-repeat center;
     background-color: $primaryColor;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: $navbarHeight;
+}
+
+.bottom{
+    z-index: 6;
+    top: $navbarHeight;
+    background: url(montage.jpg) no-repeat center;
+    min-height: 100vh;
+    background-size: cover !important;
+    position: relative;
 }
 
 // Set a semi transparent overlay to the image
-.backgroundImage:after {
+.top:after, .bottom:after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: $primaryColor;
-    opacity: 0.5;
+    //background: $primaryColor;
+    opacity: 0.3;
+    background-image: linear-gradient($primaryColor, $secondaryColor);
 }
-
-
 
 .jumbotron{
     top: 20%;
@@ -65,7 +76,6 @@
 .center{
     text-align: center;
 }
-
 
 .scrollDown{
     animation-duration: 1s;
