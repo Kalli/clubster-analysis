@@ -295,7 +295,7 @@ class Container extends Component {
 		const color = fillColor(club.group, this.categories)
 		return <div style={{width: '50%'}}>
 			<h3 >
-				Other clubs in this group
+				Other clubs in this cluster
 			</h3>
 			<BarChart
 				data={Object.entries(stats)}

@@ -1,10 +1,10 @@
 In the chart below we see the $clubCount clubs that are part of this data set. 
 The size of each bubble reflects the amount of RA users that follow the club, 
-while its colour reflects the *community* it belongs to. 
+while its colour reflects the *cluster* it belongs to. 
 
-The communities are calculated based on how similar the line ups for each pair of 
+The clusters are calculated based on how similar the line ups for each pair of 
 clubs are. If two clubs have booked many of the same artists and djs then they 
-are more likely to be be in the same community<sup>1</sup>.
+are more likely to be be in the same cluster<sup>1</sup>.
 
 You can click on each club to see more details about it, which artists featured 
 on their line up most often and which other clubs are similar to it. Keep
@@ -13,9 +13,9 @@ scrolling to learn more.
 <details>
 <summary>Show footnotes</summary>
 
-1\. To calculate communities we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
+1\. To calculate clusters we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
 
-From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and their Jaccard index values are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect communities or clusters of clubs that are strongly internally connected. This groups similar clubs in clusters or communities.
+From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and their Jaccard index values are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect clusters or communities of clubs that are strongly internally connected. This ends up grouping together similar clubs.
 
 </details>
 
@@ -27,7 +27,7 @@ Lets take a look at the clubs of a specific region. Here is
 clubbing capitals.
 
 It is noticeable that except for *Berghain / Panorama Bar* all these clubs belong 
-to the same community. A similar pattern holds for quite a 
+to the same cluster. A similar pattern holds for quite a 
 few regions and countries, perhaps because many clubs rely on local or domestic 
 talent for many of their bookings while the superclubs book a wider variety 
 of international talent?

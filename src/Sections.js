@@ -8,10 +8,13 @@ class Intro extends Component {
 	render(){
 		const content = <>
 			<h1 className="center">
-				Resident Advisor Club Communities
+				Clubster Analysis
 			</h1>
+			<h3>
+				 Comparing the bookings at the worlds most popular nightclubs
+			</h3>
 			<p>
-				How similar are the line ups of the worlds most popular night clubs?
+				How similar or different are the line ups of the most popular nightclubs in the world?
 				Which clubs rely on residents and which have djs rotate through?
 				How different are the super clubs from the more underground fare?
 			</p>
@@ -40,7 +43,7 @@ class Outro extends Component {
 	render (){
 		const content = <>
 			<p>
-				That concludes this analysis of the listings and line ups for
+				That concludes this analysis of the bookings and line ups for
 				the most recommended clubs in the most popular regions on Resident
 				Advisor. I hope it has provided insight into how these clubs are
 				alike and different and given you a glimpse of how the world of
@@ -48,7 +51,7 @@ class Outro extends Component {
 			</p>
 			<p>
 				The data was retrieved in April to May 2020.
-				If you'd like to learn more you can view all the <a href="https://github.com/kalli/club-charts/">code</a> for
+				If you'd like to learn more you can view all the <a href="https://github.com/Kalli/clubster-analysis">code</a> for
 				retrieving and visualising this data. If you have any questions
 				you can reach me on <a href="https://twitter.com/karltryggvason">twitter</a> or
 				through <a href="mailto:ktryggvason@gmail.com">email</a>.
