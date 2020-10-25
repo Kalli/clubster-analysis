@@ -47,15 +47,15 @@ class App extends Component {
     }
 
     render(){
-		const frontPage = <FrontPage />
 	    const container = this.state.loading? '' : <Container
 		    data={this.state.data}
 	    />
         return (
             <>
 	            <Navbar />
-	            {frontPage}
+	            {<Intro />}
                 {container}
+	            {<Outro />}
             </>
         )
     }
