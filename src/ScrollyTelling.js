@@ -3,9 +3,6 @@ import {Scrollama, Step} from "react-scrollama"
 import marked from "marked"
 import steps from "./steps.md"
 import "./ScrollyTelling.scss"
-import {BeeSwarmChart} from "./charts/BeeSwarmChart"
-import {CandleStickChart} from "./charts/CandleStickChart"
-import {ClusterChart} from "./charts/ClusterChart"
 import {factorial} from "./lib"
 
 
@@ -13,11 +10,11 @@ class ScrollyTelling extends Component {
 
 	stepsData = [
 		{draw: true, filters: {region: "all"}, selectedNodes: [], scroll: true},
-		{filters: {region: "Berlin"}, chartType: ClusterChart, selectedNodes: []},
-		{filters: {country: "all"}, chartType: ClusterChart, selectedNodes: [] },
-		{filters: {region: "all"}, chartType: BeeSwarmChart, selectedNodes: []},
-		{filters: {region: "all"}, chartType: BeeSwarmChart, selectedNodes: []},
-		{filters: {region: "all"}, chartType: CandleStickChart, selectedNodes: []},
+		{filters: {region: "Berlin"}, chartType: "Cluster", selectedNodes: []},
+		{filters: {country: "all"}, chartType: "Cluster", selectedNodes: [] },
+		{filters: {region: "all"}, chartType: "BeeSwarm", selectedNodes: []},
+		{filters: {region: "all"}, chartType: "BeeSwarm", selectedNodes: []},
+		{filters: {region: "all"}, chartType: "CandleStick", selectedNodes: []},
 	]
 
 	constructor(props) {

@@ -5,6 +5,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
 import {fillColor, artistLink} from "./lib"
+import {BeeSwarmChart} from "./charts/BeeSwarmChart"
+import {CandleStickChart} from "./charts/CandleStickChart"
 import {ClusterChart} from "./charts/ClusterChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
 
@@ -25,7 +27,7 @@ class Container extends Component {
 			data: {},
 			filters: {},
 			draw: true,
-			chartType: ClusterChart,
+			chartType: "Cluster",
 			width: document.documentElement.clientWidth,
 			svgWidth: document.documentElement.clientWidth,
 			svgHeight: document.documentElement.clientHeight - this.controlHeight
@@ -50,7 +52,7 @@ class Container extends Component {
 		this.chartWrapper = new ChartWrapper(
 			svg, this.margin, this.categories,
 			this.state.svgHeight, this.state.svgWidth,
-			this.state.chartType
+			ClusterChart
 		)
 	}
 
@@ -171,10 +173,18 @@ class Container extends Component {
 		}else{
 			this.nodes = this.props.data.nodes
 		}
-		if (this.state.chartType){
-			if (this.state.chartType.name !== this.chartWrapper.chart.constructor.name){
-			    this.chartWrapper.setChartType(this.nodes, this.state.chartType)
+		if (this.state.chartType !== prevState.chartType){
+			let chartType
+			if (this.state.chartType === "Cluster"){
+				chartType = ClusterChart
 			}
+			if (this.state.chartType === "CandleStick"){
+				chartType = CandleStickChart
+			}
+			if (this.state.chartType === "BeeSwarm"){
+				chartType = BeeSwarmChart
+			}
+		    this.chartWrapper.setChartType(this.nodes, chartType)
 		}
 
 		if (this.state.draw){
