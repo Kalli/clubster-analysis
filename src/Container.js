@@ -247,7 +247,7 @@ class Container extends Component {
 				club.total_number_of_artists,
 				club.followers,
 				(club.attending / club.number_of_dates).toFixed(1),
-				(club.total_number_of_artists / club.number_of_unique_artists).toFixed(1),
+				(club.total_number_of_artists / club.number_of_unique_artists || 0).toFixed(1),
 				(club.total_number_of_artists / club.number_of_dates).toFixed(2),
 			]
 		})
