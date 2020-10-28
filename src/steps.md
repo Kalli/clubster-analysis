@@ -1,10 +1,10 @@
-In the chart below we see the $clubCount clubs that are part of this data set. 
+In the chart below we see the $clubCount clubs that are part of this data set<sup>1</sup>. 
 The size of each bubble reflects the amount of RA users that follow the club, 
 while its colour reflects the *cluster* it belongs to. 
 
 The clusters are calculated based on how similar the line ups for each pair of 
 clubs are. If two clubs have booked many of the same artists and djs then they 
-are more likely to be be in the same cluster<sup>1</sup>.
+are more likely to be be in the same cluster<sup>2</sup>.
 
 You can click on each club to see more details about it, which artists featured 
 on their line up most often and which other clubs are similar to it. Keep
@@ -13,7 +13,9 @@ scrolling to learn more.
 <details>
 <summary>Show footnotes</summary>
 
-1\. To calculate clusters we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
+1\. We looked at the most recommended clubs from the  are the top 20 regions in April 2020. Most regions had 8 "recommended" clubs. But some had far fewer, the South of Spain for instance [only had 2](https://www.residentadvisor.net/guide/es/south). The "Streamland" region was excluded entirely as it is not relevant for our purposes.
+
+2\. To calculate clusters we first calculate the overlap in lineups between each pair of clubs. Based on how many bookings the two venues have in common we calculate what is called the [Jaccard index](https://en.wikipedia.org/wiki/Jaccard_index). 
 
 From these calculations we create a [network](https://en.wikipedia.org/wiki/Graph_(discrete_mathematics) where the clubs are the nodes and their Jaccard index values are the edges connecting the nodes. We then run [community detection](https://en.wikipedia.org/wiki/Louvain_modularity) algorithms on the network to detect clusters or communities of clubs that are strongly internally connected. This ends up grouping together similar clubs.
 
@@ -54,10 +56,14 @@ the most similar line ups, with $weight% overlap in their bookings.
 
 Now we've changed the view to look at something I call "*the residency factor*". 
 We take the number of unique artists booked at a club and divide it by the total 
-number of bookings, that is to say how often on average a club books a given artist<sup>2</sup>.
+number of bookings, that is to say how often on average a club books a given artist<sup>3</sup>.
 
 For clubs that rely more on residents, the same artists playing at a club regularly and repeatedly, 
 this number would be higher whereas if you only book each artist once this number would be 1.
+
+For example, let's say we had a club that booked _DJ X_ 10 times and _DJ Y_ 5 
+times in 2019. Their *residency factor* would be 7.5, as there were a total of 15 
+bookings (10+5) for 2 artists (15/2=7.5).
 
 The average residency factor is $averageResidency and only a handful of clubs go above 2.
 
@@ -66,7 +72,7 @@ Click or hover on individual clubs to see more information on them.
 <details>
 <summary>Show footnotes</summary>
 
-2\. A few caveats here. For this view we've filtered out clubs that had less than 10 dates or booked fewer than 20 artists in total in 2019. 
+3\. A few caveats here. For this view we've filtered out clubs that had less than 10 dates or booked fewer than 20 artists in total in 2019. 
 
 Furthermore all the data here is limited to djs and artists that have a profile on Resident Advisor. For some genres and scenes, like house and techno, this the coverage is near complete, but for <a href="https://www.residentadvisor.net/events/1281396">others</a> this data is sometimes incomplete.
 
@@ -106,7 +112,7 @@ than others and also why some regions were filtered out entirely (e.g. Los Angel
 
 ---
 
-[Manchester](https://www.residentadvisor.net/guide/uk/manchester)) and 
+[Manchester](https://www.residentadvisor.net/guide/uk/manchester) and 
 [Ibiza](https://www.residentadvisor.net/guide/es/ibiza) have the biggest range 
 and the highest average and stand out from the other regions. 
 
@@ -118,12 +124,12 @@ the same artists more often than the other regions.
 We can also see that [Berlin](https://www.residentadvisor.net/guide/de/berlin) might 
 be an outlier. In fact when you run this data through statistical analysis it 
 suggests that Ibiza and Berlin are the only regions that do not come from the 
-same underlying distribution when it comes to the "*residency factor*".<sup>3</sup>
+same underlying distribution when it comes to the "*residency factor*".<sup>4</sup>
 
 <details>
 <summary>Show footnotes</summary>
 
-3\. P value < 1% using the Kolmogorov-Smirnov statistic for the residency factor 
+4\. P value < 1% using the Kolmogorov-Smirnov statistic for the residency factor 
 of the various regions.
 
 </details>
