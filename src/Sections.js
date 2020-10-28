@@ -58,7 +58,7 @@ class Outro extends Component {
 			</p>
 			<p>
 				A <a href="https://lazilyevaluated.co/">Lazily Evaluated</a> production.
-				By <a href="https://karltryggvason.com/">Karl Tryggvason</a> and <a href="https://soundcloud.com/moffandtarkin">Magnús Felix Tryggvason</a>
+				By <a href="https://karltryggvason.com/">Karl Tryggvason</a> and <a href="http://mtryggvason.github.io/">Magnús Felix Tryggvason</a>
 			</p>
 		</>
 		return <Section content={content} intro={false} />
