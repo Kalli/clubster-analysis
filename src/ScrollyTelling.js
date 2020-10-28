@@ -9,7 +9,7 @@ import {factorial} from "./lib"
 class ScrollyTelling extends Component {
 
 	stepsData = [
-		{draw: true, filters: {region: "all"}, selectedNodes: [], scroll: true},
+		{draw: true, filters: {region: "all"}, selectedNodes: []},
 		{filters: {region: "Berlin"}, chartType: "Cluster", selectedNodes: []},
 		{filters: {country: "all"}, chartType: "Cluster", selectedNodes: [] },
 		{filters: {region: "all"}, chartType: "BeeSwarm", selectedNodes: []},

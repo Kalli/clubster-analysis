@@ -9,12 +9,16 @@
     display: block;
     z-index: 10;
     padding: 5vh 10px 5vh 10px;
-    margin: 70vh 0 10vh 50px;
+    margin: 95vh 0 0 50px;
     border: 1px solid $secondaryColor;
     background: $primaryColor;
     border-radius: 15px;
     overflow-x: hidden;
     text-overflow: ellipsis;
+}
+
+.step:first-of-type{
+    margin-top: 70vh;
 }
 
 .step:last-child {
