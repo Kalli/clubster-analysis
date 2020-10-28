@@ -29,7 +29,7 @@ class ClusterChart extends Chart{
 			.force('collide', forceCollide(d => d.radius + padding))
 
 		this.zoomHandler = zoom()
-			.scaleExtent([0.8, 5])
+			.scaleExtent([1, 1])
 			.filter(() => {
 				return event.type !== "wheel" || event.target.nodeName !== "svg"
 			})
