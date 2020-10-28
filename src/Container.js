@@ -294,9 +294,7 @@ class Container extends Component {
 			return club.group === e.group && e.id !== club.id
 		})
 		if (groupClubs.length < 2){
-			return <div style={{width: '50%'}}>
-				<h3>No other clubs in this cluster</h3>
-			</div>
+			return <h3 className={"cluster"}>No other clubs in this cluster</h3>
 		}
 
 		const stats = groupClubs.reduce((acc, e) => {
@@ -305,7 +303,7 @@ class Container extends Component {
 		}, {})
 
 		const color = fillColor(club.group, this.categories)
-		return <div style={{width: '50%'}}>
+		return <div className={"cluster"} style={{width: '50%'}}>
 			<h3 >
 				Other clubs in this cluster
 			</h3>
