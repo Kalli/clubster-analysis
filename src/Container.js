@@ -291,10 +291,12 @@ class Container extends Component {
 		}
 		const club = this.state.selectedNodes[0]
 		const groupClubs = this.props.data.nodes.filter(e => {
-			return club.group === e.group
+			return club.group === e.group && e.id !== club.id
 		})
-		if (groupClubs.length === 1){
-			return ""
+		if (groupClubs.length < 2){
+			return <div style={{width: '50%'}}>
+				<h3>No other clubs in this cluster</h3>
+			</div>
 		}
 
 		const stats = groupClubs.reduce((acc, e) => {
