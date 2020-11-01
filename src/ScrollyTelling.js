@@ -30,7 +30,7 @@ class ScrollyTelling extends Component {
 			return acc.weight > e.weight? acc : e
 		}, {weight: 0})
 
-		// Show De School and Berghain in step 4
+		// Show De School and Berghain in step 3
 		this.stepsData[2].selectedNodes = this.props.nodes.filter((e) => {
 			return [112491, 5031].includes(e.club_id)
 		})
