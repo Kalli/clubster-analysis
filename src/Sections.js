@@ -15,15 +15,16 @@ class Intro extends Component {
 			</h3>
 			<p>
 				How similar or different are the line ups of the most popular nightclubs in the world?
-				Which clubs rely on residents and which have djs rotate through?
-				How different are the super clubs from the more underground fare?
+				Which clubs rely on residents and which have endlessly rotating talent?
+				How similar are the bookings of clubs in different countries and continents?
+				Are the super clubs different from the underground venues?
 			</p>
 			<p>
 				In an attempt to answer these questions and others like them we looked
 				at the most recommended clubs for the most popular regions on the
 				reputable website <a href="https://www.residentadvisor.net/events">Resident Advisor (RA)</a>.
 				We gathered all their listings for 2019 and then compared
-				the clubs based on djs and artists that played there that year.
+				the clubs based on the djs and artists who played there that year.
 				Take a look to see how your favourite club fits in.
 			</p>
 			<h3>
