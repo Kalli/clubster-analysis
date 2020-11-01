@@ -2,13 +2,14 @@ import React, {Component} from 'react'
 import './container.scss'
 import BarChart from './BarChart'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import {faTimesCircle, faCheck} from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
 import {fillColor, artistLink} from "./lib"
 import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {CandleStickChart} from "./charts/CandleStickChart"
 import {ClusterChart} from "./charts/ClusterChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
+import SelectSearch from 'react-select-search';
 
 
 class Container extends Component {
@@ -319,11 +320,9 @@ class Container extends Component {
 		</div>
 	}
 
-	setFilters =(e) => {
+	setFilters = (key, value) => {
 		const filter = {}
-		const v = e.target.name === "rank" && e.target.value !== "all"?
-			parseInt(e.target.value) : e.target.value
-		filter[e.target.name] = v
+		filter[key] = value
 		this.setState({"filters": filter, "selectedNodes": []})
 	}
 
@@ -333,6 +332,83 @@ class Container extends Component {
 		this.setState({
 			width: w, height: h, svgWidth: w, svgHeight: h - this.controlHeight
 		})
+	}
+
+	controls(){
+		const filters = this.state.filters
+		const selectedRegion = filters.region? filters.region : "all"
+		const selectedCountry = filters.country? filters.country : "all"
+
+		const clubs = this.props.data.nodes.filter((e) => {
+			if (selectedRegion !== "all") {
+				return e.region === selectedRegion
+			}
+			if (selectedCountry !== "all"){
+				return e.country === selectedCountry
+			}
+			return true
+		}).map((e) => {
+			return {
+				"name": e.id,
+				"value": e.id,
+				"color": fillColor(e.group, this.categories || [])
+			}
+		})
+
+		const countries = [...new Set(this.props.data.nodes.map(e => e.country))]
+			.sort()
+			.map(c => ({"name": c, "value": c}))
+
+		const regions = [...new Set(this.props.data.nodes.map(e => e.region))]
+			.sort()
+			.map(c => ({"name": c, "value": c}))
+
+		const allCountries = [{name: "All Countries", value: "all"}]
+		const allRegions = [{name: "All Regions", value: "all"}]
+		return <>
+			<SelectSearch
+				options={allCountries.concat(countries)}
+				name="country"
+				placeholder="Select a country"
+				value={selectedCountry}
+		        onChange={(value) => this.setFilters("country", value)}
+				renderOption={this.renderOption}
+			/>
+			<SelectSearch
+				options={allRegions.concat(regions)}
+				name="region"
+				placeholder="Select a region"
+				value={selectedRegion}
+		        onChange={(value) => this.setFilters("region", value)}
+				renderOption={this.renderOption}
+			/>
+			<SelectSearch
+				options={clubs}
+				name="club"
+				value={this.state.selectedNodes.map(e => e.id)}
+				search={true}
+				placeholder="Select a club"
+				onChange={(e) => this.searchSelect(e)}
+				renderOption={this.renderOption}
+			/>
+		</>
+	}
+
+    renderOption(domProps, option, snapshot, className){
+        return <button className={className} {...domProps}>
+	        {option.color &&
+	            <span className={"dot"} style={{backgroundColor: option.color}}/>
+	        }
+            {option.name}
+	        {snapshot.selected && <FontAwesomeIcon icon={faCheck} />}
+        </button>
+	}
+
+	searchSelect(selectedId){
+		const selectedClubs = this.props.data.nodes.find((e) => {
+			return selectedId === e.id
+		})
+		this.onNodeClick(selectedClubs)
 	}
 
 	showClubInfo(){
@@ -346,14 +422,24 @@ class Container extends Component {
 		</div>
 	}
 
+	// hack so on step enter can change the selectedNodes
+	setAsyncState = (newState) => new Promise(
+		(resolve) => this.setState(newState, resolve)
+	)
+
     onStepEnter = ({element, data, direction}) => {
 	    if (data){
-			this.setState(data)
+	    	// reset any selection from user before setting step data
+	    	this.setAsyncState({selectedNodes: []}).then(this.setState(data))
 	    }
 	}
 
 	render() {
+		const controls = this.state.chartType !== "CandleStick" && this.controls()
 		return <div className="container" id={"start"}>
+			<div className={"controls"}>
+				{controls}
+			</div>
 			<div id={"tooltip"} />
 			<ScrollyTelling
 				enter={this.onStepEnter}
@@ -368,6 +454,7 @@ class Container extends Component {
 				/>
 				{this.showClubInfo()}
 			</div>
+
         </div>
 	}
 }
