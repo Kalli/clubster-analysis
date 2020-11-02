@@ -1,98 +1,99 @@
-@import './constants.scss';
+@import "./constants.scss";
 
-.sections{
-    width: 100%;
-    height: 100vh;
-    display: block;
+.sections {
+  width: 100%;
+  height: 100vh;
+  display: block;
 }
 
-.sectionsContent{
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+.sectionsContent {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
 }
 
 // Set a background image
 .top {
-    z-index: 6;
-    background-size: cover !important;
-    background: url(montage.jpg) no-repeat center;
-    background-color: $primaryColor;
-    width: 100%;
-    height: 100vh;
-    position: absolute;
-    top: $navbarHeight;
+  z-index: 6;
+  background-size: cover !important;
+  background: url(montage.jpg) no-repeat center;
+  background-color: $primaryColor;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
 }
 
-.bottom{
-    z-index: 6;
-    top: $navbarHeight;
-    background: url(montage.jpg) no-repeat center;
-    min-height: 100vh;
-    background-size: cover !important;
-    position: relative;
+.bottom {
+  z-index: 6;
+  top: 0;
+  background: url(montage.jpg) no-repeat center;
+  min-height: 100vh;
+  background-size: cover !important;
+  position: relative;
 }
 
 // Set a semi transparent overlay to the image
-.top:after, .bottom:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    //background: $primaryColor;
-    opacity: 0.3;
-    background-image: linear-gradient($primaryColor, $secondaryColor);
+.top:after,
+.bottom:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //background: $primaryColor;
+  opacity: 0.3;
+  background-image: linear-gradient($primaryColor, $secondaryColor);
 }
 
-.jumbotron{
-    top: 20%;
-    max-width: 60%;
-    height: max-content;
-    background-color: $primaryColor;
-    border-radius: 15px;
-    padding-bottom: 48px;
-    padding-top: 48px;
-    z-index: 7;
+.jumbotron {
+  top: 20%;
+  max-width: 60%;
+  height: max-content;
+  background-color: $primaryColor;
+  border-radius: 15px;
+  padding-bottom: 48px;
+  padding-top: 48px;
+  z-index: 7;
 }
 
-.jumbotron p{
-    margin-left: 50px;
-    margin-right: 50px;
-    text-align: left;
+.jumbotron p {
+  margin-left: 50px;
+  margin-right: 50px;
+  text-align: left;
 }
 
 @media (max-width: 850px) {
-    .jumbotron{
-        max-width: 80%;
-        max-height: 80%;
-        padding-bottom: 10px;
-        padding-top: 10px;
-    }
+  .jumbotron {
+    max-width: 80%;
+    max-height: 80%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
 }
 
-.center{
-    text-align: center;
+.center {
+  text-align: center;
 }
 
-.scrollDown{
-    animation-duration: 1s;
-    animation-name: bounce;
-    animation-direction: alternate;
-    animation-iteration-count: infinite;
-    font-size: 50px;
-    svg path {
-        fill: $secondaryColor;
-    }
+.scrollDown {
+  animation-duration: 1s;
+  animation-name: bounce;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  font-size: 50px;
+  svg path {
+    fill: $secondaryColor;
+  }
 }
 
 @keyframes bounce {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(-10px);
-    }
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
 }
