@@ -4376,6 +4376,10 @@ functional-red-black-tree@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
 
+fuse.js@^3.4.5:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.6.1.tgz#7de85fdd6e1b3377c23ce010892656385fd9b10c"
+
 gauge@~2.7.3:
   version "2.7.4"
   resolved "https://registry.yarnpkg.com/gauge/-/gauge-2.7.4.tgz#2c03405c7538c39d7eb37b317022e325fb018bf7"
@@ -7990,6 +7994,12 @@ react-scripts@3.4.1:
 react-scrollama@^2.2.12:
   version "2.2.12"
   resolved "https://registry.yarnpkg.com/react-scrollama/-/react-scrollama-2.2.12.tgz#67b75a7f36d01768e2cf6d6c726a060006045757"
+
+react-select-search@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-select-search/-/react-select-search-2.2.0.tgz#3758cf5475202994583ec280e300a26ad6040b35"
+  optionalDependencies:
+    fuse.js "^3.4.5"
 
 react@^16.13.1:
   version "16.13.1"

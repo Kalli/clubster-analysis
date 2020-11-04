@@ -1,4 +1,5 @@
 @import "./constants.scss";
+@import "./controls.scss";
 
 .container {
   display: flex;
@@ -42,30 +43,20 @@ li {
   text-align: left;
   margin-left: 10px;
   overflow-y: scroll;
-  flex-direction: row;
   .clubPanel {
     position: relative;
   }
-  // One club selected, should take half the panel
-  .clubInfo1 {
-    width: 50%;
-    .clubPanel {
-      width: 100%;
-    }
+  .clubPanel {
+    flex: 1;
   }
 
   //Two clubs selected, fill up entire panel
-  .clubInfo2 {
-    flex-basis: 100%;
+  .clubInfo {
     align-items: flex-start;
     flex-wrap: wrap;
     flex-direction: row;
     display: flex;
-
-    .clubPanel {
-      display: inline-block;
-      width: 50%;
-    }
+    flex: 50% 1;
   }
 
   table {
@@ -153,10 +144,10 @@ svg {
   border-radius: 15px;
 }
 
-#close {
+.close {
   position: absolute;
   right: 20px;
-  top: 12px;
+  top: 25px;
 }
 
 @media (max-width: 850px) {
@@ -164,16 +155,6 @@ svg {
     margin-left: 10px;
     margin-right: 10px;
     overflow: hidden;
-  }
-
-  // One club selected, take the full panel
-  .clubDetail {
-    .clubInfo1 {
-      width: 100%;
-      .clubPanel {
-        width: 100%;
-      }
-    }
   }
 
   .image img {
