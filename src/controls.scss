@@ -1,110 +1,114 @@
 // Controls and select searches
 .controls {
-    margin: 10px 0 10px 0;
-    position: fixed;
-    left: 10px;
-    top: $navbarHeight;
-    display: flex;
-    height: 20px;
-    z-index: 9;
-    box-sizing: border-box;
+  margin: 10px 0 10px 0;
+  position: fixed;
+  left: 10px;
+  top: $navbarHeight;
+  display: flex;
+  height: 20px;
+  z-index: 9;
+  box-sizing: border-box;
+  @media (max-width: 850px) {
+    display: none;
+  }
 }
 
-.select-search{
-    cursor: pointer;
-    width: 180px;
+.select-search {
+  cursor: pointer;
+  margin: 0 5px;
 }
 
-.select-search__value{
-    position: relative;
+.select-search__value {
+  position: relative;
+  cursor: pointer;
+  input {
+    background: $primaryColor;
+    color: $secondaryColor;
+    display: block;
+    padding: 0 16px;
+    border: 1px solid $secondaryColor;
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
     cursor: pointer;
-    input{
-        background: $primaryColor;
-        color: $secondaryColor;
-        display: block;
-        padding: 0 16px;
-        border: 1px solid $secondaryColor;
-        box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.15);
-        border-radius: 10px;
-        outline: none;
-        font-family: 'Noto Sans', sans-serif;
-        font-size: 14px;
-        text-align: left;
-        text-overflow: ellipsis;
-        line-height: 36px;
-    }
-    input::placeholder{
-        color: $secondaryColor;
-    }
-    input:focus::placeholder{
-        color: transparent;
-    }
+    outline: none;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 14px;
+    text-align: left;
+    text-overflow: ellipsis;
+    line-height: 36px;
+  }
+  input::placeholder {
+    color: $secondaryColor;
+  }
+  input:focus::placeholder {
+    color: transparent;
+  }
 }
 
 // dropdown arrow
-.select-search__value::after{
-    content: '';
-    position: absolute;
-    display: inline-block;
-    top: 25%;
-    right: 10px;
-    width: 11px;
-    height: 11px;
-    transform: rotate(45deg);
-    border-right: 1px solid $secondaryColor;
-    border-bottom: 1px solid $secondaryColor;
-    pointer-events: none;
+.select-search__value::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  top: 25%;
+  right: 10px;
+  width: 11px;
+  height: 11px;
+  transform: rotate(45deg);
+  border-right: 1px solid $secondaryColor;
+  border-bottom: 1px solid $secondaryColor;
+  pointer-events: none;
 }
 
-.select-search__select{
-    margin-top: 5px;
-    border: 1px solid $secondaryColor;
-    max-height: 50vh;
-    overflow-y: scroll;
-    background-color: $primaryColor;
-    overflow-x: hidden;
-    border-radius: 10px;
-    max-width: 100%;
-    ul{
-        list-style: None;
-        padding-left: 0;
-    }
+.select-search__select {
+  margin-top: 5px;
+  border: 1px solid $secondaryColor;
+  max-height: 50vh;
+  overflow-y: scroll;
+  background-color: $primaryColor;
+  overflow-x: hidden;
+  border-radius: 10px;
+  max-width: 100%;
+  ul {
+    list-style: None;
+    padding-left: 0;
+  }
 }
 
 .select-search__option {
-    display: block;
-    width: 100%;
-    background: $primaryColor;
-    color: $secondaryColor;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    text-align: left;
-    cursor: pointer;
-    margin-bottom: 5px;
-    margin-top: 5px;
+  display: block;
+  width: 100%;
+  background: $primaryColor;
+  color: $secondaryColor;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .dot {
-    height: 12px;
-    width: 12px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-right: 5px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
 }
 
 button.is-selected {
-    background-color: lighten($primaryColor, 10%);
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    content: "\f007";
-    display: inline-block;
-    padding-right: 3px;
-    vertical-align: middle;
-    font-weight: 900;
-    svg{
-        padding-left: 10px;
-    }
+  background-color: lighten($primaryColor, 10%);
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f007";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+  svg {
+    padding-left: 10px;
+  }
 }

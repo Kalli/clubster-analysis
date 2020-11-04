@@ -1,4 +1,5 @@
 import React from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import BarChart from "./BarChart";
@@ -21,8 +22,7 @@ const Club = (props) => {
   return (
     <div key={club.club_id} className={"clubPanel"}>
       <button
-        className={"clubButton"}
-        id={"close"}
+        className={"clubButton close"}
         onClick={(e) => props.onNodeClick(club)}
       >
         <FontAwesomeIcon icon={faTimesCircle} />
@@ -41,7 +41,7 @@ const Club = (props) => {
   );
 };
 
-const Table = (header, data) => {
+const Table = ({ header, data }) => {
   return (
     <tr key={header + "row"}>
       <td key={header + "cell"}>{header}</td>
@@ -53,6 +53,49 @@ const Table = (header, data) => {
 };
 
 const ClubTable = (props) => {
+  const mostCommonArtists = () => {
+    return props.clubs.map((node, i) => {
+      return Object.entries(node.artists)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 5)
+        .map((e, j) => {
+          const key = "artist" + i + "-" + j;
+          return (
+            <li key={key}>
+              {artistLink(e[0], props.data.artist_names_to_ids)}
+              {" - " + e[1]}
+            </li>
+          );
+        });
+    });
+  };
+
+  const mostSimilarClubs = () => {
+    return props.clubs.map((f) => {
+      return props.data.links
+        .filter((e) => {
+          return [e.source, e.target].includes(f.id);
+        })
+        .sort((a, b) => b.weight - a.weight)
+        .slice(0, 5)
+        .reduce((acc, e) => {
+          const club = e.source !== f.id ? e.source : e.target;
+          acc.push(
+            <li key={club.clubId}>
+              <button
+                className={"clubButton"}
+                onClick={(e) => this.clubButtonClickHandler(club.clubId, f)}
+              >
+                {club.clubId}
+              </button>{" "}
+              {(e.weight * 100).toFixed() + "%"}
+            </li>
+          );
+          return acc;
+        }, []);
+    });
+  };
+
   const rows = props.clubs.map((club) => {
     return [
       club.number_of_dates,
@@ -77,18 +120,19 @@ const ClubTable = (props) => {
     "Average artists per date",
   ];
 
-  let tableRows = headers.map((e, i) => {
-    return (
-      <tr key={i}>
-        <td key={e}>{e}</td>
-        {rows.map((e, j) => (
-          <td key={i + "-" + j}>{e[i]}</td>
-        ))}
-      </tr>
-    );
-  });
-  //.concat(<Table title="Most Booked Artists" rows={mostCommonArtists()) /> )
-  //.concat(<Table title="Most Similar Clubs", rowx={mostSimilarClubs()));
+  let tableRows = headers
+    .map((e, i) => {
+      return (
+        <tr key={i}>
+          <td key={e}>{e}</td>
+          {rows.map((e, j) => (
+            <td key={i + "-" + j}>{e[i]}</td>
+          ))}
+        </tr>
+      );
+    })
+    .concat(<Table title="Most Booked Artists" data={mostCommonArtists()} />)
+    .concat(<Table title="Most Similar Clubs" data={mostSimilarClubs()} />);
 
   const header =
     rows.length !== 2 ? null : (
@@ -189,11 +233,11 @@ const Similarities = (props) => {
   );
 };
 
-export default (props) => {
+const Panel = (props) => {
   const { clubs } = props;
   return (
     <div className={"clubDetail visible"}>
-      <div className={"clubInfo" + clubs.length}>
+      <div className={"clubInfo"}>
         {clubs.map((club) => (
           <Club {...props} club={club} />
         ))}
@@ -204,3 +248,5 @@ export default (props) => {
     </div>
   );
 };
+
+export default Panel;
