@@ -133,8 +133,8 @@ const ClubTable = (props) => {
         </tr>
       );
     })
-    .concat(<Table key="artist-table" title="Most Booked Artists" data={mostCommonArtists()} />)
-    .concat(<Table key="club-table" title="Most Similar Clubs" data={mostSimilarClubs()} />);
+    .concat(<Table key="artist-table" header="Most Booked Artists" data={mostCommonArtists()} />)
+    .concat(<Table key="club-table" header="Most Similar Clubs" data={mostSimilarClubs()} />);
 
   const header =
     rows.length !== 2 ? null : (
@@ -245,8 +245,8 @@ const Panel = (props) => {
         ))}
         <ClubTable {...props} />
       </div>
-      {clubs.length === 1 && <ClubGroup {...props}></ClubGroup>}
-      {clubs.length === 2 && <Similarities {...props}></Similarities>}
+      {clubs.length === 1 && <ClubGroup {...props} />}
+      {clubs.length === 2 && <Similarities {...props} />}
     </div>
   );
 };
