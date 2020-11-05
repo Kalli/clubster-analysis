@@ -177,7 +177,7 @@ const ClubGroup = (props) => {
 
 	const color = fillColor(club.group, props.categories);
 	return (
-		<div className={"cluster"} style={{width: "50%"}}>
+		<div className={"cluster"}>
 			<h3>Other clubs in this cluster</h3>
 			<BarChart
 				data={Object.entries(stats)}

@@ -162,7 +162,15 @@ svg {
 }
 
 @media (max-width: 850px) {
+    .clubDetail{
+        top: 0;
+    }
 
+    .close {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
     .networkWrapper {
         margin-left: 10px;
         margin-right: 10px;
@@ -184,5 +192,8 @@ svg {
     }
     .graphic{
         top: 0;
+    }
+    .cluster{
+        width: 100%;
     }
 }
