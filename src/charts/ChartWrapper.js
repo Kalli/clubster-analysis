@@ -21,7 +21,6 @@ class ChartWrapper{
         newChart.g = this.chart.g
         newChart.node = this.chart.node
 	    newChart.initial = true
-        newChart.createGraph(nodes)
         this.chart = newChart
     }
 

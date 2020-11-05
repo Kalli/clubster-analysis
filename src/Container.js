@@ -13,7 +13,7 @@ import ClubPanel from "./clubPanel";
 
 class Container extends Component {
 	controlHeight = 70
-	margin = {top: 10, right: 20, bottom: 20, left: 50}
+	margin = {top: 60, right: 20, bottom: 20, left: 50}
 
 	constructor(props) {
 		super(props)

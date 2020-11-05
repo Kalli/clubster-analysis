@@ -236,11 +236,12 @@ class CandleStickChart extends Chart{
 			.tickValues(this.xScale.ticks().concat(this.xScale.domain()))
 		this.legend.call(axis)
 
-		const labelOffset = `translate(0, ${this.margin.top + 20})`
+		const labelOffset = `translate(${this.width}, 30)`
 		select(this.svg)
 			.append("g")
 			.attr("transform", labelOffset)
 			.attr("class", "label legend")
+			.attr("text-anchor", "end")
 			.append('text')
 		    .text("Average number of bookings per artist by region in 2019")
 	}
