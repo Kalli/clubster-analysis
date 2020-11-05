@@ -15,6 +15,7 @@ class ClusterChart extends Chart{
 	constructor(svg, margin, categories, h, w) {
 		super(svg, margin, categories, h, w)
 		this.clusters = {}
+		this.isMobile = getDeviceType() !== 'desktop'
 	}
 
 	createGraph(nodes){
@@ -28,15 +29,18 @@ class ClusterChart extends Chart{
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
-		if (getDeviceType() === 'desktop') { 
-			this.zoomHandler = zoom()
-				.scaleExtent([1, 1])
-				.filter(() => {
-					return event.type !== "wheel" || event.target.nodeName !== "svg"
-				})
-				.on("zoom", () => this.zoom(this.g))
-			select(this.svg).call(this.zoomHandler)
-		}
+		this.zoomHandler = zoom()
+			.scaleExtent([1, 1])
+			.filter(() => {
+				if (!this.isMobile ){
+					return event.target.nodeName !== "svg"
+				}
+				// pan with two fingers on mobile
+				return event.touches && event.touches.length > 1
+			})
+			.on("zoom", () => this.zoom(this.g))
+		select(this.svg).call(this.zoomHandler)
+
 
 		this.decay()
 		this.createLegend()
@@ -234,9 +238,9 @@ class ClusterChart extends Chart{
 			return this.calculateRadius({followers: e})
 		})
 
-		const x = 10
+		const x = 20
 		const lineHeight = 30
-		const y = this.height - 2 * Math.max(...radiuses)
+		const y = this.height - (this.isMobile? 20 : 2 * Math.max(...radiuses))
 
 	    this.legend = select(this.svg)
 	        .append("g")
@@ -293,7 +297,8 @@ class ClusterChart extends Chart{
 
 	calculateRadius(e){
 		// scale node radius according to svg size
-		const m = Math.min(this.width, this.height) / 800
+		const factor = this.isMobile? 500 : 800
+		const m = Math.min(this.width, this.height) / factor
 		return 12 * Math.log(Math.sqrt(e.followers)) * m
 	}
 
