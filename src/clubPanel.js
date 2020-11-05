@@ -21,17 +21,19 @@ const Club = (props) => {
 
   return (
     <div key={club.club_id} className={"clubPanel"}>
-      <button
-        className={"clubButton close"}
-        onClick={(e) => props.onNodeClick(club)}
-      >
-        <FontAwesomeIcon icon={faTimesCircle} />
-      </button>
-      <h3 style={{ backgroundColor: color }} className={"clubName"}>
-        <a rel={"noopener noreferrer"} target={"_blank"} href={link}>
-          {club.id}
-        </a>
-      </h3>
+      <div className="clubName">
+        <button
+          className={"clubButton close"}
+          onClick={(e) => props.onNodeClick(club)}
+        >
+          <FontAwesomeIcon icon={faTimesCircle} />
+        </button>
+        <h3 className="clubTitle" style={{ backgroundColor: color }}>
+          <a rel={"noopener noreferrer"} target={"_blank"} href={link}>
+            {club.id}
+          </a>
+        </h3>
+      </div>
       {img}
       <div className={"center"}>
         {club.region}
@@ -175,7 +177,7 @@ const ClubGroup = (props) => {
       <h3>Other clubs in this cluster</h3>
       <BarChart
         data={Object.entries(stats)}
-        width={312}
+        width={Math.min(window.outerWidth / 2, 312)}
         height={230}
         color={color}
       />
