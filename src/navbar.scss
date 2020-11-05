@@ -23,3 +23,13 @@
     color: var(--a-color);
     text-decoration: none;
 }
+
+@media (max-width: 850px) {
+    .navbar {
+        height: $mobileNavbarHeight;
+        position: static;
+        h1{
+            font-size: 18px;
+        }
+    }
+}
