@@ -176,7 +176,7 @@ const ClubGroup = (props) => {
       <BarChart
         data={Object.entries(stats)}
         width={312}
-        height={210}
+        height={230}
         color={color}
       />
       <ul>

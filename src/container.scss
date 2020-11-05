@@ -102,6 +102,9 @@ li {
 .cluster{
     width: 50%;
     padding-bottom: $navbarHeight;
+    h3 {
+        padding: 10px;
+    }
 }
 
 .similarities ul li {
