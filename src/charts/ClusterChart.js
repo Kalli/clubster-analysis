@@ -92,7 +92,10 @@ class ClusterChart extends Chart{
 
 		let newNode = this.node.enter()
 			.append("g")
-			.on("click", d => clickHandler(d))
+			.on("click", d => {
+				event.stopPropagation()
+				clickHandler(d)
+			})
 			.call(drag()
 					.on("start", d => this.dragstarted(d, this.simulation))
 					.on("drag", d => this.dragged(d))
@@ -113,6 +116,7 @@ class ClusterChart extends Chart{
 			.attr("text-anchor", "middle")
 			.attr("class", "label")
 			.style("fill", "#fff")
+			.style("cursor", "pointer")
 			.style("opacity", 0)
             .style("font-size", 12)
 			.text(d => fitTextToScreen(d.id, d.radius))

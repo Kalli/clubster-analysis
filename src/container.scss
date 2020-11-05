@@ -11,7 +11,7 @@
     position: fixed;
     top: $navbarHeight;
     z-index: 1;
-    align-self: flex-start
+    align-self: flex-start;
 }
 
 h3, h4 {
@@ -23,7 +23,7 @@ li {
 }
 
 .hidden {
-    transform: translate3d(100vw, 0vw, 0px)  translateX(-100%);
+    transform: translate3d(100vw, 0vw, 0px) translateX(-100%);
 }
 
 .clubDetail {
@@ -42,28 +42,25 @@ li {
     text-align: left;
     margin-left: 10px;
     overflow-y: scroll;
+    align-items: flex-start;
+    transform: translateX(100%);
+    &.visible {
+        transform: translateX(0);
+    }
+  .clubPanel {
+    position: relative;
+  }
+  .clubPanel {
+    flex: 1;
+  }
+
+  .clubInfo {
+    align-items: flex-start;
+    flex-wrap: wrap;
     flex-direction: row;
-
-    // One club selected, should take half the panel
-    .clubInfo1{
-        width: 50%;
-        .clubPanel {
-            width: 100%;
-        }
-    }
-
-    //Two clubs selected, fill up entire panel
-    .clubInfo2{
-        flex-basis: 100%;
-        align-items: center;
-        flex-wrap: wrap;
-        flex-direction: row;
-
-        .clubPanel {
-            display: inline-block;
-            width: 50%;
-        }
-    }
+    display: flex;
+    flex: 50% 1;
+  }
 
     table {
         margin: 10px;
@@ -77,7 +74,7 @@ li {
         }
         td {
             vertical-align: text-top;
-            border: 1px solid  lighten($primaryColor, 5%);
+            border: 1px solid lighten($primaryColor, 5%);
         }
         li {
             list-style: none;
@@ -123,6 +120,8 @@ li {
     color: white;
     border-radius: 15px;
     padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .clubButton{
@@ -148,11 +147,10 @@ svg {
     border-radius: 15px;
 }
 
-#close {
-    float: right;
-    display: inline-block;
-    padding: 2px 5px;
-    z-index: 10;
+.close {
+    position: absolute;
+    right: 20px;
+    top: 29px;
 }
 
 @media (max-width: 850px) {
@@ -161,16 +159,6 @@ svg {
         margin-left: 10px;
         margin-right: 10px;
         overflow: hidden;
-    }
-
-    // One club selected, take the full panel
-    .clubDetail {
-        .clubInfo1{
-            width: 100%;
-            .clubPanel {
-                width: 100%;
-            }
-        }
     }
 
     .image img{
