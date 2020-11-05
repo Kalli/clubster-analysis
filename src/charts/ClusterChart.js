@@ -8,7 +8,7 @@ import {fitTextToScreen} from "../textHandling"
 import {fillColor} from "../lib"
 import './Chart.scss'
 import {Chart} from "./Chart"
-
+import getDeviceType from '../utils/getDeviceType'
 
 class ClusterChart extends Chart{
 
@@ -28,13 +28,15 @@ class ClusterChart extends Chart{
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
-		this.zoomHandler = zoom()
-			.scaleExtent([1, 1])
-			.filter(() => {
-				return event.type !== "wheel" || event.target.nodeName !== "svg"
-			})
-			.on("zoom", () => this.zoom(this.g))
-		select(this.svg).call(this.zoomHandler)
+		if (getDeviceType() === 'desktop') { 
+			this.zoomHandler = zoom()
+				.scaleExtent([1, 1])
+				.filter(() => {
+					return event.type !== "wheel" || event.target.nodeName !== "svg"
+				})
+				.on("zoom", () => this.zoom(this.g))
+			select(this.svg).call(this.zoomHandler)
+		}
 
 		this.decay()
 		this.createLegend()
