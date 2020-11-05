@@ -18,7 +18,7 @@ class BarChart extends Component {
 	}
 
 	createGraph = (data, w, h, color) => {
-		var margin = {top: 10, right: 0, bottom: 70, left: 40}
+		var margin = {top: 10, right: 0, bottom: 60, left: 40}
 	    const width = w - margin.left - margin.right
 	    const height = h - margin.top - margin.bottom
 
