@@ -58,10 +58,7 @@ class CandleStickChart extends Chart{
 
         this.xScale = scaleLinear()
             .domain([1, max(this.nodes, d => this.x(d))])
-            .range([
-            	this.margin.left,
-	            this.width - this.margin.right - this.margin.left
-            ])
+            .range([this.margin.left, this.width])
 
         this.yScale = scaleBand()
             .domain(Array.from(Array(this.groups.length).keys()))

@@ -10,10 +10,16 @@ import {ClusterChart} from "./charts/ClusterChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
 import SelectSearch from 'react-select-search';
 import ClubPanel from "./clubPanel";
+import getDeviceType from './utils/getDeviceType'
 
 class Container extends Component {
-	controlHeight = 70
-	margin = {top: 60, right: 20, bottom: 20, left: 50}
+	isMobile = getDeviceType() === "mobile"
+	controlHeight = this.isMobile ? 0 : 70
+	margin = this.isMobile? (
+			{top: 10, right: 20, bottom: 10, left: 10}
+		):(
+			{top: 60, right: 20, bottom: 20, left: 50}
+	)
 
 	constructor(props) {
 		super(props)
