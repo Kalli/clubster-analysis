@@ -240,7 +240,7 @@ class ClusterChart extends Chart{
 
 		const x = 20
 		const lineHeight = 30
-		const y = this.height - (this.isMobile? 20 : 2 * Math.max(...radiuses))
+		const y = this.height - 2.3 * Math.max(...radiuses)
 
 	    this.legend = select(this.svg)
 	        .append("g")

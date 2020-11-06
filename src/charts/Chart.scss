@@ -1,10 +1,10 @@
 @import '../constants';
 
-.nodes{
-  cursor: pointer;
+.nodes {
+    cursor: pointer;
 }
 
-.legend circle{
+.legend circle {
     fill: $secondaryColor;
 }
 
@@ -16,28 +16,38 @@
     stroke: $secondaryColor;
 }
 
-.candlestick circle{
+.candlestick circle {
     fill: $secondaryColor;
     transition: fill 2000ms linear;
 }
 
-.candlestick .mean{
-  stroke: $primaryColor;
+.candlestick .mean {
+    stroke: $primaryColor;
 }
 
-.candlestick text{
-  font-weight: bold;
-  size: 14px;
+.candlestick text {
+    font-weight: bold;
+    font-size: 14px;
 }
 
-g:hover > text{
-  opacity: 1 !important;
-  display: block !important;
-  margin-top: -16px!important;
-  font-size: -16px!important;
+g:hover > text {
+    opacity: 1 !important;
+    display: block !important;
+    margin-top: -16px !important;
+    font-size: -16px !important;
 }
 
 .label text {
-  font-size: 1.5em;
-  fill: $secondaryColor;
+    font-size: 1.5em;
+    fill: $secondaryColor;
+}
+
+@media (max-width: 850px) {
+    .label text {
+        font-size: 1em;
+    }
+    .candlestick text {
+        font-weight: normal;
+        font-size: 10px !important;
+    }
 }
