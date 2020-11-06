@@ -6,7 +6,7 @@
 }
 
 /* only when orientation is in portrait mode */
-@media (max-width: 400px) and (orientation:portrait) {
+@media (max-width: 500px) and (orientation:portrait) {
     .rotate {
         position: absolute;
         z-index: 10;
