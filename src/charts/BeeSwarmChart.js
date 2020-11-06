@@ -12,7 +12,7 @@ class BeeSwarmChart extends Chart{
 	constructor(svg, margin, categories, h, w) {
 		super(svg, margin, categories, h, w)
 		this.groups = []
-		this.radius = 15
+		this.radius = this.isMobile ? 10 : 15
 	}
 
 	y = e => e.group

@@ -1,5 +1,6 @@
 import {select, selectAll} from 'd3-selection'
 import {transition} from 'd3-transition'
+import getDeviceType from "../utils/getDeviceType"
 
 // Common chart functionality
 class Chart{
@@ -14,6 +15,7 @@ class Chart{
 		this.legend = null
 		this.active = true
 		this.t = transition().duration(1500)
+		this.isMobile = getDeviceType() !== 'desktop'
 	}
 
 	createGraph(nodes){

@@ -8,14 +8,12 @@ import {fitTextToScreen} from "../textHandling"
 import {fillColor} from "../lib"
 import './Chart.scss'
 import {Chart} from "./Chart"
-import getDeviceType from '../utils/getDeviceType'
 
 class ClusterChart extends Chart{
 
 	constructor(svg, margin, categories, h, w) {
 		super(svg, margin, categories, h, w)
 		this.clusters = {}
-		this.isMobile = getDeviceType() !== 'desktop'
 	}
 
 	createGraph(nodes){
