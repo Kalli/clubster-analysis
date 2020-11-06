@@ -46,7 +46,7 @@ class Outro extends Component {
 			<p>
 				That concludes this analysis of the bookings and line ups for
 				the most recommended clubs in the most popular regions on Resident
-				Advisor. I hope it has provided insight into how these clubs are
+				Advisor. We hope it has provided insight into how these clubs are
 				alike and different and given you a glimpse of how the world of
 				electronic dance music worked in 2019.
 			</p>
