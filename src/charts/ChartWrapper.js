@@ -13,6 +13,12 @@ class ChartWrapper{
 		this.chart = new ChartType(svg, margin, categories, h, w)
 	}
 
+	dimensionChange(h, w){
+		this.h = h
+		this.w = w
+		this.initial = true
+	}
+
     setChartType(nodes, ChartType){
 	    this.chart.exit()
         const newChart = new ChartType(

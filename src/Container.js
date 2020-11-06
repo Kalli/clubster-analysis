@@ -20,6 +20,7 @@ class Container extends Component {
 		):(
 			{top: 60, right: 20, bottom: 20, left: 50}
 	)
+	resizeTimeout = 0
 
 	constructor(props) {
 		super(props)
@@ -42,7 +43,7 @@ class Container extends Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.updateWindowDimensions)
+		window.removeEventListener('resize', this.onResize)
 	}
 
 	componentDidMount() {
@@ -58,6 +59,7 @@ class Container extends Component {
 			this.state.svgHeight, this.state.svgWidth,
 			ClusterChart
 		)
+		window.addEventListener('resize', this.onResize)
 	}
 
 	onNodeClick = (node) => {
@@ -126,12 +128,22 @@ class Container extends Component {
 		this.setState({"filters": filter, "selectedNodes": []})
 	}
 
+	onResize = () => {
+		// only resize after resizing is likely complete
+		clearTimeout(this.resizeFunctionId)
+		this.resizeFunctionId = setTimeout(
+			this.updateWindowDimensions, 500
+		);
+	}
+
 	updateWindowDimensions = () => {
 		const w = document.documentElement.clientWidth
 		const h = document.documentElement.clientHeight
 		this.setState({
 			width: w, height: h, svgWidth: w, svgHeight: h - this.controlHeight
 		})
+		this.chartWrapper.dimensionChange(h, w)
+		this.chartWrapper.setChartType(this.nodes, this.getChartType())
 	}
 
 	controls(){
