@@ -3,7 +3,7 @@ import './container.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
 import {faCheck} from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
-import {fillColor, artistLink} from "./lib"
+import {fillColor} from "./lib"
 import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {CandleStickChart} from "./charts/CandleStickChart"
 import {ClusterChart} from "./charts/ClusterChart"
@@ -34,6 +34,7 @@ class Container extends Component {
 			filters: {},
 			draw: true,
 			chartType: "Cluster",
+			height: document.documentElement.clientHeight,
 			width: document.documentElement.clientWidth,
 			svgWidth: document.documentElement.clientWidth,
 			svgHeight: document.documentElement.clientHeight - this.controlHeight
@@ -45,15 +46,12 @@ class Container extends Component {
 	}
 
 	componentDidMount() {
-		this.updateWindowDimensions()
-		window.addEventListener('resize', this.updateWindowDimensions)
 		// sort so adjacent groups get different colors
 		this.categories = [
 			...new Set(this.nodes.map(e => e.group).sort((a, b) => {
 				return a % 2 - b % 2 || a - b
 			}))
 		]
-
 		const svg = this.ref.current
 		this.chartWrapper = new ChartWrapper(
 			svg, this.margin, this.categories,
@@ -83,10 +81,6 @@ class Container extends Component {
 		this.setState({selectedNodes: selectedClubs})
 	}
 
-	artistLink(artistName){
-		return artistLink(artistName, this.props.data.artist_names_to_ids)
-	}
-
 	componentDidUpdate( prevProps, prevState){
 		const filters = this.state.filters
 		if (Object.keys(filters).length !== 0){
@@ -99,17 +93,7 @@ class Container extends Component {
 			this.nodes = this.props.data.nodes
 		}
 		if (this.state.chartType !== prevState.chartType){
-			let chartType
-			if (this.state.chartType === "Cluster"){
-				chartType = ClusterChart
-			}
-			if (this.state.chartType === "CandleStick"){
-				chartType = CandleStickChart
-			}
-			if (this.state.chartType === "BeeSwarm"){
-				chartType = BeeSwarmChart
-			}
-		    this.chartWrapper.setChartType(this.nodes, chartType)
+		    this.chartWrapper.setChartType(this.nodes, this.getChartType())
 		}
 
 		if (this.state.draw){
@@ -121,6 +105,18 @@ class Container extends Component {
 				this.onNodeClick,
 				this.state.selectedNodes
 			)
+		}
+	}
+
+	getChartType(){
+		if (this.state.chartType === "Cluster"){
+			return ClusterChart
+		}
+		if (this.state.chartType === "CandleStick"){
+			return CandleStickChart
+		}
+		if (this.state.chartType === "BeeSwarm"){
+			return BeeSwarmChart
 		}
 	}
 
