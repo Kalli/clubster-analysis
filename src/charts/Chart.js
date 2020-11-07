@@ -25,7 +25,6 @@ class Chart{
 				.attr("class", "graph")
 			this.node = this.g.selectAll("circle")
 		}
-		this.g.transition(1000).attr("transform", "translate(0, 0), scale(1)")
 	}
 
 	highlightSelected(selectedNodes){
@@ -43,6 +42,7 @@ class Chart{
 	}
 
 	exit(){
+		this.g.transition(1000).attr("transform", "translate(0, 0), scale(1)")
 		this.active = false
 		selectAll(".legend").transition(2500).style("opacity", 0).remove()
 	}

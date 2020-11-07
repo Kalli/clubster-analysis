@@ -20,25 +20,28 @@ class ClusterChart extends Chart{
 		super.createGraph(nodes)
 		const padding = 1
 
+		// offset mobile to the left, so the scrolly telling overlaps it less
+		const x = this.width / 2 + (this.isMobile? 400 : 0)
+		const y = this.height / 2 + (this.isMobile? 100 : 0)
 		this.simulation = forceSimulation()
-			.force('center', forceCenter(this.width/2, this.height/2))
-			.force('x', forceX(this.width / 2).strength(0.01))
-			.force('y', forceY(this.height / 2).strength(0.01))
+			.force('center', forceCenter(x, y))
+			.force('x', forceX(x).strength(0.01))
+			.force('y', forceY(y).strength(0.01))
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
+		const zoomLevel = this.isMobile? 0.6 : 1
 		this.zoomHandler = zoom()
-			.scaleExtent([1, 1])
+			.scaleExtent([zoomLevel, zoomLevel])
 			.filter(() => {
-				if (!this.isMobile ){
-					return event.target.nodeName !== "svg"
+				if (this.isMobile ){
+					// pan with two fingers on mobile
+					return event.touches && event.touches.length > 1
 				}
-				// pan with two fingers on mobile
-				return event.touches && event.touches.length > 1
+				return true
 			})
 			.on("zoom", () => this.zoom(this.g))
 		select(this.svg).call(this.zoomHandler)
-
 
 		this.decay()
 		this.createLegend()
@@ -142,6 +145,9 @@ class ClusterChart extends Chart{
 			.on('tick', this.tick)
 			.nodes(nodes)
 		this.initial = false
+		if (this.isMobile){
+			this.g.attr("transform", "scale(.60, .60)")
+		}
 	}
 
 	calculateInitialPositions = (nodes) => {
@@ -240,12 +246,16 @@ class ClusterChart extends Chart{
 		const lineHeight = 30
 		const y = this.height - 2.3 * Math.max(...radiuses)
 
+		const translate = `translate(${x}, ${y})` + (
+			!this.isMobile? "":" scale(.60, .60)"
+		)
+
 	    this.legend = select(this.svg)
 	        .append("g")
 			.attr("class", "legend")
 	        .attr("x", x)
 	        .attr("y", y)
-	        .attr("transform", `translate(${x}, ${y})`)
+	        .attr("transform", translate)
 	        .style("text-align", "center")
 
 		const max = Math.max(...radiuses)
