@@ -35,7 +35,8 @@ class Container extends Component {
 			height: document.documentElement.clientHeight,
 			width: document.documentElement.clientWidth,
 			svgWidth: document.documentElement.clientWidth,
-			svgHeight: document.documentElement.clientHeight - this.controlHeight
+			svgHeight: document.documentElement.clientHeight - this.controlHeight,
+			categories: []
 		}
 	}
 
@@ -50,6 +51,7 @@ class Container extends Component {
 				return a % 2 - b % 2 || a - b
 			}))
 		]
+		this.setState({categories:this.categories})
 		const svg = this.ref.current
 		this.chartWrapper = new ChartWrapper(
 			svg, this.margin, this.categories,
@@ -158,7 +160,7 @@ class Container extends Component {
 	render() {
 		const controls = this.state.chartType !== "CandleStick" && <Controls
 			nodes={this.props.data.nodes}
-			categories={this.categories}
+			categories={this.state.categories}
 			filters={this.state.filters}
 			selectedNodes={this.state.selectedNodes}
 			filterChange={this.setFilters}

@@ -31,44 +31,47 @@ class Controls extends Component {
 			}
 		})
 
-		const countries = [...new Set(nodes.map(e => e.country))]
+		const countries = [{name: "All Countries", value: "all"}].concat(
+			[...new Set(nodes.map(e => e.country))]
 			.sort()
 			.map(c => ({"name": c, "value": c}))
+		)
 
-		const regions = [...new Set(nodes.map(e => e.region))]
+		const regions = [{name: "All Regions", value: "all"}].concat(
+			[...new Set(nodes.map(e => e.region))]
 			.sort()
 			.map(c => ({"name": c, "value": c}))
+		)
 
-		const allCountries = [{name: "All Countries", value: "all"}]
-		const allRegions = [{name: "All Regions", value: "all"}]
+		const country = this.select(
+			countries, selectedCountry, "country", this.props.filterChange
+		)
+
+		const region = this.select(
+			regions, selectedRegion, "region", this.props.filterChange
+		)
+
+		const selectedClubs = this.props.selectedNodes.map(e => e.id)
+		const club = this.select(
+			clubs, selectedClubs, "club", this.searchSelect
+		)
 		return <div className={"controls"}>
-
-			<SelectSearch
-				options={allCountries.concat(countries)}
-				name="country"
-				placeholder="Select a country"
-				value={selectedCountry}
-		        onChange={(value) => this.props.filterChange("country", value)}
-				renderOption={this.renderOption}
-			/>
-			<SelectSearch
-				options={allRegions.concat(regions)}
-				name="region"
-				placeholder="Select a region"
-				value={selectedRegion}
-		        onChange={(value) => this.props.filterChange("region", value)}
-				renderOption={this.renderOption}
-			/>
-			<SelectSearch
-				options={clubs}
-				name="club"
-				value={this.props.selectedNodes.map(e => e.id)}
-				search={!this.isMobile}
-				placeholder="Select a club"
-				onChange={(e) => this.searchSelect(e)}
-				renderOption={this.renderOption}
-			/>
+			{country}
+			{region}
+			{club}
 		</div>
+	}
+
+	select(options, selectedValue, name, changeHandler){
+		return <SelectSearch
+			options={options}
+			name={name}
+			placeholder={"Select a " + name}
+			value={selectedValue}
+			search={name === "club"}
+	        onChange={(value) => changeHandler(name, value)}
+			renderOption={this.renderOption}
+		/>
 	}
 
     renderOption(domProps, option, snapshot, className){
@@ -81,8 +84,7 @@ class Controls extends Component {
         </button>
 	}
 
-
-	searchSelect(selectedId){
+	searchSelect = (_, selectedId) => {
 		const selectedClubs = this.props.nodes.find((e) => {
 			return selectedId === e.id
 		})
