@@ -1,13 +1,18 @@
 import React, {Component} from 'react'
 import './container.scss'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faCheck} from '@fortawesome/free-solid-svg-icons'
+import {faCheck, faTimesCircle, faCog} from '@fortawesome/free-solid-svg-icons'
 import SelectSearch from 'react-select-search';
 import {fillColor} from "./lib"
 import './controls.scss'
 
 
 class Controls extends Component {
+
+	constructor(props) {
+		super(props)
+		this.state = {showControls: false}
+	}
 
 	render(){
 		const nodes = this.props.nodes
@@ -55,14 +60,40 @@ class Controls extends Component {
 		const club = this.select(
 			clubs, selectedClubs, "club", this.searchSelect
 		)
-		return <div className={"controls"}>
+
+		const icon = this.state.showControls? faTimesCircle : faCog
+		const hide = this.props.isMobile && !this.state.showControls
+
+		const mobile = !this.props.isMobile ? "" : <div className={"mobile-controls"}>
+			<button onClick={this.showControls}>
+                <FontAwesomeIcon icon={icon} />
+            </button>
+		</div>
+
+		return <div className={"controls " + (hide? "hidden " : "")}>
 			{country}
 			{region}
 			{club}
+			{mobile}
 		</div>
 	}
 
+    showControls = () => {
+        this.setState({showControls: !this.state.showControls})
+    }
+
 	select(options, selectedValue, name, changeHandler){
+		// return native selects for mobile
+		if (this.props.isMobile){
+			return <select
+				name={name}
+				onChange={(e) => changeHandler(name, e.target.value)}
+				value={selectedValue}
+			>
+				<option value="" disabled>Select a {name}</option>
+				{options.map(e => <option key={e.name}>{e.name}</option>)}
+			</select>
+		}
 		return <SelectSearch
 			options={options}
 			name={name}

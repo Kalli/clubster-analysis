@@ -1,5 +1,6 @@
 @import './constants.scss';
 
+$mobileTop: 10px;
 
 // Controls and select searches
 .controls {
@@ -12,7 +13,36 @@
     z-index: 9;
     box-sizing: border-box;
     @media (max-width: 850px) {
+        transition: transform 0.5s ease 0s;
+        transform: translateX(0%);
+        top: $mobileTop;
+        margin: 0;
+        -webkit-appearance: none;
+        select {
+            height: 40px;
+            width: 120px;
+        }
+    }
+}
+
+.hidden {
+    transform: translateX(-95%);
+}
+
+.mobile-controls{
     display: none;
+    @media (max-width: 850px) {
+        z-index: 5;
+        display: flex;
+        top: $mobileTop;
+        button {
+            background-color: grey;
+            border-radius: 10px;
+            border-style: none;
+            width: 40px;
+            height: 40px;
+            outline: none;
+        }
     }
 }
 

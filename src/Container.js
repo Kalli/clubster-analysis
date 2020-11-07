@@ -173,6 +173,7 @@ class Container extends Component {
 			selectedNodes={this.state.selectedNodes}
 			filterChange={this.setFilters}
 			selectNode={this.onNodeClick}
+			isMobile={this.isMobile}
 		/>
 		return <div className="container" id={"start"}>
 			{controls}
