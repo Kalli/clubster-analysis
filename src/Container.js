@@ -127,12 +127,20 @@ class Container extends Component {
 		this.setState({"filters": filter, "selectedNodes": []})
 	}
 
+	didDimensionsChange(){
+		// only resize if dimensions actually changed
+		const d = document.documentElement
+		return this.state.height !== d.clientHeight && this.state.width !== d.clientWidth
+	}
+
 	onResize = () => {
-		// only resize after resizing is likely complete
-		clearTimeout(this.resizeFunctionId)
-		this.resizeFunctionId = setTimeout(
-			this.updateWindowDimensions, 500
-		);
+		if (this.didDimensionsChange()){
+			// only resize after resizing is likely complete
+			clearTimeout(this.resizeFunctionId)
+			this.resizeFunctionId = setTimeout(
+				this.updateWindowDimensions, 500
+			);
+		}
 	}
 
 	updateWindowDimensions = () => {
