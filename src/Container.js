@@ -1,14 +1,11 @@
 import React, {Component} from 'react'
 import './container.scss'
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome"
-import {faCheck} from '@fortawesome/free-solid-svg-icons'
 import ScrollyTelling from "./ScrollyTelling"
-import {fillColor} from "./lib"
 import {BeeSwarmChart} from "./charts/BeeSwarmChart"
 import {CandleStickChart} from "./charts/CandleStickChart"
 import {ClusterChart} from "./charts/ClusterChart"
 import {ChartWrapper} from "./charts/ChartWrapper"
-import SelectSearch from 'react-select-search';
+import Controls from "./Controls"
 import ClubPanel from "./clubPanel";
 import getDeviceType from './utils/getDeviceType'
 
@@ -20,7 +17,7 @@ class Container extends Component {
 		):(
 			{top: 60, right: 20, bottom: 20, left: 50}
 	)
-	resizeTimeout = 0
+	resizeFunctionId = 0
 
 	constructor(props) {
 		super(props)
@@ -146,84 +143,6 @@ class Container extends Component {
 		this.chartWrapper.setChartType(this.nodes, this.getChartType())
 	}
 
-	controls(){
-		const filters = this.state.filters
-		const selectedRegion = filters.region? filters.region : "all"
-		const selectedCountry = filters.country? filters.country : "all"
-
-		const clubs = this.props.data.nodes.filter((e) => {
-			if (selectedRegion !== "all") {
-				return e.region === selectedRegion
-			}
-			if (selectedCountry !== "all"){
-				return e.country === selectedCountry
-			}
-			return true
-		}).map((e) => {
-			return {
-				"name": e.id,
-				"value": e.id,
-				"color": fillColor(e.group, this.categories || [])
-			}
-		})
-
-		const countries = [...new Set(this.props.data.nodes.map(e => e.country))]
-			.sort()
-			.map(c => ({"name": c, "value": c}))
-
-		const regions = [...new Set(this.props.data.nodes.map(e => e.region))]
-			.sort()
-			.map(c => ({"name": c, "value": c}))
-
-		const allCountries = [{name: "All Countries", value: "all"}]
-		const allRegions = [{name: "All Regions", value: "all"}]
-		return <>
-			<SelectSearch
-				options={allCountries.concat(countries)}
-				name="country"
-				placeholder="Select a country"
-				value={selectedCountry}
-		        onChange={(value) => this.setFilters("country", value)}
-				renderOption={this.renderOption}
-			/>
-			<SelectSearch
-				options={allRegions.concat(regions)}
-				name="region"
-				placeholder="Select a region"
-				value={selectedRegion}
-		        onChange={(value) => this.setFilters("region", value)}
-				renderOption={this.renderOption}
-			/>
-			<SelectSearch
-				options={clubs}
-				name="club"
-				value={this.state.selectedNodes.map(e => e.id)}
-				search={true}
-				placeholder="Select a club"
-				onChange={(e) => this.searchSelect(e)}
-				renderOption={this.renderOption}
-			/>
-		</>
-	}
-
-    renderOption(domProps, option, snapshot, className){
-        return <button className={className} {...domProps}>
-	        {option.color &&
-	            <span className={"dot"} style={{backgroundColor: option.color}}/>
-	        }
-            {option.name}
-	        {snapshot.selected && <FontAwesomeIcon icon={faCheck} />}
-        </button>
-	}
-
-	searchSelect(selectedId){
-		const selectedClubs = this.props.data.nodes.find((e) => {
-			return selectedId === e.id
-		})
-		this.onNodeClick(selectedClubs)
-	}
-
-
 	// hack so on step enter can change the selectedNodes
 	setAsyncState = (newState) => new Promise(
 		(resolve) => this.setState(newState, resolve)
@@ -237,11 +156,16 @@ class Container extends Component {
 	}
 
 	render() {
-		const controls = this.state.chartType !== "CandleStick" && this.controls()
+		const controls = this.state.chartType !== "CandleStick" && <Controls
+			nodes={this.props.data.nodes}
+			categories={this.categories}
+			filters={this.state.filters}
+			selectedNodes={this.state.selectedNodes}
+			filterChange={this.setFilters}
+			selectNode={this.onNodeClick}
+		/>
 		return <div className="container" id={"start"}>
-			<div className={"controls"}>
-				{controls}
-			</div>
+			{controls}
 			<div id={"tooltip"} />
 			<ScrollyTelling
 				enter={this.onStepEnter}
