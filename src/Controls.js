@@ -66,7 +66,7 @@ class Controls extends Component {
 
 		const mobile = !this.props.isMobile ? "" : <div className={"mobile-controls"}>
 			<button onClick={this.showControls}>
-                <FontAwesomeIcon icon={icon} />
+                <FontAwesomeIcon size="2x" icon={icon} />
             </button>
 		</div>
 
@@ -85,14 +85,16 @@ class Controls extends Component {
 	select(options, selectedValue, name, changeHandler){
 		// return native selects for mobile
 		if (this.props.isMobile){
-			return <select
-				name={name}
-				onChange={(e) => changeHandler(name, e.target.value)}
-				value={selectedValue}
-			>
-				<option value="" disabled>Select a {name}</option>
-				{options.map(e => <option key={e.name}>{e.name}</option>)}
-			</select>
+			return (<div className="select-wrapper">
+					<select
+					name={name}
+					onChange={(e) => changeHandler(name, e.target.value)}
+					value={selectedValue}
+				>
+					<option value="" disabled>Select a {name}</option>
+					{options.map(e => <option key={e.name}>{e.name}</option>)}
+				</select>
+			</div>);
 		}
 		return <SelectSearch
 			options={options}

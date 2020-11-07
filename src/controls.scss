@@ -17,16 +17,46 @@ $mobileTop: 10px;
         transform: translateX(0%);
         top: $mobileTop;
         margin: 0;
-        -webkit-appearance: none;
+        left: 0;
+        width: 100%;
+        .select-wrapper {
+            max-width: calc(33vw - 15px);
+            flex-grow: 1;
+            position: relative;
+            &::after {
+                content: "▼";
+                position: absolute;
+                color: grey;
+                right: 5px;
+                top: 17px;
+                font-size: 1em;
+            }
+        }
         select {
-            height: 40px;
-            width: 120px;
+            height: 50px;
+            display: flex;
+            flex-grow: 1;
+            -webkit-appearance: none;
+            padding: 5px;
+            background: white;
+            box-sizing: border-box;
+            margin: 0;
+            border: solid 1px grey;
+            border-radius: 0;
+            position: relative;
+            width: 100%;
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
         }
     }
 }
 
 .hidden {
-    transform: translateX(-95%);
+    transform: translateX(calc(-100% + 50px));
 }
 
 .mobile-controls{
@@ -37,10 +67,10 @@ $mobileTop: 10px;
         top: $mobileTop;
         button {
             background-color: grey;
-            border-radius: 10px;
+            border-radius: 0 10px 10px 0;
             border-style: none;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             outline: none;
         }
     }
