@@ -14,19 +14,20 @@ class ClusterChart extends Chart{
 	constructor(svg, margin, categories, h, w) {
 		super(svg, margin, categories, h, w)
 		this.clusters = {}
+		// center co-ordinates for clusters
+		// offset mobile to the left, so the scrolly telling overlaps it less
+		this.x = this.width / 2 + (this.isMobile? 400 : 0)
+		this.y = this.height / 2 + (this.isMobile? 100 : 0)
 	}
 
 	createGraph(nodes){
 		super.createGraph(nodes)
 		const padding = 1
 
-		// offset mobile to the left, so the scrolly telling overlaps it less
-		const x = this.width / 2 + (this.isMobile? 400 : 0)
-		const y = this.height / 2 + (this.isMobile? 100 : 0)
 		this.simulation = forceSimulation()
-			.force('center', forceCenter(x, y))
-			.force('x', forceX(x).strength(0.01))
-			.force('y', forceY(y).strength(0.01))
+			.force('center', forceCenter(this.x, this.y))
+			.force('x', forceX(this.x).strength(0.01))
+			.force('y', forceY(this.y).strength(0.01))
 			.force('cluster', this.cluster().strength(0.5))
 			.force('collide', forceCollide(d => d.radius + padding))
 
@@ -91,24 +92,27 @@ class ClusterChart extends Chart{
 			this.calculateInitialPositions(nodes)
 		}
 
+		let exit = 0
 		this.node = this.node.data(nodes, d=> d.id)
 		this.node.exit()
+			.each(() => exit++)
 			.transition().duration(2000)
 			.style("opacity", 0)
 			.remove()
 
+		let enter = 0
 		let newNode = this.node.enter()
+			.each(() => enter++)
 			.append("g")
 			.on("click", d => {
 				event.stopPropagation()
 				clickHandler(d)
 			})
 			.call(drag()
-					.on("start", d => this.dragstarted(d, this.simulation))
-					.on("drag", d => this.dragged(d))
-					.on("end", d => this.dragended(d, this.simulation))
+				.on("start", d => this.dragstarted(d, this.simulation))
+				.on("drag", d => this.dragged(d))
+				.on("end", d => this.dragended(d, this.simulation))
 			)
-
 
 		newNode
 			.append("circle")
@@ -130,13 +134,18 @@ class ClusterChart extends Chart{
 			.transition().duration(2000).style("opacity", 1)
 
 		this.node = this.node.merge(newNode)
-
 		if (!this.initial){
 			// restart simulation so nodes wont get stuck on next filter
 			this.simulation.alphaTarget(0.3).restart()
 			setTimeout( () => {
+				if (enter > 0 || exit > 0){
+					// if the nodes changed pull them slightly to center
+					// to ensure as many as possible are visible
+					this.simulation.force('x', forceX(this.x).strength(0.02))
+					this.simulation.force('x', forceY(this.y).strength(0.02))
+				}
 				this.simulation.alphaTarget(0)
-			}, 100)
+			}, 250)
 			this.decay()
 		}
 		this.highlightSelected(selectedNodes)
