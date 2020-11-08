@@ -253,7 +253,7 @@ class ClusterChart extends Chart{
 
 		const x = 20
 		const lineHeight = 30
-		const y = this.height - 2.3 * Math.max(...radiuses)
+		const y = this.height - 1.5 * Math.max(...radiuses)
 
 		const translate = `translate(${x}, ${y})` + (
 			!this.isMobile? "":" scale(.60, .60)"
@@ -320,7 +320,5 @@ class ClusterChart extends Chart{
 	}
 
 }
-
-
 
 export {ClusterChart}
