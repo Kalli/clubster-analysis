@@ -92,7 +92,7 @@ class Controls extends Component {
 					value={selectedValue}
 				>
 					<option value="" disabled>Select a {name}</option>
-					{options.map(e => <option key={e.name}>{e.name}</option>)}
+					{options.map(e => <option key={e.name} value={e.value}>{e.name}</option>)}
 				</select>
 			</div>);
 		}
