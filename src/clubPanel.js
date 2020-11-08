@@ -24,7 +24,7 @@ const Club = (props) => {
 		<div key={club.club_id} className={"clubPanel"}>
         <div className="clubName">
 	        <button
-	          className={"clubButton close"}
+	          className={"close"}
 	          onClick={(e) => props.onNodeClick(club)}
 	        >
             <FontAwesomeIcon icon={faTimesCircle} />

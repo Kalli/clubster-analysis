@@ -153,11 +153,24 @@ svg {
 }
 
 .close {
+    background-color: $quaternaryColor;
+    background: none;
+    color: $quaternaryColor;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    cursor: pointer;
+    font-size: 1em;
     position: absolute;
-    top: 50%;
-    right: 20px;
+    right: 0;
     transform: translate(0%, -50%);
     z-index: 10;
+    width: 15px;
+    height: 15px;
+    outline: none;
+    border-radius: 20px;
 }
 
 @media (max-width: 850px) {
@@ -166,9 +179,12 @@ svg {
     }
 
     .close {
-        position: absolute;
-        right: 0;
-        top: 0;
+        background: $quaternaryColor;
+        color: $primaryColor;
+        top: 5px;
+        width: 30px;
+        height: 30px;
+        border-radius: 20px;
     }
     .networkWrapper {
         margin-left: 10px;
