@@ -66,12 +66,13 @@ $mobileTop: 10px;
         display: flex;
         top: $mobileTop;
         button {
-            background-color: grey;
+            background-color: $quaternaryColor;
             border-radius: 0 10px 10px 0;
             border-style: none;
             width: 50px;
             height: 50px;
             outline: none;
+            color: $primaryColor;
         }
     }
 }
