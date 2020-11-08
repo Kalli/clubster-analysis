@@ -1,6 +1,6 @@
 In the chart below we see the $clubCount clubs that are part of this data set<sup>1</sup>. 
 The size of each bubble reflects the amount of RA users that follow the club, 
-while its colour reflects the *cluster* it belongs to. 
+while its colour denotes the *cluster* it belongs to. 
 
 The clusters are calculated based on how similar the line ups for each pair of 
 clubs are. If two clubs have booked many of the same artists and djs then they 
@@ -41,23 +41,23 @@ But how similar are the most popular clubs on Resident Advisor?
 Let's compare two great clubs, Berlin's *Berghain / Panorama Bar* and
 *De School* in Amsterdam. Their line ups have a 9.58% overlap. We went into 
 this project thinking that the line ups were more similar than they turned out to be. 
-For these two clubs for instance, we assumed that the overlap would be greater  
-since their music policies feel quite similar to me. 
+For these two clubs for instance, we assumed that the overlap would be greater 
+since their music policies feel quite similar. 
  
 Whether you find 10% high or low depends on your perspective of course. Should 
 each city or club have their own distinct scenes and flavours? Or is it to be 
 expected that big global names dominate clubs across continents?
 
-Out of $combinations possible pairs of clubs, $linkCount pairs had some overlap 
+As a whole, out of $combinations possible pairs of clubs, $linkCount pairs had some overlap 
 and out of those the average overlap was $averageWeight%. *$source* and *$target* have 
 the most similar line ups, with $weight% overlap in their bookings.
 
 ---
 
-Now the graph has changed and shows the average number of bookings artists 
-at a club, something we call "*the residency factor*". We take the number of unique 
-artists booked at a club and divide it by the total number of bookings, or how often 
-on average a club books any given artist<sup>3</sup>.
+Now the graph has changed and shows the average number of bookings per artist 
+per club, something we call "*the residency factor*". We take the number of unique 
+artists booked at a club and divide that number by the total number of bookings, 
+that shows us how often an artist is booked on average at that club<sup>3</sup>.
 
 For clubs that rely more on residents, the same artists playing at a club regularly and repeatedly, 
 this number would be higher whereas if you only book each artist once this number would be 1.
@@ -82,17 +82,20 @@ Furthermore all the data here is limited to djs and artists that have a profile 
 --- 
 
 Though the average residency factor seems low, there are plenty of regularly 
-and repeatedly booked residents at these clubs. In fact the most booked artists in this data set are ones that are doing week after week at the same club. [Hitch](https://www.residentadvisor.net/dj/hitch) (76 bookings at <em>Input</em>),
+and repeatedly booked residents at these clubs. In fact the most booked artists 
+in this data set are ones that are doing week after week at the same 
+club. [Hitch](https://www.residentadvisor.net/dj/hitch) (76 bookings at <em>Input</em>),
 [Raymundo Rodriguez](https://www.residentadvisor.net/dj/raymundorodriguez) (51 bookings at <em>Corsica Studios</em>) 
 and [Dexon](https://www.residentadvisor.net/dj/dexon) (46 bookings at <em>Melkweg</em>) 
-are the three most booked artists across the all the clubs in this data set.
+are the three most booked artists across the all these clubs.
  
-But there is also a great number of one-off bookings, artists that were only booked 
-once in the year 2019. And these one-off bring the averages down across the board.  
+But there are also a great number of one-off bookings, artists that were only booked 
+once at a club in the year 2019. And these one time appearances bring the averages 
+down across the board.  
 
-In light of this we can infer that these clubs' appeal is not primarly from 
-honing and supporting local residents but by building on a wider, 
-globetrotting talent pool. 
+In light of this we can infer that the appeal of these clubs to RA users is not 
+primarly from honing and supporting local residents but by building on a wider, 
+transient, globetrotting talent pool.
 
 --- 
 
